@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CASEHUB — CS2 Case Opening</title>
+<title>CASEHUB — Case Opening</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,10 +14,10 @@
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:
-    radial-gradient(circle at 50% -20%,#263b59 0%,#0c121c 45%,#05070b 100%);
-    color:#fff;
+    color:white;
     min-height:100vh;
+    background:
+        radial-gradient(circle at 50% -20%,#263b59 0%,#0c121c 42%,#05070b 100%);
 }
 
 button{
@@ -28,22 +26,23 @@ button{
 
 .navbar{
     height:72px;
-    background:rgba(5,8,13,.94);
-    border-bottom:1px solid #27364a;
+    position:sticky;
+    top:0;
+    z-index:1000;
 
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 
     padding:0 35px;
 
-    position:sticky;
-    top:0;
-    z-index:100;
+    background:rgba(5,8,13,.96);
+    border-bottom:1px solid #29384b;
+    backdrop-filter:blur(10px);
 }
 
 .logo{
-    font-size:25px;
+    font-size:26px;
     font-weight:900;
     letter-spacing:2px;
 }
@@ -55,14 +54,16 @@ button{
 .nav-right{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:14px;
 }
 
 .coins{
-    background:#121b29;
-    border:1px solid #35455b;
+    padding:11px 17px;
     border-radius:8px;
-    padding:10px 17px;
+
+    background:#111b2a;
+    border:1px solid #35465d;
+
     font-weight:bold;
 }
 
@@ -70,13 +71,16 @@ button{
     color:#ffd166;
 }
 
-.nav-button{
-    border:1px solid #35455b;
+.nav-btn{
+    border:1px solid #35465d;
     background:#151f2e;
     color:white;
-    padding:10px 15px;
-    border-radius:7px;
+
+    padding:11px 16px;
+    border-radius:8px;
+
     cursor:pointer;
+    font-weight:bold;
 }
 
 .page{
@@ -87,12 +91,12 @@ button{
     display:block;
 }
 
-/* HOME */
+/* ================= HOME ================= */
 
 .home{
     max-width:1250px;
     margin:auto;
-    padding:65px 25px 90px;
+    padding:65px 25px 100px;
 }
 
 .hero{
@@ -101,9 +105,8 @@ button{
 }
 
 .hero h1{
-    font-size:52px;
+    font-size:54px;
     font-weight:900;
-    margin-bottom:12px;
 }
 
 .hero h1 span{
@@ -111,76 +114,57 @@ button{
 }
 
 .hero p{
-    color:#8796aa;
-    font-size:17px;
+    margin-top:12px;
+    color:#8998ac;
 }
 
 .cases-grid{
     display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:22px;
 }
 
 .case-card{
     position:relative;
+    overflow:hidden;
+
+    padding:22px;
+
+    border-radius:16px;
+    border:1px solid #2c4057;
 
     background:
-    linear-gradient(145deg,#172233,#0b111a);
-
-    border:1px solid #2d4057;
-    border-radius:16px;
-
-    padding:25px;
+        linear-gradient(145deg,#172333,#0b1119);
 
     cursor:pointer;
-
     transition:.25s;
-
-    overflow:hidden;
 }
 
 .case-card:hover{
     transform:translateY(-8px);
-    border-color:#6b7f99;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.45);
+    border-color:#657991;
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
 }
 
-.case-card:after{
-    content:"";
-    position:absolute;
-    width:180px;
-    height:180px;
-    background:#f5a623;
-    filter:blur(100px);
-    opacity:.06;
-    right:-70px;
-    bottom:-80px;
-}
-
-.case-image{
-    height:190px;
+.case-visual{
+    height:210px;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 }
 
-.case-image img{
-    width:220px;
-    height:170px;
-    object-fit:contain;
+.case-visual svg{
+    width:230px;
+    height:180px;
 
-    filter:
-    drop-shadow(0 18px 20px rgba(0,0,0,.65));
+    filter:drop-shadow(0 20px 18px rgba(0,0,0,.65));
 
     transition:.25s;
 }
 
-.case-card:hover .case-image img{
-    transform:scale(1.08) rotate(-2deg);
+.case-card:hover .case-visual svg{
+    transform:scale(1.08) rotate(-3deg);
 }
 
 .case-card h2{
@@ -189,55 +173,55 @@ button{
 }
 
 .case-card p{
-    color:#8493a7;
-    font-size:14px;
+    color:#8190a4;
     line-height:1.5;
+    font-size:14px;
 }
 
 .case-price{
+    display:inline-block;
     margin-top:18px;
 
-    display:inline-block;
+    padding:9px 14px;
 
-    background:#202e41;
-    border:1px solid #34475f;
-
-    padding:9px 15px;
     border-radius:7px;
+    border:1px solid #3a4c62;
 
     color:#ffd166;
+    background:#1b293b;
+
     font-weight:bold;
 }
 
-/* CASE PAGE */
+/* ================= CASE PAGE ================= */
 
 .case-page{
     max-width:1250px;
     margin:auto;
-    padding:30px 25px 100px;
+    padding:28px 25px 100px;
 }
 
 .back{
-    background:#182434;
-    border:1px solid #34465d;
+    padding:11px 18px;
+
+    border-radius:8px;
+    border:1px solid #34475e;
+
+    background:#172333;
     color:white;
 
-    padding:11px 18px;
-    border-radius:7px;
-
     cursor:pointer;
-
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .case-header{
-    background:
-    linear-gradient(145deg,#172333,#0b111a);
-
-    border:1px solid #304258;
-    border-radius:18px;
-
     padding:30px;
+
+    border-radius:18px;
+    border:1px solid #304258;
+
+    background:
+        linear-gradient(145deg,#172333,#0b111a);
 }
 
 .case-main{
@@ -248,58 +232,51 @@ button{
 }
 
 .big-case{
-    height:300px;
+    min-height:310px;
 
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-.big-case img{
-    width:390px;
+.big-case svg{
+    width:410px;
     max-width:100%;
-    height:270px;
-    object-fit:contain;
 
-    filter:
-    drop-shadow(0 25px 35px rgba(0,0,0,.65));
+    filter:drop-shadow(0 25px 30px rgba(0,0,0,.65));
 }
 
 .case-text h1{
     font-size:40px;
-    margin-bottom:10px;
 }
 
 .case-text p{
+    margin-top:10px;
+    margin-bottom:22px;
+
     color:#8493a7;
     line-height:1.6;
-    margin-bottom:22px;
 }
 
 .open-btn{
     width:100%;
-
     padding:17px;
 
     border:0;
     border-radius:9px;
 
-    background:
-    linear-gradient(135deg,#f5a623,#ffd166);
+    background:linear-gradient(135deg,#f5a623,#ffd166);
 
     color:#171717;
-
     font-weight:900;
     font-size:17px;
 
     cursor:pointer;
-
-    transition:.2s;
 }
 
 .open-btn:hover{
-    transform:translateY(-2px);
     filter:brightness(1.08);
+    transform:translateY(-2px);
 }
 
 .open-btn:disabled{
@@ -307,7 +284,7 @@ button{
     cursor:not-allowed;
 }
 
-/* RAREZA */
+/* ================= ODDS ================= */
 
 .odds{
     margin-top:25px;
@@ -320,21 +297,23 @@ button{
 .odds-row{
     display:flex;
     align-items:center;
-    gap:12px;
-    margin:9px 0;
+    gap:10px;
+    margin:10px 0;
 }
 
 .odds-name{
     width:110px;
-    font-size:13px;
+    font-size:12px;
+    font-weight:bold;
 }
 
 .odds-bar{
     flex:1;
     height:8px;
+    overflow:hidden;
+
     background:#202b3a;
     border-radius:20px;
-    overflow:hidden;
 }
 
 .odds-fill{
@@ -343,16 +322,16 @@ button{
 }
 
 .odds-number{
-    width:65px;
+    width:60px;
     text-align:right;
-    color:#9eabbc;
+    color:#9ba8b9;
     font-size:12px;
 }
 
-/* SKINS */
+/* ================= SKINS ================= */
 
 .skins{
-    margin-top:40px;
+    margin-top:42px;
 }
 
 .skins-title{
@@ -360,7 +339,7 @@ button{
 }
 
 .skins-title h2{
-    font-size:25px;
+    font-size:26px;
 }
 
 .skins-title p{
@@ -370,76 +349,68 @@ button{
 
 .skin-grid{
     display:grid;
-    grid-template-columns:
-    repeat(auto-fill,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
     gap:15px;
 }
 
 .skin{
-    background:
-    linear-gradient(145deg,#141e2c,#0a0f16);
-
-    border:1px solid #28394f;
-    border-radius:10px;
-
     overflow:hidden;
+
+    border-radius:10px;
+    border:1px solid #2b3d53;
+
+    background:#0d151f;
 
     transition:.2s;
 }
 
 .skin:hover{
     transform:translateY(-4px);
-    border-color:#60748f;
+    border-color:#657a92;
 }
 
 .skin-picture{
-    height:145px;
+    height:155px;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     background:
-    radial-gradient(circle,#1c2b40,#080c12);
-
-    position:relative;
+        radial-gradient(circle,#1b2a3d,#080d13);
 }
 
-.skin-picture img{
-    width:195px;
+.skin-picture svg{
+    width:205px;
     height:120px;
 
-    object-fit:contain;
-
-    filter:
-    drop-shadow(0 10px 12px rgba(0,0,0,.65));
+    filter:drop-shadow(0 12px 13px rgba(0,0,0,.7));
 
     transition:.2s;
 }
 
-.skin:hover img{
-    transform:scale(1.06);
+.skin:hover .skin-picture svg{
+    transform:scale(1.07);
 }
 
 .skin-content{
-    padding:15px;
+    padding:14px;
 }
 
 .weapon{
-    color:#8290a4;
+    color:#7e8da2;
     font-size:12px;
-    margin-bottom:5px;
 }
 
 .skin-name{
+    margin-top:5px;
     font-weight:bold;
-    margin-bottom:12px;
 }
 
 .skin-footer{
     display:flex;
     justify-content:space-between;
-    align-items:center;
+    margin-top:12px;
 }
 
 .rarity{
@@ -448,53 +419,27 @@ button{
 }
 
 .chance{
+    color:#a5b1c1;
     font-size:12px;
-    color:#a8b4c4;
 }
 
-/* COLORS */
+/* ================= ROULETTE ================= */
 
-.blue{
-    color:#4b8cff;
-}
-
-.purple{
-    color:#9b59ff;
-}
-
-.pink{
-    color:#e85cff;
-}
-
-.red{
-    color:#ff4b4b;
-}
-
-.gold{
-    color:#ffd43b;
-}
-
-/* ROULETTE */
-
-.roulette-wrap{
-    display:none;
-
+.roulette-overlay{
     position:fixed;
     inset:0;
+    z-index:5000;
 
-    background:rgba(0,0,0,.91);
-
-    backdrop-filter:blur(8px);
-
-    z-index:500;
-
-    align-items:center;
-    justify-content:center;
-
+    display:none;
     flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.93);
+    backdrop-filter:blur(9px);
 }
 
-.roulette-wrap.show{
+.roulette-overlay.show{
     display:flex;
 }
 
@@ -505,38 +450,36 @@ button{
 }
 
 .roulette{
-    width:min(1100px,92vw);
-    height:190px;
+    position:relative;
+
+    width:min(1100px,94vw);
+    height:205px;
 
     overflow:hidden;
 
-    background:#080d14;
-
-    border:1px solid #3a4d65;
+    border:1px solid #42566e;
     border-radius:12px;
 
-    position:relative;
+    background:#070c12;
 }
 
-.roulette:before{
+.roulette:after{
     content:"";
 
     position:absolute;
-
     left:50%;
     top:0;
-
-    transform:translateX(-50%);
 
     width:4px;
     height:100%;
 
+    transform:translateX(-50%);
+
     background:#ffd166;
 
-    z-index:10;
+    box-shadow:0 0 20px #ffd166;
 
-    box-shadow:
-    0 0 15px #ffd166;
+    z-index:10;
 }
 
 .roulette-track{
@@ -544,59 +487,48 @@ button{
     height:100%;
 
     transform:translateX(0);
-
-    transition:
-    transform 5s cubic-bezier(.08,.75,.1,1);
 }
 
 .roulette-item{
-    min-width:180px;
-    height:100%;
+    flex:0 0 180px;
 
     display:flex;
     flex-direction:column;
-
     justify-content:center;
     align-items:center;
 
-    border-right:1px solid #1f2d3e;
-
-    background:#101925;
+    border-right:1px solid #202c3c;
 }
 
-.roulette-item img{
+.roulette-item svg{
     width:145px;
-    height:90px;
-
-    object-fit:contain;
+    height:95px;
 }
 
 .roulette-item span{
+    margin-top:4px;
     font-size:11px;
-    margin-top:5px;
     font-weight:bold;
 }
 
 .roulette-status{
-    margin-top:25px;
-    color:#8594a9;
+    margin-top:22px;
+    color:#8998ab;
 }
 
-/* RESULT */
+/* ================= RESULT ================= */
 
 .result-overlay{
     position:fixed;
     inset:0;
-
-    background:rgba(0,0,0,.88);
-    backdrop-filter:blur(10px);
+    z-index:6000;
 
     display:none;
-
     align-items:center;
     justify-content:center;
 
-    z-index:700;
+    background:rgba(0,0,0,.9);
+    backdrop-filter:blur(10px);
 }
 
 .result-overlay.show{
@@ -604,49 +536,52 @@ button{
 }
 
 .result{
-    width:min(520px,90%);
+    width:min(520px,92%);
+
+    padding:35px;
 
     text-align:center;
 
-    background:
-    linear-gradient(145deg,#172333,#0b111a);
-
-    border:1px solid #455b74;
     border-radius:18px;
+    border:1px solid #455c75;
 
-    padding:35px;
+    background:
+        linear-gradient(145deg,#172333,#0b111a);
 
     animation:resultIn .45s ease;
 }
 
 @keyframes resultIn{
     from{
-        transform:scale(.65);
         opacity:0;
+        transform:scale(.65);
     }
 
     to{
-        transform:scale(1);
         opacity:1;
+        transform:scale(1);
     }
 }
 
-.result-label{
-    font-weight:900;
-    font-size:18px;
+.result img{
+    display:none;
 }
 
-.result img{
-    width:360px;
+.result-weapon{
+    width:100%;
+    height:220px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.result-weapon svg{
+    width:400px;
     max-width:100%;
-    height:200px;
+    height:190px;
 
-    object-fit:contain;
-
-    margin:20px auto;
-
-    filter:
-    drop-shadow(0 20px 25px rgba(0,0,0,.7));
+    filter:drop-shadow(0 20px 25px rgba(0,0,0,.8));
 }
 
 .result h2{
@@ -654,34 +589,31 @@ button{
 }
 
 .result p{
-    color:#8291a5;
     margin-top:7px;
+    color:#8796a9;
 }
 
 .continue{
     margin-top:25px;
 
-    border:0;
-
-    background:#29394e;
-
-    color:white;
-
     padding:13px 30px;
 
+    border:0;
     border-radius:8px;
 
-    cursor:pointer;
+    background:#29394e;
+    color:white;
 
+    cursor:pointer;
     font-weight:bold;
 }
 
-/* INVENTORY */
+/* ================= INVENTORY ================= */
 
 .inventory-page{
     max-width:1200px;
     margin:auto;
-    padding:50px 25px 100px;
+    padding:45px 25px 100px;
 }
 
 .inventory-page h1{
@@ -690,36 +622,36 @@ button{
 
 .inventory-grid{
     display:grid;
-    grid-template-columns:
-    repeat(auto-fill,minmax(210px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
     gap:15px;
 }
 
 .inventory-card{
-    background:#111a27;
-    border:1px solid #2d3e54;
-    border-radius:10px;
     padding:15px;
+
+    border-radius:10px;
+    border:1px solid #2d3f55;
+
+    background:#111a27;
 }
 
-.inventory-card img{
+.inventory-card svg{
     width:100%;
     height:120px;
-    object-fit:contain;
 }
 
 .inventory-card h3{
+    margin-top:8px;
     font-size:14px;
-    margin-top:10px;
 }
 
 .inventory-card p{
+    margin-top:5px;
     color:#8291a5;
     font-size:12px;
-    margin-top:5px;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:750px){
 
@@ -727,12 +659,12 @@ button{
         padding:0 15px;
     }
 
-    .nav-button{
+    .nav-btn{
         display:none;
     }
 
     .hero h1{
-        font-size:36px;
+        font-size:37px;
     }
 
     .case-main{
@@ -744,17 +676,13 @@ button{
     }
 
     .roulette-item{
-        min-width:145px;
+        flex-basis:145px;
     }
-
 }
-
 </style>
 </head>
 
-
 <body>
-
 
 <!-- NAVBAR -->
 
@@ -766,9 +694,7 @@ button{
 
     <div class="nav-right">
 
-        <button
-            class="nav-button"
-            onclick="showInventory()">
+        <button class="nav-btn" onclick="showInventory()">
             🎒 Inventario
         </button>
 
@@ -781,11 +707,9 @@ button{
 </nav>
 
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 
-<section
-    id="home"
-    class="page active">
+<section id="home" class="page active">
 
     <div class="home">
 
@@ -796,182 +720,130 @@ button{
             </h1>
 
             <p>
-                Elige una caja, revisa sus skins y prueba tu suerte.
+                Elige una caja y descubre qué skin te toca.
             </p>
 
         </div>
 
-
-        <div
-            id="casesGrid"
-            class="cases-grid">
-        </div>
+        <div id="casesGrid" class="cases-grid"></div>
 
     </div>
 
 </section>
 
 
-<!-- ================= CASE ================= -->
+<!-- CASE -->
 
-<section
-    id="casePage"
-    class="page">
+<section id="casePage" class="page">
 
     <div class="case-page">
 
-        <button
-            class="back"
-            onclick="goHome()">
-
+        <button class="back" onclick="goHome()">
             ← Volver a las cajas
-
         </button>
-
 
         <div class="case-header">
 
             <div class="case-main">
 
-                <div class="big-case">
-
-                    <img
-                        id="bigCaseImage"
-                        src=""
-                        alt="Case">
-
-                </div>
-
+                <div class="big-case" id="bigCase"></div>
 
                 <div class="case-text">
 
-                    <h1 id="caseTitle">
-                        Case
-                    </h1>
+                    <h1 id="caseTitle"></h1>
 
-                    <p id="caseDescription">
-                    </p>
+                    <p id="caseDescription"></p>
 
                     <button
                         id="openButton"
                         class="open-btn"
-                        onclick="openSelectedCase()">
+                        onclick="openCase()">
                     </button>
-
 
                     <div class="odds">
 
                         <h3>
-                            Probabilidades por rareza
+                            Probabilidades
                         </h3>
 
                         <div class="odds-row">
-
-                            <span class="odds-name blue">
+                            <span class="odds-name" style="color:#4b8cff">
                                 Mil-Spec
                             </span>
 
                             <div class="odds-bar">
-                                <div
-                                    class="odds-fill"
-                                    style="
-                                    width:79.92%;
-                                    background:#4b8cff">
+                                <div class="odds-fill"
+                                     style="width:79.92%;background:#4b8cff">
                                 </div>
                             </div>
 
                             <span class="odds-number">
                                 79.92%
                             </span>
-
                         </div>
 
-
                         <div class="odds-row">
-
-                            <span class="odds-name purple">
+                            <span class="odds-name" style="color:#9b59ff">
                                 Restricted
                             </span>
 
                             <div class="odds-bar">
-                                <div
-                                    class="odds-fill"
-                                    style="
-                                    width:15.98%;
-                                    background:#9b59ff">
+                                <div class="odds-fill"
+                                     style="width:15.98%;background:#9b59ff">
                                 </div>
                             </div>
 
                             <span class="odds-number">
                                 15.98%
                             </span>
-
                         </div>
 
-
                         <div class="odds-row">
-
-                            <span class="odds-name pink">
+                            <span class="odds-name" style="color:#e85cff">
                                 Classified
                             </span>
 
                             <div class="odds-bar">
-                                <div
-                                    class="odds-fill"
-                                    style="
-                                    width:3.2%;
-                                    background:#e85cff">
+                                <div class="odds-fill"
+                                     style="width:3.2%;background:#e85cff">
                                 </div>
                             </div>
 
                             <span class="odds-number">
                                 3.20%
                             </span>
-
                         </div>
 
-
                         <div class="odds-row">
-
-                            <span class="odds-name red">
+                            <span class="odds-name" style="color:#ff4b4b">
                                 Covert
                             </span>
 
                             <div class="odds-bar">
-                                <div
-                                    class="odds-fill"
-                                    style="
-                                    width:.64%;
-                                    background:#ff4b4b">
+                                <div class="odds-fill"
+                                     style="width:.64%;background:#ff4b4b">
                                 </div>
                             </div>
 
                             <span class="odds-number">
                                 0.64%
                             </span>
-
                         </div>
 
-
                         <div class="odds-row">
-
-                            <span class="odds-name gold">
+                            <span class="odds-name" style="color:#ffd43b">
                                 ★ Special
                             </span>
 
                             <div class="odds-bar">
-                                <div
-                                    class="odds-fill"
-                                    style="
-                                    width:.26%;
-                                    background:#ffd43b">
+                                <div class="odds-fill"
+                                     style="width:.26%;background:#ffd43b">
                                 </div>
                             </div>
 
                             <span class="odds-number">
                                 0.26%
                             </span>
-
                         </div>
 
                     </div>
@@ -980,8 +852,6 @@ button{
 
             </div>
 
-
-            <!-- SKINS -->
 
             <div class="skins">
 
@@ -992,16 +862,12 @@ button{
                     </h2>
 
                     <p>
-                        Estas son las skins que pueden salir de esta caja.
+                        Estas son las skins que pueden salir.
                     </p>
 
                 </div>
 
-
-                <div
-                    id="skinsGrid"
-                    class="skin-grid">
-                </div>
+                <div id="skinsGrid" class="skin-grid"></div>
 
             </div>
 
@@ -1012,17 +878,13 @@ button{
 </section>
 
 
-<!-- ================= INVENTARIO ================= -->
+<!-- INVENTORY -->
 
-<section
-    id="inventoryPage"
-    class="page">
+<section id="inventoryPage" class="page">
 
     <div class="inventory-page">
 
-        <button
-            class="back"
-            onclick="goHome()">
+        <button class="back" onclick="goHome()">
             ← Volver
         </button>
 
@@ -1030,21 +892,16 @@ button{
             🎒 Mi inventario
         </h1>
 
-        <div
-            id="inventoryGrid"
-            class="inventory-grid">
-        </div>
+        <div id="inventoryGrid" class="inventory-grid"></div>
 
     </div>
 
 </section>
 
 
-<!-- ================= ROULETTE ================= -->
+<!-- ROULETTE -->
 
-<div
-    id="rouletteOverlay"
-    class="roulette-wrap">
+<div id="rouletteOverlay" class="roulette-overlay">
 
     <div class="roulette-title">
         ABRIENDO CAJA...
@@ -1052,9 +909,8 @@ button{
 
     <div class="roulette">
 
-        <div
-            id="rouletteTrack"
-            class="roulette-track">
+        <div id="rouletteTrack"
+             class="roulette-track">
         </div>
 
     </div>
@@ -1066,36 +922,27 @@ button{
 </div>
 
 
-<!-- ================= RESULT ================= -->
+<!-- RESULT -->
 
-<div
-    id="resultOverlay"
-    class="result-overlay">
+<div id="resultOverlay" class="result-overlay">
 
     <div class="result">
 
-        <div
-            id="resultRarity"
-            class="result-label">
+        <div id="resultRarity"
+             style="font-weight:900;font-size:18px">
         </div>
 
-        <img
-            id="resultImage"
-            src=""
-            alt="Skin">
+        <div id="resultWeapon"
+             class="result-weapon">
+        </div>
 
-        <h2 id="resultName">
-        </h2>
+        <h2 id="resultName"></h2>
 
-        <p id="resultWeapon">
-        </p>
+        <p id="resultWeaponName"></p>
 
-        <button
-            class="continue"
-            onclick="closeResult()">
-
+        <button class="continue"
+                onclick="closeResult()">
             CONTINUAR
-
         </button>
 
     </div>
@@ -1105,434 +952,650 @@ button{
 
 <script>
 
-
-/* ==========================================
-   IMAGENES
-   Cambia estas URLs por tus propios renders
-   PNG transparentes de armas.
-========================================== */
-
-
-const WEAPONS = {
-
-    AK:
-    "https://imgbin.com/png/S7vPxf4F/counter-strike-global-offensive-ak-47-weapon-major-png",
-
-    AK2:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/AK-47.png/960px-AK-47.png",
-
-    GUN:
-    "https://placehold.co/700x260/0b111a/ffffff?text=CS2+WEAPON"
-
-};
+/* ============================================================
+   SISTEMA DE SPRITES
+   Todo está dentro del HTML.
+   No necesita imágenes externas.
+============================================================ */
 
 
-/*
-    Como algunas páginas no permiten utilizar
-    directamente sus imágenes mediante <img>,
-    aquí usamos renders de demostración.
+/* Escape XML */
 
-    Puedes sustituir cada URL por un PNG transparente.
-*/
-
-
-const IMG = {
-
-    ak:
-    "https://placehold.co/700x260/101925/ffffff?text=AK-47",
-
-    awp:
-    "https://placehold.co/700x260/101925/ffffff?text=AWP",
-
-    m4:
-    "https://placehold.co/700x260/101925/ffffff?text=M4A1-S",
-
-    m4a4:
-    "https://placehold.co/700x260/101925/ffffff?text=M4A4",
-
-    glock:
-    "https://placehold.co/700x260/101925/ffffff?text=GLOCK-18",
-
-    usp:
-    "https://placehold.co/700x260/101925/ffffff?text=USP-S",
-
-    mp9:
-    "https://placehold.co/700x260/101925/ffffff?text=MP9",
-
-    karambit:
-    "https://placehold.co/700x260/101925/ffffff?text=KARAMBIT",
-
-    butterfly:
-    "https://placehold.co/700x260/101925/ffffff?text=BUTTERFLY",
-
-    case1:
-    "https://placehold.co/700x450/101925/f5a623?text=PHOENIX+CASE",
-
-    case2:
-    "https://placehold.co/700x450/101925/ff4b4b?text=REVOLUTION+CASE",
-
-    case3:
-    "https://placehold.co/700x450/101925/9b59ff?text=DREAMS+%26+NIGHTMARES",
-
-    case4:
-    "https://placehold.co/700x450/101925/4b8cff?text=FRACTURE+CASE"
-
-};
+function esc(text){
+    return text
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;");
+}
 
 
-/* ==========================================
-   CAJAS
-========================================== */
+/* ============================================================
+   GENERADOR DE ARMAS
+============================================================ */
+
+function weaponSVG(type, skin){
+
+    let accent = "#4b8cff";
+
+    if(skin === "purple") accent="#a855f7";
+    if(skin === "pink") accent="#ec4899";
+    if(skin === "red") accent="#ef4444";
+    if(skin === "gold") accent="#facc15";
+    if(skin === "cyan") accent="#22d3ee";
+
+    let body="#171d26";
+    let dark="#090d12";
+    let metal="#687384";
+
+    let shape="";
+
+    if(type==="AK-47"){
+
+        shape=`
+
+        <path
+            d="M45 72 L205 72
+               L265 52 L420 52
+               L447 67 L425 82
+               L275 82 L240 96
+               L165 101 L125 88
+               L55 88 Z"
+            fill="${body}"
+            stroke="${metal}"
+            stroke-width="3"/>
+
+        <path
+            d="M105 88 L155 93
+               L130 145 L93 138 Z"
+            fill="${dark}"/>
+
+        <path
+            d="M235 83 L280 86
+               L310 145 L275 150 Z"
+            fill="${dark}"/>
+
+        <path
+            d="M315 56 L380 56 L395 71
+               L315 71 Z"
+            fill="${accent}"/>
+
+        <rect
+            x="45" y="70"
+            width="80"
+            height="10"
+            rx="4"
+            fill="${accent}"/>
+
+        <circle
+            cx="425"
+            cy="67"
+            r="5"
+            fill="${accent}"/>
+
+        `;
+
+    }
 
 
-const cases = [
+    else if(type==="AWP"){
+
+        shape=`
+
+        <path
+            d="M30 78
+               L145 78
+               L195 68
+               L460 68
+               L475 78
+               L460 89
+               L195 89
+               L150 100
+               L65 100
+               L35 91 Z"
+            fill="${body}"
+            stroke="${metal}"
+            stroke-width="3"/>
+
+        <path
+            d="M120 91 L175 95
+               L150 145 L110 140 Z"
+            fill="${dark}"/>
+
+        <rect
+            x="190"
+            y="52"
+            width="145"
+            height="15"
+            rx="5"
+            fill="${accent}"/>
+
+        <rect
+            x="360"
+            y="55"
+            width="110"
+            height="8"
+            fill="${metal}"/>
+
+        <circle
+            cx="225"
+            cy="60"
+            r="9"
+            fill="${dark}"
+            stroke="${accent}"
+            stroke-width="3"/>
+
+        `;
+
+    }
+
+
+    else if(type==="M4A1-S" || type==="M4A4"){
+
+        shape=`
+
+        <path
+            d="M45 70
+               L200 70
+               L250 60
+               L430 60
+               L455 70
+               L440 83
+               L260 83
+               L220 95
+               L120 95
+               L80 86
+               L45 86 Z"
+            fill="${body}"
+            stroke="${metal}"
+            stroke-width="3"/>
+
+        <path
+            d="M100 88
+               L155 91
+               L140 142
+               L100 135 Z"
+            fill="${dark}"/>
+
+        <path
+            d="M250 82
+               L290 84
+               L305 135
+               L275 140 Z"
+            fill="${dark}"/>
+
+        <rect
+            x="270"
+            y="48"
+            width="130"
+            height="11"
+            rx="4"
+            fill="${accent}"/>
+
+        <rect
+            x="420"
+            y="66"
+            width="40"
+            height="6"
+            fill="${metal}"/>
+
+        <circle
+            cx="205"
+            cy="75"
+            r="7"
+            fill="${accent}"/>
+
+        `;
+
+    }
+
+
+    else if(type==="Glock-18" || type==="USP-S"){
+
+        shape=`
+
+        <path
+            d="M75 62
+               L270 62
+               L305 74
+               L305 90
+               L220 90
+               L210 110
+               L125 110
+               L90 93
+               L75 75 Z"
+            fill="${body}"
+            stroke="${metal}"
+            stroke-width="3"/>
+
+        <path
+            d="M130 90
+               L190 90
+               L180 150
+               L135 145 Z"
+            fill="${dark}"/>
+
+        <rect
+            x="75"
+            y="62"
+            width="155"
+            height="10"
+            rx="3"
+            fill="${accent}"/>
+
+        <rect
+            x="275"
+            y="72"
+            width="50"
+            height="6"
+            fill="${metal}"/>
+
+        <circle
+            cx="115"
+            cy="67"
+            r="4"
+            fill="${accent}"/>
+
+        `;
+
+    }
+
+
+    else if(type==="MP9"){
+
+        shape=`
+
+        <path
+            d="M55 70
+               L245 70
+               L290 60
+               L410 60
+               L430 72
+               L420 87
+               L285 87
+               L245 96
+               L125 96
+               L80 88
+               L55 82 Z"
+            fill="${body}"
+            stroke="${metal}"
+            stroke-width="3"/>
+
+        <path
+            d="M125 90
+               L170 92
+               L160 140
+               L125 136 Z"
+            fill="${dark}"/>
+
+        <rect
+            x="100"
+            y="58"
+            width="100"
+            height="10"
+            fill="${accent}"/>
+
+        <circle
+            cx="275"
+            cy="66"
+            r="8"
+            fill="${accent}"/>
+
+        `;
+
+    }
+
+
+    else if(type==="★ Karambit"){
+
+        shape=`
+
+        <path
+            d="M95 95
+               C170 20 300 15 420 65
+               C335 48 260 63 205 100
+               C175 120 140 128 110 112 Z"
+            fill="${accent}"
+            stroke="#ffe89a"
+            stroke-width="3"/>
+
+        <path
+            d="M85 90
+               L140 108
+               L120 145
+               L70 125 Z"
+            fill="${dark}"
+            stroke="${metal}"
+            stroke-width="3"/>
+
+        <circle
+            cx="100"
+            cy="115"
+            r="14"
+            fill="none"
+            stroke="${accent}"
+            stroke-width="7"/>
+
+        `;
+
+    }
+
+
+    else if(type==="★ Butterfly Knife"){
+
+        shape=`
+
+        <path
+            d="M55 80
+               L190 58
+               L245 72
+               L190 87
+               Z"
+            fill="${accent}"
+            stroke="#ffe89a"
+            stroke-width="3"/>
+
+        <path
+            d="M445 80
+               L310 58
+               L255 72
+               L310 87
+               Z"
+            fill="${accent}"
+            stroke="#ffe89a"
+            stroke-width="3"/>
+
+        <rect
+            x="220"
+            y="62"
+            width="60"
+            height="18"
+            rx="6"
+            fill="${dark}"
+            stroke="${metal}"
+            stroke-width="3"/>
+
+        <circle
+            cx="250"
+            cy="71"
+            r="5"
+            fill="${accent}"/>
+
+        `;
+
+    }
+
+
+    return `
+    <svg
+        viewBox="0 0 500 180"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+
+            <linearGradient
+                id="metal${Math.random()}"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1">
+
+                <stop offset="0%" stop-color="#8b95a5"/>
+                <stop offset="45%" stop-color="#313a48"/>
+                <stop offset="100%" stop-color="#10151c"/>
+
+            </linearGradient>
+
+        </defs>
+
+        ${shape}
+
+        <text
+            x="250"
+            y="170"
+            text-anchor="middle"
+            fill="${accent}"
+            opacity=".35"
+            font-size="10"
+            font-family="Arial">
+            ${esc(skin || "CS2")}
+        </text>
+
+    </svg>
+    `;
+}
+
+
+/* ============================================================
+   GENERADOR DE CAJAS
+============================================================ */
+
+function caseSVG(accent="#f5a623",number="01"){
+
+    return `
+
+    <svg
+        viewBox="0 0 500 350"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+
+            <linearGradient
+                id="boxGradient${number}"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1">
+
+                <stop offset="0%" stop-color="${accent}"/>
+                <stop offset="45%" stop-color="#202a39"/>
+                <stop offset="100%" stop-color="#080d13"/>
+
+            </linearGradient>
+
+        </defs>
+
+        <path
+            d="M75 105
+               L375 75
+               L435 120
+               L135 155 Z"
+            fill="#1d2837"
+            stroke="${accent}"
+            stroke-width="5"/>
+
+        <path
+            d="M75 105
+               L135 155
+               L135 275
+               L75 225 Z"
+            fill="#0c121b"
+            stroke="${accent}"
+            stroke-width="5"/>
+
+        <path
+            d="M135 155
+               L435 120
+               L435 245
+               L135 275 Z"
+            fill="url(#boxGradient${number})"
+            stroke="${accent}"
+            stroke-width="5"/>
+
+        <rect
+            x="185"
+            y="170"
+            width="160"
+            height="55"
+            rx="8"
+            fill="#080d13"
+            stroke="${accent}"
+            stroke-width="3"/>
+
+        <text
+            x="265"
+            y="204"
+            text-anchor="middle"
+            fill="${accent}"
+            font-size="22"
+            font-family="Arial"
+            font-weight="900">
+            CASE
+        </text>
+
+        <text
+            x="265"
+            y="225"
+            text-anchor="middle"
+            fill="white"
+            opacity=".8"
+            font-size="11"
+            font-family="Arial">
+            ${number}
+        </text>
+
+        <circle
+            cx="115"
+            cy="130"
+            r="12"
+            fill="${accent}"/>
+
+        <circle
+            cx="410"
+            cy="135"
+            r="12"
+            fill="${accent}"/>
+
+    </svg>
+
+    `;
+}
+
+
+/* ============================================================
+   DATOS
+============================================================ */
+
+const cases=[
 
 {
-
     name:"Phoenix Case",
-
     price:100,
-
-    image:IMG.case1,
+    accent:"#f5a623",
+    number:"01",
 
     description:
-    "Una colección de armas inspiradas en fuego, energía y combate.",
+    "Una colección de armas inspiradas en fuego y energía.",
 
     skins:[
 
-        {
-            weapon:"Glock-18",
-            name:"Blue Circuit",
-            rarity:"Mil-Spec",
-            chance:20,
-            image:IMG.glock
-        },
-
-        {
-            weapon:"MP9",
-            name:"Night Grid",
-            rarity:"Mil-Spec",
-            chance:20,
-            image:IMG.mp9
-        },
-
-        {
-            weapon:"AK-47",
-            name:"Steel Pattern",
-            rarity:"Mil-Spec",
-            chance:39.92,
-            image:IMG.ak
-        },
-
-        {
-            weapon:"M4A1-S",
-            name:"Purple Storm",
-            rarity:"Restricted",
-            chance:10,
-            image:IMG.m4
-        },
-
-        {
-            weapon:"USP-S",
-            name:"Void Pulse",
-            rarity:"Restricted",
-            chance:5.98,
-            image:IMG.usp
-        },
-
-        {
-            weapon:"AWP",
-            name:"Neon Phantom",
-            rarity:"Classified",
-            chance:3.2,
-            image:IMG.awp
-        },
-
-        {
-            weapon:"AK-47",
-            name:"Crimson Reaper",
-            rarity:"Covert",
-            chance:.64,
-            image:IMG.ak
-        },
-
-        {
-            weapon:"★ Karambit",
-            name:"Golden Eclipse",
-            rarity:"Rare Special",
-            chance:.26,
-            image:IMG.karambit
-        }
+        ["Glock-18","Blue Circuit","Mil-Spec",20,"blue"],
+        ["MP9","Night Grid","Mil-Spec",20,"blue"],
+        ["AK-47","Steel Pattern","Mil-Spec",39.92,"blue"],
+        ["M4A1-S","Purple Storm","Restricted",10,"purple"],
+        ["USP-S","Void Pulse","Restricted",5.98,"purple"],
+        ["AWP","Neon Phantom","Classified",3.2,"pink"],
+        ["AK-47","Crimson Reaper","Covert",.64,"red"],
+        ["★ Karambit","Golden Eclipse","Rare Special",.26,"gold"]
 
     ]
-
 },
 
-
 {
-
     name:"Revolution Case",
-
     price:150,
-
-    image:IMG.case2,
+    accent:"#ef4444",
+    number:"02",
 
     description:
-    "Una caja moderna llena de colores intensos y diseños futuristas.",
+    "Diseños modernos con colores intensos y futuristas.",
 
     skins:[
 
-        {
-            weapon:"Glock-18",
-            name:"Cyber Blue",
-            rarity:"Mil-Spec",
-            chance:35,
-            image:IMG.glock
-        },
-
-        {
-            weapon:"MP9",
-            name:"Digital Night",
-            rarity:"Mil-Spec",
-            chance:44.92,
-            image:IMG.mp9
-        },
-
-        {
-            weapon:"M4A4",
-            name:"Purple Flash",
-            rarity:"Restricted",
-            chance:12,
-            image:IMG.m4a4
-        },
-
-        {
-            weapon:"USP-S",
-            name:"Void",
-            rarity:"Restricted",
-            chance:3.98,
-            image:IMG.usp
-        },
-
-        {
-            weapon:"AWP",
-            name:"Electric Dream",
-            rarity:"Classified",
-            chance:3.2,
-            image:IMG.awp
-        },
-
-        {
-            weapon:"M4A1-S",
-            name:"Blood Moon",
-            rarity:"Covert",
-            chance:.64,
-            image:IMG.m4
-        },
-
-        {
-            weapon:"★ Butterfly Knife",
-            name:"Solar Gold",
-            rarity:"Rare Special",
-            chance:.26,
-            image:IMG.butterfly
-        }
+        ["Glock-18","Cyber Blue","Mil-Spec",35,"cyan"],
+        ["MP9","Digital Night","Mil-Spec",44.92,"blue"],
+        ["M4A4","Purple Flash","Restricted",12,"purple"],
+        ["USP-S","Void","Restricted",4,"purple"],
+        ["AWP","Electric Dream","Classified",3.18,"pink"],
+        ["M4A1-S","Blood Moon","Covert",.64,"red"],
+        ["★ Butterfly Knife","Solar Gold","Rare Special",.26,"gold"]
 
     ]
-
 },
 
-
 {
-
     name:"Dreams & Nightmares",
-
     price:250,
-
-    image:IMG.case3,
+    accent:"#9b59ff",
+    number:"03",
 
     description:
-    "Una caja oscura con diseños misteriosos y skins nocturnas.",
+    "Una caja oscura con diseños misteriosos y nocturnos.",
 
     skins:[
 
-        {
-            weapon:"MP9",
-            name:"Dark Dream",
-            rarity:"Mil-Spec",
-            chance:40,
-            image:IMG.mp9
-        },
-
-        {
-            weapon:"Glock-18",
-            name:"Nightmare",
-            rarity:"Mil-Spec",
-            chance:39.92,
-            image:IMG.glock
-        },
-
-        {
-            weapon:"USP-S",
-            name:"Purple Shadow",
-            rarity:"Restricted",
-            chance:12,
-            image:IMG.usp
-        },
-
-        {
-            weapon:"M4A4",
-            name:"Night Whisper",
-            rarity:"Restricted",
-            chance:4,
-            image:IMG.m4a4
-        },
-
-        {
-            weapon:"AK-47",
-            name:"Night Terror",
-            rarity:"Classified",
-            chance:3.18,
-            image:IMG.ak
-        },
-
-        {
-            weapon:"AWP",
-            name:"Nightmare Fuel",
-            rarity:"Covert",
-            chance:.64,
-            image:IMG.awp
-        },
-
-        {
-            weapon:"★ Karambit",
-            name:"Midnight Gold",
-            rarity:"Rare Special",
-            chance:.26,
-            image:IMG.karambit
-        }
+        ["MP9","Dark Dream","Mil-Spec",40,"blue"],
+        ["Glock-18","Nightmare","Mil-Spec",39.92,"blue"],
+        ["USP-S","Purple Shadow","Restricted",12,"purple"],
+        ["M4A4","Night Whisper","Restricted",4,"purple"],
+        ["AK-47","Night Terror","Classified",3.18,"pink"],
+        ["AWP","Nightmare Fuel","Covert",.64,"red"],
+        ["★ Karambit","Midnight Gold","Rare Special",.26,"gold"]
 
     ]
-
 },
 
-
 {
-
     name:"Fracture Case",
-
     price:350,
-
-    image:IMG.case4,
+    accent:"#4b8cff",
+    number:"04",
 
     description:
-    "Diseños agresivos, urbanos y algunas de las skins más difíciles.",
+    "Una colección agresiva con skins urbanas y raras.",
 
     skins:[
 
-        {
-            weapon:"Glock-18",
-            name:"Urban Blue",
-            rarity:"Mil-Spec",
-            chance:40,
-            image:IMG.glock
-        },
-
-        {
-            weapon:"MP9",
-            name:"Steel Dust",
-            rarity:"Mil-Spec",
-            chance:39.92,
-            image:IMG.mp9
-        },
-
-        {
-            weapon:"M4A4",
-            name:"Purple Rage",
-            rarity:"Restricted",
-            chance:12,
-            image:IMG.m4a4
-        },
-
-        {
-            weapon:"USP-S",
-            name:"Cyber Attack",
-            rarity:"Restricted",
-            chance:4,
-            image:IMG.usp
-        },
-
-        {
-            weapon:"AK-47",
-            name:"Rebellion",
-            rarity:"Classified",
-            chance:3.18,
-            image:IMG.ak
-        },
-
-        {
-            weapon:"M4A1-S",
-            name:"Crimson Code",
-            rarity:"Covert",
-            chance:.64,
-            image:IMG.m4
-        },
-
-        {
-            weapon:"★ Butterfly Knife",
-            name:"Red Gold",
-            rarity:"Rare Special",
-            chance:.26,
-            image:IMG.butterfly
-        }
+        ["Glock-18","Urban Blue","Mil-Spec",40,"blue"],
+        ["MP9","Steel Dust","Mil-Spec",39.92,"blue"],
+        ["M4A4","Purple Rage","Restricted",12,"purple"],
+        ["USP-S","Cyber Attack","Restricted",4,"purple"],
+        ["AK-47","Rebellion","Classified",3.18,"pink"],
+        ["M4A1-S","Crimson Code","Covert",.64,"red"],
+        ["★ Butterfly Knife","Red Gold","Rare Special",.26,"gold"]
 
     ]
-
 }
 
 ];
 
 
-/* ==========================================
+/* ============================================================
    VARIABLES
-========================================== */
-
+============================================================ */
 
 let coins=2500;
-
 let selectedCase=null;
-
 let inventory=[];
 
 
-/* ==========================================
+/* ============================================================
    ELEMENTOS
-========================================== */
+============================================================ */
+
+const home=document.getElementById("home");
+const casePage=document.getElementById("casePage");
+const inventoryPage=document.getElementById("inventoryPage");
+
+const casesGrid=document.getElementById("casesGrid");
+const skinsGrid=document.getElementById("skinsGrid");
+
+const coinsEl=document.getElementById("coins");
 
 
-const home =
-document.getElementById("home");
-
-const casePage =
-document.getElementById("casePage");
-
-const inventoryPage =
-document.getElementById("inventoryPage");
-
-const casesGrid =
-document.getElementById("casesGrid");
-
-const skinsGrid =
-document.getElementById("skinsGrid");
-
-const coinsElement =
-document.getElementById("coins");
-
-
-/* ==========================================
-   RENDER CASES
-========================================== */
-
+/* ============================================================
+   RENDER CAJAS
+============================================================ */
 
 function renderCases(){
 
@@ -1540,22 +1603,20 @@ function renderCases(){
 
     cases.forEach((box,index)=>{
 
-        const card=
-        document.createElement("div");
+        const card=document.createElement("div");
 
         card.className="case-card";
 
-        card.onclick=()=>{
-            selectCase(index);
-        };
+        card.onclick=()=>selectCase(index);
 
         card.innerHTML=`
 
-            <div class="case-image">
+            <div class="case-visual">
 
-                <img
-                    src="${box.image}"
-                    alt="${box.name}">
+                ${caseSVG(
+                    box.accent,
+                    box.number
+                )}
 
             </div>
 
@@ -1570,58 +1631,92 @@ function renderCases(){
             <div class="case-price">
                 💰 ${box.price} coins
             </div>
-
         `;
 
         casesGrid.appendChild(card);
 
     });
-
 }
 
 
-/* ==========================================
-   SELECT CASE
-========================================== */
-
+/* ============================================================
+   SELECCIONAR CAJA
+============================================================ */
 
 function selectCase(index){
 
     selectedCase=cases[index];
 
     home.classList.remove("active");
-
     inventoryPage.classList.remove("active");
-
     casePage.classList.add("active");
 
     document.getElementById("caseTitle")
-    .textContent=
-    selectedCase.name;
+        .textContent=selectedCase.name;
 
     document.getElementById("caseDescription")
-    .textContent=
-    selectedCase.description;
+        .textContent=selectedCase.description;
 
-    document.getElementById("bigCaseImage")
-    .src=
-    selectedCase.image;
+    document.getElementById("bigCase").innerHTML=
+        caseSVG(
+            selectedCase.accent,
+            selectedCase.number
+        );
 
     document.getElementById("openButton")
-    .textContent=
-    `ABRIR CAJA — ${selectedCase.price} COINS`;
+        .textContent=
+        `ABRIR CAJA — ${selectedCase.price} COINS`;
 
     renderSkins();
 
     window.scrollTo(0,0);
-
 }
 
 
-/* ==========================================
-   RENDER SKINS
-========================================== */
+/* ============================================================
+   COLOR RAREZA
+============================================================ */
 
+function rarityColor(r){
+
+    if(r==="Mil-Spec")
+        return "#4b8cff";
+
+    if(r==="Restricted")
+        return "#9b59ff";
+
+    if(r==="Classified")
+        return "#e85cff";
+
+    if(r==="Covert")
+        return "#ff4b4b";
+
+    return "#ffd43b";
+}
+
+
+/* ============================================================
+   COLOR SKIN
+============================================================ */
+
+function skinAccent(code){
+
+    const colors={
+        blue:"#4b8cff",
+        purple:"#a855f7",
+        pink:"#ec4899",
+        red:"#ef4444",
+        gold:"#facc15",
+        cyan:"#22d3ee"
+    };
+
+    return colors[code] || "#4b8cff";
+}
+
+
+/* ============================================================
+   RENDER SKINS
+============================================================ */
 
 function renderSkins(){
 
@@ -1629,122 +1724,94 @@ function renderSkins(){
 
     selectedCase.skins.forEach(skin=>{
 
-        const card=
-        document.createElement("div");
+        const weapon=skin[0];
+        const name=skin[1];
+        const rarity=skin[2];
+        const chance=skin[3];
+        const accent=skin[4];
+
+        const card=document.createElement("div");
 
         card.className="skin";
-
-        const color=
-        rarityColor(skin.rarity);
 
         card.innerHTML=`
 
             <div
                 class="skin-picture"
                 style="
-                box-shadow:inset 0 -2px 0 ${color}">
-                
-                <img
-                    src="${skin.image}"
-                    alt="${skin.name}">
+                box-shadow:inset 0 -3px 0 ${rarityColor(rarity)}
+                ">
+
+                ${weaponSVG(
+                    weapon,
+                    accent
+                )}
 
             </div>
 
             <div class="skin-content">
 
                 <div class="weapon">
-                    ${skin.weapon}
+                    ${weapon}
                 </div>
 
                 <div class="skin-name">
-                    ${skin.name}
+                    ${name}
                 </div>
 
                 <div class="skin-footer">
 
                     <span
                         class="rarity"
-                        style="color:${color}">
-                        ${skin.rarity}
+                        style="
+                        color:${rarityColor(rarity)}
+                        ">
+                        ${rarity}
                     </span>
 
                     <span class="chance">
-                        ${skin.chance}%
+                        ${chance}%
                     </span>
 
                 </div>
 
             </div>
-
         `;
 
         skinsGrid.appendChild(card);
 
     });
-
 }
 
 
-/* ==========================================
-   RAREZA
-========================================== */
-
-
-function rarityColor(rarity){
-
-    if(rarity==="Mil-Spec")
-        return "#4b8cff";
-
-    if(rarity==="Restricted")
-        return "#9b59ff";
-
-    if(rarity==="Classified")
-        return "#e85cff";
-
-    if(rarity==="Covert")
-        return "#ff4b4b";
-
-    return "#ffd43b";
-
-}
-
-
-/* ==========================================
+/* ============================================================
    VOLVER
-========================================== */
-
+============================================================ */
 
 function goHome(){
 
     casePage.classList.remove("active");
-
     inventoryPage.classList.remove("active");
-
     home.classList.add("active");
 
     window.scrollTo(0,0);
-
 }
 
 
-/* ==========================================
-   ABRIR
-========================================== */
+/* ============================================================
+   ABRIR CAJA
+============================================================ */
 
-
-function openSelectedCase(){
+function openCase(){
 
     if(!selectedCase)
         return;
 
     if(coins<selectedCase.price){
 
-        alert(
-            "No tienes suficientes coins."
-        );
+        alert("No tienes suficientes coins.");
 
         return;
-
     }
 
     coins-=selectedCase.price;
@@ -1752,123 +1819,101 @@ function openSelectedCase(){
     updateCoins();
 
     const button=
-    document.getElementById("openButton");
+        document.getElementById("openButton");
 
     button.disabled=true;
-
-    button.textContent=
-    "ABRIENDO...";
+    button.textContent="ABRIENDO...";
 
     startRoulette();
-
 }
 
 
-/* ==========================================
-   RANDOM
-========================================== */
-
+/* ============================================================
+   ELEGIR SKIN SEGÚN PROBABILIDAD
+============================================================ */
 
 function chooseSkin(){
 
-    let random=
-    Math.random()*100;
+    const random=Math.random()*100;
 
     let total=0;
 
     for(const skin of selectedCase.skins){
 
-        total+=skin.chance;
+        total+=skin[3];
 
-        if(random<=total){
-
+        if(random<=total)
             return skin;
-
-        }
 
     }
 
     return selectedCase.skins[0];
-
 }
 
 
-/* ==========================================
+/* ============================================================
    ROULETTE
-========================================== */
-
+============================================================ */
 
 function startRoulette(){
 
     const overlay=
-    document.getElementById("rouletteOverlay");
+        document.getElementById(
+            "rouletteOverlay"
+        );
 
     const track=
-    document.getElementById("rouletteTrack");
+        document.getElementById(
+            "rouletteTrack"
+        );
 
     track.innerHTML="";
 
     track.style.transition="none";
-
-    track.style.transform=
-    "translateX(0)";
+    track.style.transform="translateX(0)";
 
     overlay.classList.add("show");
 
-
-    const winner=
-    chooseSkin();
-
+    const winner=chooseSkin();
 
     const items=[];
-
-    /*
-        Creamos una ruleta larga.
-    */
 
     for(let i=0;i<55;i++){
 
         const randomSkin=
-        selectedCase.skins[
-            Math.floor(
-                Math.random()*
-                selectedCase.skins.length
-            )
-        ];
+            selectedCase.skins[
+                Math.floor(
+                    Math.random()*
+                    selectedCase.skins.length
+                )
+            ];
 
         items.push(randomSkin);
-
     }
-
-
-    /*
-        El ganador queda cerca del final.
-    */
 
     const winnerIndex=48;
 
     items[winnerIndex]=winner;
 
-
     items.forEach(skin=>{
 
         const item=
-        document.createElement("div");
+            document.createElement("div");
 
-        item.className=
-        "roulette-item";
+        item.className="roulette-item";
 
         item.innerHTML=`
 
-            <img
-                src="${skin.image}">
+            ${weaponSVG(
+                skin[0],
+                skin[4]
+            )}
 
             <span
                 style="
-                color:${rarityColor(skin.rarity)}">
-                ${skin.name}
+                color:${rarityColor(skin[2])}">
+                ${skin[1]}
             </span>
-
         `;
 
         track.appendChild(item);
@@ -1876,38 +1921,33 @@ function startRoulette(){
     });
 
 
-    /*
-        Esperamos para que el navegador
-        registre la posición inicial.
-    */
-
     setTimeout(()=>{
 
         const itemWidth=180;
 
-        const containerWidth=
-        document.querySelector(
-            ".roulette"
-        ).clientWidth;
+        const container=
+            document.querySelector(
+                ".roulette"
+            ).clientWidth;
 
         const center=
-        containerWidth/2;
+            container/2;
 
         const target=
-        (winnerIndex*itemWidth)
-        +itemWidth/2
-        -center;
+            winnerIndex*itemWidth+
+            itemWidth/2-
+            center;
 
         const randomOffset=
-        Math.floor(
-            Math.random()*50
-        )-25;
+            Math.floor(
+                Math.random()*50
+            )-25;
 
         track.style.transition=
-        "transform 5s cubic-bezier(.08,.75,.1,1)";
+            "transform 5s cubic-bezier(.08,.75,.1,1)";
 
         track.style.transform=
-        `translateX(-${target-randomOffset}px)`;
+            `translateX(-${target-randomOffset}px)`;
 
     },100);
 
@@ -1921,97 +1961,87 @@ function startRoulette(){
         addInventory(winner);
 
         const button=
-        document.getElementById(
-            "openButton"
-        );
+            document.getElementById(
+                "openButton"
+            );
 
         button.disabled=false;
 
         button.textContent=
-        `ABRIR CAJA — ${selectedCase.price} COINS`;
+            `ABRIR CAJA — ${selectedCase.price} COINS`;
 
     },5300);
-
 }
 
 
-/* ==========================================
+/* ============================================================
    RESULTADO
-========================================== */
-
+============================================================ */
 
 function showResult(skin){
 
     const overlay=
-    document.getElementById(
-        "resultOverlay"
-    );
+        document.getElementById(
+            "resultOverlay"
+        );
 
     const rarity=
-    document.getElementById(
-        "resultRarity"
-    );
+        document.getElementById(
+            "resultRarity"
+        );
 
-    rarity.textContent=
-    skin.rarity;
+    rarity.textContent=skin[2];
 
     rarity.style.color=
-    rarityColor(
-        skin.rarity
-    );
-
-    document.getElementById(
-        "resultImage"
-    ).src=
-    skin.image;
-
-    document.getElementById(
-        "resultName"
-    ).textContent=
-    skin.name;
+        rarityColor(skin[2]);
 
     document.getElementById(
         "resultWeapon"
-    ).textContent=
-    skin.weapon;
+    ).innerHTML=
+        weaponSVG(
+            skin[0],
+            skin[4]
+        );
+
+    document.getElementById(
+        "resultName"
+    ).textContent=skin[1];
+
+    document.getElementById(
+        "resultWeaponName"
+    ).textContent=skin[0];
 
     overlay.classList.add("show");
-
 }
 
 
-/* ==========================================
+/* ============================================================
    CERRAR RESULTADO
-========================================== */
-
+============================================================ */
 
 function closeResult(){
 
     document
-    .getElementById(
-        "resultOverlay"
-    )
-    .classList.remove("show");
-
+        .getElementById(
+            "resultOverlay"
+        )
+        .classList.remove("show");
 }
 
 
-/* ==========================================
+/* ============================================================
    INVENTARIO
-========================================== */
-
+============================================================ */
 
 function addInventory(skin){
 
     inventory.push(skin);
-
 }
 
 
 function showInventory(){
 
     home.classList.remove("active");
-
     casePage.classList.remove("active");
 
     inventoryPage.classList.add("active");
@@ -2019,93 +2049,88 @@ function showInventory(){
     renderInventory();
 
     window.scrollTo(0,0);
-
 }
 
 
 function renderInventory(){
 
     const grid=
-    document.getElementById(
-        "inventoryGrid"
-    );
+        document.getElementById(
+            "inventoryGrid"
+        );
 
     grid.innerHTML="";
-
 
     if(inventory.length===0){
 
         grid.innerHTML=`
+
             <p style="color:#7f8da1">
                 Todavía no tienes skins.
                 ¡Abre una caja!
             </p>
+
         `;
 
         return;
-
     }
 
 
     inventory.forEach(skin=>{
 
         const card=
-        document.createElement("div");
+            document.createElement("div");
 
-        card.className=
-        "inventory-card";
+        card.className="inventory-card";
 
         card.innerHTML=`
 
-            <img
-                src="${skin.image}">
+            ${weaponSVG(
+                skin[0],
+                skin[4]
+            )}
 
             <h3>
-                ${skin.name}
+                ${skin[1]}
             </h3>
 
             <p>
-                ${skin.weapon}
+                ${skin[0]}
             </p>
 
             <p
                 style="
-                color:${rarityColor(skin.rarity)};
+                color:${rarityColor(skin[2])};
                 font-weight:bold">
-                ${skin.rarity}
-            </p>
 
+                ${skin[2]}
+
+            </p>
         `;
 
         grid.appendChild(card);
 
     });
-
 }
 
 
-/* ==========================================
+/* ============================================================
    COINS
-========================================== */
-
+============================================================ */
 
 function updateCoins(){
 
-    coinsElement.textContent=
-    coins.toLocaleString();
-
+    coinsEl.textContent=
+        coins.toLocaleString();
 }
 
 
-/* ==========================================
-   START
-========================================== */
-
+/* ============================================================
+   INICIAR
+============================================================ */
 
 renderCases();
-
 updateCoins();
-
 
 </script>
 
