@@ -1,78 +1,1064 @@
-/* ===== 3 EN RAYA ===== */
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.tres-en-raya {
-  max-width: 420px;
-  margin: 40px auto;
-  padding: 25px;
-  background: var(--tarjeta);
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(108, 74, 255, 0.12);
-  text-align: center;
-}
+  <meta
+    name="description"
+    content="Juego de 3 en raya"
+  >
 
-.tres-en-raya h2 {
-  margin-top: 0;
-  color: var(--morado);
-  font-size: 30px;
-}
+  <title>3 en Raya | Mi primera web</title>
 
-.tres-en-raya p {
-  color: var(--suave);
-}
+  <style>
+    :root {
+      --fondo: #f5f3ff;
+      --tarjeta: rgba(255, 255, 255, 0.90);
+      --texto: #24213a;
+      --suave: #69657d;
+      --morado: #6d4aff;
+      --morado-oscuro: #5232d5;
+      --celeste: #37b9da;
+      --verde: #35b875;
+      --rojo: #ef5350;
+      --casilla: #ece9ff;
+      --casilla-hover: #ddd8ff;
+      --blanco: #ffffff;
+      --sombra: 0 15px 40px rgba(70, 50, 150, 0.15);
+    }
 
-.tablero {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  width: 100%;
-  max-width: 330px;
-  margin: 25px auto;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.casilla {
-  aspect-ratio: 1;
-  border: none;
-  border-radius: 18px;
-  background: #f0edff;
-  color: var(--texto);
-  font-size: 48px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, #e8e1ff, transparent 35%),
+        radial-gradient(circle at bottom right, #d9f6ff, transparent 35%),
+        var(--fondo);
+      color: var(--texto);
+      display: flex;
+      flex-direction: column;
+    }
 
-.casilla:hover {
-  background: #e2ddff;
-  transform: scale(1.04);
-}
+    /* =========================
+       ENCABEZADO
+    ========================= */
 
-.casilla.x {
-  color: var(--morado);
-}
+    header {
+      width: 100%;
+      padding: 22px 20px;
+      text-align: center;
+    }
 
-.casilla.o {
-  color: var(--celeste);
-}
+    header h1 {
+      font-size: 34px;
+      color: var(--morado);
+      margin-bottom: 8px;
+    }
 
-#mensaje-juego {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 15px 0;
-}
+    header p {
+      color: var(--suave);
+      font-size: 16px;
+    }
 
-#reiniciar-juego {
-  border: none;
-  padding: 12px 24px;
-  border-radius: 12px;
-  background: var(--morado);
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
+    /* =========================
+       CONTENEDOR PRINCIPAL
+    ========================= */
 
-#reiniciar-juego:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
+    main {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      flex: 1;
+    }
+
+    .juego {
+      background: var(--tarjeta);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--sombra);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .titulo-juego {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .titulo-juego h2 {
+      font-size: 30px;
+      color: var(--morado);
+      margin-bottom: 8px;
+    }
+
+    .titulo-juego p {
+      color: var(--suave);
+    }
+
+    /* =========================
+       MARCADOR
+    ========================= */
+
+    .marcador {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .jugador {
+      padding: 15px;
+      border-radius: 18px;
+      background: #f4f1ff;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .jugador.activo {
+      border-color: var(--morado);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(109, 74, 255, 0.15);
+    }
+
+    .jugador .simbolo {
+      font-size: 30px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .jugador.x .simbolo {
+      color: var(--morado);
+    }
+
+    .jugador.o .simbolo {
+      color: var(--celeste);
+    }
+
+    .jugador .nombre {
+      font-size: 14px;
+      color: var(--suave);
+    }
+
+    .jugador .puntos {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       MENSAJE
+    ========================= */
+
+    .mensaje {
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      min-height: 25px;
+    }
+
+    /* =========================
+       TABLERO
+    ========================= */
+
+    .tablero {
+      width: min(100%, 420px);
+      margin: 0 auto 25px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .casilla {
+      width: 100%;
+      aspect-ratio: 1;
+
+      border: none;
+      border-radius: 20px;
+
+      background: var(--casilla);
+
+      font-size: clamp(50px, 12vw, 85px);
+      font-weight: bold;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .casilla:hover:not(.ocupada) {
+      background: var(--casilla-hover);
+      transform: scale(1.03);
+    }
+
+    .casilla:active:not(.ocupada) {
+      transform: scale(0.96);
+    }
+
+    .casilla.x {
+      color: var(--morado);
+    }
+
+    .casilla.o {
+      color: var(--celeste);
+    }
+
+    .casilla.ocupada {
+      cursor: default;
+    }
+
+    .casilla.ganadora {
+      animation: ganador 0.7s infinite alternate;
+    }
+
+    @keyframes ganador {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.06);
+        box-shadow: 0 0 25px rgba(109, 74, 255, 0.35);
+      }
+    }
+
+    /* =========================
+       BOTONES
+    ========================= */
+
+    .controles {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    button.control {
+      border: none;
+      border-radius: 14px;
+      padding: 13px 22px;
+
+      background: var(--morado);
+      color: white;
+
+      font-size: 16px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s,
+        background 0.2s;
+    }
+
+    button.control:hover {
+      background: var(--morado-oscuro);
+      transform: translateY(-2px);
+    }
+
+    button.control:active {
+      transform: translateY(0);
+    }
+
+    button.control.secundario {
+      background: #ebe7ff;
+      color: var(--morado);
+    }
+
+    button.control.secundario:hover {
+      background: #ddd7ff;
+    }
+
+    /* =========================
+       REGLAS
+    ========================= */
+
+    .reglas {
+      margin-top: 28px;
+      padding: 20px;
+      border-radius: 18px;
+      background: #f7f5ff;
+    }
+
+    .reglas h3 {
+      color: var(--morado);
+      margin-bottom: 10px;
+    }
+
+    .reglas p {
+      color: var(--suave);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* =========================
+       PIE DE PÁGINA
+    ========================= */
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--suave);
+      font-size: 13px;
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(36, 33, 58, 0.55);
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      z-index: 100;
+    }
+
+    .modal.visible {
+      display: flex;
+    }
+
+    .modal-contenido {
+      width: min(100%, 400px);
+      background: white;
+      border-radius: 25px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+
+      animation: aparecer 0.25s ease;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-emoji {
+      font-size: 65px;
+      margin-bottom: 10px;
+    }
+
+    .modal h2 {
+      color: var(--morado);
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      color: var(--suave);
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 500px) {
+
+      header h1 {
+        font-size: 27px;
+      }
+
+      main {
+        padding: 12px;
+      }
+
+      .juego {
+        padding: 20px 15px;
+        border-radius: 22px;
+      }
+
+      .titulo-juego h2 {
+        font-size: 25px;
+      }
+
+      .tablero {
+        gap: 8px;
+      }
+
+      .casilla {
+        border-radius: 15px;
+      }
+
+      .marcador {
+        gap: 8px;
+      }
+
+      .jugador {
+        padding: 12px 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       ENCABEZADO
+  ========================== -->
+
+  <header>
+    <h1>🎮 Mi primera web</h1>
+    <p>Un pequeño juego para practicar HTML, CSS y JavaScript</p>
+  </header>
+
+
+  <!-- =========================
+       JUEGO
+  ========================== -->
+
+  <main>
+
+    <section class="juego">
+
+      <div class="titulo-juego">
+        <h2>⭕ 3 en Raya ❌</h2>
+        <p>¡Consigue tres símbolos en línea para ganar!</p>
+      </div>
+
+
+      <!-- MARCADOR -->
+
+      <div class="marcador">
+
+        <div class="jugador x activo" id="jugadorX">
+          <span class="simbolo">X</span>
+          <span class="nombre">Jugador X</span>
+          <div class="puntos" id="puntosX">0</div>
+        </div>
+
+        <div class="jugador o" id="jugadorO">
+          <span class="simbolo">O</span>
+          <span class="nombre">Jugador O</span>
+          <div class="puntos" id="puntosO">0</div>
+        </div>
+
+      </div>
+
+
+      <!-- MENSAJE -->
+
+      <div class="mensaje" id="mensaje">
+        Turno del jugador X
+      </div>
+
+
+      <!-- TABLERO -->
+
+      <div class="tablero" id="tablero">
+
+        <button class="casilla" data-posicion="0"></button>
+        <button class="casilla" data-posicion="1"></button>
+        <button class="casilla" data-posicion="2"></button>
+
+        <button class="casilla" data-posicion="3"></button>
+        <button class="casilla" data-posicion="4"></button>
+        <button class="casilla" data-posicion="5"></button>
+
+        <button class="casilla" data-posicion="6"></button>
+        <button class="casilla" data-posicion="7"></button>
+        <button class="casilla" data-posicion="8"></button>
+
+      </div>
+
+
+      <!-- BOTONES -->
+
+      <div class="controles">
+
+        <button
+          class="control"
+          id="reiniciar"
+        >
+          🔄 Nueva partida
+        </button>
+
+        <button
+          class="control secundario"
+          id="reiniciarMarcador"
+        >
+          🏆 Reiniciar marcador
+        </button>
+
+      </div>
+
+
+      <!-- REGLAS -->
+
+      <div class="reglas">
+
+        <h3>📖 ¿Cómo jugar?</h3>
+
+        <p>
+          Los jugadores se turnan para colocar una X o una O
+          en el tablero. El primero que consiga colocar tres
+          símbolos iguales en horizontal, vertical o diagonal
+          gana la partida.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- PIE DE PÁGINA -->
+
+  <footer>
+    Hecho con ❤️ usando HTML, CSS y JavaScript
+  </footer>
+
+
+  <!-- =========================
+       MODAL DE RESULTADO
+  ========================== -->
+
+  <div class="modal" id="modal">
+
+    <div class="modal-contenido">
+
+      <div class="modal-emoji" id="modalEmoji">
+        🎉
+      </div>
+
+      <h2 id="modalTitulo">
+        ¡Ganador!
+      </h2>
+
+      <p id="modalTexto">
+        El jugador X ha ganado.
+      </p>
+
+      <button
+        class="control"
+        id="modalBoton"
+      >
+        🔄 Jugar otra vez
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* =========================
+       VARIABLES
+    ========================== */
+
+    const casillas = document.querySelectorAll(".casilla");
+
+    const mensaje = document.getElementById("mensaje");
+
+    const jugadorX = document.getElementById("jugadorX");
+    const jugadorO = document.getElementById("jugadorO");
+
+    const puntosXElemento = document.getElementById("puntosX");
+    const puntosOElemento = document.getElementById("puntosO");
+
+    const botonReiniciar =
+      document.getElementById("reiniciar");
+
+    const botonReiniciarMarcador =
+      document.getElementById("reiniciarMarcador");
+
+    const modal =
+      document.getElementById("modal");
+
+    const modalEmoji =
+      document.getElementById("modalEmoji");
+
+    const modalTitulo =
+      document.getElementById("modalTitulo");
+
+    const modalTexto =
+      document.getElementById("modalTexto");
+
+    const modalBoton =
+      document.getElementById("modalBoton");
+
+
+    /* =========================
+       ESTADO DEL JUEGO
+    ========================== */
+
+    let tablero = [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ];
+
+    let jugadorActual = "X";
+
+    let juegoActivo = true;
+
+    let puntosX = 0;
+    let puntosO = 0;
+
+
+    /* =========================
+       COMBINACIONES GANADORAS
+    ========================== */
+
+    const combinacionesGanadoras = [
+
+      // Horizontales
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+
+      // Verticales
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+
+      // Diagonales
+      [0, 4, 8],
+      [2, 4, 6]
+
+    ];
+
+
+    /* =========================
+       CLIC EN LAS CASILLAS
+    ========================== */
+
+    casillas.forEach(casilla => {
+
+      casilla.addEventListener(
+        "click",
+        jugar
+      );
+
+    });
+
+
+    /* =========================
+       FUNCIÓN PRINCIPAL
+    ========================== */
+
+    function jugar() {
+
+      if (!juegoActivo) {
+        return;
+      }
+
+      const posicion =
+        Number(this.dataset.posicion);
+
+
+      // No permitir jugar en una casilla ocupada
+
+      if (tablero[posicion] !== "") {
+        return;
+      }
+
+
+      // Guardar jugada
+
+      tablero[posicion] =
+        jugadorActual;
+
+
+      // Mostrar símbolo
+
+      this.textContent =
+        jugadorActual;
+
+
+      // Añadir clases
+
+      this.classList.add(
+        jugadorActual.toLowerCase()
+      );
+
+      this.classList.add(
+        "ocupada"
+      );
+
+
+      // Comprobar resultado
+
+      comprobarResultado();
+
+    }
+
+
+    /* =========================
+       COMPROBAR GANADOR
+    ========================== */
+
+    function comprobarResultado() {
+
+      let combinacionGanadora = null;
+
+
+      for (
+        const combinacion
+        of combinacionesGanadoras
+      ) {
+
+        const [a, b, c] =
+          combinacion;
+
+
+        if (
+          tablero[a] !== "" &&
+          tablero[a] === tablero[b] &&
+          tablero[a] === tablero[c]
+        ) {
+
+          combinacionGanadora =
+            combinacion;
+
+          break;
+        }
+
+      }
+
+
+      // Hay ganador
+
+      if (combinacionGanadora) {
+
+        juegoActivo = false;
+
+
+        // Marcar casillas ganadoras
+
+        combinacionGanadora.forEach(posicion => {
+
+          casillas[posicion]
+            .classList
+            .add("ganadora");
+
+        });
+
+
+        // Actualizar marcador
+
+        if (jugadorActual === "X") {
+
+          puntosX++;
+
+          puntosXElemento.textContent =
+            puntosX;
+
+        } else {
+
+          puntosO++;
+
+          puntosOElemento.textContent =
+            puntosO;
+
+        }
+
+
+        actualizarMarcador();
+
+
+        // Mostrar mensaje
+
+        mensaje.textContent =
+          "🎉 ¡Ganó el jugador " +
+          jugadorActual +
+          "!";
+
+
+        // Mostrar modal
+
+        mostrarModalGanador();
+
+        return;
+      }
+
+
+      // Comprobar empate
+
+      if (!tablero.includes("")) {
+
+        juegoActivo = false;
+
+        mensaje.textContent =
+          "🤝 ¡Es un empate!";
+
+        mostrarModalEmpate();
+
+        return;
+      }
+
+
+      // Cambiar jugador
+
+      jugadorActual =
+        jugadorActual === "X"
+          ? "O"
+          : "X";
+
+
+      actualizarMarcador();
+
+
+      mensaje.textContent =
+        "Turno del jugador " +
+        jugadorActual;
+
+    }
+
+
+    /* =========================
+       ACTUALIZAR MARCADOR
+    ========================== */
+
+    function actualizarMarcador() {
+
+      jugadorX.classList.remove(
+        "activo"
+      );
+
+      jugadorO.classList.remove(
+        "activo"
+      );
+
+
+      if (jugadorActual === "X") {
+
+        jugadorX.classList.add(
+          "activo"
+        );
+
+      } else {
+
+        jugadorO.classList.add(
+          "activo"
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       NUEVA PARTIDA
+    ========================== */
+
+    function nuevaPartida() {
+
+      tablero = [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ];
+
+
+      jugadorActual = "X";
+
+      juegoActivo = true;
+
+
+      mensaje.textContent =
+        "Turno del jugador X";
+
+
+      casillas.forEach(casilla => {
+
+        casilla.textContent = "";
+
+        casilla.classList.remove(
+          "x",
+          "o",
+          "ocupada",
+          "ganadora"
+        );
+
+      });
+
+
+      actualizarMarcador();
+
+      cerrarModal();
+
+    }
+
+
+    /* =========================
+       REINICIAR TODO EL MARCADOR
+    ========================== */
+
+    function reiniciarMarcador() {
+
+      puntosX = 0;
+
+      puntosO = 0;
+
+
+      puntosXElemento.textContent =
+        "0";
+
+      puntosOElemento.textContent =
+        "0";
+
+
+      nuevaPartida();
+
+    }
+
+
+    /* =========================
+       MODAL GANADOR
+    ========================== */
+
+    function mostrarModalGanador() {
+
+      modalEmoji.textContent =
+        jugadorActual === "X"
+          ? "❌"
+          : "⭕";
+
+
+      modalTitulo.textContent =
+        "🎉 ¡Tenemos ganador!";
+
+
+      modalTexto.textContent =
+        "El jugador " +
+        jugadorActual +
+        " ha ganado la partida.";
+
+
+      modal.classList.add(
+        "visible"
+      );
+
+    }
+
+
+    /* =========================
+       MODAL EMPATE
+    ========================== */
+
+    function mostrarModalEmpate() {
+
+      modalEmoji.textContent =
+        "🤝";
+
+
+      modalTitulo.textContent =
+        "¡Empate!";
+
+
+      modalTexto.textContent =
+        "Nadie ganó esta partida. ¡Inténtalo otra vez!";
+
+
+      modal.classList.add(
+        "visible"
+      );
+
+    }
+
+
+    /* =========================
+       CERRAR MODAL
+    ========================== */
+
+    function cerrarModal() {
+
+      modal.classList.remove(
+        "visible"
+      );
+
+    }
+
+
+    /* =========================
+       EVENTOS DE BOTONES
+    ========================== */
+
+    botonReiniciar.addEventListener(
+      "click",
+      nuevaPartida
+    );
+
+
+    botonReiniciarMarcador.addEventListener(
+      "click",
+      reiniciarMarcador
+    );
+
+
+    modalBoton.addEventListener(
+      "click",
+      nuevaPartida
+    );
+
+
+    /* =========================
+       CERRAR MODAL AL HACER
+       CLIC FUERA
+    ========================== */
+
+    modal.addEventListener(
+      "click",
+      function(event) {
+
+        if (event.target === modal) {
+          cerrarModal();
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
