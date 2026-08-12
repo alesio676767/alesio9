@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
 <title>CASEHUB | CS2 Case Opening</title>
 
 <style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -15,113 +24,198 @@
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background:
         radial-gradient(
             circle at 50% -20%,
-            #24364d,
+            #263b55,
             #0b1119 42%,
             #05070b
         );
+
     color:white;
+
     min-height:100vh;
 }
 
-button{
+button,
+select{
     font:inherit;
 }
 
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
 .navbar{
+
     height:72px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     padding:0 38px;
+
     background:#080c12;
-    border-bottom:1px solid #29384b;
+
+    border-bottom:
+        1px solid #29384b;
+
     position:sticky;
+
     top:0;
-    z-index:20;
+
+    z-index:50;
 }
 
 .logo{
+
     font-size:28px;
+
     font-weight:900;
+
     letter-spacing:2px;
 }
 
 .logo span{
+
     color:#f5a623;
 }
 
 .navRight{
+
     display:flex;
-    gap:14px;
+
     align-items:center;
+
+    gap:12px;
 }
 
 .navButton,
 .balance{
+
     padding:12px 17px;
+
     border-radius:8px;
+
     border:1px solid #35475e;
+
     background:#121c2a;
+
     color:white;
+
     font-weight:bold;
 }
 
 .navButton{
+
     cursor:pointer;
+
+    transition:.2s;
+}
+
+.navButton:hover{
+
+    background:#1c2b3d;
 }
 
 .balance span{
+
     color:#ffd166;
 }
 
+
+/* =====================================================
+   PAGINAS
+===================================================== */
+
 .page{
+
     display:none;
 }
 
 .page.active{
+
     display:block;
 }
 
-/* =========================
-   INICIO
-========================= */
+
+/* =====================================================
+   HOME
+===================================================== */
 
 .home{
+
     max-width:1250px;
+
     margin:auto;
-    padding:45px 25px 100px;
+
+    padding:
+        45px 25px 100px;
 }
 
 .hero{
+
     text-align:center;
+
     margin-bottom:45px;
 }
 
 .hero h1{
+
     font-size:50px;
+
+    font-weight:900;
 }
 
 .hero h1 span{
+
     color:#f5a623;
 }
 
 .hero p{
+
     color:#8998aa;
+
     margin-top:10px;
+
+    font-size:16px;
 }
 
+
+/* =====================================================
+   GRID DE CAJAS
+===================================================== */
+
 .casesGrid{
+
     display:grid;
+
     grid-template-columns:
-        repeat(auto-fit,minmax(270px,1fr));
+        repeat(
+            auto-fit,
+            minmax(270px,1fr)
+        );
+
     gap:22px;
 }
 
+
+/* =====================================================
+   TARJETA DE CAJA
+===================================================== */
+
 .caseCard{
+
     background:
         linear-gradient(
             145deg,
@@ -129,7 +223,9 @@ button{
             #0a1018
         );
 
-    border:1px solid #30445c;
+    border:
+        1px solid #30445c;
+
     border-radius:15px;
 
     padding:18px;
@@ -142,7 +238,9 @@ button{
 }
 
 .caseCard:hover{
-    transform:translateY(-7px);
+
+    transform:
+        translateY(-7px);
 
     border-color:#71849b;
 
@@ -151,10 +249,13 @@ button{
 }
 
 .caseImage{
+
     height:250px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     background:
@@ -172,7 +273,9 @@ button{
 }
 
 .caseImage img{
+
     width:94%;
+
     height:230px;
 
     object-fit:contain;
@@ -187,14 +290,18 @@ button{
 
 .caseCard:hover
 .caseImage img{
-    transform:scale(1.08);
+
+    transform:
+        scale(1.08);
 }
 
 .caseCard h2{
+
     font-size:21px;
 }
 
 .caseCard p{
+
     color:#8291a5;
 
     margin-top:8px;
@@ -205,6 +312,7 @@ button{
 }
 
 .price{
+
     display:inline-block;
 
     margin-top:17px;
@@ -215,7 +323,8 @@ button{
 
     background:#19283a;
 
-    border:1px solid #3a4c62;
+    border:
+        1px solid #3a4c62;
 
     color:#ffd166;
 
@@ -223,24 +332,28 @@ button{
 }
 
 
-/* =========================
-   CAJA
-========================= */
+/* =====================================================
+   PAGINA CAJA
+===================================================== */
 
 .casePage{
+
     max-width:1250px;
 
     margin:auto;
 
-    padding:45px 25px 100px;
+    padding:
+        45px 25px 100px;
 }
 
 .backButton{
+
     padding:11px 18px;
 
     border-radius:8px;
 
-    border:1px solid #35475e;
+    border:
+        1px solid #35475e;
 
     background:#152131;
 
@@ -251,12 +364,19 @@ button{
     margin-bottom:20px;
 }
 
+.backButton:hover{
+
+    background:#1d2c3f;
+}
+
 .caseBox{
+
     padding:30px;
 
     border-radius:17px;
 
-    border:1px solid #304258;
+    border:
+        1px solid #304258;
 
     background:
         linear-gradient(
@@ -267,6 +387,7 @@ button{
 }
 
 .caseTop{
+
     display:grid;
 
     grid-template-columns:
@@ -278,6 +399,7 @@ button{
 }
 
 .bigCase{
+
     min-height:330px;
 
     display:flex;
@@ -294,9 +416,12 @@ button{
         );
 
     border-radius:12px;
+
+    overflow:hidden;
 }
 
 .bigCase img{
+
     width:92%;
 
     height:300px;
@@ -310,18 +435,77 @@ button{
 }
 
 .caseInfo h1{
+
     font-size:42px;
 }
 
 .caseInfo p{
+
     color:#8392a5;
 
     line-height:1.6;
 
-    margin:12px 0 25px;
+    margin:
+        12px 0 25px;
+}
+
+
+/* =====================================================
+   SELECTOR DE CANTIDAD
+===================================================== */
+
+.openPanel{
+
+    background:#0b131d;
+
+    border:
+        1px solid #293b51;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-top:20px;
+}
+
+.openPanelTitle{
+
+    font-size:13px;
+
+    color:#8998aa;
+
+    margin-bottom:9px;
+}
+
+.quantitySelect{
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:8px;
+
+    background:#111d2b;
+
+    color:white;
+
+    border:
+        1px solid #40546b;
+
+    outline:none;
+
+    cursor:pointer;
+
+    margin-bottom:12px;
+}
+
+.quantitySelect:focus{
+
+    border-color:#f5a623;
 }
 
 .openButton{
+
     width:100%;
 
     padding:17px;
@@ -342,34 +526,61 @@ button{
     font-weight:900;
 
     cursor:pointer;
+
+    transition:.2s;
 }
 
 .openButton:hover{
-    filter:brightness(1.1);
+
+    filter:
+        brightness(1.1);
+
+    transform:
+        translateY(-1px);
 }
 
 .openButton:disabled{
+
     opacity:.5;
 
     cursor:not-allowed;
 }
 
+.costInfo{
 
-/* =========================
+    text-align:center;
+
+    color:#8796a9;
+
+    font-size:12px;
+
+    margin-top:9px;
+}
+
+.costInfo strong{
+
+    color:#ffd166;
+}
+
+
+/* =====================================================
    SKINS
-========================= */
+===================================================== */
 
 .skinsSection{
+
     margin-top:45px;
 }
 
 .skinsHeader p{
+
     margin-top:7px;
 
     color:#7f8da0;
 }
 
 .skinGrid{
+
     margin-top:20px;
 
     display:grid;
@@ -384,9 +595,11 @@ button{
 }
 
 .skinCard{
+
     background:#0d151f;
 
-    border:1px solid #2d4056;
+    border:
+        1px solid #2d4056;
 
     border-radius:11px;
 
@@ -396,10 +609,13 @@ button{
 }
 
 .skinCard:hover{
-    transform:translateY(-4px);
+
+    transform:
+        translateY(-4px);
 }
 
 .skinImage{
+
     height:175px;
 
     display:flex;
@@ -419,6 +635,7 @@ button{
 }
 
 .skinImage img{
+
     width:94%;
 
     max-height:155px;
@@ -435,20 +652,25 @@ button{
 
 .skinCard:hover
 .skinImage img{
-    transform:scale(1.08);
+
+    transform:
+        scale(1.08);
 }
 
 .skinInfo{
+
     padding:14px;
 }
 
 .weaponName{
+
     color:#7d8da2;
 
     font-size:12px;
 }
 
 .skinName{
+
     margin-top:5px;
 
     font-weight:bold;
@@ -457,6 +679,7 @@ button{
 }
 
 .skinBottom{
+
     display:flex;
 
     justify-content:space-between;
@@ -465,31 +688,36 @@ button{
 }
 
 .rarity{
+
     font-size:12px;
 
     font-weight:bold;
 }
 
 .probability{
+
     color:#9daabc;
 
     font-size:12px;
 }
 
 
-/* =========================
+/* =====================================================
    INVENTARIO
-========================= */
+===================================================== */
 
 .inventoryPage{
+
     max-width:1200px;
 
     margin:auto;
 
-    padding:45px 25px 100px;
+    padding:
+        45px 25px 100px;
 }
 
 .inventoryGrid{
+
     margin-top:30px;
 
     display:grid;
@@ -504,16 +732,27 @@ button{
 }
 
 .inventoryCard{
+
     background:#111a27;
 
-    border:1px solid #2d4056;
+    border:
+        1px solid #2d4056;
 
     border-radius:10px;
 
     padding:15px;
+
+    transition:.2s;
+}
+
+.inventoryCard:hover{
+
+    transform:
+        translateY(-4px);
 }
 
 .inventoryCard img{
+
     width:100%;
 
     height:130px;
@@ -527,12 +766,14 @@ button{
 }
 
 .inventoryCard h3{
+
     margin-top:8px;
 
     font-size:15px;
 }
 
 .inventoryCard p{
+
     color:#8391a4;
 
     margin-top:5px;
@@ -541,11 +782,12 @@ button{
 }
 
 
-/* =========================
-   RULETA
-========================= */
+/* =====================================================
+   OVERLAY APERTURA
+===================================================== */
 
 .overlay{
+
     position:fixed;
 
     inset:0;
@@ -562,119 +804,91 @@ button{
 
     background:#000f;
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:
+        blur(10px);
+
 }
 
 .overlay.show{
+
     display:flex;
 }
 
-.rouletteTitle{
-    font-size:30px;
+.openingTitle{
+
+    font-size:32px;
 
     font-weight:900;
 
     margin-bottom:25px;
+
+    text-align:center;
 }
 
-.roulette{
-    width:min(1100px,94vw);
+.openingSubtitle{
 
-    height:215px;
+    color:#8796a9;
+
+    margin-top:-15px;
+
+    margin-bottom:25px;
+}
+
+.loadingBox{
+
+    width:
+        min(500px,90vw);
+
+    height:12px;
+
+    background:#131d29;
+
+    border-radius:20px;
 
     overflow:hidden;
 
-    position:relative;
-
-    border:1px solid #40546c;
-
-    border-radius:12px;
-
-    background:#070b10;
+    border:
+        1px solid #30445c;
 }
 
-.roulette::after{
-    content:"";
+.loadingBar{
 
-    position:absolute;
-
-    left:50%;
-
-    top:0;
-
-    width:4px;
+    width:0%;
 
     height:100%;
 
-    transform:
-        translateX(-50%);
-
-    background:#ffd166;
-
-    box-shadow:
-        0 0 25px #ffd166;
-
-    z-index:20;
-}
-
-.rouletteTrack{
-    height:100%;
-
-    display:flex;
-
-    transform:
-        translateX(0);
-}
-
-.rouletteItem{
-    flex:0 0 180px;
-
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-right:
-        1px solid #202c3c;
-}
-
-.rouletteItem img{
-    width:160px;
-
-    height:115px;
-
-    object-fit:contain;
-
-    filter:
-        drop-shadow(
-            0 10px 10px #000b
+    background:
+        linear-gradient(
+            90deg,
+            #f5a623,
+            #ffe08a
         );
+
+    transition:
+        width 2.5s
+        cubic-bezier(.2,.8,.2,1);
 }
 
-.rouletteItem span{
-    font-size:11px;
 
-    font-weight:bold;
-}
+/* =====================================================
+   RESULTADOS MÚLTIPLES
+===================================================== */
 
+.resultsBox{
 
-/* =========================
-   RESULTADO
-========================= */
+    width:
+        min(1050px,94vw);
 
-.resultBox{
-    width:min(550px,92vw);
+    max-height:90vh;
 
-    padding:35px;
+    overflow:auto;
+
+    padding:28px;
 
     border-radius:18px;
 
-    border:1px solid #465c74;
+    border:
+        1px solid #465c74;
 
     background:
         linear-gradient(
@@ -682,49 +896,153 @@ button{
             #172536,
             #090f17
         );
-
-    text-align:center;
 }
 
-.resultImage{
-    height:240px;
+.resultsHeader{
+
+    text-align:center;
+
+    margin-bottom:25px;
+}
+
+.resultsHeader h2{
+
+    font-size:32px;
+}
+
+.resultsHeader p{
+
+    color:#8493a6;
+
+    margin-top:7px;
+}
+
+.resultsGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(190px,1fr)
+        );
+
+    gap:14px;
+}
+
+.resultCard{
+
+    background:#0c141e;
+
+    border:
+        1px solid #30445c;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    animation:
+        resultAppear
+        .45s
+        ease
+        both;
+}
+
+@keyframes resultAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.8)
+            translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+.resultCardImage{
+
+    height:145px;
 
     display:flex;
 
     align-items:center;
 
     justify-content:center;
+
+    background:
+        radial-gradient(
+            circle,
+            #1b293a,
+            #080d13
+        );
+
+    border-bottom:3px solid;
 }
 
-.resultImage img{
-    width:470px;
+.resultCardImage img{
 
-    max-width:100%;
+    width:95%;
 
-    height:220px;
+    height:130px;
 
     object-fit:contain;
 
     filter:
         drop-shadow(
-            0 25px 20px #000c
+            0 15px 12px #000b
         );
 }
 
-.resultBox h2{
-    font-size:30px;
+.resultInfo{
+
+    padding:12px;
 }
 
-.resultWeapon{
+.resultInfo .weapon{
+
+    font-size:11px;
+
+    color:#7f8da0;
+}
+
+.resultInfo .skin{
+
+    font-weight:bold;
+
+    margin-top:5px;
+
+    font-size:14px;
+}
+
+.resultInfo .rarity{
+
+    display:block;
+
     margin-top:8px;
-
-    color:#8796a9;
 }
 
-.continue{
-    margin-top:25px;
+.closeResults{
 
-    padding:13px 35px;
+    display:block;
+
+    margin:
+        25px auto 0;
+
+    padding:
+        13px 40px;
 
     border:0;
 
@@ -739,51 +1057,70 @@ button{
     font-weight:bold;
 }
 
+.closeResults:hover{
 
-/* =========================
-   MOVIL
-========================= */
+    background:#354b65;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media(max-width:750px){
 
     .navbar{
+
         padding:0 15px;
     }
 
     .hero h1{
+
         font-size:38px;
     }
 
     .caseTop{
+
         grid-template-columns:1fr;
     }
 
     .caseInfo h1{
+
         font-size:31px;
     }
 
     .navButton{
+
         display:none;
+    }
+
+    .caseBox{
+
+        padding:18px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      NAVBAR
-========================= -->
+===================================================== -->
 
 <nav class="navbar">
 
     <div class="logo">
+
         CASE<span>HUB</span>
+
     </div>
+
 
     <div class="navRight">
 
@@ -794,6 +1131,7 @@ button{
             🎒 Inventario
 
         </button>
+
 
         <div class="balance">
 
@@ -810,9 +1148,10 @@ button{
 </nav>
 
 
-<!-- =========================
-     INICIO
-========================= -->
+
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <section
     id="home"
@@ -823,19 +1162,28 @@ button{
         <div class="hero">
 
             <h1>
+
                 ABRE TU
+
                 <span>CAJA</span>
+
             </h1>
 
+
             <p>
-                Elige una caja y descubre qué skin te toca.
+
+                Elige una caja y descubre
+                qué skin te toca.
+
             </p>
 
         </div>
 
+
         <div
             id="casesGrid"
             class="casesGrid">
+
         </div>
 
     </div>
@@ -843,9 +1191,10 @@ button{
 </section>
 
 
-<!-- =========================
-     PÁGINA DE CAJA
-========================= -->
+
+<!-- =====================================================
+     CASE PAGE
+===================================================== -->
 
 <section
     id="casePage"
@@ -853,6 +1202,7 @@ button{
 
     <div class="casePage">
 
+
         <button
             class="backButton"
             onclick="goHome()">
@@ -861,55 +1211,156 @@ button{
 
         </button>
 
+
         <div class="caseBox">
 
+
             <div class="caseTop">
+
 
                 <div
                     id="bigCase"
                     class="bigCase">
+
                 </div>
+
 
                 <div class="caseInfo">
 
-                    <h1 id="caseTitle">
+
+                    <h1
+                        id="caseTitle">
                     </h1>
 
-                    <p id="caseDescription">
+
+                    <p
+                        id="caseDescription">
                     </p>
 
-                    <button
-                        id="openButton"
-                        class="openButton"
-                        onclick="openCase()">
-                    </button>
+
+                    <div class="openPanel">
+
+
+                        <div
+                            class="openPanelTitle">
+
+                            ¿Cuántas cajas quieres abrir?
+
+                        </div>
+
+
+                        <select
+                            id="quantity"
+                            class="quantitySelect"
+                            onchange="updateOpenButton()">
+
+                            <option value="1">
+                                1 caja
+                            </option>
+
+                            <option value="2">
+                                2 cajas
+                            </option>
+
+                            <option value="3">
+                                3 cajas
+                            </option>
+
+                            <option value="4">
+                                4 cajas
+                            </option>
+
+                            <option value="5">
+                                5 cajas
+                            </option>
+
+                            <option value="6">
+                                6 cajas
+                            </option>
+
+                            <option value="7">
+                                7 cajas
+                            </option>
+
+                            <option value="8">
+                                8 cajas
+                            </option>
+
+                            <option value="9">
+                                9 cajas
+                            </option>
+
+                            <option value="10">
+                                10 cajas
+                            </option>
+
+                        </select>
+
+
+                        <button
+                            id="openButton"
+                            class="openButton"
+                            onclick="openCases()">
+
+                        </button>
+
+
+                        <div
+                            class="costInfo">
+
+                            Costo total:
+
+                            <strong
+                                id="totalCost">
+                            </strong>
+
+                            coins
+
+                        </div>
+
+
+                    </div>
+
 
                 </div>
 
             </div>
 
 
+
+            <!-- SKINS -->
+
             <div class="skinsSection">
+
 
                 <div class="skinsHeader">
 
                     <h2>
+
                         🔫 Skins disponibles
+
                     </h2>
 
+
                     <p>
-                        Estas son las skins que
-                        pueden salir de esta caja.
+
+                        Probabilidades personalizadas
+                        de CASEHUB.
+
                     </p>
 
                 </div>
 
+
                 <div
                     id="skinsGrid"
                     class="skinGrid">
+
                 </div>
 
+
             </div>
+
 
         </div>
 
@@ -918,15 +1369,18 @@ button{
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      INVENTARIO
-========================= -->
+===================================================== -->
 
 <section
     id="inventoryPage"
     class="page">
 
+
     <div class="inventoryPage">
+
 
         <button
             class="backButton"
@@ -936,37 +1390,60 @@ button{
 
         </button>
 
+
         <h1>
+
             🎒 Mi inventario
+
         </h1>
+
 
         <div
             id="inventoryGrid"
             class="inventoryGrid">
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     RULETA
-========================= -->
+
+<!-- =====================================================
+     OVERLAY APERTURA
+===================================================== -->
 
 <div
-    id="rouletteOverlay"
+    id="openingOverlay"
     class="overlay">
 
-    <div class="rouletteTitle">
-        ABRIENDO CAJA...
+
+    <div class="openingTitle">
+
+        🎰 ABRIENDO
+        <span id="openingAmount">
+            1
+        </span>
+        CAJAS...
+
     </div>
 
-    <div class="roulette">
+
+    <div class="openingSubtitle">
+
+        ¡Mucha suerte!
+
+    </div>
+
+
+    <div class="loadingBox">
 
         <div
-            id="rouletteTrack"
-            class="rouletteTrack">
+            id="loadingBar"
+            class="loadingBar">
+
         </div>
 
     </div>
@@ -974,53 +1451,68 @@ button{
 </div>
 
 
-<!-- =========================
-     RESULTADO
-========================= -->
+
+<!-- =====================================================
+     RESULTADOS
+===================================================== -->
 
 <div
-    id="resultOverlay"
+    id="resultsOverlay"
     class="overlay">
 
-    <div class="resultBox">
 
-        <div
-            id="resultRarity"
-            class="rarity">
+    <div class="resultsBox">
+
+
+        <div class="resultsHeader">
+
+
+            <h2>
+
+                🎉 ¡RESULTADOS!
+
+            </h2>
+
+
+            <p>
+
+                Estas son las skins
+                que conseguiste.
+
+            </p>
+
+
         </div>
 
-        <div
-            id="resultImage"
-            class="resultImage">
-        </div>
-
-        <h2
-            id="resultName">
-        </h2>
 
         <div
-            id="resultWeapon"
-            class="resultWeapon">
+            id="resultsGrid"
+            class="resultsGrid">
+
         </div>
+
 
         <button
-            class="continue"
-            onclick="closeResult()">
+            class="closeResults"
+            onclick="closeResults()">
 
             CONTINUAR
 
         </button>
 
+
     </div>
 
 </div>
 
 
+
 <script>
 
-/* ==========================================
+
+/* =====================================================
    IMÁGENES DE LAS CAJAS
-========================================== */
+===================================================== */
 
 const CASE_IMAGES = {
 
@@ -1039,9 +1531,10 @@ const CASE_IMAGES = {
 };
 
 
-/* ==========================================
-   IMÁGENES DE LAS ARMAS
-========================================== */
+
+/* =====================================================
+   IMÁGENES DE ARMAS
+===================================================== */
 
 const IMG = {
 
@@ -1069,11 +1562,32 @@ const IMG = {
 };
 
 
-/* ==========================================
+
+/* =====================================================
    CAJAS
-========================================== */
+===================================================== */
+
+/*
+   NUEVAS PROBABILIDADES
+
+   Blue       = 60%
+   Purple     = 25%
+   Pink       = 10%
+   Red        = 3.5%
+   Gold       = 1.5%
+
+   TOTAL = 100%
+
+   Estas probabilidades son propias
+   de este simulador CASEHUB.
+*/
 
 const cases = [
+
+
+/* =====================================================
+   PHOENIX
+===================================================== */
 
 {
 
@@ -1105,15 +1619,16 @@ const cases = [
             "M4A1-S",
             "Printstream",
             "Mil-Spec",
-            39.92,
+            20,
             IMG.m4a1
         ],
+
 
         [
             "USP-S",
             "Kill Confirmed",
             "Restricted",
-            10,
+            12.5,
             IMG.usp
         ],
 
@@ -1121,31 +1636,34 @@ const cases = [
             "M4A4",
             "Howl",
             "Restricted",
-            5.98,
+            12.5,
             IMG.m4a4
         ],
+
 
         [
             "AWP",
             "Asiimov",
             "Classified",
-            3.2,
+            10,
             IMG.awp
         ],
+
 
         [
             "AK-47",
             "Redline",
             "Covert",
-            .64,
+            3.5,
             IMG.ak
         ],
+
 
         [
             "★ Karambit",
             "Doppler Ruby",
             "Rare Special",
-            .26,
+            1.5,
             IMG.knife
         ]
 
@@ -1153,6 +1671,11 @@ const cases = [
 
 },
 
+
+
+/* =====================================================
+   REVOLUTION
+===================================================== */
 
 {
 
@@ -1168,7 +1691,7 @@ const cases = [
             "Glock-18",
             "Fade",
             "Mil-Spec",
-            40,
+            20,
             IMG.glock
         ],
 
@@ -1176,47 +1699,59 @@ const cases = [
             "AK-47",
             "Redline",
             "Mil-Spec",
-            39.92,
+            20,
             IMG.ak
         ],
 
         [
             "M4A1-S",
             "Printstream",
-            "Restricted",
-            12,
+            "Mil-Spec",
+            20,
             IMG.m4a1
         ],
+
 
         [
             "USP-S",
             "Kill Confirmed",
             "Restricted",
-            4,
+            12.5,
             IMG.usp
-        ],
-
-        [
-            "AWP",
-            "Asiimov",
-            "Classified",
-            3.18,
-            IMG.awp
         ],
 
         [
             "M4A4",
             "Howl",
-            "Covert",
-            .64,
+            "Restricted",
+            12.5,
             IMG.m4a4
         ],
+
+
+        [
+            "AWP",
+            "Asiimov",
+            "Classified",
+            10,
+            IMG.awp
+        ],
+
+
+        [
+            "AK-47",
+            "Redline",
+            "Covert",
+            3.5,
+            IMG.ak
+        ],
+
 
         [
             "★ Karambit",
             "Doppler Ruby",
             "Rare Special",
-            .26,
+            1.5,
             IMG.knife
         ]
 
@@ -1224,6 +1759,11 @@ const cases = [
 
 },
 
+
+
+/* =====================================================
+   DREAMS
+===================================================== */
 
 {
 
@@ -1239,7 +1779,7 @@ const cases = [
             "Glock-18",
             "Fade",
             "Mil-Spec",
-            40,
+            20,
             IMG.glock
         ],
 
@@ -1247,47 +1787,59 @@ const cases = [
             "AK-47",
             "Redline",
             "Mil-Spec",
-            39.92,
+            20,
             IMG.ak
-        ],
-
-        [
-            "USP-S",
-            "Kill Confirmed",
-            "Restricted",
-            12,
-            IMG.usp
         ],
 
         [
             "M4A1-S",
             "Printstream",
-            "Restricted",
-            4,
+            "Mil-Spec",
+            20,
             IMG.m4a1
         ],
+
+
+        [
+            "USP-S",
+            "Kill Confirmed",
+            "Restricted",
+            12.5,
+            IMG.usp
+        ],
+
+        [
+            "M4A4",
+            "Howl",
+            "Restricted",
+            12.5,
+            IMG.m4a4
+        ],
+
 
         [
             "AWP",
             "Asiimov",
             "Classified",
-            3.18,
+            10,
             IMG.awp
         ],
+
 
         [
             "AK-47",
             "Redline",
             "Covert",
-            .64,
+            3.5,
             IMG.ak
         ],
+
 
         [
             "★ Karambit",
             "Doppler Ruby",
             "Rare Special",
-            .26,
+            1.5,
             IMG.knife
         ]
 
@@ -1295,6 +1847,11 @@ const cases = [
 
 },
 
+
+
+/* =====================================================
+   FRACTURE
+===================================================== */
 
 {
 
@@ -1310,7 +1867,7 @@ const cases = [
             "M4A1-S",
             "Printstream",
             "Mil-Spec",
-            40,
+            20,
             IMG.m4a1
         ],
 
@@ -1318,47 +1875,59 @@ const cases = [
             "Glock-18",
             "Fade",
             "Mil-Spec",
-            39.92,
+            20,
             IMG.glock
         ],
 
         [
             "AK-47",
             "Redline",
-            "Restricted",
-            12,
+            "Mil-Spec",
+            20,
             IMG.ak
         ],
+
 
         [
             "USP-S",
             "Kill Confirmed",
             "Restricted",
-            4,
+            12.5,
             IMG.usp
-        ],
-
-        [
-            "AWP",
-            "Asiimov",
-            "Classified",
-            3.18,
-            IMG.awp
         ],
 
         [
             "M4A4",
             "Howl",
-            "Covert",
-            .64,
+            "Restricted",
+            12.5,
             IMG.m4a4
         ],
+
+
+        [
+            "AWP",
+            "Asiimov",
+            "Classified",
+            10,
+            IMG.awp
+        ],
+
+
+        [
+            "AK-47",
+            "Redline",
+            "Covert",
+            3.5,
+            IMG.ak
+        ],
+
 
         [
             "★ Karambit",
             "Doppler Ruby",
             "Rare Special",
-            .26,
+            1.5,
             IMG.knife
         ]
 
@@ -1369,9 +1938,10 @@ const cases = [
 ];
 
 
-/* ==========================================
+
+/* =====================================================
    VARIABLES
-========================================== */
+===================================================== */
 
 let coins = 2500;
 
@@ -1380,9 +1950,10 @@ let selectedCase = null;
 let inventory = [];
 
 
-/* ==========================================
-   CONVERTIR SKIN
-========================================== */
+
+/* =====================================================
+   SKIN OBJECT
+===================================================== */
 
 function skinObject(s){
 
@@ -1403,32 +1974,58 @@ function skinObject(s){
 }
 
 
-/* ==========================================
-   COLOR DE RAREZA
-========================================== */
+
+/* =====================================================
+   COLOR RAREZA
+===================================================== */
 
 function rarityColor(rarity){
 
-    if(rarity === "Mil-Spec")
+    if(
+        rarity === "Mil-Spec"
+    ){
+
         return "#4b8cff";
 
-    if(rarity === "Restricted")
+    }
+
+
+    if(
+        rarity === "Restricted"
+    ){
+
         return "#9b59ff";
 
-    if(rarity === "Classified")
+    }
+
+
+    if(
+        rarity === "Classified"
+    ){
+
         return "#e85cff";
 
-    if(rarity === "Covert")
+    }
+
+
+    if(
+        rarity === "Covert"
+    ){
+
         return "#ff4b4b";
+
+    }
+
 
     return "#ffd43b";
 
 }
 
 
-/* ==========================================
+
+/* =====================================================
    MOSTRAR CAJAS
-========================================== */
+===================================================== */
 
 function renderCases(){
 
@@ -1437,18 +2034,23 @@ function renderCases(){
         "casesGrid"
     );
 
+
     grid.innerHTML = "";
+
 
     cases.forEach(
         (box,index)=>{
+
 
             const card =
             document.createElement(
                 "div"
             );
 
+
             card.className =
             "caseCard";
+
 
             card.onclick =
             function(){
@@ -1456,6 +2058,7 @@ function renderCases(){
                 selectCase(index);
 
             };
+
 
             card.innerHTML = `
 
@@ -1467,23 +2070,33 @@ function renderCases(){
 
                 </div>
 
+
                 <h2>
+
                     ${box.name}
+
                 </h2>
 
+
                 <p>
-                    Caja de CS2 con skins
-                    de diferentes rarezas
-                    y objetos especiales.
+
+                    Caja de CS2 con
+                    skins de diferentes
+                    rarezas y objetos
+                    especiales.
+
                 </p>
+
 
                 <div class="price">
 
-                    💰 ${box.price} coins
+                    💰 ${box.price}
+                    coins
 
                 </div>
 
             `;
+
 
             grid.appendChild(card);
 
@@ -1493,70 +2106,76 @@ function renderCases(){
 }
 
 
-/* ==========================================
+
+/* =====================================================
    SELECCIONAR CAJA
-========================================== */
+===================================================== */
 
 function selectCase(index){
 
     selectedCase =
     cases[index];
 
-    document
-    .getElementById("home")
-    .classList
-    .remove("active");
 
     document
-    .getElementById("inventoryPage")
-    .classList
-    .remove("active");
-
-    document
-    .getElementById("casePage")
-    .classList
-    .add("active");
+        .getElementById("home")
+        .classList
+        .remove("active");
 
 
     document
-    .getElementById("caseTitle")
-    .textContent =
-    selectedCase.name;
+        .getElementById("inventoryPage")
+        .classList
+        .remove("active");
 
 
     document
-    .getElementById("caseDescription")
-    .textContent =
-    "Abre esta caja para intentar conseguir una skin rara.";
+        .getElementById("casePage")
+        .classList
+        .add("active");
 
 
     document
-    .getElementById("bigCase")
-    .innerHTML = `
-
-        <img
-            src="${selectedCase.image}"
-            alt="${selectedCase.name}">
-
-    `;
+        .getElementById("caseTitle")
+        .textContent =
+        selectedCase.name;
 
 
     document
-    .getElementById("openButton")
-    .textContent =
-    `ABRIR CAJA — ${selectedCase.price} COINS`;
+        .getElementById("caseDescription")
+        .textContent =
+        "Elige cuántas cajas quieres abrir. ¡Mientras más abras, más skins recibirás!";
+
+
+    document
+        .getElementById("bigCase")
+        .innerHTML = `
+
+            <img
+                src="${selectedCase.image}"
+                alt="${selectedCase.name}">
+
+        `;
+
+
+    document
+        .getElementById("quantity")
+        .value = "1";
 
 
     renderSkins();
+
+    updateOpenButton();
 
     window.scrollTo(0,0);
 
 }
 
 
-/* ==========================================
+
+/* =====================================================
    MOSTRAR SKINS
-========================================== */
+===================================================== */
 
 function renderSkins(){
 
@@ -1565,128 +2184,164 @@ function renderSkins(){
         "skinsGrid"
     );
 
+
     grid.innerHTML = "";
 
 
     selectedCase.skins
-    .map(skinObject)
-    .forEach(
-        skin=>{
-
-            const color =
-            rarityColor(
-                skin.rarity
-            );
+        .map(skinObject)
+        .forEach(
+            skin=>{
 
 
-            const card =
-            document.createElement(
-                "div"
-            );
-
-            card.className =
-            "skinCard";
+                const color =
+                rarityColor(
+                    skin.rarity
+                );
 
 
-            card.innerHTML = `
-
-                <div
-                    class="skinImage"
-                    style="
-                    border-color:${color};
-                    ">
-
-                    <img
-                        src="${skin.image}"
-                        alt="${skin.weapon} | ${skin.name}">
-
-                </div>
+                const card =
+                document.createElement(
+                    "div"
+                );
 
 
-                <div class="skinInfo">
+                card.className =
+                "skinCard";
 
-                    <div class="weaponName">
 
-                        ${skin.weapon}
+                card.innerHTML = `
+
+                    <div
+                        class="skinImage"
+                        style="
+                        border-color:${color};
+                        ">
+
+                        <img
+                            src="${skin.image}"
+                            alt="${skin.name}">
 
                     </div>
 
 
-                    <div class="skinName">
+                    <div class="skinInfo">
 
-                        ${skin.name}
+
+                        <div class="weaponName">
+
+                            ${skin.weapon}
+
+                        </div>
+
+
+                        <div class="skinName">
+
+                            ${skin.name}
+
+                        </div>
+
+
+                        <div class="skinBottom">
+
+
+                            <span
+                                class="rarity"
+                                style="
+                                color:${color};
+                                ">
+
+                                ${skin.rarity}
+
+                            </span>
+
+
+                            <span
+                                class="probability">
+
+                                ${skin.chance}%
+
+                            </span>
+
+
+                        </div>
+
 
                     </div>
 
-
-                    <div class="skinBottom">
-
-                        <span
-                            class="rarity"
-                            style="
-                            color:${color};
-                            ">
-
-                            ${skin.rarity}
-
-                        </span>
+                `;
 
 
-                        <span class="probability">
+                grid.appendChild(card);
 
-                            ${skin.chance}%
+            }
+        );
 
-                        </span>
-
-                    </div>
-
-                </div>
-
-            `;
+}
 
 
-            grid.appendChild(card);
 
-        }
+/* =====================================================
+   ACTUALIZAR BOTON
+===================================================== */
+
+function updateOpenButton(){
+
+    if(!selectedCase){
+
+        return;
+
+    }
+
+
+    const quantity =
+    Number(
+        document.getElementById(
+            "quantity"
+        ).value
     );
 
+
+    const total =
+    selectedCase.price *
+    quantity;
+
+
+    document
+        .getElementById(
+            "openButton"
+        )
+        .textContent =
+
+        `🎁 ABRIR ${quantity} ${
+            quantity === 1
+            ? "CAJA"
+            : "CAJAS"
+        }`;
+
+
+    document
+        .getElementById(
+            "totalCost"
+        )
+        .textContent =
+        total.toLocaleString(
+            "es-ES"
+        );
+
 }
 
 
-/* ==========================================
-   VOLVER
-========================================== */
 
-function goHome(){
-
-    document
-    .getElementById("casePage")
-    .classList
-    .remove("active");
-
-    document
-    .getElementById("inventoryPage")
-    .classList
-    .remove("active");
-
-    document
-    .getElementById("home")
-    .classList
-    .add("active");
-
-    window.scrollTo(0,0);
-
-}
-
-
-/* ==========================================
+/* =====================================================
    ELEGIR SKIN
-========================================== */
+===================================================== */
 
 function chooseSkin(){
 
     let random =
     Math.random()*100;
+
 
     let total = 0;
 
@@ -1699,11 +2354,14 @@ function chooseSkin(){
         const skin =
         skinObject(raw);
 
+
         total +=
         skin.chance;
 
 
-        if(random <= total){
+        if(
+            random <= total
+        ){
 
             return skin;
 
@@ -1721,19 +2379,39 @@ function chooseSkin(){
 }
 
 
-/* ==========================================
-   ABRIR CAJA
-========================================== */
 
-function openCase(){
+/* =====================================================
+   ABRIR VARIAS CAJAS
+===================================================== */
+
+function openCases(){
+
+    if(!selectedCase){
+
+        return;
+
+    }
+
+
+    const quantity =
+    Number(
+        document.getElementById(
+            "quantity"
+        ).value
+    );
+
+
+    const totalCost =
+    selectedCase.price *
+    quantity;
+
 
     if(
-        coins <
-        selectedCase.price
+        coins < totalCost
     ){
 
         alert(
-            "No tienes suficientes coins."
+            "❌ No tienes suficientes coins."
         );
 
         return;
@@ -1741,285 +2419,337 @@ function openCase(){
     }
 
 
+    /* RESTAR COINS */
+
     coins -=
-    selectedCase.price;
+    totalCost;
 
 
     updateCoins();
 
 
+    /* DESACTIVAR */
+
     document
-    .getElementById("openButton")
-    .disabled = true;
+        .getElementById(
+            "openButton"
+        )
+        .disabled = true;
 
 
-    startRoulette();
+    /* MOSTRAR CANTIDAD */
 
-}
+    document
+        .getElementById(
+            "openingAmount"
+        )
+        .textContent =
+        quantity;
 
-
-/* ==========================================
-   RULETA
-========================================== */
-
-function startRoulette(){
 
     const overlay =
     document.getElementById(
-        "rouletteOverlay"
+        "openingOverlay"
     );
 
 
-    const track =
+    const loading =
     document.getElementById(
-        "rouletteTrack"
+        "loadingBar"
     );
 
 
-    track.innerHTML = "";
-
-    track.style.transition =
-    "none";
-
-    track.style.transform =
-    "translateX(0)";
+    loading.style.width =
+    "0%";
 
 
     overlay.classList
-    .add("show");
-
-
-    const winner =
-    chooseSkin();
-
-
-    const items = [];
-
-
-    for(
-        let i=0;
-        i<60;
-        i++
-    ){
-
-        items.push(
-            chooseSkin()
-        );
-
-    }
-
-
-    const winnerIndex = 52;
-
-
-    items[winnerIndex] =
-    winner;
-
-
-    items.forEach(
-        skin=>{
-
-            const item =
-            document.createElement(
-                "div"
-            );
-
-            item.className =
-            "rouletteItem";
-
-
-            item.innerHTML = `
-
-                <img
-                    src="${skin.image}">
-
-                <span
-                    style="
-                    color:${rarityColor(
-                        skin.rarity
-                    )}">
-
-                    ${skin.name}
-
-                </span>
-
-            `;
-
-
-            track.appendChild(item);
-
-        }
-    );
+        .add("show");
 
 
     setTimeout(
         ()=>{
 
-            const width = 180;
-
-            const center =
-            document
-            .querySelector(".roulette")
-            .clientWidth/2;
-
-
-            const target =
-            winnerIndex*width+
-            width/2-
-            center;
-
-
-            track.style.transition =
-            "transform 5s cubic-bezier(.08,.75,.1,1)";
-
-
-            track.style.transform =
-            `translateX(-${target}px)`;
+            loading.style.width =
+            "100%";
 
         },
         100
     );
 
 
+    /* GENERAR RESULTADOS */
+
+    const results = [];
+
+
+    for(
+        let i=0;
+        i<quantity;
+        i++
+    ){
+
+        const skin =
+        chooseSkin();
+
+
+        results.push(skin);
+
+        inventory.push(skin);
+
+    }
+
+
+    /* MOSTRAR RESULTADOS */
+
     setTimeout(
         ()=>{
 
             overlay.classList
-            .remove("show");
+                .remove("show");
 
 
-            inventory.push(
-                winner
-            );
-
-
-            showResult(
-                winner
+            showResults(
+                results
             );
 
 
             document
-            .getElementById(
-                "openButton"
-            )
-            .disabled = false;
+                .getElementById(
+                    "openButton"
+                )
+                .disabled = false;
 
         },
-        5350
+        2700
     );
 
 }
 
 
-/* ==========================================
-   RESULTADO
-========================================== */
 
-function showResult(skin){
+/* =====================================================
+   MOSTRAR RESULTADOS
+===================================================== */
+
+function showResults(results){
 
     const overlay =
     document.getElementById(
-        "resultOverlay"
+        "resultsOverlay"
     );
 
 
-    const rarity =
+    const grid =
     document.getElementById(
-        "resultRarity"
+        "resultsGrid"
     );
 
 
-    rarity.textContent =
-    skin.rarity;
+    grid.innerHTML = "";
 
 
-    rarity.style.color =
-    rarityColor(
-        skin.rarity
+    results.forEach(
+        (skin,index)=>{
+
+
+            const color =
+            rarityColor(
+                skin.rarity
+            );
+
+
+            const card =
+            document.createElement(
+                "div"
+            );
+
+
+            card.className =
+            "resultCard";
+
+
+            card.style.animationDelay =
+            `${index*0.08}s`;
+
+
+            card.innerHTML = `
+
+                <div
+                    class="resultCardImage"
+                    style="
+                    border-color:${color};
+                    ">
+
+
+                    <img
+                        src="${skin.image}"
+                        alt="${skin.name}">
+
+
+                </div>
+
+
+                <div class="resultInfo">
+
+
+                    <div class="weapon">
+
+                        ${skin.weapon}
+
+                    </div>
+
+
+                    <div class="skin">
+
+                        ${skin.name}
+
+                    </div>
+
+
+                    <span
+                        class="rarity"
+                        style="
+                        color:${color};
+                        ">
+
+                        ${skin.rarity}
+
+                    </span>
+
+
+                    <div
+                        style="
+                        margin-top:6px;
+                        color:#7f8da0;
+                        font-size:11px;
+                        ">
+
+                        Probabilidad:
+                        ${skin.chance}%
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        }
     );
-
-
-    document
-    .getElementById(
-        "resultImage"
-    )
-    .innerHTML = `
-
-        <img
-            src="${skin.image}"
-            alt="${skin.name}">
-
-    `;
-
-
-    document
-    .getElementById(
-        "resultName"
-    )
-    .textContent =
-    skin.name;
-
-
-    document
-    .getElementById(
-        "resultWeapon"
-    )
-    .textContent =
-    skin.weapon;
 
 
     overlay.classList
-    .add("show");
+        .add("show");
 
 }
 
 
-/* ==========================================
-   CERRAR RESULTADO
-========================================== */
 
-function closeResult(){
+/* =====================================================
+   CERRAR RESULTADOS
+===================================================== */
+
+function closeResults(){
 
     document
-    .getElementById(
-        "resultOverlay"
-    )
-    .classList
-    .remove("show");
+        .getElementById(
+            "resultsOverlay"
+        )
+        .classList
+        .remove("show");
 
 }
 
 
-/* ==========================================
+
+/* =====================================================
+   VOLVER AL HOME
+===================================================== */
+
+function goHome(){
+
+    document
+        .getElementById(
+            "casePage"
+        )
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById(
+            "inventoryPage"
+        )
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById(
+            "home"
+        )
+        .classList
+        .add("active");
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+
+/* =====================================================
    INVENTARIO
-========================================== */
+===================================================== */
 
 function showInventory(){
 
     document
-    .getElementById("home")
-    .classList
-    .remove("active");
+        .getElementById(
+            "home"
+        )
+        .classList
+        .remove("active");
 
 
     document
-    .getElementById("casePage")
-    .classList
-    .remove("active");
+        .getElementById(
+            "casePage"
+        )
+        .classList
+        .remove("active");
 
 
     document
-    .getElementById("inventoryPage")
-    .classList
-    .add("active");
+        .getElementById(
+            "inventoryPage"
+        )
+        .classList
+        .add("active");
 
 
     renderInventory();
 
-    window.scrollTo(0,0);
+
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
 
+
+
+/* =====================================================
+   RENDER INVENTARIO
+===================================================== */
 
 function renderInventory(){
 
@@ -2040,7 +2770,8 @@ function renderInventory(){
 
             <p
                 style="
-                color:#8190a3">
+                color:#8190a3;
+                ">
 
                 Todavía no tienes skins.
                 Abre una caja para conseguir una.
@@ -2054,71 +2785,95 @@ function renderInventory(){
     }
 
 
-    inventory.forEach(
-        skin=>{
-
-            const card =
-            document.createElement(
-                "div"
-            );
+    inventory
+        .slice()
+        .reverse()
+        .forEach(
+            skin=>{
 
 
-            card.className =
-            "inventoryCard";
+                const color =
+                rarityColor(
+                    skin.rarity
+                );
 
 
-            card.innerHTML = `
-
-                <img
-                    src="${skin.image}">
-
-                <h3>
-                    ${skin.name}
-                </h3>
-
-                <p>
-                    ${skin.weapon}
-                </p>
-
-                <p
-                    style="
-                    color:${rarityColor(
-                        skin.rarity
-                    )};
-                    font-weight:bold">
-
-                    ${skin.rarity}
-
-                </p>
-
-            `;
+                const card =
+                document.createElement(
+                    "div"
+                );
 
 
-            grid.appendChild(card);
+                card.className =
+                "inventoryCard";
 
-        }
-    );
+
+                card.innerHTML = `
+
+                    <img
+                        src="${skin.image}"
+                        alt="${skin.name}">
+
+
+                    <h3>
+
+                        ${skin.name}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${skin.weapon}
+
+                    </p>
+
+
+                    <p
+                        style="
+                        color:${color};
+                        font-weight:bold;
+                        ">
+
+                        ${skin.rarity}
+
+                    </p>
+
+
+                `;
+
+
+                grid.appendChild(card);
+
+            }
+        );
 
 }
 
 
-/* ==========================================
-   COINS
-========================================== */
+
+/* =====================================================
+   ACTUALIZAR COINS
+===================================================== */
 
 function updateCoins(){
 
     document
-    .getElementById("coins")
-    .textContent =
-    coins.toLocaleString("es-ES");
+        .getElementById(
+            "coins"
+        )
+        .textContent =
+        coins.toLocaleString(
+            "es-ES"
+        );
 
 }
 
 
-/* ==========================================
+
+/* =====================================================
    INICIAR
-========================================== */
+===================================================== */
 
 renderCases();
 
@@ -2127,4 +2882,5 @@ updateCoins();
 </script>
 
 </body>
+
 </html>
