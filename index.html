@@ -1,751 +1,1200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CASEHUB CS2</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070b10;
+    color:white;
+}
+
+header{
+    height:78px;
+    background:#090d12;
+    border-bottom:1px solid #26384d;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 38px;
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.logo{
+    font-size:29px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#ffae00;
+}
+
+.headerRight{
+    display:flex;
+    gap:14px;
+}
+
+.topButton{
+    background:#111c2b;
+    color:white;
+    border:1px solid #304864;
+    padding:13px 20px;
+    border-radius:9px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.coins{
+    color:#ffc400;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:18px;
+    background:#0b1119;
+    border-bottom:1px solid #18283a;
+}
+
+nav button{
+    background:#111b28;
+    border:1px solid #29415b;
+    color:#b9c9da;
+    padding:11px 25px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+nav button.active{
+    color:white;
+    border-color:#ffae00;
+    background:#182536;
+}
+
+.page{
+    display:none;
+    max-width:1250px;
+    margin:auto;
+    padding:28px;
+}
+
+.page.active{
+    display:block;
+}
+
+.subtitle{
+    text-align:center;
+    color:#7f95ad;
+    margin:10px 0 30px;
+}
+
+.cases{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.case{
+    background:linear-gradient(145deg,#111d2b,#0b131e);
+    border:1px solid #30465d;
+    border-radius:15px;
+    padding:22px;
+    transition:.2s;
+}
+
+.case:hover{
+    transform:translateY(-5px);
+    border-color:#ffae00;
+}
+
+.caseImage{
+    height:180px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.caseBox{
+    width:190px;
+    height:100px;
+    border:3px solid #ffae00;
+    position:relative;
+    transform:skewY(-8deg);
+    box-shadow:0 0 35px #ffae0030;
+}
+
+.caseBox:before{
+    content:"";
+    position:absolute;
+    left:20px;
+    top:-25px;
+    width:145px;
+    height:25px;
+    border:3px solid #ffae00;
+    transform:skewX(-35deg);
+}
+
+.caseBox span{
+    position:absolute;
+    left:52px;
+    top:34px;
+    border:2px solid #ffae00;
+    padding:7px 20px;
+    color:#ffae00;
+    font-size:12px;
+}
+
+.case h2{
+    margin:12px 0;
+}
+
+.case p{
+    color:#8ca0b7;
+    line-height:1.5;
+    min-height:45px;
+}
+
+.case button{
+    margin-top:18px;
+    background:#152437;
+    border:1px solid #38536f;
+    color:#ffc400;
+    padding:11px 18px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.skinGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+}
+
+.skin{
+    background:#0d1621;
+    border:1px solid #283d53;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.skinImage{
+    height:190px;
+    background:radial-gradient(circle,#172638,#09111b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-bottom:3px solid #4b8dff;
+    padding:15px;
+}
+
+.skinImage img{
+    max-width:100%;
+    max-height:170px;
+    object-fit:contain;
+    filter:drop-shadow(0 12px 15px #000);
+}
+
+.noImage{
+    text-align:center;
+    color:#64788e;
+    font-size:13px;
+}
+
+.skinInfo{
+    padding:15px;
+}
+
+.weapon{
+    color:#71869c;
+    font-size:13px;
+}
+
+.skinName{
+    font-size:17px;
+    font-weight:bold;
+    margin-top:4px;
+}
+
+.skinBottom{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+}
+
+.rarity{
+    font-weight:bold;
+}
+
+.value{
+    margin-top:10px;
+    color:#ffc400;
+    font-weight:bold;
+}
+
+.prob{
+    color:#8ba0b7;
+}
+
+/* INVENTARIO */
+
+.inventoryGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.inventoryCard{
+    background:#0d1621;
+    border:1px solid #2b4055;
+    border-radius:12px;
+    padding:15px;
+}
+
+.inventoryCard img{
+    width:100%;
+    height:150px;
+    object-fit:contain;
+}
+
+.selectBtn{
+    width:100%;
+    margin-top:12px;
+    padding:10px;
+    background:#142438;
+    border:1px solid #36516e;
+    color:white;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.selectBtn.selected{
+    background:#ffae00;
+    color:#111;
+}
+
+/* MEJORAS */
+
+.upgrade{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:20px;
+}
+
+.panel{
+    background:#0d1621;
+    border:1px solid #2a4057;
+    border-radius:14px;
+    padding:20px;
+    min-height:470px;
+}
+
+.panel h2{
+    margin-bottom:18px;
+}
+
+.wheel{
+    width:300px;
+    height:300px;
+    margin:35px auto;
+    border-radius:50%;
+    background:conic-gradient(
+        #4b8dff 0deg 90deg,
+        #9b4bff 90deg 180deg,
+        #ff3f4d 180deg 250deg,
+        #ffae00 250deg 300deg,
+        #35d07f 300deg 360deg
+    );
+    position:relative;
+    border:8px solid #19283a;
+    box-shadow:0 0 40px #000;
+}
+
+.wheelCenter{
+    position:absolute;
+    width:55px;
+    height:55px;
+    background:#080d13;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border:3px solid white;
+    z-index:3;
+}
+
+.pointer{
+    position:absolute;
+    width:6px;
+    height:130px;
+    background:#fff;
+    left:50%;
+    bottom:50%;
+    transform-origin:bottom center;
+    transform:translateX(-50%) rotate(0deg);
+    box-shadow:0 0 15px white;
+    z-index:5;
+}
+
+.slider{
+    width:100%;
+    margin-top:15px;
+}
+
+.multiplier{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:15px;
+}
+
+.multiplier button{
+    flex:1;
+    min-width:60px;
+    background:#142438;
+    border:1px solid #35516d;
+    color:white;
+    padding:10px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.multiplier button.selected{
+    background:#ffae00;
+    color:#111;
+}
+
+.reward img{
+    width:100%;
+    height:220px;
+    object-fit:contain;
+}
+
+.rewardValue{
+    text-align:center;
+    color:#ffc400;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.spin{
+    width:100%;
+    background:#ffae00;
+    border:0;
+    padding:14px;
+    border-radius:8px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+    .upgrade{
+        grid-template-columns:1fr;
+    }
+
+    header{
+        padding:0 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CASE<span>HUB</span></div>
+
+    <div class="headerRight">
+        <button class="topButton" onclick="showPage('inventory')">
+            🎒 Inventario
+        </button>
+
+        <button class="topButton">
+            🪙 <span class="coins" id="coins">2500</span>
+        </button>
+    </div>
+</header>
+
+<nav>
+    <button class="active" onclick="showPage('home',this)">Cajas</button>
+    <button onclick="showPage('inventory',this)">Inventario</button>
+    <button onclick="showPage('upgrade',this)">Mejoras</button>
+</nav>
+
+
+<!-- =====================================================
+     CAJAS
+===================================================== -->
+
+<section id="home" class="page active">
+
+<h1>🔥 CASEHUB</h1>
+
+<p class="subtitle">
+Elige una caja y descubre qué skin te toca
+</p>
+
+<div class="cases">
+
+<div class="case">
+<div class="caseImage"><div class="caseBox"><span>CASE 01</span></div></div>
+<h2>Phoenix Case</h2>
+<p>Una colección con skins modernas, coloridas y extremadamente raras.</p>
+<button onclick="openCase(100)">🪙 100 coins</button>
+</div>
+
+<div class="case">
+<div class="caseImage"><div class="caseBox" style="border-color:#ff3d4d"><span style="color:#ff3d4d;border-color:#ff3d4d">CASE 02</span></div></div>
+<h2>Revolution Case</h2>
+<p>Una caja de alto nivel con algunas de las skins más buscadas.</p>
+<button onclick="openCase(150)">🪙 150 coins</button>
+</div>
+
+<div class="case">
+<div class="caseImage"><div class="caseBox" style="border-color:#a34cff"><span style="color:#a34cff;border-color:#a34cff">CASE 03</span></div></div>
+<h2>Dreams & Nightmares</h2>
+<p>Una caja oscura llena de diseños espectaculares.</p>
+<button onclick="openCase(250)">🪙 250 coins</button>
+</div>
+
+<div class="case">
+<div class="caseImage"><div class="caseBox" style="border-color:#4b8dff"><span style="color:#4b8dff;border-color:#4b8dff">CASE 04</span></div></div>
+<h2>Fracture Case</h2>
+<p>Una caja premium con posibilidad de conseguir un cuchillo.</p>
+<button onclick="openCase(350)">🪙 350 coins</button>
+</div>
+
+</div>
+
+<div id="caseResult" style="margin-top:35px"></div>
+
+</section>
+
+
+<!-- =====================================================
+     INVENTARIO
+===================================================== -->
+
+<section id="inventory" class="page">
+
+<h1>🎒 Inventario</h1>
+
+<p class="subtitle">
+Tus skins y su valor
+</p>
+
+<div id="inventoryGrid" class="inventoryGrid"></div>
+
+</section>
+
+
+<!-- =====================================================
+     MEJORAS
+===================================================== -->
+
+<section id="upgrade" class="page">
+
+<h1>⚡ Mejoras</h1>
+
+<p class="subtitle">
+Intercambia varias skins por una recompensa de mayor valor.
+</p>
+
+<div class="multiplier">
+
+<button onclick="setMultiplier(1.5,this)">1.5x</button>
+<button onclick="setMultiplier(2,this)">2x</button>
+<button onclick="setMultiplier(5,this)">5x</button>
+<button onclick="setMultiplier(10,this)">10x</button>
+
+</div>
+
+<div class="upgrade">
+
+<div class="panel">
+
+<h2>🎒 Inventario</h2>
+
+<div id="upgradeInventory"></div>
+
+</div>
+
+
+<div class="panel">
+
+<h2>🎯 Ruleta</h2>
+
+<div class="wheel" id="wheel">
+
+<div class="pointer" id="pointer"></div>
+
+<div class="wheelCenter"></div>
+
+</div>
+
+<input
+type="range"
+class="slider"
+id="winSlider"
+min="0"
+max="360"
+value="180"
+>
+
+<p style="text-align:center;color:#8196ad;margin-top:10px">
+Mueve la zona de WIN para modificar la posición.
+</p>
+
+<button class="spin" onclick="spinUpgrade()">
+GIRAR
+</button>
+
+</div>
+
+
+<div class="panel reward">
+
+<h2>🏆 Recompensa</h2>
+
+<div id="rewardBox">
+
+<p style="color:#70849a;text-align:center;margin-top:100px">
+Selecciona skins para ver una recompensa.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
 <script>
 
-/* =========================================================
-   IMÁGENES REALES DE CS2
-   ========================================================= */
+/* =====================================================
+   DATOS
+===================================================== */
 
-function cs2Image(name){
+const skins = [
 
-    return "https://cs2.sh/image/" +
-        encodeURIComponent(name);
+["AK-47","Redline","Classified",28.85,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ak47_cu_ak_redline_light_png.png"],
 
-}
+["AK-47","Vulcan","Covert",185.17,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ak47_cu_ak47_vulcan_light_png.png"],
 
+["AK-47","Bloodsport","Covert",124.18,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ak47_cu_ak47_bloodsport_light_png.png"],
 
-/* =========================================================
-   SKINS
-   ========================================================= */
+["AWP","Asiimov","Covert",117.35,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_awp_cu_awp_asimov_light_png.png"],
 
-const SKINS = [
+["AWP","Hyper Beast","Covert",31.85,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_awp_cu_awp_hyper_beast_light_png.png"],
 
-/* ================= AK-47 ================= */
+["AWP","Fade","Covert",941.05,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_awp_gs_awp_fade_light_png.png"],
 
-{
-    weapon:"AK-47",
-    name:"Redline",
-    market:"AK-47 | Redline (Field-Tested)",
-    rarity:"Classified",
-    value:28.85,
-    chance:12
-},
+["M4A1-S","Printstream","Covert",139.02,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a1_s_gs_m4a1s_printstream_light_png.png"],
 
-{
-    weapon:"AK-47",
-    name:"Vulcan",
-    market:"AK-47 | Vulcan (Field-Tested)",
-    rarity:"Covert",
-    value:185.17,
-    chance:5
-},
+["M4A4","Asiimov","Covert",200.60,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a4_cu_m4a4_asiimov_light_png.png"],
 
-{
-    weapon:"AK-47",
-    name:"Bloodsport",
-    market:"AK-47 | Bloodsport (Factory New)",
-    rarity:"Covert",
-    value:124.18,
-    chance:4
-},
+["Glock-18","Fade","Covert",1872.81,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_glock_aa_glock_fade_light_png.png"],
 
-{
-    weapon:"AK-47",
-    name:"Nightwish",
-    market:"AK-47 | Nightwish (Factory New)",
-    rarity:"Covert",
-    value:59.66,
-    chance:7
-},
+["USP-S","Kill Confirmed","Covert",67.33,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_usp_s_cu_usp_kill_confirmed_light_png.png"],
 
-{
-    weapon:"AK-47",
-    name:"Ice Coaled",
-    market:"AK-47 | Ice Coaled (Field-Tested)",
-    rarity:"Classified",
-    value:3.79,
-    chance:16
-},
+["Desert Eagle","Printstream","Covert",33.66,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_deagle_gs_deagle_printstream_light_png.png"],
 
-{
-    weapon:"AK-47",
-    name:"Slate",
-    market:"AK-47 | Slate (Field-Tested)",
-    rarity:"Restricted",
-    value:3.36,
-    chance:17
-},
+["★ Butterfly Knife","Doppler Phase 1","Rare Special",1850,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_butterfly_doppler_phase1_light_png.png"],
 
-{
-    weapon:"AK-47",
-    name:"Asiimov",
-    market:"AK-47 | Asiimov (Field-Tested)",
-    rarity:"Covert",
-    value:37.33,
-    chance:10
-},
+["★ Butterfly Knife","Doppler Phase 2","Rare Special",2350,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_butterfly_doppler_phase2_light_png.png"],
 
+["★ Karambit","Doppler Sapphire","Rare Special",5200,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_karambit_doppler_sapphire_light_png.png"],
 
-/* ================= M4A1-S ================= */
+["★ Karambit","Gamma Doppler","Rare Special",3200,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_karambit_doppler_greeno_light_png.png"],
 
-{
-    weapon:"M4A1-S",
-    name:"Printstream",
-    market:"M4A1-S | Printstream (Field-Tested)",
-    rarity:"Covert",
-    value:139.02,
-    chance:5
-},
+["★ Talon Knife","Doppler Phase 1","Rare Special",950,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_widowmaker_doppler_phase1_light_png.png"],
 
-{
-    weapon:"M4A1-S",
-    name:"Blue Phosphor",
-    market:"M4A1-S | Blue Phosphor (Factory New)",
-    rarity:"Covert",
-    value:633.98,
-    chance:1.5
-},
+["★ Huntsman Knife","Doppler Phase 2","Rare Special",700,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_tactical_doppler_phase2_light_png.png"],
 
-{
-    weapon:"M4A1-S",
-    name:"Player Two",
-    market:"M4A1-S | Player Two (Field-Tested)",
-    rarity:"Covert",
-    value:48.93,
-    chance:7
-},
+["★ Ursus Knife","Doppler Phase 4","Rare Special",620,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_ursus_doppler_phase4_light_png.png"],
 
-{
-    weapon:"M4A1-S",
-    name:"Black Lotus",
-    market:"M4A1-S | Black Lotus (Field-Tested)",
-    rarity:"Classified",
-    value:3.81,
-    chance:15
-},
+["★ Navaja Knife","Gamma Doppler","Rare Special",410,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_gypsy_jackknife_doppler_greeno_light_png.png"],
 
+["★ Bowie Knife","Doppler Phase 4","Rare Special",680,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_survival_bowie_doppler_phase4_light_png.png"],
 
-/* ================= M4A4 ================= */
+["★ Flip Knife","Doppler Phase 2","Rare Special",850,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_flip_doppler_phase2_light_png.png"],
 
-{
-    weapon:"M4A4",
-    name:"Howl",
-    market:"M4A4 | Howl (Field-Tested)",
-    rarity:"Contraband",
-    value:2950,
-    chance:.4
-},
+["★ Bayonet","Doppler Phase 2","Rare Special",1100,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_bayonet_doppler_phase2_light_png.png"],
 
-{
-    weapon:"M4A4",
-    name:"Asiimov",
-    market:"M4A4 | Asiimov (Field-Tested)",
-    rarity:"Covert",
-    value:200.60,
-    chance:4
-},
+["★ Gut Knife","Gamma Doppler","Rare Special",390,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_gut_doppler_greeno_light_png.png"],
 
-{
-    weapon:"M4A4",
-    name:"Neo-Noir",
-    market:"M4A4 | Neo-Noir (Field-Tested)",
-    rarity:"Covert",
-    value:31.82,
-    chance:10
-},
+["★ Shadow Daggers","Doppler Phase 3","Rare Special",370,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_push_doppler_phase3_light_png.png"],
 
+["★ Stiletto Knife","Doppler Phase 2","Rare Special",900,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_stiletto_doppler_phase2_light_png.png"],
 
-/* ================= AWP ================= */
-
-{
-    weapon:"AWP",
-    name:"Asiimov",
-    market:"AWP | Asiimov (Field-Tested)",
-    rarity:"Covert",
-    value:117.35,
-    chance:5
-},
-
-{
-    weapon:"AWP",
-    name:"Hyper Beast",
-    market:"AWP | Hyper Beast (Field-Tested)",
-    rarity:"Covert",
-    value:31.85,
-    chance:11
-},
-
-{
-    weapon:"AWP",
-    name:"Redline",
-    market:"AWP | Redline (Field-Tested)",
-    rarity:"Classified",
-    value:35.76,
-    chance:10
-},
-
-{
-    weapon:"AWP",
-    name:"Wildfire",
-    market:"AWP | Wildfire (Field-Tested)",
-    rarity:"Covert",
-    value:39.28,
-    chance:8
-},
-
-{
-    weapon:"AWP",
-    name:"Fade",
-    market:"AWP | Fade (Factory New)",
-    rarity:"Covert",
-    value:941.05,
-    chance:1
-},
-
-
-/* ================= GLOCK ================= */
-
-{
-    weapon:"Glock-18",
-    name:"Fade",
-    market:"Glock-18 | Fade (Factory New)",
-    rarity:"Covert",
-    value:1872.81,
-    chance:.6
-},
-
-{
-    weapon:"Glock-18",
-    name:"Water Elemental",
-    market:"Glock-18 | Water Elemental (Field-Tested)",
-    rarity:"Classified",
-    value:7.45,
-    chance:14
-},
-
-
-/* ================= USP ================= */
-
-{
-    weapon:"USP-S",
-    name:"Kill Confirmed",
-    market:"USP-S | Kill Confirmed (Field-Tested)",
-    rarity:"Covert",
-    value:67.33,
-    chance:6
-},
-
-{
-    weapon:"USP-S",
-    name:"The Traitor",
-    market:"USP-S | The Traitor (Field-Tested)",
-    rarity:"Covert",
-    value:33.14,
-    chance:10
-},
-
-{
-    weapon:"USP-S",
-    name:"Neo-Noir",
-    market:"USP-S | Neo-Noir (Field-Tested)",
-    rarity:"Classified",
-    value:22.40,
-    chance:13
-},
-
-
-/* ================= DEAGLE ================= */
-
-{
-    weapon:"Desert Eagle",
-    name:"Printstream",
-    market:"Desert Eagle | Printstream (Field-Tested)",
-    rarity:"Covert",
-    value:33.66,
-    chance:9
-},
-
-{
-    weapon:"Desert Eagle",
-    name:"Blaze",
-    market:"Desert Eagle | Blaze (Factory New)",
-    rarity:"Restricted",
-    value:677.24,
-    chance:1.5
-},
-
-
-/* ================= OTRAS ================= */
-
-{
-    weapon:"Five-SeveN",
-    name:"Monkey Business",
-    market:"Five-SeveN | Monkey Business (Field-Tested)",
-    rarity:"Classified",
-    value:10.50,
-    chance:12
-},
-
-{
-    weapon:"P250",
-    name:"See Ya Later",
-    market:"P250 | See Ya Later (Field-Tested)",
-    rarity:"Classified",
-    value:11.70,
-    chance:12
-},
-
-{
-    weapon:"CZ75-Auto",
-    name:"Victoria",
-    market:"CZ75-Auto | Victoria (Field-Tested)",
-    rarity:"Covert",
-    value:69.44,
-    chance:4
-},
-
-
-/* =========================================================
-   BUTTERFLY
-   ========================================================= */
-
-{
-    weapon:"★ Butterfly Knife",
-    name:"Doppler Phase 1",
-    market:"★ Butterfly Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:1850,
-    chance:.7,
-    phase:"Phase 1"
-},
-
-{
-    weapon:"★ Butterfly Knife",
-    name:"Doppler Phase 2",
-    market:"★ Butterfly Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:2350,
-    chance:.5,
-    phase:"Phase 2"
-},
-
-{
-    weapon:"★ Butterfly Knife",
-    name:"Doppler Phase 4",
-    market:"★ Butterfly Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:2700,
-    chance:.35,
-    phase:"Phase 4"
-},
-
-{
-    weapon:"★ Butterfly Knife",
-    name:"Gamma Doppler Phase 2",
-    market:"★ Butterfly Knife | Gamma Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:2900,
-    chance:.3,
-    phase:"Phase 2"
-},
-
-{
-    weapon:"★ Butterfly Knife",
-    name:"Gamma Doppler Phase 4",
-    market:"★ Butterfly Knife | Gamma Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:4200,
-    chance:.2,
-    phase:"Phase 4"
-},
-
-
-/* =========================================================
-   KARAMBIT
-   ========================================================= */
-
-{
-    weapon:"★ Karambit",
-    name:"Doppler Phase 1",
-    market:"★ Karambit | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:1500,
-    chance:.8,
-    phase:"Phase 1"
-},
-
-{
-    weapon:"★ Karambit",
-    name:"Doppler Phase 2",
-    market:"★ Karambit | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:2400,
-    chance:.5,
-    phase:"Phase 2"
-},
-
-{
-    weapon:"★ Karambit",
-    name:"Doppler Sapphire",
-    market:"★ Karambit | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:5200,
-    chance:.15,
-    phase:"Sapphire"
-},
-
-{
-    weapon:"★ Karambit",
-    name:"Gamma Doppler Phase 4",
-    market:"★ Karambit | Gamma Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:4800,
-    chance:.2,
-    phase:"Phase 4"
-},
-
-
-/* =========================================================
-   TALON
-   ========================================================= */
-
-{
-    weapon:"★ Talon Knife",
-    name:"Doppler Phase 1",
-    market:"★ Talon Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:950,
-    chance:.8,
-    phase:"Phase 1"
-},
-
-{
-    weapon:"★ Talon Knife",
-    name:"Doppler Phase 2",
-    market:"★ Talon Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:1200,
-    chance:.7,
-    phase:"Phase 2"
-},
-
-{
-    weapon:"★ Talon Knife",
-    name:"Doppler Phase 4",
-    market:"★ Talon Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:1450,
-    chance:.5,
-    phase:"Phase 4"
-},
-
-{
-    weapon:"★ Talon Knife",
-    name:"Gamma Doppler",
-    market:"★ Talon Knife | Gamma Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:1800,
-    chance:.35
-},
-
-
-/* =========================================================
-   HUNTSMAN
-   ========================================================= */
-
-{
-    weapon:"★ Huntsman Knife",
-    name:"Doppler Phase 1",
-    market:"★ Huntsman Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:550,
-    chance:1,
-    phase:"Phase 1"
-},
-
-{
-    weapon:"★ Huntsman Knife",
-    name:"Doppler Phase 2",
-    market:"★ Huntsman Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:700,
-    chance:.8,
-    phase:"Phase 2"
-},
-
-{
-    weapon:"★ Huntsman Knife",
-    name:"Gamma Doppler",
-    market:"★ Huntsman Knife | Gamma Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:850,
-    chance:.5
-},
-
-
-/* =========================================================
-   URSUS
-   ========================================================= */
-
-{
-    weapon:"★ Ursus Knife",
-    name:"Doppler Phase 1",
-    market:"★ Ursus Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:480,
-    chance:1,
-    phase:"Phase 1"
-},
-
-{
-    weapon:"★ Ursus Knife",
-    name:"Doppler Phase 4",
-    market:"★ Ursus Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:620,
-    chance:.8,
-    phase:"Phase 4"
-},
-
-
-/* =========================================================
-   NAVAJA
-   ========================================================= */
-
-{
-    weapon:"★ Navaja Knife",
-    name:"Doppler Phase 2",
-    market:"★ Navaja Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:320,
-    chance:1.3,
-    phase:"Phase 2"
-},
-
-{
-    weapon:"★ Navaja Knife",
-    name:"Gamma Doppler",
-    market:"★ Navaja Knife | Gamma Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:410,
-    chance:1
-},
-
-
-/* =========================================================
-   BOWIE
-   ========================================================= */
-
-{
-    weapon:"★ Bowie Knife",
-    name:"Doppler Sapphire",
-    market:"★ Bowie Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:1100,
-    chance:.4,
-    phase:"Sapphire"
-},
-
-{
-    weapon:"★ Bowie Knife",
-    name:"Doppler Phase 4",
-    market:"★ Bowie Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:680,
-    chance:.8,
-    phase:"Phase 4"
-},
-
-
-/* =========================================================
-   FALCHION
-   ========================================================= */
-
-{
-    weapon:"★ Falchion Knife",
-    name:"Doppler Phase 3",
-    market:"★ Falchion Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:520,
-    chance:1,
-    phase:"Phase 3"
-},
-
-{
-    weapon:"★ Falchion Knife",
-    name:"Gamma Doppler",
-    market:"★ Falchion Knife | Gamma Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:720,
-    chance:.7
-},
-
-
-/* =========================================================
-   FLIP
-   ========================================================= */
-
-{
-    weapon:"★ Flip Knife",
-    name:"Doppler Phase 2",
-    market:"★ Flip Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:850,
-    chance:.8,
-    phase:"Phase 2"
-},
-
-{
-    weapon:"★ Flip Knife",
-    name:"Doppler Phase 4",
-    market:"★ Flip Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:920,
-    chance:.6,
-    phase:"Phase 4"
-},
-
-
-/* =========================================================
-   BAYONET
-   ========================================================= */
-
-{
-    weapon:"★ Bayonet",
-    name:"Doppler Phase 2",
-    market:"★ Bayonet | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:1100,
-    chance:.6,
-    phase:"Phase 2"
-},
-
-{
-    weapon:"★ Bayonet",
-    name:"Doppler Phase 4",
-    market:"★ Bayonet | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:1350,
-    chance:.4,
-    phase:"Phase 4"
-},
-
-
-/* =========================================================
-   GUT
-   ========================================================= */
-
-{
-    weapon:"★ Gut Knife",
-    name:"Gamma Doppler",
-    market:"★ Gut Knife | Gamma Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:390,
-    chance:1
-},
-
-
-/* =========================================================
-   SHADOW DAGGERS
-   ========================================================= */
-
-{
-    weapon:"★ Shadow Daggers",
-    name:"Doppler Phase 3",
-    market:"★ Shadow Daggers | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:370,
-    chance:1.1,
-    phase:"Phase 3"
-},
-
-
-/* =========================================================
-   STILETTO
-   ========================================================= */
-
-{
-    weapon:"★ Stiletto Knife",
-    name:"Doppler Phase 2",
-    market:"★ Stiletto Knife | Doppler (Factory New)",
-    rarity:"Rare Special",
-    value:900,
-    chance:.7,
-    phase:"Phase 2"
-},
-
-
-/* =========================================================
-   SKELETON
-   ========================================================= */
-
-{
-    weapon:"★ Skeleton Knife",
-    name:"Fade",
-    market:"★ Skeleton Knife | Fade (Factory New)",
-    rarity:"Rare Special",
-    value:1350,
-    chance:.4
-},
-
-{
-    weapon:"★ Skeleton Knife",
-    name:"Crimson Web",
-    market:"★ Skeleton Knife | Crimson Web (Field-Tested)",
-    rarity:"Rare Special",
-    value:950,
-    chance:.5
-}
+["★ Skeleton Knife","Fade","Rare Special",1350,
+"https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_skeleton_fade_light_png.png"]
 
 ];
 
 
-/* =========================================================
-   ASIGNAR AUTOMÁTICAMENTE LA IMAGEN
-   ========================================================= */
+/* =====================================================
+   ESTADO
+===================================================== */
 
-SKINS.forEach(skin=>{
+let inventory = [
+    skins[0],
+    skins[3],
+    skins[4],
+    skins[6],
+    skins[8],
+    skins[9]
+];
 
-    /*
-       cs2.sh proporciona imágenes individuales
-       según el nombre del objeto.
-    */
+let selected = [];
 
-    skin.image = cs2Image(skin.market);
+let multiplier = 2;
 
-});
+let coins = 2500;
 
 
-/* =========================================================
-   FALLBACK
-   ========================================================= */
+/* =====================================================
+   COLORES
+===================================================== */
 
-function skinImage(skin){
+function rarityColor(r){
 
-    if(skin.image)
-        return skin.image;
+    if(r==="Covert") return "#eb4b4b";
+    if(r==="Classified") return "#d32ce6";
+    if(r==="Restricted") return "#8847ff";
+    if(r==="Rare Special") return "#ffd700";
 
-    return "https://cs2.sh/image/C0x6zwlC-fAu6Oob";
+    return "#4b8dff";
+}
+
+
+/* =====================================================
+   DINERO
+===================================================== */
+
+function money(n){
+
+    return "$"+Number(n).toLocaleString("en-US",{
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+    });
 
 }
 
 
-/* =========================================================
-   CORREGIR TODAS LAS IMÁGENES
-   ========================================================= */
+/* =====================================================
+   IMAGEN SEGURA
+===================================================== */
 
-function renderSkinImage(skin){
+function safeImage(url){
 
     return `
-        <img
-            src="${skinImage(skin)}"
-            alt="${skin.weapon} ${skin.name}"
-            loading="lazy"
-            onerror="
-                this.onerror=null;
-                this.src='https://cs2.sh/image/C0x6zwlC-fAu6Oob';
-            "
-        >
+    <img
+        src="${url}"
+        alt="CS2 skin"
+        onerror="this.style.display='none';this.parentElement.innerHTML='<div class=noImage>Imagen no disponible</div>'"
+    >`;
+
+}
+
+
+/* =====================================================
+   NAVEGACIÓN
+===================================================== */
+
+function showPage(id,btn){
+
+    document.querySelectorAll(".page")
+        .forEach(p=>p.classList.remove("active"));
+
+    document.getElementById(id)
+        .classList.add("active");
+
+    document.querySelectorAll("nav button")
+        .forEach(b=>b.classList.remove("active"));
+
+    if(btn) btn.classList.add("active");
+
+    if(id==="inventory")
+        renderInventory();
+
+    if(id==="upgrade")
+        renderUpgrade();
+
+}
+
+
+/* =====================================================
+   CAJAS
+===================================================== */
+
+function openCase(price){
+
+    if(coins<price){
+        alert("No tienes suficientes coins.");
+        return;
+    }
+
+    coins-=price;
+
+    document.getElementById("coins").textContent=coins;
+
+    const item=skins[Math.floor(Math.random()*skins.length)];
+
+    inventory.push(item);
+
+    document.getElementById("caseResult").innerHTML=`
+
+    <div class="skin" style="max-width:450px;margin:auto">
+
+        <div class="skinImage"
+        style="border-color:${rarityColor(item[2])}">
+
+            ${safeImage(item[4])}
+
+        </div>
+
+        <div class="skinInfo">
+
+            <div class="weapon">${item[0]}</div>
+
+            <div class="skinName">${item[1]}</div>
+
+            <div class="skinBottom">
+
+                <span
+                class="rarity"
+                style="color:${rarityColor(item[2])}">
+
+                ${item[2]}
+
+                </span>
+
+            </div>
+
+            <div class="value">
+                💰 ${money(item[3])}
+            </div>
+
+        </div>
+
+    </div>
     `;
 
 }
 
+
+/* =====================================================
+   INVENTARIO
+===================================================== */
+
+function renderInventory(){
+
+    const box=document.getElementById("inventoryGrid");
+
+    if(!inventory.length){
+
+        box.innerHTML="<p>No tienes skins.</p>";
+        return;
+
+    }
+
+    box.innerHTML=inventory.map((s,i)=>`
+
+    <div class="inventoryCard">
+
+        ${safeImage(s[4])}
+
+        <div class="weapon">${s[0]}</div>
+
+        <div class="skinName">${s[1]}</div>
+
+        <p style="color:${rarityColor(s[2])};margin-top:7px">
+            ${s[2]}
+        </p>
+
+        <div class="value">
+            💰 ${money(s[3])}
+        </div>
+
+    </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   MULTIPLICADOR
+===================================================== */
+
+function setMultiplier(value,button){
+
+    multiplier=value;
+
+    document.querySelectorAll(".multiplier button")
+        .forEach(b=>b.classList.remove("selected"));
+
+    button.classList.add("selected");
+
+    updateReward();
+
+}
+
+
+/* =====================================================
+   INVENTARIO DE MEJORAS
+===================================================== */
+
+function renderUpgrade(){
+
+    const box=document.getElementById("upgradeInventory");
+
+    box.innerHTML=inventory.map((s,i)=>`
+
+    <div style="
+        display:flex;
+        gap:10px;
+        align-items:center;
+        padding:8px;
+        border-bottom:1px solid #1e2e40;
+    ">
+
+        <img
+            src="${s[4]}"
+            style="width:70px;height:55px;object-fit:contain"
+            onerror="this.style.display='none'"
+        >
+
+        <div style="flex:1">
+
+            <b>${s[1]}</b>
+
+            <div style="color:#ffc400">
+                ${money(s[3])}
+            </div>
+
+        </div>
+
+        <button
+            class="selectBtn"
+            onclick="toggleSelect(${i})">
+
+            ${selected.includes(i) ? "✓" : "+"}
+
+        </button>
+
+    </div>
+
+    `).join("");
+
+    updateReward();
+
+}
+
+
+/* =====================================================
+   SELECCIONAR SKINS
+===================================================== */
+
+function toggleSelect(index){
+
+    if(selected.includes(index)){
+
+        selected=selected.filter(i=>i!==index);
+
+    }else{
+
+        selected.push(index);
+
+    }
+
+    renderUpgrade();
+
+}
+
+
+/* =====================================================
+   RECOMPENSA
+===================================================== */
+
+function updateReward(){
+
+    const total=selected.reduce(
+        (sum,i)=>sum+inventory[i][3],
+        0
+    );
+
+    const target=total*multiplier;
+
+    const possible=skins
+        .filter(s=>s[3]>=target*.9 && s[3]<=target*1.1)
+        .sort((a,b)=>
+            Math.abs(a[3]-target)-
+            Math.abs(b[3]-target)
+        );
+
+    const reward=possible[0];
+
+    const box=document.getElementById("rewardBox");
+
+    if(!selected.length){
+
+        box.innerHTML=`
+
+        <p style="
+        color:#70849a;
+        text-align:center;
+        margin-top:100px">
+
+        Selecciona skins para ver
+        qué puedes ganar.
+
+        </p>`;
+
+        return;
+
+    }
+
+    if(!reward){
+
+        box.innerHTML=`
+
+        <p style="text-align:center;margin-top:80px">
+
+        Valor objetivo:<br>
+
+        <strong style="
+        color:#ffc400;
+        font-size:25px">
+
+        ${money(target)}
+
+        </strong>
+
+        </p>
+
+        <p style="
+        color:#71869c;
+        text-align:center;
+        margin-top:15px">
+
+        No hay una skin cercana
+        a ese valor todavía.
+
+        </p>`;
+
+        return;
+
+    }
+
+    box.innerHTML=`
+
+        <div class="skinImage">
+
+            ${safeImage(reward[4])}
+
+        </div>
+
+        <h3 style="text-align:center;margin-top:10px">
+            ${reward[0]}
+        </h3>
+
+        <h2 style="text-align:center">
+            ${reward[1]}
+        </h2>
+
+        <p style="
+        color:${rarityColor(reward[2])};
+        text-align:center;
+        margin-top:7px">
+
+            ${reward[2]}
+
+        </p>
+
+        <div class="rewardValue">
+
+            ${money(reward[3])}
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   RULETA
+===================================================== */
+
+document.getElementById("winSlider")
+.addEventListener("input",function(){
+
+    const value=this.value;
+
+    document.getElementById("wheel")
+        .style.transform=
+        `rotate(${value/20}deg)`;
+
+});
+
+
+function spinUpgrade(){
+
+    if(!selected.length){
+
+        alert("Selecciona al menos una skin.");
+        return;
+
+    }
+
+    const total=selected.reduce(
+        (sum,i)=>sum+inventory[i][3],
+        0
+    );
+
+    if(total<=0) return;
+
+    const pointer=
+        document.getElementById("pointer");
+
+    const random=
+        1440+
+        Math.floor(Math.random()*360);
+
+    pointer.style.transition=
+        "transform 4s cubic-bezier(.12,.7,.2,1)";
+
+    pointer.style.transform=
+        `translateX(-50%) rotate(${random}deg)`;
+
+    setTimeout(()=>{
+
+        const rewardValue=
+            total*multiplier;
+
+        const candidates=
+            skins.filter(s=>
+                s[3]>=rewardValue*.85 &&
+                s[3]<=rewardValue*1.15
+            );
+
+        if(!candidates.length){
+
+            alert(
+                "No existe una recompensa disponible cerca de "+
+                money(rewardValue)
+            );
+
+            return;
+
+        }
+
+        const reward=
+            candidates[
+                Math.floor(
+                    Math.random()*candidates.length
+                )
+            ];
+
+        const success=
+            Math.random()<0.65;
+
+        if(success){
+
+            selected
+                .sort((a,b)=>b-a)
+                .forEach(i=>{
+                    inventory.splice(i,1);
+                });
+
+            inventory.push(reward);
+
+            selected=[];
+
+            alert(
+                "🎉 ¡MEJORA CONSEGUIDA!\\n\\n"+
+                reward[0]+" | "+reward[1]+
+                "\\nValor: "+money(reward[3])
+            );
+
+            renderUpgrade();
+
+        }else{
+
+            alert(
+                "💥 La mejora falló.\\n"+
+                "Tus skins se perdieron."
+            );
+
+            selected
+                .sort((a,b)=>b-a)
+                .forEach(i=>{
+                    inventory.splice(i,1);
+                });
+
+            selected=[];
+
+            renderUpgrade();
+
+        }
+
+    },4000);
+
+}
+
+
+/* =====================================================
+   INICIALIZAR
+===================================================== */
+
+document.getElementById("coins").textContent=coins;
+
+renderInventory();
+
 </script>
+
+</body>
+</html>
