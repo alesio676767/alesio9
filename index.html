@@ -14,7 +14,7 @@
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#070c12;
+    background:#060b11;
     color:#fff;
     min-height:100vh;
 }
@@ -23,18 +23,14 @@ button,select,input{
     font-family:inherit;
 }
 
-button{
-    cursor:pointer;
-}
-
-.header{
+header{
     height:76px;
     background:#080d13;
-    border-bottom:1px solid #26384b;
+    border-bottom:1px solid #26384d;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 36px;
+    padding:0 35px;
     position:sticky;
     top:0;
     z-index:100;
@@ -50,427 +46,423 @@ button{
     color:#ffad00;
 }
 
-.header-right{
+.headerRight{
     display:flex;
     gap:12px;
 }
 
-.header-btn{
-    background:#101c2b;
-    border:1px solid #38516c;
-    color:#fff;
+.headerBtn{
+    background:#101d2d;
+    color:white;
+    border:1px solid #38506b;
+    padding:12px 20px;
     border-radius:9px;
-    padding:13px 18px;
+    cursor:pointer;
     font-size:14px;
 }
 
-.header-btn:hover{
+.headerBtn:hover{
     border-color:#ffad00;
 }
 
 .coins{
-    color:#ffbf00;
+    color:#ffc400;
     font-weight:bold;
 }
 
-.container{
-    width:min(1160px,94%);
+main{
+    max-width:1200px;
     margin:auto;
+    padding:30px 20px 80px;
 }
 
-.page{
-    display:none;
-    padding:35px 0 70px;
-}
-
-.page.active{
-    display:block;
-}
-
-.hero{
+.pageTitle{
     text-align:center;
-    margin-bottom:30px;
-}
-
-.hero h1{
-    font-size:32px;
+    font-size:30px;
     margin-bottom:8px;
 }
 
-.hero p{
+.subtitle{
+    text-align:center;
     color:#7892ae;
-    font-size:16px;
+    margin-bottom:28px;
 }
 
-/* =========================
-   CAJAS
-========================= */
+.sectionTitle{
+    font-size:24px;
+    margin:30px 0 18px;
+}
 
-.case-grid{
+/* ================= CAJAS ================= */
+
+.casesGrid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
-.case-card{
-    background:#0d1825;
-    border:1px solid #30465d;
-    border-radius:15px;
-    padding:18px;
-    transition:.2s;
+.caseCard{
+    background:linear-gradient(145deg,#111f2f,#0b141f);
+    border:1px solid #334a63;
+    border-radius:14px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.25s;
 }
 
-.case-card:hover{
+.caseCard:hover{
     transform:translateY(-5px);
-    border-color:#ffae00;
-    box-shadow:0 10px 35px rgba(0,0,0,.35);
+    border-color:#ffad00;
+    box-shadow:0 10px 35px #0008;
 }
 
-.case-image{
-    height:185px;
+.caseImage{
+    height:220px;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#101c2a;
-    border-radius:10px;
-    margin-bottom:17px;
-}
-
-.case-svg{
-    width:90%;
-    height:90%;
-}
-
-.case-card h2{
-    font-size:20px;
-    margin-bottom:7px;
-}
-
-.case-card p{
-    color:#7f98b3;
-    line-height:1.5;
-    min-height:68px;
-}
-
-.case-price{
-    display:inline-block;
-    margin-top:13px;
-    padding:10px 15px;
-    background:#132438;
-    border:1px solid #38526d;
-    border-radius:7px;
-    color:#ffc000;
-    font-weight:bold;
-}
-
-.open-case-btn{
-    width:100%;
-    margin-top:13px;
-    padding:12px;
-    border:0;
-    border-radius:8px;
-    background:#ffae00;
-    color:#111;
-    font-weight:bold;
-}
-
-.open-case-btn:hover{
-    background:#ffc13a;
-}
-
-/* =========================
-   DETALLE CAJA
-========================= */
-
-.back-btn{
+    padding:25px;
     background:#101c2b;
-    color:#fff;
-    border:1px solid #38516c;
-    padding:11px 17px;
+}
+
+.caseImage img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    transition:.3s;
+}
+
+.caseCard:hover .caseImage img{
+    transform:scale(1.08);
+}
+
+.caseFallback{
+    width:190px;
+    height:120px;
+    border:3px solid #ffad00;
     border-radius:8px;
-    margin-bottom:22px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffad00;
+    font-weight:bold;
 }
 
-.case-detail{
-    display:grid;
-    grid-template-columns:380px 1fr;
-    gap:30px;
-    align-items:start;
+.caseFallback:before{
+    content:"";
+    position:absolute;
+    width:145px;
+    height:35px;
+    border:3px solid #ffad00;
+    top:-20px;
+    transform:skewX(-25deg);
 }
 
-.big-case{
-    background:#0d1825;
-    border:1px solid #38516c;
-    border-radius:15px;
-    padding:22px;
-    text-align:center;
-    position:sticky;
-    top:100px;
+.caseInfo{
+    padding:18px;
 }
 
-.big-case h2{
-    margin:15px 0 8px;
+.caseInfo h3{
+    font-size:22px;
+    margin-bottom:8px;
 }
 
-.big-case p{
+.caseInfo p{
     color:#7892ae;
     line-height:1.5;
+    min-height:65px;
 }
 
-.big-case .price{
-    margin:17px 0;
-    color:#ffc000;
+.priceBtn{
+    margin-top:15px;
+    background:#14273b;
+    color:#ffc400;
+    border:1px solid #3b5875;
+    padding:10px 16px;
+    border-radius:7px;
     font-weight:bold;
-    font-size:18px;
 }
 
-.open-controls{
-    background:#101c2a;
+/* ================= CAJA DETALLE ================= */
+
+.hidden{
+    display:none!important;
+}
+
+.backBtn{
+    background:#101e2e;
+    border:1px solid #3b5875;
+    color:white;
+    padding:11px 18px;
+    border-radius:7px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.caseDetail{
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:28px;
+}
+
+.casePanel{
+    background:#0c1724;
+    border:1px solid #344c66;
+    border-radius:14px;
+    padding:20px;
+    text-align:center;
+}
+
+.bigCase{
+    height:270px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.bigCase img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.openBox{
+    margin-top:20px;
+    border:1px solid #344c66;
     padding:15px;
     border-radius:10px;
-    border:1px solid #30465d;
-    margin-top:15px;
 }
 
-.open-controls label{
-    color:#9db1c5;
-    display:block;
-    margin-bottom:7px;
-}
-
-.open-controls select{
+.openBox select{
     width:100%;
-    padding:11px;
-    background:#0a121c;
-    color:#fff;
-    border:1px solid #38516c;
+    background:#09121d;
+    color:white;
+    border:1px solid #38506b;
+    padding:12px;
     border-radius:7px;
+    margin:10px 0;
 }
 
-.open-big{
+.openButton{
     width:100%;
-    padding:15px;
-    border:0;
-    border-radius:9px;
     background:#ffad00;
-    color:#111;
+    border:0;
+    color:#101010;
+    padding:14px;
+    border-radius:8px;
     font-weight:900;
-    font-size:17px;
-    margin-top:12px;
+    cursor:pointer;
+    font-size:16px;
 }
 
-.skin-section h2{
-    margin-bottom:17px;
+.openButton:hover{
+    background:#ffc329;
 }
 
-.skin-grid{
+.skinsGrid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:14px;
 }
 
-.skin-card{
-    background:#0d1825;
-    border:1px solid #2d4359;
+.skinCard{
+    background:#101d2c;
+    border:1px solid #324960;
     border-radius:12px;
     overflow:hidden;
 }
 
-.weapon-picture{
-    height:145px;
-    background:#111e2c;
+.skinImage{
+    height:180px;
+    background:linear-gradient(145deg,#132437,#0d1723);
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
+    padding:15px;
+    border-bottom:2px solid #4b69ff;
+}
+
+.skinImage img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.skinImage img.error{
+    display:none;
+}
+
+.skinFallback{
+    font-size:18px;
+    font-weight:bold;
+    color:#6d89a7;
+    text-align:center;
+}
+
+.skinInfo{
     padding:12px;
 }
 
-.weapon-svg{
-    width:95%;
-    height:95%;
-}
-
-.skin-info{
-    padding:13px;
-    border-top:2px solid var(--rarity);
-}
-
-.weapon-name{
-    color:#7590ab;
+.weapon{
     font-size:13px;
+    color:#7794b3;
 }
 
-.skin-name{
+.skinName{
+    font-size:17px;
     font-weight:bold;
-    font-size:16px;
-    margin:4px 0 9px;
+    margin:5px 0;
 }
 
-.skin-bottom{
+.skinBottom{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:10px;
 }
 
 .rarity{
-    color:var(--rarity);
+    font-size:13px;
     font-weight:bold;
-    font-size:13px;
-}
-
-.probability{
-    color:#9db2c8;
-    font-size:13px;
 }
 
 .value{
-    color:#ffc000;
+    color:#ffc400;
     font-weight:bold;
-    margin-top:8px;
 }
 
-/* =========================
-   RESULTADOS
-========================= */
+/* ================= RESULTADO ================= */
 
-.results{
+.resultArea{
     margin-top:35px;
 }
 
-.results h2{
+.resultCard{
+    background:#101d2c;
+    border:1px solid #344c66;
+    border-radius:14px;
+    padding:20px;
     text-align:center;
-    margin-bottom:18px;
+    animation:pop .4s;
 }
 
-.result-grid{
+.resultCard img{
+    max-width:400px;
+    width:100%;
+    height:220px;
+    object-fit:contain;
+}
+
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ================= INVENTARIO ================= */
+
+.inventoryGrid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
 
-.result-card{
-    background:#0d1825;
-    border:1px solid #2d4359;
-    border-radius:12px;
-    overflow:hidden;
+.inventoryCard{
+    background:#101d2c;
+    border:1px solid #344c66;
+    border-radius:10px;
+    padding:12px;
 }
 
-.result-card .weapon-picture{
-    height:180px;
+.inventoryCard img{
+    width:100%;
+    height:130px;
+    object-fit:contain;
 }
 
-.result-info{
-    padding:14px;
+.inventoryCard small{
+    color:#7794b3;
 }
 
-.result-info small{
-    color:#7590ab;
+.inventoryValue{
+    color:#ffc400;
+    font-weight:bold;
+    margin-top:5px;
 }
 
-.result-info h3{
-    margin:4px 0;
-}
+/* ================= MEJORAS ================= */
 
-.result-info strong{
-    color:#ffc000;
-}
-
-/* =========================
-   MEJORAS
-========================= */
-
-.upgrade-top{
-    display:flex;
-    gap:10px;
+.multiplierRow{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
     margin-bottom:20px;
 }
 
 .multiplier{
-    flex:1;
-    padding:13px;
-    background:#101c2b;
+    background:#101d2c;
+    border:1px solid #38506b;
     color:white;
-    border:1px solid #38516c;
+    padding:13px;
     border-radius:8px;
+    cursor:pointer;
     font-weight:bold;
 }
 
-.multiplier.selected{
+.multiplier.active{
     background:#ffad00;
     color:#111;
     border-color:#ffad00;
 }
 
-.upgrade-layout{
+.upgradeGrid{
     display:grid;
-    grid-template-columns:1fr 1.25fr 1fr;
+    grid-template-columns:1fr 1.2fr 1fr;
     gap:18px;
 }
 
-.panel{
+.upgradePanel{
     background:#0d1825;
-    border:1px solid #2f455b;
+    border:1px solid #344c66;
     border-radius:14px;
     padding:18px;
     min-height:500px;
 }
 
-.panel-title{
-    font-size:21px;
+.upgradePanel h2{
     margin-bottom:18px;
 }
 
-.inventory-list{
+.inventorySelect{
     display:flex;
-    flex-direction:column;
-    gap:9px;
-}
-
-.inventory-item{
-    display:grid;
-    grid-template-columns:55px 1fr 34px;
     align-items:center;
-    gap:8px;
-    padding:8px;
-    background:#101c2a;
-    border:1px solid #263b50;
-    border-radius:8px;
+    gap:10px;
+    padding:10px;
+    border-bottom:1px solid #23384d;
+    cursor:pointer;
 }
 
-.inventory-item img{
-    width:55px;
-    height:42px;
+.inventorySelect:hover{
+    background:#142438;
+}
+
+.inventorySelect.selected{
+    background:#18324a;
+    border-left:3px solid #ffad00;
+}
+
+.inventorySelect img{
+    width:70px;
+    height:55px;
     object-fit:contain;
 }
 
-.inventory-item .iname{
-    font-size:13px;
-    font-weight:bold;
-}
-
-.inventory-item .iprice{
-    color:#ffc000;
-    font-size:12px;
-}
-
-.add-btn{
-    width:30px;
-    height:30px;
-    border:1px solid #42607d;
-    background:#122338;
-    color:#fff;
-    border-radius:6px;
-}
-
-.add-btn.selected{
-    background:#ffad00;
-    color:#111;
-}
-
-/* RUEDA */
-
-.wheel-area{
+.wheelArea{
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -481,280 +473,197 @@ button{
     height:280px;
     border-radius:50%;
     position:relative;
-    margin:4px auto 25px;
-    background:
-        conic-gradient(
-            from 0deg,
-            #19d875 0deg,
-            #19d875 55deg,
-            #111a25 55deg,
-            #111a25 360deg
-        );
-    border:8px solid #172637;
-    box-shadow:
-        0 0 0 2px #31475c,
-        0 10px 35px rgba(0,0,0,.5);
+    background:#101820;
+    border:8px solid #202d38;
+    box-shadow:0 0 30px #000;
+    overflow:hidden;
 }
 
-.wheel::after{
-    content:"";
+.winZone{
     position:absolute;
-    width:54px;
-    height:54px;
+    inset:0;
     border-radius:50%;
-    background:#070d13;
-    border:2px solid #91a5b9;
+    background:conic-gradient(
+        transparent 0deg,
+        transparent var(--winStart),
+        #1bd96a var(--winStart),
+        #1bd96a calc(var(--winStart) + var(--winSize)),
+        transparent calc(var(--winStart) + var(--winSize)),
+        transparent 360deg
+    );
+}
+
+.wheelCenter{
+    position:absolute;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#080d12;
+    border:3px solid #fff;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-    z-index:5;
+    z-index:4;
 }
 
-/* Este es el puntero central */
 .pointer{
     position:absolute;
     width:5px;
-    height:125px;
+    height:130px;
     background:#fff;
     left:50%;
-    top:50%;
-    transform-origin:50% 100%;
+    bottom:50%;
+    transform-origin:bottom center;
     transform:translateX(-50%) rotate(0deg);
-    z-index:10;
-    box-shadow:0 0 8px rgba(255,255,255,.8);
+    z-index:5;
+    box-shadow:0 0 12px white;
 }
 
-.pointer::after{
+.pointer:after{
     content:"";
     position:absolute;
-    width:14px;
-    height:14px;
-    border-radius:50%;
-    background:#fff;
+    bottom:-5px;
     left:50%;
-    bottom:-7px;
     transform:translateX(-50%);
+    border-left:8px solid transparent;
+    border-right:8px solid transparent;
+    border-top:15px solid white;
 }
 
-.win-label{
+.winLabel{
     position:absolute;
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+    top:25px;
     left:50%;
-    top:20px;
     transform:translateX(-50%);
     z-index:3;
-    color:#07150d;
-    font-weight:900;
-    font-size:13px;
 }
 
-.win-percent{
-    text-align:center;
-    color:#19d875;
-    font-weight:bold;
-    margin-bottom:12px;
-}
-
-.slider-container{
+.slider{
     width:90%;
+    margin-top:25px;
 }
 
-.slider-container input{
+.slider input{
     width:100%;
-    accent-color:#19d875;
 }
 
-.slider-text{
+.sliderText{
+    color:#7892ae;
+    font-size:13px;
     text-align:center;
-    color:#7f98b3;
-    font-size:12px;
-    margin-top:8px;
+    margin-top:7px;
 }
 
-.spin-btn{
+.spinButton{
     width:90%;
     margin-top:15px;
-    padding:14px;
+    background:#ffad00;
     border:0;
-    border-radius:9px;
-    background:#19d875;
-    color:#06120b;
+    padding:14px;
+    border-radius:8px;
     font-size:17px;
-    font-weight:900;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.spin-btn:hover{
-    background:#34ec8a;
-}
-
-.spin-btn:disabled{
+.spinButton:disabled{
     opacity:.5;
     cursor:not-allowed;
 }
 
-/* RECOMPENSA */
-
-.reward-empty{
-    height:400px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:#7189a1;
-}
-
 .reward{
     text-align:center;
+    min-height:350px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
-.reward .weapon-picture{
-    height:240px;
-    border-radius:10px;
+.reward img{
+    width:100%;
+    height:220px;
+    object-fit:contain;
 }
 
-.reward h3{
-    margin-top:15px;
+.rewardValue{
+    color:#ffc400;
     font-size:20px;
-}
-
-.reward-price{
-    color:#ffc000;
     font-weight:bold;
-    font-size:19px;
-    margin-top:8px;
+    margin-top:10px;
 }
 
-.reward-multiplied{
-    color:#19d875;
-    margin-top:6px;
+.rewardName{
+    font-size:20px;
+    font-weight:bold;
 }
 
-/* =========================
-   MODAL APERTURA
-========================= */
+/* ================= MODAL ================= */
 
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(2,6,10,.88);
-    z-index:500;
-    display:none;
+    background:#000b;
+    display:flex;
     align-items:center;
     justify-content:center;
-    padding:20px;
+    z-index:500;
 }
 
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:min(850px,100%);
+.modalBox{
+    width:min(650px,90%);
     background:#0c1724;
-    border:1px solid #3b536a;
-    border-radius:16px;
+    border:1px solid #415a75;
+    border-radius:15px;
     padding:25px;
     text-align:center;
 }
 
-.modal-box h2{
-    margin-bottom:18px;
+.modalBox img{
+    width:100%;
+    height:280px;
+    object-fit:contain;
 }
 
-.opening-track{
-    height:190px;
-    overflow:hidden;
-    background:#08111b;
-    border:1px solid #30475e;
-    border-radius:10px;
-    position:relative;
+.modalBox h2{
+    margin:10px;
 }
 
-.opening-items{
-    height:100%;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    position:absolute;
-    left:0;
-    top:0;
-    transition:transform 4s cubic-bezier(.1,.8,.2,1);
-}
-
-.opening-item{
-    flex:0 0 150px;
-    height:150px;
-    background:#101e2d;
-    border:1px solid #334b62;
-    border-radius:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    padding:8px;
-}
-
-.opening-item svg{
-    width:120px;
-    height:80px;
-}
-
-.opening-item span{
-    font-size:12px;
-    font-weight:bold;
-    margin-top:5px;
-}
-
-.opening-pointer{
-    position:absolute;
-    left:50%;
-    top:0;
-    width:3px;
-    height:100%;
-    background:#ffad00;
-    transform:translateX(-50%);
-    z-index:5;
-}
-
-.modal-result{
+.close{
     margin-top:20px;
-    display:none;
-}
-
-.modal-result.show{
-    display:block;
-}
-
-.close-btn{
-    margin-top:17px;
-    padding:11px 25px;
-    border:1px solid #435c73;
-    background:#132335;
-    color:white;
+    background:#ffad00;
+    border:0;
+    padding:12px 30px;
     border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:950px){
-    .case-grid{
+    .casesGrid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .case-detail{
+    .caseDetail{
         grid-template-columns:1fr;
     }
 
-    .big-case{
-        position:static;
+    .upgradeGrid{
+        grid-template-columns:1fr;
     }
 
-    .upgrade-layout{
-        grid-template-columns:1fr;
+    .inventoryGrid{
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
 @media(max-width:600px){
-    .header{
+    header{
         padding:0 15px;
     }
 
@@ -762,18 +671,14 @@ button{
         font-size:22px;
     }
 
-    .case-grid,
-    .skin-grid,
-    .result-grid{
+    .casesGrid,
+    .skinsGrid,
+    .inventoryGrid{
         grid-template-columns:1fr;
     }
 
-    .upgrade-top{
-        flex-wrap:wrap;
-    }
-
-    .multiplier{
-        min-width:45%;
+    .multiplierRow{
+        grid-template-columns:repeat(2,1fr);
     }
 }
 </style>
@@ -781,63 +686,63 @@ button{
 
 <body>
 
-<header class="header">
+<header>
     <div class="logo">CASE<span>HUB</span></div>
 
-    <div class="header-right">
-        <button class="header-btn" onclick="showPage('casesPage')">
+    <div class="headerRight">
+        <button class="headerBtn" onclick="showInventory()">
             🎒 Inventario
         </button>
 
-        <button class="header-btn">
-            🪙 <span class="coins" id="coinDisplay">2500</span>
+        <button class="headerBtn">
+            🪙 <span id="coins" class="coins">2500</span>
         </button>
     </div>
 </header>
 
+<main>
 
-<!-- ==========================================================
-     PÁGINA DE CAJAS
-========================================================== -->
+<!-- ================= INICIO ================= -->
 
-<section id="casesPage" class="page active">
-<div class="container">
+<section id="home">
 
-    <div class="hero">
-        <h1>🔥 CASEHUB</h1>
-        <p>Elige una caja y descubre qué skin te toca.</p>
-    </div>
+    <h1 class="pageTitle">🔥 CASEHUB</h1>
+    <p class="subtitle">
+        Elige una caja y descubre qué skin te toca
+    </p>
 
-    <div class="case-grid" id="caseGrid"></div>
+    <h2 class="sectionTitle">📦 Cajas disponibles</h2>
 
-</div>
+    <div id="casesGrid" class="casesGrid"></div>
+
 </section>
 
 
-<!-- ==========================================================
-     PÁGINA DE UNA CAJA
-========================================================== -->
+<!-- ================= DETALLE DE CAJA ================= -->
 
-<section id="caseDetailPage" class="page">
-<div class="container">
+<section id="casePage" class="hidden">
 
-    <button class="back-btn" onclick="showPage('casesPage')">
+    <button class="backBtn" onclick="goHome()">
         ← Volver a las cajas
     </button>
 
-    <div class="case-detail">
+    <div class="caseDetail">
 
-        <div class="big-case">
+        <div class="casePanel">
 
-            <div id="detailCaseImage"></div>
+            <div class="bigCase" id="bigCase"></div>
 
-            <h2 id="detailCaseName"></h2>
+            <h1 id="caseTitle"></h1>
 
-            <p id="detailCaseDescription"></p>
+            <p id="caseDescription"
+               style="color:#7892ae;margin-top:10px;line-height:1.5">
+            </p>
 
-            <div class="price" id="detailCasePrice"></div>
+            <div style="margin:15px;color:#ffc400;font-weight:bold">
+                🪙 <span id="casePrice"></span> coins
+            </div>
 
-            <div class="open-controls">
+            <div class="openBox">
 
                 <label>Abrir cantidad</label>
 
@@ -854,7 +759,7 @@ button{
                     <option value="10">10 cajas</option>
                 </select>
 
-                <button class="open-big" onclick="openCases()">
+                <button class="openButton" onclick="openCase()">
                     🔓 ABRIR CAJA
                 </button>
 
@@ -863,167 +768,173 @@ button{
         </div>
 
 
-        <div class="skin-section">
+        <div>
 
-            <h2>🎨 Skins disponibles</h2>
+            <h2 class="sectionTitle" style="margin-top:0">
+                🎨 Skins disponibles
+            </h2>
 
-            <div class="skin-grid" id="detailSkins"></div>
+            <div id="skinsGrid" class="skinsGrid"></div>
 
         </div>
 
     </div>
 
-</div>
+    <div id="results" class="resultArea"></div>
+
 </section>
 
 
-<!-- ==========================================================
-     MEJORAS
-========================================================== -->
+<!-- ================= INVENTARIO ================= -->
 
-<section id="upgradePage" class="page">
-<div class="container">
+<section id="inventoryPage" class="hidden">
 
-    <div class="hero">
-        <h1>⚒️ Mejoras</h1>
-        <p>Intercambia tus armas por una recompensa de mayor valor.</p>
-    </div>
+    <button class="backBtn" onclick="goHome()">
+        ← Volver
+    </button>
 
-    <div class="upgrade-top">
+    <h1 class="pageTitle">🎒 Inventario</h1>
 
-        <button class="multiplier selected" data-mult="1.5">
+    <p class="subtitle">
+        Tus skins y armas conseguidas
+    </p>
+
+    <div id="inventoryGrid" class="inventoryGrid"></div>
+
+</section>
+
+
+<!-- ================= MEJORAS ================= -->
+
+<section id="upgradePage" class="hidden">
+
+    <button class="backBtn" onclick="goHome()">
+        ← Volver
+    </button>
+
+    <h1 class="pageTitle">⚙️ MEJORAS</h1>
+
+    <p class="subtitle">
+        Intercambia skins por una recompensa de mayor valor
+    </p>
+
+    <div class="multiplierRow">
+
+        <button class="multiplier active"
+                onclick="setMultiplier(1.5,this)">
             1.5x
         </button>
 
-        <button class="multiplier" data-mult="2">
+        <button class="multiplier"
+                onclick="setMultiplier(2,this)">
             2x
         </button>
 
-        <button class="multiplier" data-mult="5">
+        <button class="multiplier"
+                onclick="setMultiplier(5,this)">
             5x
         </button>
 
-        <button class="multiplier" data-mult="10">
+        <button class="multiplier"
+                onclick="setMultiplier(10,this)">
             10x
         </button>
 
     </div>
 
-
-    <div class="upgrade-layout">
+    <div class="upgradeGrid">
 
         <!-- INVENTARIO -->
-        <div class="panel">
 
-            <div class="panel-title">
-                🎒 Inventario
-            </div>
+        <div class="upgradePanel">
 
-            <div id="inventoryList" class="inventory-list"></div>
+            <h2>🎒 Inventario</h2>
+
+            <div id="upgradeInventory"></div>
 
         </div>
 
 
         <!-- RULETA -->
-        <div class="panel">
 
-            <div class="panel-title">
-                🎯 Ruleta
+        <div class="upgradePanel wheelArea">
+
+            <h2>🎯 Ruleta</h2>
+
+            <div class="wheel" id="wheel">
+
+                <div class="winZone" id="winZone"></div>
+
+                <div class="winLabel">
+                    WIN
+                </div>
+
+                <div class="pointer" id="pointer"></div>
+
+                <div class="wheelCenter"></div>
+
             </div>
 
-            <div class="wheel-area">
+            <div class="slider">
 
-                <div class="wheel" id="wheel">
-
-                    <div class="win-label">
-                        WIN
-                    </div>
-
-                    <div class="pointer" id="pointer"></div>
-
-                </div>
-
-                <div class="win-percent">
-                    Zona WIN: <span id="winPercent">15%</span>
-                </div>
-
-                <div class="slider-container">
-
-                    <input
-                        type="range"
-                        id="winSlider"
-                        min="0"
-                        max="345"
-                        value="170"
-                    >
-
-                    <div class="slider-text">
-                        Mueve la barra para colocar la zona WIN
-                    </div>
-
-                </div>
-
-                <button
-                    id="spinButton"
-                    class="spin-btn"
-                    onclick="spinUpgrade()"
+                <input
+                    type="range"
+                    min="0"
+                    max="360"
+                    value="150"
+                    id="winSlider"
+                    oninput="moveWinZone(this.value)"
                 >
-                    🎯 GIRAR
-                </button>
+
+                <div class="sliderText">
+                    Mueve la barra para colocar la zona WIN
+                </div>
 
             </div>
+
+            <button
+                class="spinButton"
+                id="spinButton"
+                onclick="spinWheel()">
+                🎯 GIRAR
+            </button>
 
         </div>
 
 
         <!-- RECOMPENSA -->
-        <div class="panel">
 
-            <div class="panel-title">
-                🏆 Recompensa
-            </div>
+        <div class="upgradePanel">
 
-            <div id="rewardArea" class="reward-empty">
-                Selecciona skins de tu inventario<br>
-                para calcular la recompensa.
+            <h2>🏆 Recompensa</h2>
+
+            <div id="reward" class="reward">
+
+                <div style="color:#7892ae">
+                    Selecciona skins para ver la recompensa.
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-</div>
 </section>
 
+</main>
 
-<!-- ==========================================================
-     MODAL
-========================================================== -->
 
-<div class="modal" id="openModal">
+<!-- ================= MODAL ================= -->
 
-    <div class="modal-box">
+<div id="modal" class="modal hidden">
 
-        <h2>🔓 Abriendo cajas...</h2>
+    <div class="modalBox">
 
-        <div class="opening-track">
+        <div id="modalContent"></div>
 
-            <div class="opening-pointer"></div>
-
-            <div
-                class="opening-items"
-                id="openingItems"
-            ></div>
-
-        </div>
-
-        <div class="modal-result" id="modalResult"></div>
-
-        <button
-            class="close-btn"
-            onclick="closeModal()"
-        >
-            Cerrar
+        <button class="close" onclick="closeModal()">
+            CONTINUAR
         </button>
 
     </div>
@@ -1033,1496 +944,1525 @@ button{
 
 <script>
 
-/* ==========================================================
-   SVG DE CAJAS
-========================================================== */
+/* =========================================================
+   API REAL DE SKINS CS2
+========================================================= */
 
-function caseSVG(color, number){
+const API_SKINS =
+"https://bymykel.github.io/CSGO-API/api/en/skins.json";
 
-return `
-<svg class="case-svg"
-     viewBox="0 0 400 240"
-     xmlns="http://www.w3.org/2000/svg">
+const API_CRATES =
+"https://bymykel.github.io/CSGO-API/api/en/crates.json";
 
-    <defs>
-        <filter id="glow${number}">
-            <feGaussianBlur stdDeviation="5"
-                            result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
 
-    <g fill="none"
-       stroke="${color}"
-       stroke-width="5"
-       filter="url(#glow${number})">
+let allSkins = [];
+let allCrates = [];
 
-        <path d="M65 82 L105 45 L330 45 L360 82"/>
-        <path d="M65 82 L65 175 L360 175 L360 82"/>
-        <path d="M105 45 L105 145"/>
-        <path d="M330 45 L330 145"/>
 
-    </g>
-
-    <rect x="145"
-          y="98"
-          width="135"
-          height="48"
-          rx="5"
-          fill="#0b121b"
-          stroke="${color}"
-          stroke-width="3"/>
-
-    <text x="212"
-          y="128"
-          text-anchor="middle"
-          fill="${color}"
-          font-size="17"
-          font-family="Arial"
-          font-weight="bold">
-        CASE ${number}
-    </text>
-
-</svg>
-`;
-
-}
-
-
-/* ==========================================================
-   SVG DE ARMAS
-   Se generan localmente, por lo que nunca dependen
-   de imágenes externas.
-========================================================== */
-
-function weaponSVG(weapon, skin, color){
-
-let type = "rifle";
-
-if(
-    weapon.includes("Glock") ||
-    weapon.includes("USP") ||
-    weapon.includes("Desert") ||
-    weapon.includes("P250") ||
-    weapon.includes("Five-SeveN") ||
-    weapon.includes("Tec-9") ||
-    weapon.includes("CZ75")
-){
-    type="pistol";
-}
-
-if(
-    weapon.includes("AWP") ||
-    weapon.includes("SSG") ||
-    weapon.includes("Scout")
-){
-    type="sniper";
-}
-
-if(
-    weapon.includes("Knife") ||
-    weapon.includes("Karambit") ||
-    weapon.includes("Butterfly") ||
-    weapon.includes("Bowie") ||
-    weapon.includes("Talon") ||
-    weapon.includes("Huntsman") ||
-    weapon.includes("Ursus") ||
-    weapon.includes("Navaja")
-){
-    type="knife";
-}
-
-
-if(type==="knife"){
-
-return `
-<svg class="weapon-svg"
-viewBox="0 0 500 220"
-xmlns="http://www.w3.org/2000/svg">
-
-<path d="M80 135
-         Q170 35 330 55
-         Q390 65 430 105
-         Q325 90 220 120
-         Q155 138 80 135Z"
-      fill="${color}"
-      stroke="#b8c4d0"
-      stroke-width="4"/>
-
-<path d="M95 136
-         L185 143
-         L160 181
-         L105 174Z"
-      fill="#10161d"
-      stroke="#526273"
-      stroke-width="3"/>
-
-<circle cx="125"
-        cy="155"
-        r="11"
-        fill="#0b1118"
-        stroke="${color}"
-        stroke-width="4"/>
-
-<text x="250"
-      y="205"
-      text-anchor="middle"
-      fill="#70859a"
-      font-size="14">
-${weapon} • ${skin}
-</text>
-
-</svg>
-`;
-}
-
-
-if(type==="pistol"){
-
-return `
-<svg class="weapon-svg"
-viewBox="0 0 500 220"
-xmlns="http://www.w3.org/2000/svg">
-
-<path d="M65 85
-         L330 85
-         L380 105
-         L365 130
-         L235 130
-         L215 180
-         L145 180
-         L155 130
-         L85 130Z"
-      fill="#17212d"
-      stroke="#8293a5"
-      stroke-width="4"/>
-
-<path d="M95 88
-         L300 88
-         L345 105
-         L100 105Z"
-      fill="${color}"/>
-
-<rect x="150"
-      y="130"
-      width="62"
-      height="45"
-      fill="#0a1017"/>
-
-<text x="250"
-      y="205"
-      text-anchor="middle"
-      fill="#70859a"
-      font-size="14">
-${weapon} • ${skin}
-</text>
-
-</svg>
-`;
-}
-
-
-if(type==="sniper"){
-
-return `
-<svg class="weapon-svg"
-viewBox="0 0 500 220"
-xmlns="http://www.w3.org/2000/svg">
-
-<path d="M45 105
-         L350 105
-         L420 115
-         L350 130
-         L70 130
-         L45 118Z"
-      fill="#16222e"
-      stroke="#8495a6"
-      stroke-width="4"/>
-
-<rect x="125"
-      y="82"
-      width="150"
-      height="18"
-      rx="8"
-      fill="${color}"/>
-
-<circle cx="270"
-        cy="91"
-        r="13"
-        fill="#111820"
-        stroke="${color}"
-        stroke-width="4"/>
-
-<path d="M165 130
-         L225 130
-         L205 180
-         L155 180Z"
-      fill="#090f15"/>
-
-<text x="250"
-      y="205"
-      text-anchor="middle"
-      fill="#70859a"
-      font-size="14">
-${weapon} • ${skin}
-</text>
-
-</svg>
-`;
-}
-
-
-return `
-<svg class="weapon-svg"
-viewBox="0 0 500 220"
-xmlns="http://www.w3.org/2000/svg">
-
-<path d="M45 105
-         L345 105
-         L420 118
-         L350 130
-         L75 130
-         L45 120Z"
-      fill="#16222e"
-      stroke="#8495a6"
-      stroke-width="4"/>
-
-<rect x="130"
-      y="88"
-      width="155"
-      height="16"
-      rx="5"
-      fill="${color}"/>
-
-<rect x="150"
-      y="130"
-      width="55"
-      height="55"
-      fill="#080e14"/>
-
-<path d="M285 130
-         L330 130
-         L350 175
-         L295 175Z"
-      fill="#0a1118"/>
-
-<text x="250"
-      y="205"
-      text-anchor="middle"
-      fill="#70859a"
-      font-size="14">
-${weapon} • ${skin}
-</text>
-
-</svg>
-`;
-
-}
-
-
-/* ==========================================================
-   DATOS
-========================================================== */
-
-const skins = [
-
-{
-weapon:"AK-47",
-name:"Neon Rider",
-rarity:"Covert",
-color:"#ff3d4f",
-price:82.50
-},
-
-{
-weapon:"M4A1-S",
-name:"Printstream",
-rarity:"Covert",
-color:"#ff3d4f",
-price:139.02
-},
-
-{
-weapon:"AWP",
-name:"Asiimov",
-rarity:"Covert",
-color:"#ff3d4f",
-price:117.35
-},
-
-{
-weapon:"AK-47",
-name:"Redline",
-rarity:"Classified",
-color:"#e33cff",
-price:62.40
-},
-
-{
-weapon:"AWP",
-name:"Hyper Beast",
-rarity:"Covert",
-color:"#ff3d4f",
-price:91.70
-},
-
-{
-weapon:"M4A1-S",
-name:"Player Two",
-rarity:"Covert",
-color:"#ff3d4f",
-price:76.25
-},
-
-{
-weapon:"USP-S",
-name:"Kill Confirmed",
-rarity:"Covert",
-color:"#ff3d4f",
-price:88.40
-},
-
-{
-weapon:"Glock-18",
-name:"Gamma Doppler",
-rarity:"Restricted",
-color:"#a742ff",
-price:48.20
-},
-
-{
-weapon:"M4A4",
-name:"Temukau",
-rarity:"Classified",
-color:"#e33cff",
-price:41.50
-},
-
-{
-weapon:"Desert Eagle",
-name:"Printstream",
-rarity:"Covert",
-color:"#ff3d4f",
-price:73.90
-},
-
-{
-weapon:"FAMAS",
-name:"Meow 36",
-rarity:"Classified",
-color:"#e33cff",
-price:19.80
-},
-
-{
-weapon:"MP9",
-name:"Starlight Protector",
-rarity:"Classified",
-color:"#e33cff",
-price:16.40
-},
-
-{
-weapon:"MAC-10",
-name:"Stalker",
-rarity:"Covert",
-color:"#ff3d4f",
-price:36.70
-},
-
-{
-weapon:"USP-S",
-name:"Printstream",
-rarity:"Covert",
-color:"#ff3d4f",
-price:49.30
-},
-
-{
-weapon:"M4A4",
-name:"Asiimov",
-rarity:"Covert",
-color:"#ff3d4f",
-price:112.80
-},
-
-{
-weapon:"AK-47",
-name:"The Empress",
-rarity:"Covert",
-color:"#ff3d4f",
-price:85.20
-},
-
-{
-weapon:"AWP",
-name:"Containment Breach",
-rarity:"Covert",
-color:"#ff3d4f",
-price:71.60
-},
-
-{
-weapon:"M4A1-S",
-name:"Golden Coil",
-rarity:"Covert",
-color:"#ff3d4f",
-price:94.50
-},
-
-{
-weapon:"Glock-18",
-name:"Water Elemental",
-rarity:"Classified",
-color:"#e33cff",
-price:18.30
-},
-
-{
-weapon:"P250",
-name:"See Ya Later",
-rarity:"Classified",
-color:"#e33cff",
-price:12.80
-},
-
-/* =======================
-   CUCHILLOS
-======================= */
-
-{
-weapon:"Karambit",
-name:"Doppler Phase 2",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:690.00
-},
-
-{
-weapon:"Butterfly Knife",
-name:"Doppler Phase 2",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:910.00
-},
-
-{
-weapon:"Butterfly Knife",
-name:"Gamma Doppler",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:875.00
-},
-
-{
-weapon:"Talon Knife",
-name:"Doppler Phase 1",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:520.00
-},
-
-{
-weapon:"Talon Knife",
-name:"Fade",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:760.00
-},
-
-{
-weapon:"Huntsman Knife",
-name:"Gamma Doppler",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:310.00
-},
-
-{
-weapon:"Huntsman Knife",
-name:"Doppler",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:285.00
-},
-
-{
-weapon:"Bowie Knife",
-name:"Doppler Phase 2",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:330.00
-},
-
-{
-weapon:"Bowie Knife",
-name:"Fade",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:410.00
-},
-
-{
-weapon:"Ursus Knife",
-name:"Doppler",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:340.00
-},
-
-{
-weapon:"Ursus Knife",
-name:"Fade",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:390.00
-},
-
-{
-weapon:"Navaja Knife",
-name:"Doppler",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:170.00
-},
-
-{
-weapon:"Navaja Knife",
-name:"Fade",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:205.00
-},
-
-{
-weapon:"Flip Knife",
-name:"Gamma Doppler",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:390.00
-},
-
-{
-weapon:"Flip Knife",
-name:"Doppler Phase 2",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:355.00
-},
-
-{
-weapon:"Bayonet",
-name:"Doppler Phase 2",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:590.00
-},
-
-{
-weapon:"Bayonet",
-name:"Gamma Doppler",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:640.00
-},
-
-{
-weapon:"M9 Bayonet",
-name:"Doppler Phase 2",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:950.00
-},
-
-{
-weapon:"M9 Bayonet",
-name:"Gamma Doppler",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:1080.00
-},
-
-{
-weapon:"Skeleton Knife",
-name:"Fade",
-rarity:"★ Rare Special",
-color:"#ffd000",
-price:820.00
-}
-
-];
-
-
-/* ==========================================================
-   CAJAS
-========================================================== */
+/* =========================================================
+   DATOS DE CAJAS
+========================================================= */
 
 const cases = [
 
-{
-id:1,
-name:"Phoenix Case",
-description:"Una colección con skins modernas, coloridas y extremadamente raras.",
-price:100,
-color:"#ffad00",
-skins:[0,3,7,10,12,15,18]
-},
+    {
+        id:"phoenix",
+        name:"Phoenix Case",
+        price:100,
+        description:
+        "Una colección con skins modernas, coloridas y extremadamente raras.",
+        color:"#ffad00",
 
-{
-id:2,
-name:"Revolution Case",
-description:"Una caja de alto nivel con algunas de las skins más buscadas.",
-price:150,
-color:"#ff3d4f",
-skins:[1,2,4,5,6,9,11,14]
-},
+        searches:[
+            "AK-47 | Redline",
+            "AWP | Asiimov",
+            "M4A1-S | Hyper Beast",
+            "USP-S | Guardian",
+            "MAC-10 | Stalker",
+            "Desert Eagle | Conspiracy"
+        ]
+    },
 
-{
-id:3,
-name:"Dreams & Nightmares",
-description:"Una caja oscura llena de diseños espectaculares.",
-price:250,
-color:"#a347ff",
-skins:[0,2,4,8,12,16,17]
-},
+    {
+        id:"revolution",
+        name:"Revolution Case",
+        price:150,
+        description:
+        "Una caja de alto nivel con algunas de las skins más buscadas.",
+        color:"#ff4050",
 
-{
-id:4,
-name:"Fracture Case",
-description:"Una caja premium con posibilidad de conseguir un cuchillo.",
-price:350,
-color:"#478aff",
-skins:[1,3,6,9,13,15,20,21,22,23,24,25]
-}
+        searches:[
+            "AK-47 | Head Shot",
+            "M4A1-S | Printstream",
+            "AWP | Neo-Noir",
+            "Glock-18 | Vogue",
+            "P250 | Visions",
+            "UMP-45 | Wild Child"
+        ]
+    },
+
+    {
+        id:"dreams",
+        name:"Dreams & Nightmares",
+        price:250,
+        description:
+        "Una caja oscura llena de diseños espectaculares.",
+        color:"#994cff",
+
+        searches:[
+            "AK-47 | Nightwish",
+            "MP9 | Starlight Protector",
+            "FAMAS | Rapid Eye Movement",
+            "USP-S | Ticket to Hell",
+            "Five-SeveN | Scrawl",
+            "MAC-10 | Ensnared"
+        ]
+    },
+
+    {
+        id:"fracture",
+        name:"Fracture Case",
+        price:350,
+        description:
+        "Una caja premium con posibilidad de conseguir un cuchillo.",
+        color:"#4387ff",
+
+        searches:[
+            "AK-47 | Legion of Anubis",
+            "M4A4 | Tooth Fairy",
+            "Glock-18 | Vogue",
+            "Desert Eagle | Printstream",
+            "SSG 08 | Dragonfire",
+            "AWP | Asiimov"
+        ]
+    }
 
 ];
 
 
-/* ==========================================================
+/* =========================================================
+   SKINS EXTRA PARA INVENTARIO / MEJORAS
+========================================================= */
+
+const extraSearches = [
+
+    "AK-47 | Asiimov",
+    "AK-47 | Vulcan",
+    "AK-47 | Bloodsport",
+    "AK-47 | Neon Rider",
+    "AK-47 | Fuel Injector",
+
+    "M4A1-S | Printstream",
+    "M4A1-S | Hyper Beast",
+    "M4A1-S | Player Two",
+
+    "M4A4 | Howl",
+    "M4A4 | Asiimov",
+    "M4A4 | Desolate Space",
+
+    "AWP | Dragon Lore",
+    "AWP | Asiimov",
+    "AWP | Hyper Beast",
+    "AWP | Neo-Noir",
+
+    "USP-S | Kill Confirmed",
+    "USP-S | Printstream",
+    "USP-S | Neo-Noir",
+
+    "Glock-18 | Gamma Doppler",
+    "Glock-18 | Vogue",
+
+    "Desert Eagle | Printstream",
+    "Desert Eagle | Code Red",
+
+    "MAC-10 | Stalker",
+    "MP9 | Starlight Protector",
+
+    "FAMAS | Meow 36",
+    "FAMAS | Rapid Eye Movement",
+
+    "P250 | See Ya Later",
+    "Five-SeveN | Hyper Beast",
+
+    "★ Butterfly Knife | Doppler",
+    "★ Karambit | Doppler",
+    "★ M9 Bayonet | Doppler",
+    "★ Bayonet | Doppler",
+    "★ Talon Knife | Doppler",
+    "★ Ursus Knife | Doppler",
+    "★ Huntsman Knife | Doppler",
+    "★ Bowie Knife | Doppler",
+    "★ Navaja Knife | Doppler",
+    "★ Falchion Knife | Doppler",
+    "★ Skeleton Knife | Doppler",
+    "★ Stiletto Knife | Doppler",
+    "★ Nomad Knife | Doppler",
+    "★ Survival Knife | Doppler",
+    "★ Paracord Knife | Doppler",
+    "★ Classic Knife | Doppler",
+    "★ Kukri Knife | Doppler",
+    "★ Butterfly Knife | Gamma Doppler",
+    "★ Karambit | Gamma Doppler",
+    "★ M9 Bayonet | Gamma Doppler"
+];
+
+
+/* =========================================================
+   PRECIOS PERSONALIZADOS
+========================================================= */
+
+const customPrices = {
+
+    "AK-47 | Redline":82.50,
+    "AWP | Asiimov":117.35,
+    "M4A1-S | Printstream":139.02,
+    "MAC-10 | Stalker":36.70,
+
+    "M4A4 | Howl":4200.50,
+    "AWP | Dragon Lore":8500.75,
+    "AK-47 | Vulcan":310.25,
+    "AK-47 | Bloodsport":165.40,
+    "AK-47 | Neon Rider":92.70,
+    "AK-47 | Fuel Injector":185.20,
+
+    "USP-S | Kill Confirmed":110.40,
+    "USP-S | Printstream":78.35,
+    "Desert Eagle | Printstream":55.80,
+
+    "★ Butterfly Knife | Doppler":1250.50,
+    "★ Karambit | Doppler":1800.75,
+    "★ M9 Bayonet | Doppler":1050.30,
+    "★ Talon Knife | Doppler":720.40,
+    "★ Ursus Knife | Doppler":380.25,
+    "★ Huntsman Knife | Doppler":450.60,
+    "★ Bowie Knife | Doppler":390.40,
+    "★ Navaja Knife | Doppler":280.35,
+    "★ Falchion Knife | Doppler":320.55,
+    "★ Skeleton Knife | Doppler":980.70,
+    "★ Stiletto Knife | Doppler":610.20,
+    "★ Nomad Knife | Doppler":520.30,
+    "★ Survival Knife | Doppler":360.40,
+    "★ Paracord Knife | Doppler":350.25,
+    "★ Classic Knife | Doppler":340.70,
+    "★ Kukri Knife | Doppler":410.80,
+
+    "★ Butterfly Knife | Gamma Doppler":1600.75,
+    "★ Karambit | Gamma Doppler":2300.90,
+    "★ M9 Bayonet | Gamma Doppler":1500.50
+};
+
+
+/* =========================================================
    ESTADO
-========================================================== */
+========================================================= */
 
-let coins=2500;
-let currentCase=null;
-let inventory=[];
+let coins = 2500;
 
-let selectedMultiplier=1.5;
-let selectedItems=[];
+let currentCase = null;
 
-let spinning=false;
+let inventory = [];
+
+let selectedItems = [];
+
+let multiplier = 1.5;
+
+let spinning = false;
+
+let pointerRotation = 0;
 
 
-/* ==========================================================
-   UTILIDADES
-========================================================== */
+/* =========================================================
+   CARGAR API
+========================================================= */
 
-function showPage(id){
+async function loadAPI(){
 
-document.querySelectorAll(".page").forEach(
-    p=>p.classList.remove("active")
-);
+    try{
 
-document.getElementById(id).classList.add("active");
+        const skinResponse =
+            await fetch(API_SKINS);
 
-window.scrollTo({
-    top:0,
-    behavior:"smooth"
-});
+        allSkins =
+            await skinResponse.json();
 
-if(id==="upgradePage"){
-    renderInventory();
+        const crateResponse =
+            await fetch(API_CRATES);
+
+        allCrates =
+            await crateResponse.json();
+
+        console.log(
+            "CS2 skins cargadas:",
+            allSkins.length
+        );
+
+        renderCases();
+
+    }catch(error){
+
+        console.error(error);
+
+        renderCases();
+
+        alert(
+            "No se pudo cargar la base de imágenes de CS2. "+
+            "La página seguirá funcionando con imágenes de respaldo."
+        );
+    }
+
 }
 
+
+/* =========================================================
+   BUSCAR SKIN
+========================================================= */
+
+function findSkin(search){
+
+    if(!allSkins.length)
+        return null;
+
+    let exact =
+        allSkins.find(s =>
+            s.name.toLowerCase() ===
+            search.toLowerCase()
+        );
+
+    if(exact)
+        return exact;
+
+    let partial =
+        allSkins.find(s =>
+            s.name.toLowerCase().includes(
+                search.toLowerCase()
+            )
+        );
+
+    return partial || null;
 }
 
 
-/* ==========================================================
-   RENDER CAJAS
-========================================================== */
+/* =========================================================
+   IMAGEN FALLBACK
+========================================================= */
+
+function imageHTML(skin,name){
+
+    if(skin && skin.image){
+
+        return `
+            <img
+                src="${skin.image}"
+                alt="${escapeHTML(name)}"
+                onerror="this.style.display='none';
+                this.nextElementSibling.style.display='block';"
+            >
+
+            <div class="skinFallback"
+                 style="display:none">
+                ${escapeHTML(name)}
+            </div>
+        `;
+    }
+
+    return `
+        <div class="skinFallback">
+            ${escapeHTML(name)}
+        </div>
+    `;
+}
+
+
+/* =========================================================
+   CAJAS
+========================================================= */
 
 function renderCases(){
 
-const grid=document.getElementById("caseGrid");
+    const grid =
+        document.getElementById("casesGrid");
 
-grid.innerHTML="";
+    grid.innerHTML = "";
 
-cases.forEach(c=>{
+    cases.forEach(c => {
 
-const div=document.createElement("div");
+        let crate =
+            findCrate(c.name);
 
-div.className="case-card";
+        let image =
+            crate && crate.image
+            ? `
+                <img
+                    src="${crate.image}"
+                    alt="${c.name}"
+                    onerror="this.style.display='none';
+                    this.nextElementSibling.style.display='flex';"
+                >
 
-div.innerHTML=`
+                <div class="caseFallback"
+                     style="display:none;
+                     border-color:${c.color};
+                     color:${c.color}">
+                    CASE
+                </div>
+              `
+            :
+              `
+                <div class="caseFallback"
+                     style="border-color:${c.color};
+                     color:${c.color}">
+                    CASE
+                </div>
+              `;
 
-<div class="case-image">
-    ${caseSVG(c.color,c.id)}
-</div>
+        grid.innerHTML += `
 
-<h2>${c.name}</h2>
+            <div class="caseCard"
+                 onclick="enterCase('${c.id}')">
 
-<p>${c.description}</p>
+                <div class="caseImage">
+                    ${image}
+                </div>
 
-<div class="case-price">
-    🪙 ${c.price} coins
-</div>
+                <div class="caseInfo">
 
-<button
-    class="open-case-btn"
-    onclick="enterCase(${c.id})"
->
-    ENTRAR A LA CAJA
-</button>
+                    <h3>${c.name}</h3>
 
-`;
+                    <p>${c.description}</p>
 
-grid.appendChild(div);
+                    <div class="priceBtn">
+                        🪙 ${c.price} coins
+                    </div>
 
-});
+                </div>
+
+            </div>
+
+        `;
+
+    });
 
 }
 
 
-/* ==========================================================
-   ENTRAR EN CAJA
-========================================================== */
+function findCrate(name){
+
+    if(!allCrates.length)
+        return null;
+
+    return allCrates.find(c =>
+        c.name &&
+        c.name.toLowerCase() ===
+        name.toLowerCase()
+    ) || allCrates.find(c =>
+        c.name &&
+        c.name.toLowerCase().includes(
+            name.toLowerCase()
+        )
+    );
+}
+
+
+/* =========================================================
+   ENTRAR A CAJA
+========================================================= */
 
 function enterCase(id){
 
-currentCase=cases.find(c=>c.id===id);
+    currentCase =
+        cases.find(c => c.id === id);
 
-document.getElementById("detailCaseName").textContent=
-currentCase.name;
+    if(!currentCase)
+        return;
 
-document.getElementById("detailCaseDescription").textContent=
-currentCase.description;
+    hideAll();
 
-document.getElementById("detailCasePrice").textContent=
-"🪙 "+currentCase.price+" coins";
+    document
+        .getElementById("casePage")
+        .classList.remove("hidden");
 
-document.getElementById("detailCaseImage").innerHTML=
-caseSVG(currentCase.color,currentCase.id);
+    document
+        .getElementById("caseTitle")
+        .textContent =
+        currentCase.name;
 
-renderCaseSkins();
+    document
+        .getElementById("caseDescription")
+        .textContent =
+        currentCase.description;
 
-showPage("caseDetailPage");
+    document
+        .getElementById("casePrice")
+        .textContent =
+        currentCase.price;
+
+    renderBigCase();
+
+    renderCaseSkins();
+
+    document
+        .getElementById("results")
+        .innerHTML = "";
 
 }
 
 
-/* ==========================================================
+function renderBigCase(){
+
+    let crate =
+        findCrate(currentCase.name);
+
+    const box =
+        document.getElementById("bigCase");
+
+    if(crate && crate.image){
+
+        box.innerHTML = `
+
+            <img
+                src="${crate.image}"
+                alt="${currentCase.name}"
+                onerror="this.style.display='none';
+                this.nextElementSibling.style.display='flex';"
+            >
+
+            <div class="caseFallback"
+                 style="display:none;
+                 border-color:${currentCase.color};
+                 color:${currentCase.color}">
+                CASE
+            </div>
+        `;
+
+    }else{
+
+        box.innerHTML = `
+
+            <div class="caseFallback"
+                 style="
+                 border-color:${currentCase.color};
+                 color:${currentCase.color}">
+                CASE
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
    SKINS DE LA CAJA
-========================================================== */
+========================================================= */
 
 function renderCaseSkins(){
 
-const container=document.getElementById("detailSkins");
+    const grid =
+        document.getElementById("skinsGrid");
 
-container.innerHTML="";
+    grid.innerHTML = "";
 
-const list=currentCase.skins.map(i=>skins[i]);
+    currentCase.searches.forEach(
+        (search,index) => {
 
-/*
-   Probabilidades deliberadamente más accesibles
-   para que las skins raras no sean imposibles.
-*/
+            let skin =
+                findSkin(search);
 
-const probabilities=[
-    18,
-    15,
-    12,
-    10,
-    9,
-    7,
-    5,
-    4,
-    3,
-    2,
-    1.5,
-    1
-];
+            let name =
+                skin
+                ? skin.name
+                : search;
 
-list.forEach((skin,index)=>{
+            let price =
+                customPrices[name] ||
+                (20 + Math.random()*200);
 
-const probability=
-probabilities[index] || 0.8;
+            let rarity =
+                skin && skin.rarity
+                ? skin.rarity.name
+                : getRarity(index);
 
-const card=document.createElement("div");
+            let color =
+                skin &&
+                skin.rarity &&
+                skin.rarity.color
+                ? skin.rarity.color
+                : "#4b69ff";
 
-card.className="skin-card";
+            grid.innerHTML += `
 
-card.style.setProperty(
-"--rarity",
-skin.color
-);
+                <div class="skinCard">
 
-card.innerHTML=`
+                    <div
+                        class="skinImage"
+                        style="border-bottom-color:${color}"
+                    >
 
-<div class="weapon-picture">
-    ${weaponSVG(
-        skin.weapon,
-        skin.name,
-        skin.color
-    )}
-</div>
+                        ${imageHTML(skin,name)}
 
-<div class="skin-info">
+                    </div>
 
-<div class="weapon-name">
-${skin.weapon}
-</div>
+                    <div class="skinInfo">
 
-<div class="skin-name">
-${skin.name}
-</div>
+                        <div class="weapon">
+                            ${getWeapon(name)}
+                        </div>
 
-<div class="skin-bottom">
+                        <div class="skinName">
+                            ${escapeHTML(
+                                getSkinName(name)
+                            )}
+                        </div>
 
-<span class="rarity">
-${skin.rarity}
-</span>
+                        <div class="skinBottom">
 
-<span class="probability">
-${probability}%
-</span>
+                            <span
+                                class="rarity"
+                                style="color:${color}"
+                            >
+                                ${rarity}
+                            </span>
 
-</div>
+                            <span class="value">
+                                $${price.toFixed(2)}
+                            </span>
 
-<div class="value">
-🪙 $${skin.price.toFixed(2)}
-</div>
+                        </div>
 
-</div>
+                    </div>
 
-`;
+                </div>
+            `;
 
-container.appendChild(card);
-
-});
+        }
+    );
 
 }
 
 
-/* ==========================================================
-   ABRIR CAJAS
-========================================================== */
+/* =========================================================
+   ABRIR CAJA
+========================================================= */
 
-function openCases(){
+function openCase(){
 
-if(!currentCase)return;
+    if(!currentCase)
+        return;
 
-const amount=
-parseInt(document.getElementById("openAmount").value);
+    let amount =
+        parseInt(
+            document.getElementById(
+                "openAmount"
+            ).value
+        );
 
-const total=currentCase.price*amount;
+    let total =
+        currentCase.price * amount;
 
-if(coins<total){
+    if(coins < total){
 
-alert("No tienes suficientes coins.");
+        alert("No tienes suficientes coins.");
 
-return;
+        return;
+    }
 
-}
+    coins -= total;
 
-coins-=total;
+    updateCoins();
 
-updateCoins();
+    let results = [];
 
-const modal=document.getElementById("openModal");
+    for(let i=0;i<amount;i++){
 
-modal.classList.add("show");
+        let index =
+            Math.floor(
+                Math.random() *
+                currentCase.searches.length
+            );
 
-const items=
-document.getElementById("openingItems");
+        let search =
+            currentCase.searches[index];
 
-items.innerHTML="";
+        let skin =
+            findSkin(search);
 
-const pool=currentCase.skins.map(i=>skins[i]);
+        let name =
+            skin ? skin.name : search;
 
-let results=[];
+        let value =
+            customPrices[name] ||
+            (20 + Math.random()*250);
 
-for(let i=0;i<amount;i++){
+        let item = {
 
-const random=
-pool[Math.floor(Math.random()*pool.length)];
+            id:
+                Date.now() +
+                Math.random(),
 
-results.push(random);
+            name:name,
 
-}
+            weapon:getWeapon(name),
 
-/*
-   Repetimos elementos para crear la animación
-*/
+            value:value,
 
-let visual=[];
+            image:
+                skin ? skin.image : null,
 
-for(let i=0;i<30;i++){
+            rarity:
+                skin &&
+                skin.rarity
+                ? skin.rarity.name
+                : "Classified"
 
-visual.push(
-    pool[Math.floor(Math.random()*pool.length)]
-);
+        };
 
-}
+        results.push(item);
 
-visual.splice(
-    20,
-    0,
-    results[results.length-1]
-);
+        inventory.push(item);
 
-visual.forEach(skin=>{
+    }
 
-const div=document.createElement("div");
+    saveInventory();
 
-div.className="opening-item";
-
-div.innerHTML=`
-
-${weaponSVG(
-    skin.weapon,
-    skin.name,
-    skin.color
-)}
-
-<span>
-${skin.name}
-</span>
-
-`;
-
-items.appendChild(div);
-
-});
-
-const itemWidth=162;
-
-items.style.transition="none";
-items.style.transform="translateX(0px)";
-
-setTimeout(()=>{
-
-const target=
--(20*itemWidth)+
-(window.innerWidth/2)-100;
-
-items.style.transition=
-"transform 4s cubic-bezier(.1,.8,.2,1)";
-
-items.style.transform=
-`translateX(${target}px)`;
-
-},100);
-
-setTimeout(()=>{
-
-results.forEach(item=>{
-    inventory.push(item);
-});
-
-document.getElementById("modalResult").innerHTML=`
-
-<h3>🎉 ¡Has conseguido!</h3>
-
-${results.map(s=>`
-
-<div style="
-margin-top:10px;
-padding:10px;
-background:#101c2a;
-border-radius:8px;
-border-left:3px solid ${s.color};
-">
-
-${s.weapon} — ${s.name}
-
-<strong style="color:#ffc000">
-$${s.price.toFixed(2)}
-</strong>
-
-</div>
-
-`).join("")}
-
-`;
-
-document.getElementById("modalResult")
-.classList.add("show");
-
-},4200);
+    showResults(results);
 
 }
 
 
-/* ==========================================================
-   CERRAR MODAL
-========================================================== */
+/* =========================================================
+   RESULTADOS
+========================================================= */
 
-function closeModal(){
+function showResults(results){
 
-document.getElementById("openModal")
-.classList.remove("show");
+    const resultsArea =
+        document.getElementById("results");
 
-document.getElementById("modalResult")
-.classList.remove("show");
+    resultsArea.innerHTML = `
+        <h2 class="sectionTitle">
+            🎉 Resultados
+        </h2>
+    `;
+
+    let grid =
+        document.createElement("div");
+
+    grid.className = "skinsGrid";
+
+    results.forEach(item => {
+
+        let card =
+            document.createElement("div");
+
+        card.className = "resultCard";
+
+        card.innerHTML = `
+
+            ${
+                item.image
+                ?
+                `
+                <img
+                    src="${item.image}"
+                    alt="${escapeHTML(item.name)}"
+                    onerror="this.style.display='none'"
+                >
+                `
+                :
+                `<div style="
+                    height:220px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#7892ae">
+                    ${escapeHTML(item.name)}
+                </div>`
+            }
+
+            <h2>
+                ${escapeHTML(item.name)}
+            </h2>
+
+            <div class="rarity">
+                ${escapeHTML(item.rarity)}
+            </div>
+
+            <div class="value">
+                💰 $${item.value.toFixed(2)}
+            </div>
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+    resultsArea.appendChild(grid);
+
+    resultsArea.scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
 
-/* ==========================================================
-   COINS
-========================================================== */
-
-function updateCoins(){
-
-document.getElementById("coinDisplay").textContent=
-coins.toLocaleString();
-
-}
-
-
-/* ==========================================================
+/* =========================================================
    INVENTARIO
-========================================================== */
+========================================================= */
+
+function showInventory(){
+
+    hideAll();
+
+    document
+        .getElementById("inventoryPage")
+        .classList.remove("hidden");
+
+    renderInventory();
+
+}
+
 
 function renderInventory(){
 
-const list=
-document.getElementById("inventoryList");
+    const grid =
+        document.getElementById(
+            "inventoryGrid"
+        );
 
-list.innerHTML="";
+    grid.innerHTML = "";
 
-if(inventory.length===0){
+    if(!inventory.length){
 
-list.innerHTML=`
-<div style="
-color:#7189a1;
-text-align:center;
-padding:30px 10px;
-">
-Todavía no tienes skins.<br>
-Abre algunas cajas primero.
-</div>
-`;
+        grid.innerHTML = `
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                color:#7892ae;
+                padding:60px">
+                Tu inventario está vacío.
+            </div>
+        `;
 
-return;
+        return;
+    }
 
-}
+    inventory.forEach(item => {
 
-inventory.forEach((skin,index)=>{
+        grid.innerHTML += `
 
-const selected=
-selectedItems.includes(index);
+            <div class="inventoryCard">
 
-const div=document.createElement("div");
+                ${
+                    item.image
+                    ?
+                    `<img
+                        src="${item.image}"
+                        alt="${escapeHTML(item.name)}"
+                        onerror="this.style.display='none'"
+                    >`
+                    :
+                    `<div style="
+                        height:130px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        color:#7892ae">
+                        ${escapeHTML(item.name)}
+                    </div>`
+                }
 
-div.className="inventory-item";
+                <small>
+                    ${escapeHTML(item.weapon)}
+                </small>
 
-div.innerHTML=`
+                <div style="font-weight:bold">
+                    ${escapeHTML(
+                        getSkinName(item.name)
+                    )}
+                </div>
 
-<div>
-${weaponSVG(
-    skin.weapon,
-    skin.name,
-    skin.color
-)}
-</div>
+                <div class="inventoryValue">
+                    $${item.value.toFixed(2)}
+                </div>
 
-<div>
+            </div>
 
-<div class="iname">
-${skin.weapon} ${skin.name}
-</div>
+        `;
 
-<div class="iprice">
-$${skin.price.toFixed(2)}
-</div>
-
-</div>
-
-<button
-class="add-btn ${selected?"selected":""}"
-onclick="toggleInventoryItem(${index})"
->
-${selected?"✓":"+"}
-</button>
-
-`;
-
-list.appendChild(div);
-
-});
-
-}
-
-
-/* ==========================================================
-   SELECCIONAR SKINS
-========================================================== */
-
-function toggleInventoryItem(index){
-
-if(selectedItems.includes(index)){
-
-selectedItems=
-selectedItems.filter(i=>i!==index);
-
-}else{
-
-selectedItems.push(index);
-
-}
-
-calculateReward();
-
-renderInventory();
+    });
 
 }
 
 
-/* ==========================================================
-   MULTIPLICADORES
-========================================================== */
+/* =========================================================
+   MEJORAS
+========================================================= */
 
-document.querySelectorAll(".multiplier").forEach(button=>{
+function showUpgrade(){
 
-button.addEventListener("click",()=>{
+    hideAll();
 
-document.querySelectorAll(".multiplier")
-.forEach(b=>b.classList.remove("selected"));
+    document
+        .getElementById("upgradePage")
+        .classList.remove("hidden");
 
-button.classList.add("selected");
+    renderUpgradeInventory();
 
-selectedMultiplier=
-parseFloat(button.dataset.mult);
+    calculateReward();
 
-calculateReward();
-
-});
-
-});
+}
 
 
-/* ==========================================================
-   CALCULAR RECOMPENSA
-========================================================== */
+function renderUpgradeInventory(){
+
+    const area =
+        document.getElementById(
+            "upgradeInventory"
+        );
+
+    area.innerHTML = "";
+
+    inventory.forEach(item => {
+
+        let selected =
+            selectedItems.includes(item.id);
+
+        area.innerHTML += `
+
+            <div
+                class="inventorySelect
+                ${selected ? "selected" : ""}"
+                onclick="toggleItem('${item.id}')"
+            >
+
+                ${
+                    item.image
+                    ?
+                    `<img
+                        src="${item.image}"
+                        alt=""
+                        onerror="this.style.display='none'"
+                    >`
+                    :
+                    `<div style="
+                        width:70px;
+                        height:55px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center">
+                        🔫
+                    </div>`
+                }
+
+                <div>
+
+                    <div style="font-weight:bold">
+                        ${escapeHTML(
+                            getSkinName(item.name)
+                        )}
+                    </div>
+
+                    <div class="inventoryValue">
+                        $${item.value.toFixed(2)}
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+    });
+
+}
+
+
+function toggleItem(id){
+
+    id = Number(id);
+
+    if(selectedItems.includes(id)){
+
+        selectedItems =
+            selectedItems.filter(
+                x => x !== id
+            );
+
+    }else{
+
+        selectedItems.push(id);
+
+    }
+
+    renderUpgradeInventory();
+
+    calculateReward();
+
+}
+
+
+function setMultiplier(value,button){
+
+    multiplier = value;
+
+    document
+        .querySelectorAll(".multiplier")
+        .forEach(b =>
+            b.classList.remove("active")
+        );
+
+    button.classList.add("active");
+
+    calculateReward();
+
+}
+
 
 function calculateReward(){
 
-const reward=
-document.getElementById("rewardArea");
+    const reward =
+        document.getElementById("reward");
 
-if(selectedItems.length===0){
+    let selected =
+        inventory.filter(
+            x => selectedItems.includes(x.id)
+        );
 
-reward.className="reward-empty";
+    if(!selected.length){
 
-reward.innerHTML=`
-Selecciona skins de tu inventario<br>
-para calcular la recompensa.
-`;
+        reward.innerHTML = `
+            <div style="color:#7892ae">
+                Selecciona skins para ver la recompensa.
+            </div>
+        `;
 
-return;
+        return;
+    }
 
-}
+    let total =
+        selected.reduce(
+            (sum,item) =>
+                sum + item.value,
+            0
+        );
 
-const total=
-selectedItems.reduce(
-(sum,index)=>
-sum+inventory[index].price,
-0
-);
+    let target =
+        total * multiplier;
 
-const target=
-total*selectedMultiplier;
+    let candidates =
+        [...inventory]
+        .filter(
+            x =>
+                x.value >= target * .85 &&
+                x.value <= target * 1.15
+        )
+        .sort(
+            (a,b) =>
+                Math.abs(a.value-target) -
+                Math.abs(b.value-target)
+        );
 
+    let rewardItem =
+        candidates[0];
 
-/*
-   Buscamos un arma cuyo valor sea lo más cercano
-   al valor objetivo.
-*/
+    if(!rewardItem){
 
-let candidates=
-skins
-.map((skin,index)=>({
-    skin,
-    index,
-    difference:Math.abs(skin.price-target)
-}))
-.filter(x=>x.skin.price>=target*0.9 &&
-          x.skin.price<=target*1.1)
-.sort((a,b)=>a.difference-b.difference);
+        reward.innerHTML = `
+            <div style="color:#7892ae">
+                No tienes una skin cercana a
+                <b style="color:#ffc400">
+                    $${target.toFixed(2)}
+                </b>.
+                <br><br>
+                Necesitas otra combinación.
+            </div>
+        `;
 
-let chosen;
+        window.currentReward = null;
 
-if(candidates.length){
+        return;
+    }
 
-chosen=candidates[0].skin;
+    window.currentReward =
+        rewardItem;
 
-}else{
+    reward.innerHTML = `
 
-chosen=
-skins.reduce((best,skin)=>
-Math.abs(skin.price-target)
-<
-Math.abs(best.price-target)
-?skin:best
-);
+        ${
+            rewardItem.image
+            ?
+            `<img
+                src="${rewardItem.image}"
+                alt="${escapeHTML(
+                    rewardItem.name
+                )}"
+                onerror="this.style.display='none'"
+            >`
+            :
+            `<div style="
+                height:220px;
+                display:flex;
+                align-items:center;
+                justify-content:center">
+                🔫
+            </div>`
+        }
 
-}
+        <div class="rewardName">
+            ${escapeHTML(
+                getSkinName(rewardItem.name)
+            )}
+        </div>
 
+        <div class="rewardValue">
+            $${rewardItem.value.toFixed(2)}
+        </div>
 
-reward.className="reward";
-
-reward.innerHTML=`
-
-<div class="weapon-picture">
-
-${weaponSVG(
-    chosen.weapon,
-    chosen.name,
-    chosen.color
-)}
-
-</div>
-
-<h3>
-${chosen.weapon} | ${chosen.name}
-</h3>
-
-<div class="reward-price">
-Valor: $${chosen.price.toFixed(2)}
-</div>
-
-<div class="reward-multiplied">
-Objetivo: $${target.toFixed(2)}
-</div>
-
-<div style="
-margin-top:12px;
-color:#7e95ac;
-font-size:13px;
-">
-Has seleccionado ${selectedItems.length} skin(s)
-<br>
-Valor aportado: $${total.toFixed(2)}
-</div>
-
-`;
-
-}
-
-
-/* ==========================================================
-   SLIDER DE LA ZONA WIN
-========================================================== */
-
-const slider=
-document.getElementById("winSlider");
-
-slider.addEventListener("input",updateWheel);
-
-
-function updateWheel(){
-
-const position=
-parseInt(slider.value);
-
-const wheel=
-document.getElementById("wheel");
-
-/*
-   Zona WIN de 55 grados.
-*/
-
-wheel.style.background=
-`
-conic-gradient(
-    from ${position}deg,
-    #19d875 0deg,
-    #19d875 55deg,
-    #111a25 55deg,
-    #111a25 360deg
-)
-`;
+        <div style="
+            color:#7892ae;
+            margin-top:10px">
+            Objetivo: $${target.toFixed(2)}
+        </div>
+    `;
 
 }
 
 
-/* ==========================================================
-   GIRO DE RULETA
-========================================================== */
+/* =========================================================
+   RULETA
+========================================================= */
 
-function spinUpgrade(){
+function moveWinZone(value){
 
-if(spinning)return;
-
-if(selectedItems.length===0){
-
-alert("Selecciona al menos una skin.");
-
-return;
-
-}
-
-const total=
-selectedItems.reduce(
-(sum,index)=>
-sum+inventory[index].price,
-0
-);
-
-if(total<=0)return;
-
-spinning=true;
-
-const button=
-document.getElementById("spinButton");
-
-button.disabled=true;
-
-const pointer=
-document.getElementById("pointer");
-
-/*
-   La posición de la zona verde.
-*/
-
-const zone=
-parseInt(slider.value);
-
-/*
-   Decidimos aleatoriamente si gana.
-   La probabilidad se relaciona con la zona.
-*/
-
-const winChance=15;
-
-const won=
-Math.random()*100<winChance;
-
-/*
-   El puntero gira exactamente 4 segundos.
-*/
-
-const randomExtra=
-Math.floor(Math.random()*360);
-
-let finalAngle;
-
-if(won){
-
-/*
-   Detener dentro de los 55 grados verdes.
-*/
-
-finalAngle=
-zone+
-15+
-Math.random()*25;
-
-}else{
-
-/*
-   Detener fuera.
-*/
-
-finalAngle=
-zone+
-70+
-Math.random()*260;
-
-}
-
-finalAngle+=
-360*7+
-randomExtra;
-
-pointer.style.transition=
-"transform 4s cubic-bezier(.15,.85,.25,1)";
-
-pointer.style.transform=
-`translateX(-50%) rotate(${finalAngle}deg)`;
-
-
-setTimeout(()=>{
-
-spinning=false;
-
-button.disabled=false;
-
-if(won){
-
-const target=
-total*selectedMultiplier;
-
-let reward=
-skins.reduce((best,skin)=>
-Math.abs(skin.price-target)
-<
-Math.abs(best.price-target)
-?skin:best
-);
-
-alert(
-"🎉 ¡GANASTE!\n\n"+
-reward.weapon+" | "+reward.name+
-"\nValor: $"+
-reward.price.toFixed(2)
-);
-
-inventory.push(reward);
-
-}else{
-
-alert(
-"❌ La ruleta no cayó en WIN.\n\n"+
-"Las skins seleccionadas se perdieron."
-);
-
-/*
-   Quitamos del inventario de atrás hacia adelante.
-*/
-
-selectedItems
-.sort((a,b)=>b-a)
-.forEach(index=>{
-    inventory.splice(index,1);
-});
-
-selectedItems=[];
-
-}
-
-calculateReward();
-renderInventory();
-
-},4100);
+    document
+        .getElementById("winZone")
+        .style.setProperty(
+            "--winStart",
+            value + "deg"
+        );
 
 }
 
 
-/* ==========================================================
-   BOTÓN INVENTARIO → MEJORAS
-========================================================== */
+function spinWheel(){
 
-document.querySelector(".header-btn").addEventListener(
-"click",
-function(){
+    if(spinning)
+        return;
 
-showPage("upgradePage");
+    if(!selectedItems.length){
+
+        alert(
+            "Selecciona al menos una skin."
+        );
+
+        return;
+    }
+
+    if(!window.currentReward){
+
+        alert(
+            "No hay una recompensa válida."
+        );
+
+        return;
+    }
+
+    spinning = true;
+
+    const button =
+        document.getElementById(
+            "spinButton"
+        );
+
+    button.disabled = true;
+
+    /*
+        El giro dura exactamente 4 segundos.
+    */
+
+    let start =
+        pointerRotation;
+
+    let extra =
+        360 * 7 +
+        Math.random()*360;
+
+    pointerRotation =
+        start + extra;
+
+    const pointer =
+        document.getElementById(
+            "pointer"
+        );
+
+    pointer.style.transition =
+        "transform 4s cubic-bezier(.12,.75,.15,1)";
+
+    pointer.style.transform =
+        `translateX(-50%) rotate(${pointerRotation}deg)`;
+
+    setTimeout(() => {
+
+        finishUpgrade();
+
+        spinning = false;
+
+        button.disabled = false;
+
+    },4000);
 
 }
-);
 
 
-/* ==========================================================
+/* =========================================================
+   FINALIZAR MEJORA
+========================================================= */
+
+function finishUpgrade(){
+
+    let reward =
+        window.currentReward;
+
+    if(!reward)
+        return;
+
+    let selected =
+        inventory.filter(
+            x =>
+                selectedItems.includes(x.id)
+        );
+
+    let total =
+        selected.reduce(
+            (sum,item) =>
+                sum + item.value,
+            0
+        );
+
+    let chance =
+        Math.min(
+            95,
+            Math.max(
+                5,
+                (total /
+                reward.value) * 100
+            )
+        );
+
+    let won =
+        Math.random()*100 <
+        chance;
+
+    if(!won){
+
+        showModal(`
+            <h2>💥 PERDISTE</h2>
+
+            <p style="
+                color:#7892ae;
+                margin:15px">
+                La ruleta no cayó en la zona WIN.
+            </p>
+        `);
+
+        removeSelected();
+
+        return;
+    }
+
+    removeSelected();
+
+    inventory.push({
+        id:
+            Date.now() +
+            Math.random(),
+
+        name:
+            reward.name,
+
+        weapon:
+            reward.weapon,
+
+        value:
+            reward.value,
+
+        image:
+            reward.image,
+
+        rarity:
+            reward.rarity
+
+    });
+
+    saveInventory();
+
+    showModal(`
+
+        ${
+            reward.image
+            ?
+            `<img
+                src="${reward.image}"
+                alt=""
+            >`
+            :
+            ""
+        }
+
+        <h2 style="color:#1bd96a">
+            🎉 ¡GANASTE!
+        </h2>
+
+        <p>
+            ${escapeHTML(
+                getSkinName(reward.name)
+            )}
+        </p>
+
+        <p style="
+            color:#ffc400;
+            font-size:20px;
+            margin-top:10px">
+            $${reward.value.toFixed(2)}
+        </p>
+
+    `);
+
+}
+
+
+function removeSelected(){
+
+    inventory =
+        inventory.filter(
+            item =>
+                !selectedItems.includes(
+                    item.id
+                )
+        );
+
+    selectedItems = [];
+
+    saveInventory();
+
+    renderUpgradeInventory();
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function showModal(content){
+
+    document
+        .getElementById("modalContent")
+        .innerHTML = content;
+
+    document
+        .getElementById("modal")
+        .classList.remove("hidden");
+
+}
+
+
+function closeModal(){
+
+    document
+        .getElementById("modal")
+        .classList.add("hidden");
+
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+function hideAll(){
+
+    document
+        .querySelectorAll("main > section")
+        .forEach(
+            section =>
+                section.classList.add("hidden")
+        );
+
+}
+
+
+function goHome(){
+
+    hideAll();
+
+    document
+        .getElementById("home")
+        .classList.remove("hidden");
+
+}
+
+
+/* =========================================================
+   COINS
+========================================================= */
+
+function updateCoins(){
+
+    document
+        .getElementById("coins")
+        .textContent =
+        coins.toLocaleString();
+
+}
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+function getWeapon(name){
+
+    if(!name)
+        return "Weapon";
+
+    return name
+        .split("|")[0]
+        .replace("★","")
+        .trim();
+
+}
+
+
+function getSkinName(name){
+
+    if(!name)
+        return "";
+
+    if(name.includes("|")){
+
+        return name
+            .split("|")
+            .slice(1)
+            .join("|")
+            .replace(/\(.*?\)/g,"")
+            .trim();
+
+    }
+
+    return name;
+}
+
+
+function getRarity(index){
+
+    const rarities = [
+
+        "Mil-Spec Grade",
+        "Restricted",
+        "Classified",
+        "Covert",
+        "Rare Special"
+
+    ];
+
+    return rarities[
+        Math.min(
+            index,
+            rarities.length-1
+        )
+    ];
+
+}
+
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   LOCAL STORAGE
+========================================================= */
+
+function saveInventory(){
+
+    localStorage.setItem(
+        "casehub_inventory",
+        JSON.stringify(inventory)
+    );
+
+}
+
+
+function loadInventory(){
+
+    try{
+
+        let data =
+            localStorage.getItem(
+                "casehub_inventory"
+            );
+
+        if(data){
+
+            inventory =
+                JSON.parse(data);
+
+        }
+
+    }catch(error){
+
+        inventory = [];
+
+    }
+
+}
+
+
+/* =========================================================
+   BOTÓN OCULTO DE MEJORAS
+   Click en logo 3 veces
+========================================================= */
+
+let logoClicks = 0;
+
+document
+    .querySelector(".logo")
+    .addEventListener(
+        "click",
+        () => {
+
+            logoClicks++;
+
+            if(logoClicks >= 3){
+
+                logoClicks = 0;
+
+                showUpgrade();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
    INICIO
-========================================================== */
+========================================================= */
 
-renderCases();
+loadInventory();
+
+loadAPI();
+
 updateCoins();
-updateWheel();
 
 </script>
 
