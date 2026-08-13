@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,21 +9,29 @@
 <style>
 *{box-sizing:border-box}
 
+:root{
+    --bg:#060b11;
+    --panel:#0c1723;
+    --panel2:#101d2b;
+    --border:#304960;
+    --gold:#ffae00;
+}
+
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#060b11;
+    background:
+        radial-gradient(circle at 50% -20%,#14273d 0,#060b11 45%);
     color:#fff;
 }
 
-button,select,input{
-    font:inherit;
-}
+button,select,input{font:inherit}
 
 header{
     height:78px;
     border-bottom:1px solid #26384d;
-    background:#080d13;
+    background:#080d13ee;
+    backdrop-filter:blur(10px);
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -38,9 +47,7 @@ header{
     letter-spacing:.5px;
 }
 
-.logo span{
-    color:#ffad00;
-}
+.logo span{color:#ffad00}
 
 .header-right{
     display:flex;
@@ -56,10 +63,12 @@ header{
     cursor:pointer;
 }
 
-.coins{
-    color:#ffc400;
-    font-weight:bold;
+.header-btn:hover{
+    border-color:#ffae00;
+    background:#142438;
 }
+
+.coins{color:#ffc400;font-weight:bold}
 
 main{
     max-width:1200px;
@@ -67,10 +76,7 @@ main{
     padding:30px 20px 70px;
 }
 
-h1{
-    text-align:center;
-    margin:8px 0;
-}
+h1{text-align:center;margin:8px 0}
 
 .subtitle{
     text-align:center;
@@ -78,11 +84,9 @@ h1{
     margin-bottom:30px;
 }
 
-.hidden{
-    display:none!important;
-}
+.hidden{display:none!important}
 
-/* CAJAS */
+/* ================= CAJAS ================= */
 
 .cases-grid{
     display:grid;
@@ -112,9 +116,7 @@ h1{
     justify-content:center;
 }
 
-.case-card h2{
-    margin:8px 0;
-}
+.case-card h2{margin:8px 0}
 
 .case-card p{
     color:#7e99b7;
@@ -132,7 +134,7 @@ h1{
     font-weight:bold;
 }
 
-/* DETALLE CAJA */
+/* ================= DETALLE ================= */
 
 .back{
     background:#101d2b;
@@ -143,6 +145,8 @@ h1{
     cursor:pointer;
     margin-bottom:20px;
 }
+
+.back:hover{border-color:#ffae00}
 
 .case-detail{
     display:grid;
@@ -160,6 +164,9 @@ h1{
 
 .big-case{
     height:230px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .open-box{
@@ -174,9 +181,7 @@ h1{
     color:#111;
 }
 
-.open-box:hover{
-    background:#ffc13b;
-}
+.open-box:hover{background:#ffc13b}
 
 .quantity{
     width:100%;
@@ -187,9 +192,9 @@ h1{
     border-radius:7px;
 }
 
-.skins-title{
-    margin-top:0;
-}
+/* ================= SKINS ================= */
+
+.skins-title{margin-top:0}
 
 .skins-grid{
     display:grid;
@@ -198,18 +203,33 @@ h1{
 }
 
 .skin-card{
-    background:#0d1925;
+    background:linear-gradient(145deg,#0d1925,#09121b);
     border:1px solid #31485e;
     border-radius:12px;
     overflow:hidden;
+    transition:.2s;
+}
+
+.skin-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--rarity);
+    box-shadow:0 8px 25px #0008;
 }
 
 .skin-image{
-    height:145px;
-    background:#101f30;
+    height:175px;
+    background:
+        radial-gradient(circle at 50% 45%,#1c3349 0,#101f30 45%,#09131e 100%);
     display:flex;
     align-items:center;
     justify-content:center;
+    overflow:hidden;
+}
+
+.skin-image img{
+    width:100%;
+    height:175px;
+    object-fit:contain;
 }
 
 .skin-info{
@@ -251,19 +271,7 @@ h1{
     margin-top:6px;
 }
 
-/* RESULTADOS */
-
-.results{
-    margin-top:35px;
-}
-
-.results-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-/* MODAL APERTURA */
+/* ================= MODAL ================= */
 
 .modal{
     position:fixed;
@@ -320,6 +328,7 @@ h1{
     height:100%;
     background:#ffae00;
     z-index:5;
+    box-shadow:0 0 15px #ffae00;
 }
 
 .close{
@@ -331,7 +340,7 @@ h1{
     cursor:pointer;
 }
 
-/* MEJORAS */
+/* ================= UPGRADE ================= */
 
 .multipliers{
     display:grid;
@@ -392,7 +401,12 @@ h1{
     cursor:pointer;
 }
 
-/* RULETA VERDE */
+.add:hover{
+    background:#ffae00;
+    color:#111;
+}
+
+/* ================= RULETA ================= */
 
 .wheel-area{
     display:flex;
@@ -440,14 +454,7 @@ h1{
     z-index:10;
 }
 
-.slider{
-    width:100%;
-    margin-top:28px;
-}
-
-.slider::-webkit-slider-thumb{
-    cursor:pointer;
-}
+.slider{width:100%;margin-top:28px}
 
 .win-info{
     text-align:center;
@@ -467,9 +474,7 @@ h1{
     margin-top:12px;
 }
 
-.reward{
-    text-align:center;
-}
+.reward{text-align:center}
 
 .reward img{
     width:100%;
@@ -502,12 +507,13 @@ h1{
         grid-template-columns:1fr;
     }
 
-    header{
-        padding:0 15px;
-    }
+    header{padding:0 15px}
 
-    .logo{
-        font-size:22px;
+    .logo{font-size:22px}
+
+    .header-btn{
+        padding:9px 12px;
+        font-size:13px;
     }
 }
 </style>
@@ -531,11 +537,10 @@ h1{
 
 <main>
 
-<!-- ================= MENU ================= -->
-
 <section id="home">
 
     <h1>🔥 CASEHUB</h1>
+
     <div class="subtitle">
         Elige una caja y descubre qué skin te toca
     </div>
@@ -543,9 +548,6 @@ h1{
     <div class="cases-grid" id="casesGrid"></div>
 
 </section>
-
-
-<!-- ================= DETALLE ================= -->
 
 <section id="casePage" class="hidden">
 
@@ -592,16 +594,12 @@ h1{
 
         <div>
             <h2 class="skins-title">🎨 Skins disponibles</h2>
-
             <div id="skinsGrid" class="skins-grid"></div>
         </div>
 
     </div>
 
 </section>
-
-
-<!-- ================= INVENTARIO / MEJORAS ================= -->
 
 <section id="upgradePage" class="hidden">
 
@@ -616,25 +614,38 @@ h1{
     </div>
 
     <div class="multipliers">
-        <button class="mult active" onclick="setMultiplier(1.5,this)">1.5x</button>
-        <button class="mult" onclick="setMultiplier(2,this)">2x</button>
-        <button class="mult" onclick="setMultiplier(5,this)">5x</button>
-        <button class="mult" onclick="setMultiplier(10,this)">10x</button>
+
+        <button class="mult active"
+                onclick="setMultiplier(1.5,this)">
+            1.5x
+        </button>
+
+        <button class="mult"
+                onclick="setMultiplier(2,this)">
+            2x
+        </button>
+
+        <button class="mult"
+                onclick="setMultiplier(5,this)">
+            5x
+        </button>
+
+        <button class="mult"
+                onclick="setMultiplier(10,this)">
+            10x
+        </button>
+
     </div>
 
     <div class="upgrade-grid">
 
-        <!-- INVENTARIO -->
-
         <div class="panel">
+
             <h2>🎒 Inventario</h2>
 
             <div id="upgradeInventory"></div>
 
         </div>
-
-
-        <!-- RULETA -->
 
         <div class="panel">
 
@@ -644,10 +655,7 @@ h1{
 
                 <div class="wheel">
 
-                    <div
-                        id="pointer"
-                        class="pointer">
-                    </div>
+                    <div id="pointer" class="pointer"></div>
 
                 </div>
 
@@ -658,9 +666,8 @@ h1{
                 class="slider"
                 type="range"
                 min="0"
-                max="330"
-                value="0"
-            >
+                max="328"
+                value="0">
 
             <div class="win-info">
                 🟢 Zona WIN
@@ -670,25 +677,23 @@ h1{
                 Mueve la barra para colocar la zona de victoria.
             </p>
 
-            <button
-                class="spin-upgrade"
-                onclick="spinUpgrade()">
+            <button class="spin-upgrade"
+                    onclick="spinUpgrade()">
                 🎯 GIRAR
             </button>
 
         </div>
-
-
-        <!-- RECOMPENSA -->
 
         <div class="panel reward">
 
             <h2>🏆 Recompensa</h2>
 
             <div id="rewardArea">
+
                 <p style="color:#6e87a2">
                     Selecciona skins para ver la recompensa.
                 </p>
+
             </div>
 
         </div>
@@ -698,9 +703,6 @@ h1{
 </section>
 
 </main>
-
-
-<!-- ================= MODAL ================= -->
 
 <div id="modal" class="modal hidden">
 
@@ -712,9 +714,8 @@ h1{
 
             <div class="center-line"></div>
 
-            <div
-                id="spinnerItems"
-                class="spinner-items">
+            <div id="spinnerItems"
+                 class="spinner-items">
             </div>
 
         </div>
@@ -729,123 +730,689 @@ h1{
 
 </div>
 
-
 <script>
 
 /* =========================================================
-   SISTEMA DE IMÁGENES
-   =========================================================
+   UTILIDADES SVG
+   ========================================================= */
 
-   IMPORTANTE:
-   NO utilizamos URLs externas.
+function svgData(svg){
+    return "data:image/svg+xml;charset=UTF-8,"+
+           encodeURIComponent(svg);
+}
 
-   Cada imagen es un SVG generado aquí mismo.
-   Por eso funciona incluso sin Internet.
-*/
+
+/* =========================================================
+   MOTOR DE SKINS
+   ========================================================= */
+
+function skinStyle(name,color){
+
+    const n=name.toLowerCase();
+
+    if(n.includes("fade")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff2b62"/>
+            <stop offset="25%" stop-color="#ff7c28"/>
+            <stop offset="50%" stop-color="#ffe94a"/>
+            <stop offset="75%" stop-color="#45e7ff"/>
+            <stop offset="100%" stop-color="#8c4dff"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("doppler")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0810a8"/>
+            <stop offset="25%" stop-color="#8d29ff"/>
+            <stop offset="50%" stop-color="#e6e8ff"/>
+            <stop offset="70%" stop-color="#3029c9"/>
+            <stop offset="100%" stop-color="#050a57"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("gamma")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#053e2a"/>
+            <stop offset="30%" stop-color="#1aff82"/>
+            <stop offset="55%" stop-color="#9affba"/>
+            <stop offset="75%" stop-color="#008f55"/>
+            <stop offset="100%" stop-color="#032c1e"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("case hardened")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#154c91"/>
+            <stop offset="28%" stop-color="#4aa8ff"/>
+            <stop offset="48%" stop-color="#d7b449"/>
+            <stop offset="70%" stop-color="#1b5799"/>
+            <stop offset="100%" stop-color="#0b234c"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("tiger tooth")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff8a00"/>
+            <stop offset="30%" stop-color="#ffe900"/>
+            <stop offset="55%" stop-color="#fff7a0"/>
+            <stop offset="75%" stop-color="#ffb000"/>
+            <stop offset="100%" stop-color="#b85b00"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("marble fade")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff304f"/>
+            <stop offset="22%" stop-color="#ff9a32"/>
+            <stop offset="43%" stop-color="#ffe83c"/>
+            <stop offset="64%" stop-color="#32dfff"/>
+            <stop offset="82%" stop-color="#7c4cff"/>
+            <stop offset="100%" stop-color="#ff3fbd"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("asiimov")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f7f7f4"/>
+            <stop offset="45%" stop-color="#ffffff"/>
+            <stop offset="47%" stop-color="#f05b24"/>
+            <stop offset="65%" stop-color="#d84320"/>
+            <stop offset="67%" stop-color="#171b20"/>
+            <stop offset="100%" stop-color="#080b10"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("printstream")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="45%" stop-color="#dfe8ed"/>
+            <stop offset="50%" stop-color="#14191d"/>
+            <stop offset="75%" stop-color="#070a0d"/>
+            <stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("redline")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#111820"/>
+            <stop offset="48%" stop-color="#242c35"/>
+            <stop offset="49%" stop-color="#ff263f"/>
+            <stop offset="51%" stop-color="#ff263f"/>
+            <stop offset="53%" stop-color="#161c24"/>
+            <stop offset="100%" stop-color="#05080c"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("hyper beast")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff173c"/>
+            <stop offset="22%" stop-color="#ff5b00"/>
+            <stop offset="43%" stop-color="#e600ff"/>
+            <stop offset="64%" stop-color="#273bff"/>
+            <stop offset="83%" stop-color="#00d9ff"/>
+            <stop offset="100%" stop-color="#151b7d"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("neon")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff0055"/>
+            <stop offset="35%" stop-color="#ff00d9"/>
+            <stop offset="65%" stop-color="#7d2cff"/>
+            <stop offset="100%" stop-color="#00d9ff"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("dragon lore") || n==="lore"){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#583000"/>
+            <stop offset="28%" stop-color="#c48b2a"/>
+            <stop offset="48%" stop-color="#ffe28a"/>
+            <stop offset="70%" stop-color="#9a6320"/>
+            <stop offset="100%" stop-color="#382000"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("crimson web")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#210409"/>
+            <stop offset="45%" stop-color="#8d0717"/>
+            <stop offset="100%" stop-color="#170207"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("slaughter")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#45040b"/>
+            <stop offset="30%" stop-color="#ff3045"/>
+            <stop offset="52%" stop-color="#ff8a8a"/>
+            <stop offset="70%" stop-color="#a40019"/>
+            <stop offset="100%" stop-color="#250207"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("autotronic")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#d4d7d8"/>
+            <stop offset="35%" stop-color="#6d7378"/>
+            <stop offset="52%" stop-color="#ed202d"/>
+            <stop offset="70%" stop-color="#aeb4b8"/>
+            <stop offset="100%" stop-color="#363b40"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("ultraviolet")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10051d"/>
+            <stop offset="40%" stop-color="#6f19ad"/>
+            <stop offset="65%" stop-color="#aa45ed"/>
+            <stop offset="100%" stop-color="#1a0929"/>
+        </linearGradient>
+        `;
+    }
+
+    if(n.includes("rust coat")){
+        return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3c261a"/>
+            <stop offset="30%" stop-color="#a35f32"/>
+            <stop offset="55%" stop-color="#684127"/>
+            <stop offset="75%" stop-color="#bd7440"/>
+            <stop offset="100%" stop-color="#2d1b13"/>
+        </linearGradient>
+        `;
+    }
+
+    return `
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${color}"/>
+            <stop offset="55%" stop-color="#283442"/>
+            <stop offset="100%" stop-color="#080d13"/>
+        </linearGradient>
+    `;
+}
+
+
+/* =========================================================
+   PATRONES SEGÚN SKIN
+   ========================================================= */
+
+function skinPattern(name,color){
+
+    const n=name.toLowerCase();
+
+    if(n.includes("redline")){
+        return `
+        <path d="M60 98 L320 78"
+              stroke="#ff203d"
+              stroke-width="7"
+              opacity=".95"/>
+        <path d="M85 115 L270 91"
+              stroke="#7e101c"
+              stroke-width="4"/>
+        `;
+    }
+
+    if(n.includes("case hardened")){
+        return `
+        <path d="M55 105 Q150 55 220 105 T350 92"
+              fill="none"
+              stroke="#69c6ff"
+              stroke-width="18"
+              opacity=".8"/>
+        <path d="M110 120 Q180 70 290 108"
+              fill="none"
+              stroke="#e5c54b"
+              stroke-width="8"
+              opacity=".7"/>
+        `;
+    }
+
+    if(n.includes("crimson web")){
+        return `
+        <g stroke="#f4d0d0" stroke-width="2" opacity=".8">
+            <path d="M80 100 L150 85 L210 110 L275 80"/>
+            <path d="M115 75 L145 115"/>
+            <path d="M175 82 L205 116"/>
+            <path d="M240 75 L270 110"/>
+            <circle cx="155" cy="88" r="9" fill="none"/>
+        </g>
+        `;
+    }
+
+    if(n.includes("hyper beast")){
+        return `
+        <path d="M65 100
+                 Q120 50 165 100
+                 T270 95
+                 T350 100"
+              fill="none"
+              stroke="#ffef00"
+              stroke-width="9"/>
+        <path d="M90 112 L135 78 L175 116 L220 76 L270 113 L320 80"
+              fill="none"
+              stroke="#00eaff"
+              stroke-width="6"/>
+        `;
+    }
+
+    if(n.includes("neon")){
+        return `
+        <path d="M65 115 L120 65 L170 115 L225 65 L280 115 L335 70"
+              fill="none"
+              stroke="#00f7ff"
+              stroke-width="7"/>
+        <circle cx="120" cy="85" r="10" fill="#fff"/>
+        <circle cx="280" cy="90" r="8" fill="#ffeb00"/>
+        `;
+    }
+
+    if(n.includes("asiimov")){
+        return `
+        <path d="M75 103 L160 83 L250 105"
+              fill="none"
+              stroke="#ff641f"
+              stroke-width="14"/>
+        <path d="M190 83 L300 105"
+              fill="none"
+              stroke="#111820"
+              stroke-width="11"/>
+        `;
+    }
+
+    if(n.includes("printstream")){
+        return `
+        <g fill="none" stroke="#ffffff" stroke-width="2" opacity=".7">
+            <circle cx="130" cy="94" r="16"/>
+            <circle cx="130" cy="94" r="7"/>
+            <path d="M210 76 L235 112 M235 76 L210 112"/>
+            <path d="M285 78 L320 110"/>
+        </g>
+        `;
+    }
+
+    if(n.includes("tiger tooth")){
+        return `
+        <g fill="#111">
+            <path d="M75 72 L125 115 L95 115 Z"/>
+            <path d="M125 70 L175 115 L145 115 Z"/>
+            <path d="M180 70 L230 115 L200 115 Z"/>
+            <path d="M235 70 L285 115 L255 115 Z"/>
+            <path d="M290 70 L340 112 L310 112 Z"/>
+        </g>
+        `;
+    }
+
+    if(n.includes("dragon lore") || n==="lore"){
+        return `
+        <path d="M75 108
+                 Q120 70 160 105
+                 Q200 140 245 98
+                 Q290 60 340 100"
+              fill="none"
+              stroke="#3e2410"
+              stroke-width="12"/>
+        <circle cx="165" cy="99" r="8" fill="#ffdf56"/>
+        `;
+    }
+
+    if(n.includes("doppler")){
+        return `
+        <path d="M55 110 Q115 55 170 110 T285 105 T350 95"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="6"
+              opacity=".75"/>
+        <path d="M65 90 Q120 130 185 90 T310 90"
+              fill="none"
+              stroke="#1d5cff"
+              stroke-width="9"
+              opacity=".7"/>
+        `;
+    }
+
+    if(n.includes("gamma")){
+        return `
+        <path d="M60 110 Q110 60 160 105 T260 95 T350 90"
+              fill="none"
+              stroke="#b5ffce"
+              stroke-width="5"
+              opacity=".85"/>
+        <circle cx="180" cy="95" r="13"
+                fill="none"
+                stroke="#d4ffe0"
+                stroke-width="4"/>
+        `;
+    }
+
+    if(n.includes("fade") || n.includes("marble")){
+        return `
+        <path d="M55 110 Q120 60 175 110 T285 92 T355 100"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="4"
+              opacity=".55"/>
+        `;
+    }
+
+    return `
+        <path d="M70 108 L325 90"
+              stroke="${color}"
+              stroke-width="5"
+              opacity=".65"/>
+    `;
+}
+
+
+/* =========================================================
+   ARMA SVG CON SKIN
+   ========================================================= */
 
 function weaponSVG(type,color,name){
 
-    let path="";
+    const id="skin"+Math.random().toString(36).slice(2,9);
+
+    let body="";
 
     if(type==="rifle"){
-        path=`
-        <path d="M55 92 L115 78 L300 78 L350 95 L300 108 L150 105 L110 125 L75 120 Z"/>
-        <path d="M150 105 L180 130 L168 190 L135 190 L125 125"/>
-        <path d="M235 105 L265 130 L250 185 L220 185 L215 108"/>
-        <rect x="105" y="70" width="125" height="9"/>
-        <circle cx="305" cy="94" r="8"/>
+        body=`
+        <path d="M45 100
+                 L95 82
+                 L270 82
+                 L315 91
+                 L350 103
+                 L310 115
+                 L155 111
+                 L115 135
+                 L76 130
+                 L88 108
+                 L48 113 Z"/>
+
+        <path d="M145 108
+                 L180 118
+                 L169 178
+                 L133 178
+                 L122 132 Z"/>
+
+        <path d="M225 108
+                 L262 116
+                 L247 170
+                 L216 170
+                 L208 112 Z"/>
+
+        <rect x="103" y="72"
+              width="130" height="10"
+              rx="3"/>
+
+        <circle cx="308" cy="100" r="9"/>
         `;
     }
 
     else if(type==="pistol"){
-        path=`
-        <path d="M65 80 L270 80 L315 98 L260 112 L185 112 L165 150 L120 150 L130 108 L70 108 Z"/>
-        <path d="M160 110 L195 112 L180 180 L140 180 L135 145"/>
-        <rect x="105" y="72" width="90" height="8"/>
+        body=`
+        <path d="M55 88
+                 L105 72
+                 L260 75
+                 L310 91
+                 L340 103
+                 L295 115
+                 L182 110
+                 L164 147
+                 L120 147
+                 L127 111
+                 L65 108 Z"/>
+
+        <path d="M145 109
+                 L181 111
+                 L170 178
+                 L133 178
+                 L126 145 Z"/>
+
+        <rect x="100" y="65"
+              width="105"
+              height="8"
+              rx="3"/>
         `;
     }
 
     else if(type==="smg"){
-        path=`
-        <path d="M50 90 L110 70 L300 80 L330 100 L270 110 L150 105 L120 140 L75 135 L90 105 Z"/>
-        <path d="M150 105 L180 125 L165 180 L135 180 L125 140"/>
-        <rect x="125" y="65" width="105" height="8"/>
+        body=`
+        <path d="M48 94
+                 L105 72
+                 L275 78
+                 L315 92
+                 L340 105
+                 L275 114
+                 L150 108
+                 L120 140
+                 L76 135
+                 L88 106 Z"/>
+
+        <path d="M145 105
+                 L180 121
+                 L165 177
+                 L132 177
+                 L123 138 Z"/>
+
+        <rect x="122" y="66"
+              width="110"
+              height="8"/>
         `;
     }
 
     else if(type==="shotgun"){
-        path=`
-        <path d="M45 95 L110 80 L335 80 L365 95 L330 110 L120 108 L80 130 L50 125 Z"/>
-        <path d="M120 108 L155 125 L140 170 L105 170 L100 130"/>
-        <rect x="100" y="72" width="180" height="8"/>
+        body=`
+        <path d="M42 101
+                 L105 82
+                 L330 82
+                 L370 97
+                 L335 111
+                 L125 108
+                 L83 132
+                 L50 126 Z"/>
+
+        <path d="M118 108
+                 L155 124
+                 L140 171
+                 L105 171
+                 L99 130 Z"/>
+
+        <rect x="102" y="73"
+              width="190"
+              height="9"/>
         `;
     }
 
     else if(type==="sniper"){
-        path=`
-        <path d="M40 100 L130 78 L305 82 L350 100 L300 115 L145 112 L105 135 L65 130 Z"/>
-        <path d="M150 110 L180 130 L165 180 L130 180 L120 135"/>
-        <rect x="150" y="65" width="100" height="10"/>
-        <circle cx="270" cy="70" r="14"/>
+        body=`
+        <path d="M38 103
+                 L110 79
+                 L292 82
+                 L340 95
+                 L365 105
+                 L305 117
+                 L145 113
+                 L103 137
+                 L62 132
+                 L72 113 Z"/>
+
+        <path d="M145 110
+                 L180 130
+                 L165 180
+                 L130 180
+                 L120 136 Z"/>
+
+        <rect x="145" y="64"
+              width="112"
+              height="11"
+              rx="4"/>
+
+        <circle cx="278" cy="70" r="16"/>
         `;
     }
 
     else if(type==="knife"){
-        path=`
-        <path d="M65 125 L120 105 L180 70 L345 82 L220 125 L140 145 Z"/>
-        <path d="M90 125 L60 160 L110 170 L145 145 Z"/>
-        <circle cx="95" cy="145" r="7"/>
+        body=`
+        <path d="M48 128
+                 L118 104
+                 L174 72
+                 L352 84
+                 L296 104
+                 L215 123
+                 L135 148 Z"/>
+
+        <path d="M88 126
+                 L56 160
+                 L108 172
+                 L150 145
+                 L125 126 Z"/>
+
+        <circle cx="96" cy="148" r="8"/>
         `;
     }
 
     else{
-        path=`
-        <path d="M50 100 L120 75 L330 85 L360 100 L320 115 L130 110 L90 140 L55 135 Z"/>
+        body=`
+        <path d="M45 102
+                 L115 78
+                 L325 84
+                 L360 101
+                 L315 115
+                 L125 110
+                 L82 137
+                 L50 132 Z"/>
         `;
     }
 
     const svg=`
     <svg xmlns="http://www.w3.org/2000/svg"
-         width="420"
-         height="220"
+         width="520"
+         height="240"
          viewBox="0 0 420 220">
 
         <defs>
-            <filter id="glow">
-                <feGaussianBlur stdDeviation="5"
+
+            ${skinStyle(name,color)}
+
+            <filter id="glow${id}">
+                <feGaussianBlur
+                    stdDeviation="4"
                     result="blur"/>
                 <feMerge>
                     <feMergeNode in="blur"/>
                     <feMergeNode in="SourceGraphic"/>
                 </feMerge>
             </filter>
+
+            <linearGradient id="metal${id}"
+                            x1="0"
+                            y1="0"
+                            x2="1"
+                            y2="1">
+                <stop offset="0%" stop-color="#9ca6ae"/>
+                <stop offset="35%" stop-color="#222b34"/>
+                <stop offset="65%" stop-color="#626d76"/>
+                <stop offset="100%" stop-color="#11171d"/>
+            </linearGradient>
+
         </defs>
 
-        <g fill="#071019"
-           stroke="#718298"
-           stroke-width="4"
-           stroke-linejoin="round">
+        <!-- sombra -->
+        <ellipse
+            cx="210"
+            cy="181"
+            rx="160"
+            ry="13"
+            fill="#000"
+            opacity=".45"/>
 
-            ${path}
-
-        </g>
-
+        <!-- cuerpo metálico -->
         <g
-            stroke="${color}"
-            fill="none"
-            stroke-width="9"
-            filter="url(#glow)"
-            stroke-linecap="round">
+            fill="url(#metal${id})"
+            stroke="#05090d"
+            stroke-width="4"
+            stroke-linejoin="round">
 
-            <path d="M85 91 L280 91"/>
-
-            <path d="M155 105 L220 105"/>
+            ${body}
 
         </g>
+
+        <!-- superficie de la skin -->
+        <g
+            fill="url(#skinGrad)"
+            stroke="#111820"
+            stroke-width="2"
+            stroke-linejoin="round">
+
+            ${body}
+
+        </g>
+
+        <!-- detalles de la skin -->
+        <g
+            clip-path="none"
+            filter="url(#glow${id})">
+
+            ${skinPattern(name,color)}
+
+        </g>
+
+        <!-- partes negras -->
+        <g
+            fill="#080d12"
+            stroke="#52606b"
+            stroke-width="2">
+
+            <rect x="98" y="79"
+                  width="18"
+                  height="8"
+                  rx="2"/>
+
+            <circle cx="300" cy="101" r="5"/>
+
+        </g>
+
+        <!-- brillo -->
+        <path
+            d="M65 90 L280 83"
+            stroke="#fff"
+            stroke-width="2"
+            opacity=".38"/>
 
         <text
             x="210"
-            y="205"
+            y="210"
             fill="${color}"
             text-anchor="middle"
             font-size="11"
@@ -856,8 +1423,7 @@ function weaponSVG(type,color,name){
 
     </svg>`;
 
-    return "data:image/svg+xml;charset=UTF-8,"+
-        encodeURIComponent(svg);
+    return svgData(svg);
 }
 
 
@@ -871,27 +1437,51 @@ function caseSVG(color,label){
     <svg xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 420 260">
 
+        <defs>
+            <linearGradient id="caseGrad"
+                            x1="0" y1="0"
+                            x2="1" y2="1">
+                <stop offset="0%" stop-color="#182b3d"/>
+                <stop offset="50%" stop-color="#0b1723"/>
+                <stop offset="100%" stop-color="#050a0f"/>
+            </linearGradient>
+        </defs>
+
+        <ellipse
+            cx="210"
+            cy="210"
+            rx="140"
+            ry="12"
+            fill="#000"
+            opacity=".45"/>
+
         <g
-          fill="#0c1825"
+          fill="url(#caseGrad)"
           stroke="${color}"
-          stroke-width="6"
+          stroke-width="5"
           stroke-linejoin="round">
 
-          <path d="M70 85 L120 40 L350 40 L390 85 L390 190 L70 190 Z"/>
+          <path d="M70 85
+                   L120 40
+                   L350 40
+                   L390 85
+                   L390 190
+                   L70 190 Z"/>
 
-          <path d="M70 85 L120 110 L390 85"/>
+          <path d="M70 85
+                   L120 110
+                   L390 85"/>
 
           <path d="M120 40 L120 110"/>
-
           <path d="M350 40 L350 110"/>
 
         </g>
 
         <rect
-          x="150"
+          x="145"
           y="105"
-          width="160"
-          height="55"
+          width="170"
+          height="58"
           rx="8"
           fill="#08111b"
           stroke="${color}"
@@ -910,8 +1500,7 @@ function caseSVG(color,label){
 
     </svg>`;
 
-    return "data:image/svg+xml;charset=UTF-8,"+
-        encodeURIComponent(svg);
+    return svgData(svg);
 }
 
 
@@ -946,7 +1535,7 @@ name:"Gamma Doppler",
 weapon:"Glock-18",
 type:"pistol",
 rarity:"Restricted",
-color:"#b341ff",
+color:"#36ff8b",
 prob:12,
 value:145.80
 },
@@ -966,7 +1555,7 @@ name:"Asiimov",
 weapon:"AWP",
 type:"sniper",
 rarity:"Covert",
-color:"#ff4747",
+color:"#ff6428",
 prob:7,
 value:117.35
 },
@@ -976,7 +1565,7 @@ name:"Printstream",
 weapon:"M4A1-S",
 type:"rifle",
 rarity:"Covert",
-color:"#ff3d91",
+color:"#ffffff",
 prob:6,
 value:139.02
 },
@@ -1473,14 +2062,13 @@ skins:skins.slice(20,50)
 let currentCase=null;
 let coins=2500;
 let inventory=[];
-
 let selectedForUpgrade=[];
 let multiplier=1.5;
 let reward=null;
 
 
 /* =========================================================
-   CREAR CARTAS DE CAJAS
+   CAJAS
    ========================================================= */
 
 function renderCases(){
@@ -1489,16 +2077,16 @@ function renderCases(){
 
     grid.innerHTML=cases.map((c,i)=>`
 
-        <div
-          class="case-card"
-          onclick="openCasePage(${i})">
+        <div class="case-card"
+             onclick="openCasePage(${i})">
 
             <div class="case-image">
 
                 <img
-                  src="${caseSVG(c.color,"CASE 0"+(i+1))}"
-                  width="100%"
-                  height="180">
+                    src="${caseSVG(c.color,"CASE 0"+(i+1))}"
+                    width="100%"
+                    height="180"
+                    alt="${c.name}">
 
             </div>
 
@@ -1517,7 +2105,7 @@ function renderCases(){
 
 
 /* =========================================================
-   ABRIR DETALLE
+   DETALLE DE CAJA
    ========================================================= */
 
 function openCasePage(index){
@@ -1533,23 +2121,32 @@ function openCasePage(index){
     document.getElementById("casePage")
         .classList.remove("hidden");
 
-    document.getElementById("caseName").textContent=
-        currentCase.name;
+    document.getElementById("caseName")
+        .textContent=currentCase.name;
 
-    document.getElementById("caseDescription").textContent=
-        currentCase.description;
+    document.getElementById("caseDescription")
+        .textContent=currentCase.description;
 
-    document.getElementById("casePrice").textContent=
-        currentCase.price;
+    document.getElementById("casePrice")
+        .textContent=currentCase.price;
 
     document.getElementById("bigCase").innerHTML=`
         <img
-          src="${caseSVG(currentCase.color,currentCase.name)}"
-          width="100%"
-          height="100%">
+            src="${caseSVG(
+                currentCase.color,
+                currentCase.name
+            )}"
+            width="100%"
+            height="100%"
+            alt="${currentCase.name}">
     `;
 
     renderSkins();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
@@ -1561,18 +2158,22 @@ function renderSkins(){
 
     const grid=document.getElementById("skinsGrid");
 
-    grid.innerHTML=currentCase.skins.map((s,i)=>`
+    grid.innerHTML=currentCase.skins.map((s)=>`
 
-        <div
-          class="skin-card"
-          style="--rarity:${s.color}">
+        <div class="skin-card"
+             style="--rarity:${s.color}">
 
             <div class="skin-image">
 
                 <img
-                  src="${weaponSVG(s.type,s.color,s.name)}"
-                  width="100%"
-                  height="145">
+                    src="${weaponSVG(
+                        s.type,
+                        s.color,
+                        s.name
+                    )}"
+                    width="100%"
+                    height="175"
+                    alt="${s.weapon} | ${s.name}">
 
             </div>
 
@@ -1611,24 +2212,27 @@ function renderSkins(){
 
 
 /* =========================================================
-   PROBABILIDAD
+   RANDOM SKIN
    ========================================================= */
 
 function randomSkin(){
 
     const list=currentCase.skins;
 
-    let total=list.reduce((a,b)=>a+b.prob,0);
+    const total=list.reduce(
+        (sum,skin)=>sum+Number(skin.prob),
+        0
+    );
 
     let random=Math.random()*total;
 
     for(const skin of list){
 
-        random-=skin.prob;
+        random-=Number(skin.prob);
 
-        if(random<=0)
+        if(random<=0){
             return skin;
-
+        }
     }
 
     return list[list.length-1];
@@ -1641,11 +2245,11 @@ function randomSkin(){
 
 function openCases(){
 
-    if(!currentCase)
-        return;
+    if(!currentCase)return;
 
-    const amount=
-        Number(document.getElementById("quantity").value);
+    const amount=Number(
+        document.getElementById("quantity").value
+    );
 
     const cost=currentCase.price*amount;
 
@@ -1667,9 +2271,7 @@ function openCases(){
         const skin=randomSkin();
 
         results.push(skin);
-
         inventory.push(skin);
-
     }
 
     showOpening(results);
@@ -1677,7 +2279,7 @@ function openCases(){
 
 
 /* =========================================================
-   ANIMACION
+   ANIMACIÓN DE APERTURA
    ========================================================= */
 
 function showOpening(results){
@@ -1691,8 +2293,9 @@ function showOpening(results){
 
     const all=[];
 
-    for(let i=0;i<18;i++)
+    for(let i=0;i<18;i++){
         all.push(randomSkin());
+    }
 
     all.push(...results);
 
@@ -1701,9 +2304,14 @@ function showOpening(results){
         <div class="spin-item">
 
             <img
-              src="${weaponSVG(s.type,s.color,s.name)}"
-              width="170"
-              height="130">
+                src="${weaponSVG(
+                    s.type,
+                    s.color,
+                    s.name
+                )}"
+                width="175"
+                height="140"
+                alt="${s.name}">
 
         </div>
 
@@ -1712,9 +2320,13 @@ function showOpening(results){
     container.style.transition="none";
     container.style.transform="translateX(0)";
 
+    document.getElementById("winnerText")
+        .textContent="";
+
     setTimeout(()=>{
 
-        const winnerIndex=all.length-results.length;
+        const winnerIndex=
+            all.length-results.length;
 
         const offset=
             -(winnerIndex*192)+300;
@@ -1729,11 +2341,13 @@ function showOpening(results){
 
     setTimeout(()=>{
 
-        document.getElementById("winnerText").textContent=
-            results.map(x=>`${x.weapon} | ${x.name}`).join(" • ");
+        document.getElementById("winnerText")
+            .textContent=
+            results.map(x=>
+                `${x.weapon} | ${x.name}`
+            ).join(" • ");
 
     },4200);
-
 }
 
 
@@ -1765,11 +2379,16 @@ function showInventory(){
         .classList.remove("hidden");
 
     renderInventory();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
 /* =========================================================
-   INVENTARIO DE MEJORAS
+   INVENTARIO UPGRADE
    ========================================================= */
 
 function renderInventory(){
@@ -1785,6 +2404,8 @@ function renderInventory(){
             </p>
         `;
 
+        updateReward();
+
         return;
     }
 
@@ -1793,10 +2414,19 @@ function renderInventory(){
         <div class="inventory-item">
 
             <img
-              src="${weaponSVG(s.type,s.color,s.name)}">
+                src="${weaponSVG(
+                    s.type,
+                    s.color,
+                    s.name
+                )}"
+                alt="${s.name}">
 
             <div>
-                <b>${s.name}</b>
+                <b>${s.weapon}</b>
+
+                <div>
+                    ${s.name}
+                </div>
 
                 <div style="color:#ffd000">
                     $${s.value.toFixed(2)}
@@ -1804,10 +2434,10 @@ function renderInventory(){
             </div>
 
             <button
-              class="add"
-              onclick="selectUpgrade(${i})">
+                class="add"
+                onclick="selectUpgrade(${i})">
 
-              ${selectedForUpgrade.includes(i)?"✓":"+"}
+                ${selectedForUpgrade.includes(i)?"✓":"+"}
 
             </button>
 
@@ -1828,7 +2458,9 @@ function selectUpgrade(index){
     if(selectedForUpgrade.includes(index)){
 
         selectedForUpgrade=
-            selectedForUpgrade.filter(i=>i!==index);
+            selectedForUpgrade.filter(
+                i=>i!==index
+            );
 
     }else{
 
@@ -1849,8 +2481,10 @@ function setMultiplier(value,button){
     multiplier=value;
 
     document
-      .querySelectorAll(".mult")
-      .forEach(x=>x.classList.remove("active"));
+        .querySelectorAll(".mult")
+        .forEach(x=>
+            x.classList.remove("active")
+        );
 
     button.classList.add("active");
 
@@ -1869,6 +2503,8 @@ function updateReward(){
 
     if(selectedForUpgrade.length===0){
 
+        reward=null;
+
         area.innerHTML=`
             <p style="color:#7089a3">
                 Selecciona skins para ver la recompensa.
@@ -1881,14 +2517,19 @@ function updateReward(){
     let total=0;
 
     selectedForUpgrade.forEach(i=>{
-        total+=inventory[i].value;
+
+        if(inventory[i]){
+            total+=Number(inventory[i].value);
+        }
+
     });
 
     const target=total*multiplier;
 
-    let candidates=skins
-        .filter(s=>s.value<=target*1.15)
-        .filter(s=>s.value>=target*.75);
+    let candidates=skins.filter(s=>
+        s.value<=target*1.15 &&
+        s.value>=target*.75
+    );
 
     if(candidates.length===0){
 
@@ -1898,7 +2539,6 @@ function updateReward(){
                 Math.abs(a.value-target)-
                 Math.abs(b.value-target)
             );
-
     }
 
     reward=candidates[0];
@@ -1908,11 +2548,12 @@ function updateReward(){
         <h3>${reward.weapon}</h3>
 
         <img
-          src="${weaponSVG(
-              reward.type,
-              reward.color,
-              reward.name
-          )}">
+            src="${weaponSVG(
+                reward.type,
+                reward.color,
+                reward.name
+            )}"
+            alt="${reward.name}">
 
         <h2>${reward.name}</h2>
 
@@ -1931,7 +2572,6 @@ function updateReward(){
         </p>
 
     `;
-
 }
 
 
@@ -1940,24 +2580,23 @@ function updateReward(){
    ========================================================= */
 
 document
-.getElementById("winSlider")
-.addEventListener("input",function(){
+    .getElementById("winSlider")
+    .addEventListener("input",function(){
 
-    const value=Number(this.value);
+        const value=Number(this.value);
 
-    document
-      .querySelector(".wheel")
-      .style.background=
-      `conic-gradient(
-          #35d16f ${value}deg ${value+32}deg,
-          #10202d ${value+32}deg 360deg
-       )`;
-
-});
+        document
+            .querySelector(".wheel")
+            .style.background=
+            `conic-gradient(
+                #35d16f ${value}deg ${value+32}deg,
+                #10202d ${value+32}deg 360deg
+            )`;
+    });
 
 
 /* =========================================================
-   GIRO DE MEJORA
+   GIRO DE UPGRADE
    ========================================================= */
 
 function spinUpgrade(){
@@ -1970,97 +2609,88 @@ function spinUpgrade(){
     }
 
     if(!reward){
-
         updateReward();
-
     }
+
+    if(!reward)return;
 
     const pointer=
         document.getElementById("pointer");
 
     const slider=
-        Number(document.getElementById("winSlider").value);
+        Number(
+            document.getElementById("winSlider").value
+        );
 
     const winStart=slider;
     const winEnd=slider+32;
 
-    /*
-      El puntero gira exactamente 4 segundos.
-    */
-
-    pointer.style.transition=
-        "transform 4s cubic-bezier(.12,.7,.15,1)";
-
-    const randomAngle=
-        1440+Math.random()*360;
-
+    pointer.style.transition="none";
     pointer.style.transform=
-        `translate(-50%,-100%) rotate(${randomAngle}deg)`;
+        "translate(-50%,-100%) rotate(0deg)";
 
     setTimeout(()=>{
 
-        const finalAngle=
-            randomAngle%360;
+        const randomAngle=
+            1440+Math.random()*360;
 
-        let normalized=
-            (finalAngle+360)%360;
+        pointer.style.transition=
+            "transform 4s cubic-bezier(.12,.7,.15,1)";
 
-        let won=
-            normalized>=winStart &&
-            normalized<=winEnd;
+        pointer.style.transform=
+            `translate(-50%,-100%) rotate(${randomAngle}deg)`;
 
-        if(won){
+        setTimeout(()=>{
 
-            /*
-              Consumimos las skins utilizadas.
-            */
+            const finalAngle=
+                ((randomAngle%360)+360)%360;
 
-            const sorted=
+            const won=
+                finalAngle>=winStart &&
+                finalAngle<=winEnd;
+
+            const selected=
                 [...selectedForUpgrade]
                 .sort((a,b)=>b-a);
 
-            sorted.forEach(i=>{
-                inventory.splice(i,1);
-            });
+            if(won){
 
-            inventory.push(reward);
-
-            alert(
-                `🎉 ¡GANASTE!\n\n`+
-                `${reward.weapon} | ${reward.name}\n`+
-                `Valor: $${reward.value.toFixed(2)}`
-            );
-
-        }else{
-
-            const lose=
-                confirm(
-                    "❌ PERDISTE\n\n"+
-                    "Las skins utilizadas se perdieron.\n\n"+
-                    "¿Cerrar?"
-                );
-
-            if(lose){
-
-                const sorted=
-                    [...selectedForUpgrade]
-                    .sort((a,b)=>b-a);
-
-                sorted.forEach(i=>{
-                    inventory.splice(i,1);
+                selected.forEach(i=>{
+                    if(inventory[i]){
+                        inventory.splice(i,1);
+                    }
                 });
 
+                inventory.push(reward);
+
+                alert(
+                    "🎉 ¡GANASTE!\n\n"+
+                    `${reward.weapon} | ${reward.name}\n`+
+                    `Valor: $${reward.value.toFixed(2)}`
+                );
+
+            }else{
+
+                selected.forEach(i=>{
+                    if(inventory[i]){
+                        inventory.splice(i,1);
+                    }
+                });
+
+                alert(
+                    "❌ PERDISTE\n\n"+
+                    "Las skins utilizadas se perdieron."
+                );
             }
 
-        }
+            selectedForUpgrade=[];
+            reward=null;
 
-        selectedForUpgrade=[];
-        reward=null;
+            renderInventory();
 
-        renderInventory();
+        },4050);
 
-    },4050);
-
+    },50);
 }
 
 
@@ -2071,17 +2701,21 @@ function spinUpgrade(){
 function goHome(){
 
     document
-      .getElementById("casePage")
-      .classList.add("hidden");
+        .getElementById("casePage")
+        .classList.add("hidden");
 
     document
-      .getElementById("upgradePage")
-      .classList.add("hidden");
+        .getElementById("upgradePage")
+        .classList.add("hidden");
 
     document
-      .getElementById("home")
-      .classList.remove("hidden");
+        .getElementById("home")
+        .classList.remove("hidden");
 
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
@@ -2092,10 +2726,9 @@ function goHome(){
 function updateCoins(){
 
     document
-      .getElementById("coins")
-      .textContent=
+        .getElementById("coins")
+        .textContent=
         coins.toLocaleString("es-ES");
-
 }
 
 
@@ -2110,3 +2743,4 @@ updateCoins();
 
 </body>
 </html>
+```
