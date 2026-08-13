@@ -2,287 +2,233 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>CASEHUB CS2</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+*{box-sizing:border-box}
 
 body{
+    margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#070b10;
+    background:#060b11;
     color:#fff;
-    min-height:100vh;
 }
 
 button,select,input{
     font:inherit;
 }
 
-button{
-    cursor:pointer;
-}
-
 header{
-    height:76px;
-    background:#080d13;
+    height:78px;
     border-bottom:1px solid #26384d;
+    background:#080d13;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 36px;
+    padding:0 38px;
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:50;
 }
 
 .logo{
-    font-size:29px;
+    font-size:28px;
     font-weight:900;
     letter-spacing:.5px;
 }
 
 .logo span{
-    color:#ffae00;
+    color:#ffad00;
 }
 
-.headerRight{
+.header-right{
     display:flex;
     gap:12px;
 }
 
-.topBtn{
-    background:#101d2d;
+.header-btn{
+    background:#101d2c;
+    border:1px solid #38516d;
     color:#fff;
-    border:1px solid #38516c;
-    padding:12px 18px;
-    border-radius:8px;
-    font-weight:bold;
+    padding:12px 20px;
+    border-radius:9px;
+    cursor:pointer;
 }
 
 .coins{
     color:#ffc400;
+    font-weight:bold;
 }
 
 main{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
-    padding:28px 22px 60px;
+    padding:30px 20px 70px;
+}
+
+h1{
+    text-align:center;
+    margin:8px 0;
+}
+
+.subtitle{
+    text-align:center;
+    color:#7590ad;
+    margin-bottom:30px;
 }
 
 .hidden{
     display:none!important;
 }
 
-.pageTitle{
-    text-align:center;
-    font-size:30px;
-    margin-bottom:8px;
-}
+/* CAJAS */
 
-.subtitle{
-    text-align:center;
-    color:#7890aa;
-    margin-bottom:28px;
-}
-
-.caseGrid{
+.cases-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
-.caseCard{
-    background:#0d1825;
-    border:1px solid #314960;
+.case-card{
+    background:linear-gradient(145deg,#101d2b,#0a121d);
+    border:1px solid #30465d;
     border-radius:15px;
     padding:18px;
-    transition:.2s;
     cursor:pointer;
+    transition:.2s;
 }
 
-.caseCard:hover{
+.case-card:hover{
     transform:translateY(-5px);
-    border-color:#ffad00;
-    box-shadow:0 10px 35px #0008;
+    border-color:#ffae00;
+    box-shadow:0 10px 30px #0008;
 }
 
-.caseImage{
-    height:205px;
+.case-image{
+    height:180px;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#101d2c;
-    border-radius:10px;
-    margin-bottom:17px;
 }
 
-.caseBox{
-    width:210px;
-    height:135px;
+.case-card h2{
+    margin:8px 0;
 }
 
-.caseName{
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:8px;
-}
-
-.caseDescription{
-    color:#8ba2bc;
+.case-card p{
+    color:#7e99b7;
+    min-height:48px;
     line-height:1.5;
-    min-height:67px;
 }
 
-.priceBtn{
-    margin-top:15px;
-    background:#12243a;
-    color:#ffc400;
-    border:1px solid #38536e;
-    border-radius:7px;
+.price{
+    display:inline-block;
+    background:#122439;
+    border:1px solid #3a5773;
     padding:10px 15px;
+    border-radius:8px;
+    color:#ffd000;
     font-weight:bold;
 }
 
-.detailLayout{
+/* DETALLE CAJA */
+
+.back{
+    background:#101d2b;
+    border:1px solid #3b5874;
+    color:white;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.case-detail{
     display:grid;
-    grid-template-columns:350px 1fr;
+    grid-template-columns:360px 1fr;
     gap:28px;
 }
 
-.detailBox{
-    background:#0d1825;
-    border:1px solid #344d66;
+.case-info{
+    background:#0c1723;
+    border:1px solid #304960;
     border-radius:15px;
     padding:20px;
     height:max-content;
 }
 
-.detailBoxImage{
-    height:240px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#101d2c;
-    border-radius:10px;
+.big-case{
+    height:230px;
 }
 
-.detailInfo{
-    text-align:center;
-    margin-top:18px;
-}
-
-.detailInfo h2{
-    font-size:25px;
-    margin-bottom:8px;
-}
-
-.detailInfo p{
-    color:#8ca3bd;
-    line-height:1.5;
-}
-
-.casePrice{
-    color:#ffc400;
-    font-size:20px;
-    font-weight:bold;
-    margin:15px 0;
-}
-
-.openPanel{
-    background:#101d2c;
-    border:1px solid #344d66;
-    padding:14px;
+.open-box{
+    width:100%;
+    background:#ffad00;
+    border:0;
     border-radius:9px;
-}
-
-.openPanel label{
-    display:block;
-    text-align:center;
-    color:#9bb0c7;
-    margin-bottom:8px;
-}
-
-select{
-    width:100%;
-    background:#09121c;
-    color:white;
-    border:1px solid #3c5771;
-    padding:11px;
-    border-radius:7px;
-    margin-bottom:12px;
-}
-
-.openBtn{
-    width:100%;
-    border:none;
-    background:#ffae00;
-    color:#111;
+    padding:15px;
+    margin-top:14px;
     font-weight:900;
-    padding:14px;
-    border-radius:8px;
+    cursor:pointer;
+    color:#111;
 }
 
-.openBtn:hover{
-    background:#ffc137;
+.open-box:hover{
+    background:#ffc13b;
 }
 
-.backBtn{
-    background:#101e2e;
-    color:white;
-    border:1px solid #3a526a;
-    padding:10px 16px;
+.quantity{
+    width:100%;
+    padding:12px;
+    background:#08111b;
+    color:#fff;
+    border:1px solid #36516c;
     border-radius:7px;
-    margin-bottom:20px;
 }
 
-.skinSection h2{
-    margin-bottom:15px;
+.skins-title{
+    margin-top:0;
 }
 
-.skinGrid{
+.skins-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:14px;
 }
 
-.skinCard{
-    background:#0d1825;
-    border:1px solid #30475d;
+.skin-card{
+    background:#0d1925;
+    border:1px solid #31485e;
     border-radius:12px;
     overflow:hidden;
 }
 
-.skinImage{
-    height:180px;
-    background:#111f2e;
+.skin-image{
+    height:145px;
+    background:#101f30;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:15px;
 }
 
-.skinInfo{
+.skin-info{
     padding:12px;
-    border-top:2px solid;
+    border-top:2px solid var(--rarity);
 }
 
-.skinWeapon{
-    color:#7190af;
+.weapon{
+    color:#7793b2;
     font-size:13px;
 }
 
-.skinName{
-    font-size:17px;
+.skin-name{
+    font-size:16px;
     font-weight:bold;
-    margin:3px 0 8px;
+    margin:4px 0;
 }
 
-.skinBottom{
+.skin-bottom{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -291,330 +237,277 @@ select{
 .rarity{
     font-size:13px;
     font-weight:bold;
+    color:var(--rarity);
 }
 
 .prob{
-    color:#91a9c0;
+    color:#9ab0c8;
     font-size:13px;
 }
 
-.skinValue{
-    color:#ffc400;
+.value{
+    color:#ffd000;
     font-weight:bold;
-    margin-top:7px;
+    margin-top:6px;
 }
+
+/* RESULTADOS */
 
 .results{
-    margin-top:30px;
+    margin-top:35px;
 }
 
-.results h2{
-    text-align:center;
-    margin-bottom:15px;
-}
-
-.resultGrid{
+.results-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:16px;
-}
-
-.resultCard{
-    background:#0d1825;
-    border:1px solid #344d66;
-    border-radius:12px;
-    overflow:hidden;
-}
-
-.resultImage{
-    height:190px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#111f2e;
-}
-
-.resultInfo{
-    padding:13px;
-}
-
-.resultValue{
-    color:#ffc400;
-    font-size:18px;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-/* INVENTARIO */
-
-.inventoryGrid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
 
-.inventoryCard{
-    background:#0d1825;
-    border:1px solid #334c64;
-    border-radius:12px;
-    overflow:hidden;
-}
+/* MODAL APERTURA */
 
-.inventoryImage{
-    height:150px;
+.modal{
+    position:fixed;
+    inset:0;
+    background:#000d;
+    z-index:100;
     display:flex;
-    justify-content:center;
     align-items:center;
-    background:#101d2b;
+    justify-content:center;
 }
 
-.inventoryInfo{
-    padding:11px;
+.modal-box{
+    width:min(1000px,94%);
+    background:#0b1520;
+    border:1px solid #38516b;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
 }
 
-/* UPGRADER */
+.spinner{
+    height:200px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+    border:1px solid #263d54;
+    background:#08111a;
+}
 
-.multiplierRow{
+.spinner-items{
+    display:flex;
+    gap:12px;
+    transition:transform 4s cubic-bezier(.12,.7,.15,1);
+}
+
+.spin-item{
+    min-width:180px;
+    height:150px;
+    background:#101e2c;
+    border:1px solid #334d67;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.center-line{
+    position:absolute;
+    left:50%;
+    top:0;
+    width:3px;
+    height:100%;
+    background:#ffae00;
+    z-index:5;
+}
+
+.close{
+    background:#1b2b3d;
+    border:1px solid #45617e;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* MEJORAS */
+
+.multipliers{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:10px;
+    gap:12px;
     margin-bottom:18px;
 }
 
-.multiplier{
+.mult{
     background:#101d2c;
     color:#fff;
-    border:1px solid #39516a;
-    padding:12px;
+    border:1px solid #3b5874;
+    padding:13px;
     border-radius:8px;
-    font-weight:bold;
+    cursor:pointer;
 }
 
-.multiplier.active{
-    background:#ffad00;
+.mult.active{
+    background:#ffae00;
     color:#111;
 }
 
-.upgradeGrid{
+.upgrade-grid{
     display:grid;
     grid-template-columns:1fr 1.2fr 1fr;
     gap:18px;
 }
 
-.upgradePanel{
-    background:#0d1825;
-    border:1px solid #344d66;
+.panel{
+    background:#0c1723;
+    border:1px solid #30485f;
     border-radius:14px;
     padding:18px;
-    min-height:480px;
+    min-height:470px;
 }
 
-.upgradePanel h2{
-    margin-bottom:16px;
-}
-
-.invItem{
+.inventory-item{
     display:flex;
     align-items:center;
-    gap:9px;
-    padding:8px 0;
-    border-bottom:1px solid #203243;
+    gap:10px;
+    padding:9px;
+    border-bottom:1px solid #223548;
 }
 
-.invMini{
-    width:70px;
-    height:40px;
+.inventory-item img{
+    width:75px;
+    height:45px;
+    object-fit:contain;
 }
 
-.invItem button{
+.add{
     margin-left:auto;
-    background:#12263b;
+    background:#12253a;
     color:white;
-    border:1px solid #3d5a75;
+    border:1px solid #3e5b77;
     border-radius:6px;
     padding:6px 10px;
+    cursor:pointer;
 }
 
-.selected{
-    border:1px solid #ffae00;
-    border-radius:7px;
-    background:#182b40;
-}
+/* RULETA VERDE */
 
-.wheelArea{
+.wheel-area{
     display:flex;
-    flex-direction:column;
-    align-items:center;
+    justify-content:center;
+    margin-top:20px;
 }
 
 .wheel{
-    width:285px;
-    height:285px;
+    width:270px;
+    height:270px;
     border-radius:50%;
     background:
-        conic-gradient(
-            #1d9b55 0deg 30deg,
-            #0b1219 30deg 360deg
-        );
-    border:8px solid #1a2b3d;
+      conic-gradient(
+        #35d16f 0deg 32deg,
+        #10202d 32deg 360deg
+      );
+    border:8px solid #172536;
     position:relative;
-    box-shadow:0 0 30px #000;
-    transition:transform 4s cubic-bezier(.12,.7,.08,1);
+    box-shadow:0 0 25px #000;
 }
 
 .wheel:after{
     content:"";
     position:absolute;
-    width:68px;
-    height:68px;
-    background:#080d13;
-    border:3px solid #1d9b55;
+    width:55px;
+    height:55px;
     border-radius:50%;
+    background:#071019;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
+    border:2px solid #587087;
 }
 
 .pointer{
     position:absolute;
-    z-index:5;
-    width:5px;
-    height:132px;
+    width:4px;
+    height:120px;
     background:#fff;
     left:50%;
-    top:12px;
-    transform-origin:50% 132px;
+    top:50%;
+    transform-origin:50% 100%;
+    transform:translate(-50%,-100%) rotate(0deg);
     box-shadow:0 0 10px white;
-}
-
-.pointerTip{
-    position:absolute;
-    bottom:-9px;
-    left:50%;
-    transform:translateX(-50%);
-    width:0;
-    height:0;
-    border-left:8px solid transparent;
-    border-right:8px solid transparent;
-    border-bottom:15px solid white;
-}
-
-.winChance{
-    margin-top:20px;
-    color:#54d789;
-    font-weight:bold;
+    z-index:10;
 }
 
 .slider{
-    width:90%;
-    margin-top:16px;
-}
-
-input[type=range]{
     width:100%;
+    margin-top:28px;
 }
 
-.sliderText{
+.slider::-webkit-slider-thumb{
+    cursor:pointer;
+}
+
+.win-info{
     text-align:center;
-    color:#7893ad;
-    font-size:13px;
-    margin-top:7px;
+    color:#56e489;
+    margin:10px;
 }
 
-.spinBtn{
-    margin-top:15px;
-    width:90%;
-    padding:14px;
-    border:none;
-    border-radius:8px;
-    background:#1d9b55;
-    color:white;
-    font-weight:900;
-    font-size:16px;
+.spin-upgrade{
+    width:100%;
+    padding:15px;
+    background:#ffad00;
+    color:#111;
+    border:0;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:12px;
 }
 
-.spinBtn:hover{
-    background:#27b866;
-}
-
-.rewardEmpty{
-    color:#6f88a1;
+.reward{
     text-align:center;
-    margin-top:90px;
 }
 
-.rewardImage{
+.reward img{
+    width:100%;
     height:220px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    object-fit:contain;
 }
 
-.rewardName{
+.reward-value{
     font-size:22px;
+    color:#ffd000;
     font-weight:bold;
-    text-align:center;
-}
-
-.rewardValue{
-    color:#ffc400;
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
-    margin-top:8px;
 }
 
 .notice{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    background:#102031;
-    border:1px solid #3c5872;
-    padding:14px 18px;
-    border-radius:8px;
-    z-index:999;
-    opacity:0;
-    transform:translateY(20px);
-    transition:.3s;
+    text-align:center;
+    padding:10px;
+    color:#ffcf45;
 }
 
-.notice.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-@media(max-width:950px){
-    .caseGrid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .detailLayout{
-        grid-template-columns:1fr;
-    }
-
-    .upgradeGrid{
-        grid-template-columns:1fr;
-    }
-
-    .inventoryGrid{
-        grid-template-columns:repeat(2,1fr);
-    }
+@media(max-width:900px){
+    .cases-grid{grid-template-columns:repeat(2,1fr)}
+    .case-detail{grid-template-columns:1fr}
+    .upgrade-grid{grid-template-columns:1fr}
 }
 
 @media(max-width:600px){
+    .cases-grid,
+    .skins-grid,
+    .results-grid{
+        grid-template-columns:1fr;
+    }
+
     header{
         padding:0 15px;
     }
 
-    .caseGrid,
-    .skinGrid,
-    .resultGrid,
-    .inventoryGrid{
-        grid-template-columns:1fr;
-    }
-
-    .multiplierRow{
-        grid-template-columns:repeat(2,1fr);
+    .logo{
+        font-size:22px;
     }
 }
 </style>
@@ -625,156 +518,115 @@ input[type=range]{
 <header>
     <div class="logo">CASE<span>HUB</span></div>
 
-    <div class="headerRight">
-        <button class="topBtn" onclick="showInventory()">🎒 Inventario</button>
-        <button class="topBtn">🪙 <span class="coins" id="coinDisplay">2500</span></button>
+    <div class="header-right">
+        <button class="header-btn" onclick="showInventory()">
+            🎒 Inventario
+        </button>
+
+        <button class="header-btn">
+            🪙 <span id="coins">2500</span>
+        </button>
     </div>
 </header>
 
 <main>
 
-<!-- =========================
-     MENU PRINCIPAL
-========================= -->
+<!-- ================= MENU ================= -->
 
 <section id="home">
 
-    <h1 class="pageTitle">🔥 CASEHUB</h1>
-    <p class="subtitle">Elige una caja y descubre qué skin te toca</p>
-
-    <div class="caseGrid" id="caseGrid"></div>
-
-    <div class="results hidden" id="homeResults">
-        <h2>🎉 Resultados</h2>
-        <div class="resultGrid" id="resultGrid"></div>
+    <h1>🔥 CASEHUB</h1>
+    <div class="subtitle">
+        Elige una caja y descubre qué skin te toca
     </div>
+
+    <div class="cases-grid" id="casesGrid"></div>
 
 </section>
 
 
-<!-- =========================
-     DETALLE DE CAJA
-========================= -->
+<!-- ================= DETALLE ================= -->
 
-<section id="caseDetail" class="hidden">
+<section id="casePage" class="hidden">
 
-    <button class="backBtn" onclick="goHome()">← Volver a las cajas</button>
-
-    <div class="detailLayout">
-
-        <div class="detailBox">
-
-            <div class="detailBoxImage" id="detailCaseImage"></div>
-
-            <div class="detailInfo">
-                <h2 id="detailCaseName"></h2>
-                <p id="detailCaseDescription"></p>
-
-                <div class="casePrice">
-                    🪙 <span id="detailCasePrice"></span> coins
-                </div>
-            </div>
-
-            <div class="openPanel">
-
-                <label>Abrir cantidad</label>
-
-                <select id="openAmount">
-                    <option value="1">1 caja</option>
-                    <option value="2">2 cajas</option>
-                    <option value="3">3 cajas</option>
-                    <option value="4">4 cajas</option>
-                    <option value="5">5 cajas</option>
-                    <option value="6">6 cajas</option>
-                    <option value="7">7 cajas</option>
-                    <option value="8">8 cajas</option>
-                    <option value="9">9 cajas</option>
-                    <option value="10">10 cajas</option>
-                </select>
-
-                <button class="openBtn" onclick="openCases()">
-                    🔓 ABRIR CAJA
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="skinSection">
-
-            <h2>🎨 Skins disponibles</h2>
-
-            <div class="skinGrid" id="caseSkins"></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     INVENTARIO
-========================= -->
-
-<section id="inventoryPage" class="hidden">
-
-    <button class="backBtn" onclick="goHome()">← Volver</button>
-
-    <h1 class="pageTitle">🎒 Inventario</h1>
-    <p class="subtitle">Tus skins obtenidas</p>
-
-    <div class="inventoryGrid" id="inventoryGrid"></div>
-
-    <br><br>
-
-    <button class="topBtn" onclick="showUpgrade()">
-        ⚙️ Ir a mejoras
+    <button class="back" onclick="goHome()">
+        ← Volver a las cajas
     </button>
 
+    <div class="case-detail">
+
+        <div class="case-info">
+
+            <div class="big-case" id="bigCase"></div>
+
+            <h1 id="caseName"></h1>
+
+            <p id="caseDescription"></p>
+
+            <div class="price">
+                🪙 <span id="casePrice"></span> coins
+            </div>
+
+            <br><br>
+
+            <label>Abrir cantidad</label>
+
+            <select id="quantity" class="quantity">
+                <option value="1">1 caja</option>
+                <option value="2">2 cajas</option>
+                <option value="3">3 cajas</option>
+                <option value="4">4 cajas</option>
+                <option value="5">5 cajas</option>
+                <option value="6">6 cajas</option>
+                <option value="7">7 cajas</option>
+                <option value="8">8 cajas</option>
+                <option value="9">9 cajas</option>
+                <option value="10">10 cajas</option>
+            </select>
+
+            <button class="open-box" onclick="openCases()">
+                🔓 ABRIR CAJA
+            </button>
+
+        </div>
+
+        <div>
+            <h2 class="skins-title">🎨 Skins disponibles</h2>
+
+            <div id="skinsGrid" class="skins-grid"></div>
+        </div>
+
+    </div>
+
 </section>
 
 
-<!-- =========================
-     MEJORAS
-========================= -->
+<!-- ================= INVENTARIO / MEJORAS ================= -->
 
 <section id="upgradePage" class="hidden">
 
-    <button class="backBtn" onclick="goHome()">← Volver</button>
+    <button class="back" onclick="goHome()">
+        ← Volver
+    </button>
 
-    <h1 class="pageTitle">⚙️ Zona de mejoras</h1>
-    <p class="subtitle">
-        Selecciona skins, elige multiplicador y gira la ruleta.
-    </p>
+    <h1>🔧 ZONA DE MEJORAS</h1>
 
-    <div class="multiplierRow">
-
-        <button class="multiplier active" data-multi="1.5" onclick="selectMultiplier(1.5,this)">
-            1.5x
-        </button>
-
-        <button class="multiplier" data-multi="2" onclick="selectMultiplier(2,this)">
-            2x
-        </button>
-
-        <button class="multiplier" data-multi="5" onclick="selectMultiplier(5,this)">
-            5x
-        </button>
-
-        <button class="multiplier" data-multi="10" onclick="selectMultiplier(10,this)">
-            10x
-        </button>
-
+    <div class="subtitle">
+        Combina tus skins y apuesta por una recompensa de mayor valor.
     </div>
 
+    <div class="multipliers">
+        <button class="mult active" onclick="setMultiplier(1.5,this)">1.5x</button>
+        <button class="mult" onclick="setMultiplier(2,this)">2x</button>
+        <button class="mult" onclick="setMultiplier(5,this)">5x</button>
+        <button class="mult" onclick="setMultiplier(10,this)">10x</button>
+    </div>
 
-    <div class="upgradeGrid">
+    <div class="upgrade-grid">
 
         <!-- INVENTARIO -->
-        <div class="upgradePanel">
 
+        <div class="panel">
             <h2>🎒 Inventario</h2>
 
             <div id="upgradeInventory"></div>
@@ -783,59 +635,60 @@ input[type=range]{
 
 
         <!-- RULETA -->
-        <div class="upgradePanel">
+
+        <div class="panel">
 
             <h2>🎯 Ruleta</h2>
 
-            <div class="wheelArea">
+            <div class="wheel-area">
 
-                <div class="wheel" id="wheel">
+                <div class="wheel">
 
-                    <div class="pointer">
-                        <div class="pointerTip"></div>
+                    <div
+                        id="pointer"
+                        class="pointer">
                     </div>
 
                 </div>
 
-                <div class="winChance" id="winChance">
-                    PROBABILIDAD DE GANAR: 30%
-                </div>
-
-                <input
-                    class="slider"
-                    id="winSlider"
-                    type="range"
-                    min="5"
-                    max="70"
-                    value="30"
-                    oninput="updateWinChance()"
-                >
-
-                <div class="sliderText">
-                    Mueve la barra para colocar la zona WIN.
-                </div>
-
-                <button class="spinBtn" onclick="spinUpgrade()">
-                    🎯 GIRAR
-                </button>
-
             </div>
+
+            <input
+                id="winSlider"
+                class="slider"
+                type="range"
+                min="0"
+                max="330"
+                value="0"
+            >
+
+            <div class="win-info">
+                🟢 Zona WIN
+            </div>
+
+            <p style="text-align:center;color:#7089a3">
+                Mueve la barra para colocar la zona de victoria.
+            </p>
+
+            <button
+                class="spin-upgrade"
+                onclick="spinUpgrade()">
+                🎯 GIRAR
+            </button>
 
         </div>
 
 
         <!-- RECOMPENSA -->
-        <div class="upgradePanel">
+
+        <div class="panel reward">
 
             <h2>🏆 Recompensa</h2>
 
             <div id="rewardArea">
-
-                <div class="rewardEmpty">
-                    Selecciona skins para ver<br>
-                    la recompensa.
-                </div>
-
+                <p style="color:#6e87a2">
+                    Selecciona skins para ver la recompensa.
+                </p>
             </div>
 
         </div>
@@ -846,7 +699,35 @@ input[type=range]{
 
 </main>
 
-<div class="notice" id="notice"></div>
+
+<!-- ================= MODAL ================= -->
+
+<div id="modal" class="modal hidden">
+
+    <div class="modal-box">
+
+        <h2>🎁 Abriendo caja...</h2>
+
+        <div class="spinner">
+
+            <div class="center-line"></div>
+
+            <div
+                id="spinnerItems"
+                class="spinner-items">
+            </div>
+
+        </div>
+
+        <h2 id="winnerText"></h2>
+
+        <button class="close" onclick="closeModal()">
+            Cerrar
+        </button>
+
+    </div>
+
+</div>
 
 
 <script>
@@ -856,754 +737,730 @@ input[type=range]{
    =========================================================
 
    IMPORTANTE:
-   NO SE USA NINGUNA API EXTERNA.
+   NO utilizamos URLs externas.
 
-   Todas las armas se dibujan con SVG directamente.
-   Por eso no pueden fallar por problemas de internet,
-   CORS, Steam CDN, API, etc.
-========================================================= */
+   Cada imagen es un SVG generado aquí mismo.
+   Por eso funciona incluso sin Internet.
+*/
 
-function weaponSVG(skin){
+function weaponSVG(type,color,name){
 
-    let color = skin.color || "#4b89ff";
-    let accent = skin.accent || "#ffffff";
+    let path="";
 
-    let pattern = "";
-
-    if(skin.pattern === "gold"){
-        pattern = `
-            <path d="M70 110 L170 65 L300 75 L370 105 L280 125 L160 120 Z"
-            fill="${color}" opacity=".9"/>
-            <circle cx="250" cy="93" r="17" fill="${accent}"/>
+    if(type==="rifle"){
+        path=`
+        <path d="M55 92 L115 78 L300 78 L350 95 L300 108 L150 105 L110 125 L75 120 Z"/>
+        <path d="M150 105 L180 130 L168 190 L135 190 L125 125"/>
+        <path d="M235 105 L265 130 L250 185 L220 185 L215 108"/>
+        <rect x="105" y="70" width="125" height="9"/>
+        <circle cx="305" cy="94" r="8"/>
         `;
     }
 
-    else if(skin.pattern === "doppler"){
-        pattern = `
-            <path d="M60 108 Q150 55 230 108 T390 90"
-            fill="none"
-            stroke="${accent}"
-            stroke-width="25"
-            opacity=".85"/>
-            <path d="M90 120 Q170 75 260 115 T380 100"
-            fill="none"
-            stroke="${color}"
-            stroke-width="13"/>
+    else if(type==="pistol"){
+        path=`
+        <path d="M65 80 L270 80 L315 98 L260 112 L185 112 L165 150 L120 150 L130 108 L70 108 Z"/>
+        <path d="M160 110 L195 112 L180 180 L140 180 L135 145"/>
+        <rect x="105" y="72" width="90" height="8"/>
         `;
     }
 
-    else if(skin.pattern === "fire"){
-        pattern = `
-            <path d="M70 115
-            C110 75 120 105 145 65
-            C165 95 195 45 215 85
-            C240 45 275 90 305 65
-            C320 100 355 90 385 110
-            L350 130 L80 130 Z"
-            fill="${accent}"/>
+    else if(type==="smg"){
+        path=`
+        <path d="M50 90 L110 70 L300 80 L330 100 L270 110 L150 105 L120 140 L75 135 L90 105 Z"/>
+        <path d="M150 105 L180 125 L165 180 L135 180 L125 140"/>
+        <rect x="125" y="65" width="105" height="8"/>
         `;
     }
 
-    else if(skin.pattern === "neon"){
-        pattern = `
-            <path d="M70 105 L150 70 L230 105 L320 65 L390 100"
-            fill="none"
-            stroke="${accent}"
-            stroke-width="13"/>
-            <path d="M80 123 L170 85 L260 120 L350 80"
-            fill="none"
-            stroke="${color}"
-            stroke-width="8"/>
+    else if(type==="shotgun"){
+        path=`
+        <path d="M45 95 L110 80 L335 80 L365 95 L330 110 L120 108 L80 130 L50 125 Z"/>
+        <path d="M120 108 L155 125 L140 170 L105 170 L100 130"/>
+        <rect x="100" y="72" width="180" height="8"/>
         `;
     }
 
-    else if(skin.pattern === "red"){
-        pattern = `
-            <path d="M55 105 L180 70 L390 100 L330 125 L120 120 Z"
-            fill="${color}"/>
-            <circle cx="310" cy="105" r="13" fill="${accent}"/>
+    else if(type==="sniper"){
+        path=`
+        <path d="M40 100 L130 78 L305 82 L350 100 L300 115 L145 112 L105 135 L65 130 Z"/>
+        <path d="M150 110 L180 130 L165 180 L130 180 L120 135"/>
+        <rect x="150" y="65" width="100" height="10"/>
+        <circle cx="270" cy="70" r="14"/>
+        `;
+    }
+
+    else if(type==="knife"){
+        path=`
+        <path d="M65 125 L120 105 L180 70 L345 82 L220 125 L140 145 Z"/>
+        <path d="M90 125 L60 160 L110 170 L145 145 Z"/>
+        <circle cx="95" cy="145" r="7"/>
         `;
     }
 
     else{
-        pattern = `
-            <path d="M65 110 L160 72 L285 82 L390 105 L315 125 L150 120 Z"
-            fill="${color}"/>
-            <path d="M105 103 L250 92 L350 110"
-            stroke="${accent}"
-            stroke-width="7"
-            fill="none"/>
+        path=`
+        <path d="M50 100 L120 75 L330 85 L360 100 L320 115 L130 110 L90 140 L55 135 Z"/>
         `;
     }
 
-    if(skin.weapon.toLowerCase().includes("knife") ||
-       skin.weapon.toLowerCase().includes("karambit") ||
-       skin.weapon.toLowerCase().includes("butterfly") ||
-       skin.weapon.toLowerCase().includes("talon") ||
-       skin.weapon.toLowerCase().includes("ursus") ||
-       skin.weapon.toLowerCase().includes("bowie") ||
-       skin.weapon.toLowerCase().includes("huntsman") ||
-       skin.weapon.toLowerCase().includes("navaja")){
+    const svg=`
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="420"
+         height="220"
+         viewBox="0 0 420 220">
 
-        return `
-        <svg viewBox="0 0 440 180" width="100%" height="100%"
-        xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="5"
+                    result="blur"/>
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
 
-            <defs>
-                <filter id="glow${skin.id}">
-                    <feGaussianBlur stdDeviation="3"/>
-                </filter>
-            </defs>
+        <g fill="#071019"
+           stroke="#718298"
+           stroke-width="4"
+           stroke-linejoin="round">
 
-            <path d="M95 105
-                     C155 55 230 42 360 55
-                     L405 78
-                     C325 84 250 88 170 105
-                     L110 125 Z"
-                  fill="${color}"
-                  stroke="#aebaca"
-                  stroke-width="3"/>
+            ${path}
 
-            <path d="M105 110 L60 140 L135 132 L175 108"
-                  fill="#111820"
-                  stroke="#718095"
-                  stroke-width="3"/>
+        </g>
 
-            <path d="M120 112
-                     C190 80 270 63 375 68"
-                  stroke="${accent}"
-                  stroke-width="10"
-                  fill="none"/>
+        <g
+            stroke="${color}"
+            fill="none"
+            stroke-width="9"
+            filter="url(#glow)"
+            stroke-linecap="round">
 
-            <circle cx="85" cy="133" r="8"
-                    fill="${accent}"/>
+            <path d="M85 91 L280 91"/>
 
-            <text x="220" y="158"
-                  text-anchor="middle"
-                  fill="#7389a0"
-                  font-size="9">
-                ${skin.weapon} • ${skin.name}
-            </text>
+            <path d="M155 105 L220 105"/>
 
-        </svg>`;
-    }
+        </g>
 
-    return `
-    <svg viewBox="0 0 440 180"
-    width="100%" height="100%"
-    xmlns="http://www.w3.org/2000/svg">
-
-        <path d="M65 100 L145 78 L285 82 L340 95
-                 L390 105 L335 120 L155 118 L95 128 Z"
-              fill="#0a1119"
-              stroke="#718095"
-              stroke-width="3"/>
-
-        <path d="M70 103 L160 78 L280 85 L345 103 L310 112
-                 L155 108 L100 120 Z"
-              fill="${color}"/>
-
-        ${pattern}
-
-        <path d="M175 118 L195 118 L185 158 L155 158 Z"
-              fill="#080d13"/>
-
-        <path d="M275 115 L300 116 L320 151 L285 151 Z"
-              fill="#080d13"/>
-
-        <circle cx="330" cy="103" r="6"
-                fill="${accent}"/>
-
-        <text x="220" y="170"
-              text-anchor="middle"
-              fill="#7389a0"
-              font-size="9">
-            ${skin.weapon} • ${skin.name}
+        <text
+            x="210"
+            y="205"
+            fill="${color}"
+            text-anchor="middle"
+            font-size="11"
+            font-family="Arial"
+            font-weight="bold">
+            ${name}
         </text>
 
     </svg>`;
+
+    return "data:image/svg+xml;charset=UTF-8,"+
+        encodeURIComponent(svg);
 }
 
 
 /* =========================================================
-   DATOS DE SKINS
-========================================================= */
+   CAJAS
+   ========================================================= */
 
-const skins = [
+function caseSVG(color,label){
 
-{
-id:1,
-weapon:"AK-47",
-name:"Neon Rider",
-rarity:"Covert",
-prob:18,
-value:82.50,
-color:"#ff2d55",
-accent:"#00eaff",
-pattern:"neon"
-},
+    const svg=`
+    <svg xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 420 260">
 
-{
-id:2,
-weapon:"AK-47",
-name:"Redline",
-rarity:"Classified",
-prob:15,
-value:62.40,
-color:"#c91635",
-accent:"#ffffff",
-pattern:"red"
-},
+        <g
+          fill="#0c1825"
+          stroke="${color}"
+          stroke-width="6"
+          stroke-linejoin="round">
 
-{
-id:3,
-weapon:"Glock-18",
-name:"Gamma Doppler",
-rarity:"Restricted",
-prob:12,
-value:74.20,
-color:"#792cff",
-accent:"#d95cff",
-pattern:"doppler"
-},
+          <path d="M70 85 L120 40 L350 40 L390 85 L390 190 L70 190 Z"/>
 
-{
-id:4,
-weapon:"FAMAS",
-name:"Meow 36",
-rarity:"Classified",
-prob:10,
-value:35.60,
-color:"#e72cff",
-accent:"#ff78dd",
-pattern:"neon"
-},
+          <path d="M70 85 L120 110 L390 85"/>
 
-{
-id:5,
-weapon:"AWP",
-name:"Asiimov",
-rarity:"Covert",
-prob:8,
-value:117.35,
-color:"#eeeeee",
-accent:"#ff4b24",
-pattern:"red"
-},
+          <path d="M120 40 L120 110"/>
 
-{
-id:6,
-weapon:"M4A1-S",
-name:"Printstream",
-rarity:"Covert",
-prob:7,
-value:139.02,
-color:"#eeeeee",
-accent:"#ff5d5d",
-pattern:"neon"
-},
+          <path d="M350 40 L350 110"/>
 
-{
-id:7,
-weapon:"MAC-10",
-name:"Stalker",
-rarity:"Covert",
-prob:7,
-value:36.70,
-color:"#d8a600",
-accent:"#ffdf00",
-pattern:"gold"
-},
+        </g>
 
-{
-id:8,
-weapon:"M4A1-S",
-name:"Blue Phosphor",
-rarity:"Restricted",
-prob:6,
-value:88.40,
-color:"#1976ff",
-accent:"#65b7ff",
-pattern:"neon"
-},
+        <rect
+          x="150"
+          y="105"
+          width="160"
+          height="55"
+          rx="8"
+          fill="#08111b"
+          stroke="${color}"
+          stroke-width="3"/>
 
-{
-id:9,
-weapon:"USP-S",
-name:"Kill Confirmed",
-rarity:"Covert",
-prob:5,
-value:95.80,
-color:"#a50000",
-accent:"#ffbf00",
-pattern:"fire"
-},
+        <text
+          x="230"
+          y="140"
+          fill="${color}"
+          text-anchor="middle"
+          font-family="Arial"
+          font-size="18"
+          font-weight="bold">
+          ${label}
+        </text>
 
-{
-id:10,
-weapon:"M4A4",
-name:"The Emperor",
-rarity:"Covert",
-prob:4,
-value:91.30,
-color:"#182a65",
-accent:"#f1bd38",
-pattern:"gold"
-},
+    </svg>`;
 
-{
-id:11,
-weapon:"AK-47",
-name:"Bloodsport",
-rarity:"Covert",
-prob:4,
-value:109.75,
-color:"#e00026",
-accent:"#ffda00",
-pattern:"neon"
-},
-
-{
-id:12,
-weapon:"Desert Eagle",
-name:"Printstream",
-rarity:"Covert",
-prob:3.5,
-value:74.85,
-color:"#eeeeee",
-accent:"#ff5d5d",
-pattern:"neon"
-},
-
-{
-id:13,
-weapon:"M4A4",
-name:"Asiimov",
-rarity:"Covert",
-prob:3,
-value:77.25,
-color:"#eeeeee",
-accent:"#ff6329",
-pattern:"red"
-},
-
-{
-id:14,
-weapon:"USP-S",
-name:"Neo-Noir",
-rarity:"Covert",
-prob:2.5,
-value:53.20,
-color:"#2d163b",
-accent:"#ff48b7",
-pattern:"neon"
-},
-
-{
-id:15,
-weapon:"Glock-18",
-name:"Water Elemental",
-rarity:"Classified",
-prob:2.5,
-value:21.80,
-color:"#1765a7",
-accent:"#ff3d61",
-pattern:"neon"
-},
-
-{
-id:16,
-weapon:"AWP",
-name:"Hyper Beast",
-rarity:"Covert",
-prob:2,
-value:68.90,
-color:"#4a168d",
-accent:"#00ffb3",
-pattern:"fire"
-},
-
-{
-id:17,
-weapon:"AK-47",
-name:"Fuel Injector",
-rarity:"Covert",
-prob:1.8,
-value:58.30,
-color:"#ffd000",
-accent:"#111111",
-pattern:"gold"
-},
-
-{
-id:18,
-weapon:"M4A1-S",
-name:"Golden Coil",
-rarity:"Covert",
-prob:1.5,
-value:64.75,
-color:"#d99b00",
-accent:"#fff000",
-pattern:"gold"
-},
-
-{
-id:19,
-weapon:"MP9",
-name:"Starlight Protector",
-rarity:"Covert",
-prob:1.3,
-value:47.80,
-color:"#7b1cff",
-accent:"#ffcc55",
-pattern:"neon"
-},
-
-{
-id:20,
-weapon:"MAC-10",
-name:"Neon Rider",
-rarity:"Classified",
-prob:1.2,
-value:29.60,
-color:"#e40067",
-accent:"#00eaff",
-pattern:"neon"
-},
-
-{
-id:21,
-weapon:"AK-47",
-name:"Fire Serpent",
-rarity:"Covert",
-prob:1,
-value:310.50,
-color:"#14834d",
-accent:"#ffb300",
-pattern:"fire"
-},
-
-{
-id:22,
-weapon:"AWP",
-name:"Dragon Lore",
-rarity:"Covert",
-prob:.7,
-value:1450.00,
-color:"#a87816",
-accent:"#f5d36a",
-pattern:"gold"
-},
-
-{
-id:23,
-weapon:"M4A4",
-name:"Howl",
-rarity:"Contraband",
-prob:.5,
-value:780.00,
-color:"#a40000",
-accent:"#ffdc00",
-pattern:"fire"
-},
-
-{
-id:24,
-weapon:"AK-47",
-name:"Wild Lotus",
-rarity:"Covert",
-prob:.4,
-value:820.00,
-color:"#a52a7e",
-accent:"#64e8b3",
-pattern:"fire"
-},
-
-/* KNIVES */
-
-{
-id:25,
-weapon:"Butterfly Knife",
-name:"Gamma Doppler",
-rarity:"Rare Special",
-prob:.25,
-value:720,
-color:"#39e879",
-accent:"#9effc5",
-pattern:"doppler"
-},
-
-{
-id:26,
-weapon:"Karambit",
-name:"Doppler Phase 2",
-rarity:"Rare Special",
-prob:.23,
-value:680,
-color:"#ff46a8",
-accent:"#ff9bd5",
-pattern:"doppler"
-},
-
-{
-id:27,
-weapon:"Talon Knife",
-name:"Doppler Phase 4",
-rarity:"Rare Special",
-prob:.22,
-value:620,
-color:"#278cff",
-accent:"#8bd3ff",
-pattern:"doppler"
-},
-
-{
-id:28,
-weapon:"Huntsman Knife",
-name:"Gamma Doppler",
-rarity:"Rare Special",
-prob:.21,
-value:390,
-color:"#36d87b",
-accent:"#d6ffe6",
-pattern:"doppler"
-},
-
-{
-id:29,
-weapon:"Ursus Knife",
-name:"Doppler",
-rarity:"Rare Special",
-prob:.20,
-value:350,
-color:"#643dff",
-accent:"#c7b7ff",
-pattern:"doppler"
-},
-
-{
-id:30,
-weapon:"Bowie Knife",
-name:"Gamma Doppler",
-rarity:"Rare Special",
-prob:.19,
-value:330,
-color:"#39df84",
-accent:"#baffd7",
-pattern:"doppler"
-},
-
-{
-id:31,
-weapon:"Navaja Knife",
-name:"Doppler Phase 2",
-rarity:"Rare Special",
-prob:.18,
-value:210,
-color:"#ed4aa4",
-accent:"#ffb6df",
-pattern:"doppler"
-},
-
-{
-id:32,
-weapon:"Falchion Knife",
-name:"Doppler Phase 3",
-rarity:"Rare Special",
-prob:.17,
-value:245,
-color:"#5b45ff",
-accent:"#9b91ff",
-pattern:"doppler"
-},
-
-{
-id:33,
-weapon:"Shadow Daggers",
-name:"Gamma Doppler",
-rarity:"Rare Special",
-prob:.16,
-value:185,
-color:"#38dd77",
-accent:"#b5ffd3",
-pattern:"doppler"
-},
-
-{
-id:34,
-weapon:"Gut Knife",
-name:"Doppler Phase 1",
-rarity:"Rare Special",
-prob:.15,
-value:175,
-color:"#ff325b",
-accent:"#ff9aaa",
-pattern:"doppler"
-},
-
-{
-id:35,
-weapon:"Flip Knife",
-name:"Doppler Phase 2",
-rarity:"Rare Special",
-prob:.14,
-value:310,
-color:"#e93a9f",
-accent:"#ffb7e4",
-pattern:"doppler"
-},
-
-{
-id:36,
-weapon:"M9 Bayonet",
-name:"Gamma Doppler",
-rarity:"Rare Special",
-prob:.13,
-value:950,
-color:"#27d66e",
-accent:"#c2ffda",
-pattern:"doppler"
-},
-
-{
-id:37,
-weapon:"Bayonet",
-name:"Doppler Phase 4",
-rarity:"Rare Special",
-prob:.12,
-value:530,
-color:"#308eff",
-accent:"#a9d8ff",
-pattern:"doppler"
-},
-
-{
-id:38,
-weapon:"Skeleton Knife",
-name:"Fade",
-rarity:"Rare Special",
-prob:.11,
-value:890,
-color:"#ffb000",
-accent:"#ff4e87",
-pattern:"neon"
-},
-
-{
-id:39,
-weapon:"Stiletto Knife",
-name:"Doppler Phase 2",
-rarity:"Rare Special",
-prob:.10,
-value:420,
-color:"#e837a3",
-accent:"#ffb5df",
-pattern:"doppler"
-},
-
-{
-id:40,
-weapon:"Classic Knife",
-name:"Fade",
-rarity:"Rare Special",
-prob:.09,
-value:370,
-color:"#ffb000",
-accent:"#ff4f91",
-pattern:"neon"
-},
-
-{
-id:41,
-weapon:"Paracord Knife",
-name:"Fade",
-rarity:"Rare Special",
-prob:.08,
-value:260,
-color:"#ffb400",
-accent:"#ff4d91",
-pattern:"neon"
-},
-
-{
-id:42,
-weapon:"Survival Knife",
-name:"Fade",
-rarity:"Rare Special",
-prob:.07,
-value:280,
-color:"#ffb000",
-accent:"#ff468e",
-pattern:"neon"
-},
-
-{
-id:43,
-weapon:"Nomad Knife",
-name:"Fade",
-rarity:"Rare Special",
-prob:.06,
-value:430,
-color:"#ffb400",
-accent:"#ff4c90",
-pattern:"neon"
-},
-
-{
-id:44,
-weapon:"Kukri Knife",
-name:"Doppler",
-rarity:"Rare Special",
-prob:.05,
-value:240,
-color:"#5146ff",
-accent:"#c7c0ff",
-pattern:"doppler"
+    return "data:image/svg+xml;charset=UTF-8,"+
+        encodeURIComponent(svg);
 }
 
+
+/* =========================================================
+   SKINS
+   ========================================================= */
+
+const skins=[
+
+{
+name:"Neon Rider",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Covert",
+color:"#ff4054",
+prob:18,
+value:82.50
+},
+
+{
+name:"Redline",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Classified",
+color:"#b342ff",
+prob:15,
+value:62.40
+},
+
+{
+name:"Gamma Doppler",
+weapon:"Glock-18",
+type:"pistol",
+rarity:"Restricted",
+color:"#b341ff",
+prob:12,
+value:145.80
+},
+
+{
+name:"Meow 36",
+weapon:"FAMAS",
+type:"rifle",
+rarity:"Classified",
+color:"#e946ff",
+prob:10,
+value:48.90
+},
+
+{
+name:"Asiimov",
+weapon:"AWP",
+type:"sniper",
+rarity:"Covert",
+color:"#ff4747",
+prob:7,
+value:117.35
+},
+
+{
+name:"Printstream",
+weapon:"M4A1-S",
+type:"rifle",
+rarity:"Covert",
+color:"#ff3d91",
+prob:6,
+value:139.02
+},
+
+{
+name:"Stalker",
+weapon:"MAC-10",
+type:"smg",
+rarity:"Covert",
+color:"#ff3131",
+prob:8,
+value:36.70
+},
+
+{
+name:"Hyper Beast",
+weapon:"M4A1-S",
+type:"rifle",
+rarity:"Covert",
+color:"#ff38a7",
+prob:4,
+value:94.50
+},
+
+{
+name:"Vulcan",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Classified",
+color:"#55a5ff",
+prob:5,
+value:71.30
+},
+
+{
+name:"Dragon Lore",
+weapon:"AWP",
+type:"sniper",
+rarity:"Covert",
+color:"#ffb000",
+prob:1.5,
+value:1850.75
+},
+
+{
+name:"Fade",
+weapon:"Glock-18",
+type:"pistol",
+rarity:"Restricted",
+color:"#ff58c8",
+prob:4,
+value:320.50
+},
+
+{
+name:"Ocean Drive",
+weapon:"Desert Eagle",
+type:"pistol",
+rarity:"Covert",
+color:"#35d7ff",
+prob:5,
+value:74.90
+},
+
+{
+name:"Kill Confirmed",
+weapon:"USP-S",
+type:"pistol",
+rarity:"Covert",
+color:"#ff3434",
+prob:3,
+value:91.20
+},
+
+{
+name:"Neon Revolution",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Covert",
+color:"#ff31d1",
+prob:4,
+value:69.80
+},
+
+{
+name:"Golden Coil",
+weapon:"M4A1-S",
+type:"rifle",
+rarity:"Covert",
+color:"#ffc400",
+prob:3,
+value:104.70
+},
+
+{
+name:"Nightmare",
+weapon:"M4A4",
+type:"rifle",
+rarity:"Classified",
+color:"#9a42ff",
+prob:6,
+value:38.20
+},
+
+{
+name:"Hyper Beast",
+weapon:"AWP",
+type:"sniper",
+rarity:"Covert",
+color:"#ff46d0",
+prob:2.8,
+value:121.80
+},
+
+{
+name:"Fuel Injector",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Classified",
+color:"#ffb000",
+prob:5,
+value:58.40
+},
+
+{
+name:"The Emperor",
+weapon:"M4A4",
+type:"rifle",
+rarity:"Covert",
+color:"#ffcc35",
+prob:2,
+value:112.50
+},
+
+{
+name:"Frontside Misty",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Classified",
+color:"#44a7ff",
+prob:5,
+value:43.20
+},
+
+{
+name:"Buzz Kill",
+weapon:"R8 Revolver",
+type:"pistol",
+rarity:"Classified",
+color:"#ffd000",
+prob:7,
+value:31.40
+},
+
+{
+name:"Bloodsport",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Covert",
+color:"#ff4055",
+prob:3,
+value:97.30
+},
+
+{
+name:"Mecha Industries",
+weapon:"M4A1-S",
+type:"rifle",
+rarity:"Classified",
+color:"#c9e4ff",
+prob:7,
+value:45.90
+},
+
+{
+name:"Chromatic Aberration",
+weapon:"AWP",
+type:"sniper",
+rarity:"Covert",
+color:"#c747ff",
+prob:3,
+value:63.80
+},
+
+{
+name:"Cortex",
+weapon:"USP-S",
+type:"pistol",
+rarity:"Classified",
+color:"#ff52ba",
+prob:7,
+value:27.50
+},
+
+{
+name:"The Traitor",
+weapon:"USP-S",
+type:"pistol",
+rarity:"Covert",
+color:"#ff4141",
+prob:3,
+value:77.40
+},
+
+{
+name:"Decimator",
+weapon:"Tec-9",
+type:"pistol",
+rarity:"Classified",
+color:"#42a6ff",
+prob:6,
+value:24.60
+},
+
+{
+name:"Blood Moon",
+weapon:"M4A4",
+type:"rifle",
+rarity:"Restricted",
+color:"#ff3030",
+prob:10,
+value:19.80
+},
+
+{
+name:"Blue Steel",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Mil-Spec",
+color:"#4e91ff",
+prob:18,
+value:12.50
+},
+
+{
+name:"Nightwish",
+weapon:"AK-47",
+type:"rifle",
+rarity:"Covert",
+color:"#ff46d0",
+prob:3,
+value:54.70
+},
+
+/* ================= CUCHILLOS ================= */
+
+{
+name:"Gamma Doppler",
+weapon:"Butterfly Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#42ff8a",
+prob:.4,
+value:890.00
+},
+
+{
+name:"Doppler Phase 2",
+weapon:"Karambit",
+type:"knife",
+rarity:"Rare Special",
+color:"#ff48d4",
+prob:.3,
+value:1260.00
+},
+
+{
+name:"Doppler Phase 4",
+weapon:"Talon Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#42a7ff",
+prob:.25,
+value:970.00
+},
+
+{
+name:"Tiger Tooth",
+weapon:"Karambit",
+type:"knife",
+rarity:"Rare Special",
+color:"#ffd000",
+prob:.35,
+value:730.00
+},
+
+{
+name:"Fade",
+weapon:"Butterfly Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#ff52bd",
+prob:.2,
+value:1650.00
+},
+
+{
+name:"Lore",
+weapon:"Huntsman Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#ffb400",
+prob:.35,
+value:480.00
+},
+
+{
+name:"Doppler",
+weapon:"M9 Bayonet",
+type:"knife",
+rarity:"Rare Special",
+color:"#7d4dff",
+prob:.25,
+value:980.00
+},
+
+{
+name:"Marble Fade",
+weapon:"Butterfly Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#ff4eb5",
+prob:.15,
+value:1320.00
+},
+
+{
+name:"Autotronic",
+weapon:"Bayonet",
+type:"knife",
+rarity:"Rare Special",
+color:"#ff4141",
+prob:.3,
+value:510.00
+},
+
+{
+name:"Slaughter",
+weapon:"Bowie Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#ff4040",
+prob:.35,
+value:420.00
+},
+
+{
+name:"Ultraviolet",
+weapon:"Navaja Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#a542ff",
+prob:.5,
+value:160.00
+},
+
+{
+name:"Rust Coat",
+weapon:"Ursus Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#9a7150",
+prob:.5,
+value:145.00
+},
+
+{
+name:"Crimson Web",
+weapon:"Huntsman Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#ff3131",
+prob:.25,
+value:390.00
+},
+
+{
+name:"Lore",
+weapon:"Talon Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#ffc400",
+prob:.2,
+value:810.00
+},
+
+{
+name:"Freehand",
+weapon:"Falchion Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#b28cff",
+prob:.45,
+value:220.00
+},
+
+{
+name:"Doppler Phase 1",
+weapon:"Ursus Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#ff426f",
+prob:.3,
+value:340.00
+},
+
+{
+name:"Gamma Doppler",
+weapon:"M9 Bayonet",
+type:"knife",
+rarity:"Rare Special",
+color:"#48ff94",
+prob:.15,
+value:1450.00
+},
+
+{
+name:"Fade",
+weapon:"Talon Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#ff53bc",
+prob:.12,
+value:1210.00
+},
+
+{
+name:"Doppler Phase 3",
+weapon:"Navaja Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#4f8cff",
+prob:.5,
+value:180.00
+},
+
+{
+name:"Case Hardened",
+weapon:"Bowie Knife",
+type:"knife",
+rarity:"Rare Special",
+color:"#428fff",
+prob:.4,
+value:310.00
+}
 ];
 
 
 /* =========================================================
    CAJAS
-========================================================= */
+   ========================================================= */
 
-const cases = [
+const cases=[
 
 {
-id:1,
 name:"Phoenix Case",
 price:100,
-description:"Una colección con skins modernas, coloridas y extremadamente raras.",
 color:"#ffae00",
-skins:[1,2,3,4,7,15,20,21]
+description:"Una colección con skins modernas, coloridas y extremadamente raras.",
+skins:skins.slice(0,14)
 },
 
 {
-id:2,
 name:"Revolution Case",
 price:150,
-description:"Una caja de alto nivel con algunas de las skins más buscadas.",
 color:"#ff4050",
-skins:[5,6,9,10,11,12,16,17,18]
+description:"Una caja de alto nivel con algunas de las skins más buscadas.",
+skins:skins.slice(8,24)
 },
 
 {
-id:3,
 name:"Dreams & Nightmares",
 price:250,
+color:"#a347ff",
 description:"Una caja oscura llena de diseños espectaculares.",
-color:"#974cff",
-skins:[5,9,14,16,21,24,25,26,27,28]
+skins:skins.slice(14,31)
 },
 
 {
-id:4,
 name:"Fracture Case",
 price:350,
+color:"#448fff",
 description:"Una caja premium con posibilidad de conseguir un cuchillo.",
-color:"#438cff",
-skins:[8,10,11,13,22,29,30,31,32,33,34,35,36]
+skins:skins.slice(20,50)
 }
 
 ];
@@ -1611,212 +1468,127 @@ skins:[8,10,11,13,22,29,30,31,32,33,34,35,36]
 
 /* =========================================================
    ESTADO
-========================================================= */
+   ========================================================= */
 
-let coins = 2500;
-let currentCase = null;
-let inventory = [];
+let currentCase=null;
+let coins=2500;
+let inventory=[];
 
-let selectedMultiplier = 1.5;
-let selectedItems = [];
-let spinning = false;
-
-const rarityColors = {
-    "Mil-Spec":"#4b8cff",
-    "Restricted":"#a84dff",
-    "Classified":"#ff48d1",
-    "Covert":"#ff444f",
-    "Contraband":"#ff9e00",
-    "Rare Special":"#ffd400"
-};
+let selectedForUpgrade=[];
+let multiplier=1.5;
+let reward=null;
 
 
 /* =========================================================
-   INICIO
-========================================================= */
-
-function init(){
-
-    renderCases();
-
-    document.getElementById("coinDisplay").textContent =
-        coins.toLocaleString("es-ES");
-
-}
-
-init();
-
-
-/* =========================================================
-   RENDER CAJAS
-========================================================= */
+   CREAR CARTAS DE CAJAS
+   ========================================================= */
 
 function renderCases(){
 
-    const grid = document.getElementById("caseGrid");
+    const grid=document.getElementById("casesGrid");
 
-    grid.innerHTML = cases.map(c => `
+    grid.innerHTML=cases.map((c,i)=>`
 
-        <div class="caseCard"
-             onclick="openCasePage(${c.id})">
+        <div
+          class="case-card"
+          onclick="openCasePage(${i})">
 
-            <div class="caseImage">
+            <div class="case-image">
 
-                ${caseSVG(c.color)}
+                <img
+                  src="${caseSVG(c.color,"CASE 0"+(i+1))}"
+                  width="100%"
+                  height="180">
 
             </div>
 
-            <div class="caseName">
-                ${c.name}
-            </div>
+            <h2>${c.name}</h2>
 
-            <div class="caseDescription">
-                ${c.description}
-            </div>
+            <p>${c.description}</p>
 
-            <button class="priceBtn">
+            <span class="price">
                 🪙 ${c.price} coins
-            </button>
+            </span>
 
         </div>
 
     `).join("");
-
 }
 
 
 /* =========================================================
-   SVG CAJA
-========================================================= */
+   ABRIR DETALLE
+   ========================================================= */
 
-function caseSVG(color){
+function openCasePage(index){
 
-    return `
-    <svg class="caseBox"
-         viewBox="0 0 260 160"
-         xmlns="http://www.w3.org/2000/svg">
+    currentCase=cases[index];
 
-        <defs>
+    document.getElementById("home")
+        .classList.add("hidden");
 
-            <filter id="caseGlow${color.replace("#","")}">
-                <feGaussianBlur stdDeviation="4"/>
-            </filter>
+    document.getElementById("upgradePage")
+        .classList.add("hidden");
 
-        </defs>
+    document.getElementById("casePage")
+        .classList.remove("hidden");
 
-        <rect
-            x="35"
-            y="50"
-            width="190"
-            height="75"
-            rx="5"
-            fill="#111c29"
-            stroke="${color}"
-            stroke-width="4"/>
-
-        <path
-            d="M35 50 L70 20 L225 20 L225 50"
-            fill="#152334"
-            stroke="${color}"
-            stroke-width="4"/>
-
-        <path
-            d="M70 20 L70 100"
-            stroke="${color}"
-            stroke-width="4"/>
-
-        <rect
-            x="95"
-            y="65"
-            width="70"
-            height="27"
-            rx="4"
-            fill="#0a1119"
-            stroke="${color}"
-            stroke-width="2"/>
-
-        <text
-            x="130"
-            y="83"
-            text-anchor="middle"
-            fill="${color}"
-            font-size="11"
-            font-weight="bold">
-            CASE
-        </text>
-
-    </svg>`;
-}
-
-
-/* =========================================================
-   ENTRAR A CAJA
-========================================================= */
-
-function openCasePage(id){
-
-    currentCase = cases.find(c => c.id === id);
-
-    document.getElementById("home").classList.add("hidden");
-    document.getElementById("inventoryPage").classList.add("hidden");
-    document.getElementById("upgradePage").classList.add("hidden");
-
-    document.getElementById("caseDetail").classList.remove("hidden");
-
-    document.getElementById("detailCaseName").textContent =
+    document.getElementById("caseName").textContent=
         currentCase.name;
 
-    document.getElementById("detailCaseDescription").textContent =
+    document.getElementById("caseDescription").textContent=
         currentCase.description;
 
-    document.getElementById("detailCasePrice").textContent =
+    document.getElementById("casePrice").textContent=
         currentCase.price;
 
-    document.getElementById("detailCaseImage").innerHTML =
-        caseSVG(currentCase.color);
+    document.getElementById("bigCase").innerHTML=`
+        <img
+          src="${caseSVG(currentCase.color,currentCase.name)}"
+          width="100%"
+          height="100%">
+    `;
 
-    renderCaseSkins();
-
-    window.scrollTo(0,0);
+    renderSkins();
 }
 
 
 /* =========================================================
-   SKINS DE LA CAJA
-========================================================= */
+   MOSTRAR SKINS
+   ========================================================= */
 
-function renderCaseSkins(){
+function renderSkins(){
 
-    const container =
-        document.getElementById("caseSkins");
+    const grid=document.getElementById("skinsGrid");
 
-    const list =
-        currentCase.skins
-        .map(id => skins.find(s => s.id === id));
+    grid.innerHTML=currentCase.skins.map((s,i)=>`
 
-    container.innerHTML = list.map(s => `
+        <div
+          class="skin-card"
+          style="--rarity:${s.color}">
 
-        <div class="skinCard">
+            <div class="skin-image">
 
-            <div class="skinImage">
-                ${weaponSVG(s)}
+                <img
+                  src="${weaponSVG(s.type,s.color,s.name)}"
+                  width="100%"
+                  height="145">
+
             </div>
 
-            <div class="skinInfo"
-                 style="border-color:${rarityColors[s.rarity] || "#4b8cff"}">
+            <div class="skin-info">
 
-                <div class="skinWeapon">
+                <div class="weapon">
                     ${s.weapon}
                 </div>
 
-                <div class="skinName">
+                <div class="skin-name">
                     ${s.name}
                 </div>
 
-                <div class="skinBottom">
+                <div class="skin-bottom">
 
-                    <span class="rarity"
-                          style="color:${rarityColors[s.rarity] || "#fff"}">
+                    <span class="rarity">
                         ${s.rarity}
                     </span>
 
@@ -1826,7 +1598,7 @@ function renderCaseSkins(){
 
                 </div>
 
-                <div class="skinValue">
+                <div class="value">
                     🪙 $${s.value.toFixed(2)}
                 </div>
 
@@ -1839,72 +1611,24 @@ function renderCaseSkins(){
 
 
 /* =========================================================
-   ABRIR CAJAS
-========================================================= */
+   PROBABILIDAD
+   ========================================================= */
 
-function openCases(){
+function randomSkin(){
 
-    if(!currentCase) return;
+    const list=currentCase.skins;
 
-    const amount =
-        Number(document.getElementById("openAmount").value);
+    let total=list.reduce((a,b)=>a+b.prob,0);
 
-    const total =
-        amount * currentCase.price;
-
-    if(coins < total){
-
-        notify("❌ No tienes suficientes coins.");
-
-        return;
-    }
-
-    coins -= total;
-
-    updateCoins();
-
-    const results = [];
-
-    for(let i=0;i<amount;i++){
-
-        const item = weightedRandom(currentCase.skins);
-
-        results.push(item);
-
-        inventory.push(item);
-
-    }
-
-    renderResults(results);
-
-    notify(
-        `🎉 Abriste ${amount} caja${amount>1?"s":""}.`
-    );
-
-}
-
-
-/* =========================================================
-   RANDOM POR PROBABILIDAD
-========================================================= */
-
-function weightedRandom(ids){
-
-    const list =
-        ids.map(id => skins.find(s => s.id === id));
-
-    const total =
-        list.reduce((sum,s)=>sum+s.prob,0);
-
-    let random =
-        Math.random()*total;
+    let random=Math.random()*total;
 
     for(const skin of list){
 
-        random -= skin.prob;
+        random-=skin.prob;
 
-        if(random <= 0)
+        if(random<=0)
             return skin;
+
     }
 
     return list[list.length-1];
@@ -1912,230 +1636,221 @@ function weightedRandom(ids){
 
 
 /* =========================================================
-   RESULTADOS
-========================================================= */
+   ABRIR CAJAS
+   ========================================================= */
 
-function renderResults(results){
+function openCases(){
 
-    const section =
-        document.getElementById("homeResults");
+    if(!currentCase)
+        return;
 
-    const grid =
-        document.getElementById("resultGrid");
+    const amount=
+        Number(document.getElementById("quantity").value);
 
-    section.classList.remove("hidden");
+    const cost=currentCase.price*amount;
 
-    grid.innerHTML = results.map(s => `
+    if(coins<cost){
 
-        <div class="resultCard">
+        alert("No tienes suficientes coins.");
 
-            <div class="resultImage">
-                ${weaponSVG(s)}
-            </div>
+        return;
+    }
 
-            <div class="resultInfo">
+    coins-=cost;
 
-                <div style="color:#7891aa;font-size:13px">
-                    ${s.weapon}
-                </div>
+    updateCoins();
 
-                <strong>${s.name}</strong>
+    const results=[];
 
-                <div style="
-                    color:${rarityColors[s.rarity] || "#fff"};
-                    margin-top:6px;
-                    font-weight:bold;">
-                    ${s.rarity}
-                </div>
+    for(let i=0;i<amount;i++){
 
-                <div class="resultValue">
-                    🪙 $${s.value.toFixed(2)}
-                </div>
+        const skin=randomSkin();
 
-            </div>
+        results.push(skin);
+
+        inventory.push(skin);
+
+    }
+
+    showOpening(results);
+}
+
+
+/* =========================================================
+   ANIMACION
+   ========================================================= */
+
+function showOpening(results){
+
+    const modal=document.getElementById("modal");
+
+    modal.classList.remove("hidden");
+
+    const container=
+        document.getElementById("spinnerItems");
+
+    const all=[];
+
+    for(let i=0;i<18;i++)
+        all.push(randomSkin());
+
+    all.push(...results);
+
+    container.innerHTML=all.map(s=>`
+
+        <div class="spin-item">
+
+            <img
+              src="${weaponSVG(s.type,s.color,s.name)}"
+              width="170"
+              height="130">
 
         </div>
 
     `).join("");
+
+    container.style.transition="none";
+    container.style.transform="translateX(0)";
+
+    setTimeout(()=>{
+
+        const winnerIndex=all.length-results.length;
+
+        const offset=
+            -(winnerIndex*192)+300;
+
+        container.style.transition=
+            "transform 4s cubic-bezier(.12,.7,.15,1)";
+
+        container.style.transform=
+            `translateX(${offset}px)`;
+
+    },100);
+
+    setTimeout(()=>{
+
+        document.getElementById("winnerText").textContent=
+            results.map(x=>`${x.weapon} | ${x.name}`).join(" • ");
+
+    },4200);
+
+}
+
+
+/* =========================================================
+   CERRAR MODAL
+   ========================================================= */
+
+function closeModal(){
+
+    document.getElementById("modal")
+        .classList.add("hidden");
 
 }
 
 
 /* =========================================================
    INVENTARIO
-========================================================= */
+   ========================================================= */
 
 function showInventory(){
 
-    document.getElementById("home").classList.add("hidden");
-    document.getElementById("caseDetail").classList.add("hidden");
-    document.getElementById("upgradePage").classList.add("hidden");
+    document.getElementById("home")
+        .classList.add("hidden");
 
-    document.getElementById("inventoryPage").classList.remove("hidden");
+    document.getElementById("casePage")
+        .classList.add("hidden");
+
+    document.getElementById("upgradePage")
+        .classList.remove("hidden");
 
     renderInventory();
-
-    window.scrollTo(0,0);
 }
 
 
+/* =========================================================
+   INVENTARIO DE MEJORAS
+   ========================================================= */
+
 function renderInventory(){
 
-    const grid =
-        document.getElementById("inventoryGrid");
+    const box=
+        document.getElementById("upgradeInventory");
 
-    if(inventory.length === 0){
+    if(inventory.length===0){
 
-        grid.innerHTML = `
-            <p style="color:#7891aa">
-                Todavía no tienes skins.
+        box.innerHTML=`
+            <p style="color:#7089a3">
+                Tu inventario está vacío.
             </p>
         `;
 
         return;
     }
 
-    grid.innerHTML = inventory.map(s => `
+    box.innerHTML=inventory.map((s,i)=>`
 
-        <div class="inventoryCard">
+        <div class="inventory-item">
 
-            <div class="inventoryImage">
-                ${weaponSVG(s)}
+            <img
+              src="${weaponSVG(s.type,s.color,s.name)}">
+
+            <div>
+                <b>${s.name}</b>
+
+                <div style="color:#ffd000">
+                    $${s.value.toFixed(2)}
+                </div>
             </div>
 
-            <div class="inventoryInfo">
+            <button
+              class="add"
+              onclick="selectUpgrade(${i})">
 
-                <div style="color:#7891aa;font-size:13px">
-                    ${s.weapon}
-                </div>
+              ${selectedForUpgrade.includes(i)?"✓":"+"}
 
-                <strong>${s.name}</strong>
-
-                <div style="
-                    color:${rarityColors[s.rarity]};
-                    margin-top:6px;
-                    font-weight:bold;">
-                    ${s.rarity}
-                </div>
-
-                <div class="resultValue">
-                    🪙 $${s.value.toFixed(2)}
-                </div>
-
-            </div>
+            </button>
 
         </div>
 
     `).join("");
 
-}
-
-
-/* =========================================================
-   MEJORAS
-========================================================= */
-
-function showUpgrade(){
-
-    document.getElementById("home").classList.add("hidden");
-    document.getElementById("caseDetail").classList.add("hidden");
-    document.getElementById("inventoryPage").classList.add("hidden");
-
-    document.getElementById("upgradePage").classList.remove("hidden");
-
-    renderUpgradeInventory();
-
     updateReward();
-
-    window.scrollTo(0,0);
 }
 
 
 /* =========================================================
-   INVENTARIO DEL UPGRADER
-========================================================= */
+   SELECCIONAR SKIN
+   ========================================================= */
 
-function renderUpgradeInventory(){
+function selectUpgrade(index){
 
-    const container =
-        document.getElementById("upgradeInventory");
+    if(selectedForUpgrade.includes(index)){
 
-    if(inventory.length === 0){
-
-        container.innerHTML = `
-            <p style="color:#7891aa">
-                Abre algunas cajas primero.
-            </p>
-        `;
-
-        return;
-    }
-
-    container.innerHTML =
-        inventory.map((s,index)=>`
-
-            <div class="invItem
-                ${selectedItems.includes(index) ? "selected":""}">
-
-                <div class="invMini">
-                    ${weaponSVG(s)}
-                </div>
-
-                <div>
-
-                    <strong>${s.name}</strong>
-
-                    <div style="color:#ffc400;font-size:13px">
-                        $${s.value.toFixed(2)}
-                    </div>
-
-                </div>
-
-                <button onclick="toggleItem(${index})">
-                    ${selectedItems.includes(index) ? "✓":"+"}
-                </button>
-
-            </div>
-
-        `).join("");
-
-}
-
-
-function toggleItem(index){
-
-    if(spinning) return;
-
-    if(selectedItems.includes(index)){
-
-        selectedItems =
-            selectedItems.filter(i=>i!==index);
+        selectedForUpgrade=
+            selectedForUpgrade.filter(i=>i!==index);
 
     }else{
 
-        selectedItems.push(index);
+        selectedForUpgrade.push(index);
 
     }
 
-    renderUpgradeInventory();
-
-    updateReward();
-
+    renderInventory();
 }
 
 
 /* =========================================================
    MULTIPLICADOR
-========================================================= */
+   ========================================================= */
 
-function selectMultiplier(value,button){
+function setMultiplier(value,button){
 
-    if(spinning) return;
+    multiplier=value;
 
-    selectedMultiplier = value;
-
-    document.querySelectorAll(".multiplier")
-        .forEach(b=>b.classList.remove("active"));
+    document
+      .querySelectorAll(".mult")
+      .forEach(x=>x.classList.remove("active"));
 
     button.classList.add("active");
 
@@ -2145,79 +1860,75 @@ function selectMultiplier(value,button){
 
 /* =========================================================
    RECOMPENSA
-========================================================= */
+   ========================================================= */
 
 function updateReward(){
 
-    const area =
+    const area=
         document.getElementById("rewardArea");
 
-    if(selectedItems.length === 0){
+    if(selectedForUpgrade.length===0){
 
-        area.innerHTML = `
-            <div class="rewardEmpty">
-                Selecciona skins para ver<br>
-                la recompensa.
-            </div>
+        area.innerHTML=`
+            <p style="color:#7089a3">
+                Selecciona skins para ver la recompensa.
+            </p>
         `;
 
         return;
     }
 
-    const total =
-        selectedItems.reduce(
-            (sum,i)=>sum+inventory[i].value,0
-        );
+    let total=0;
 
-    const target =
-        total * selectedMultiplier;
+    selectedForUpgrade.forEach(i=>{
+        total+=inventory[i].value;
+    });
 
-    const candidates =
-        skins
-        .filter(s => s.value >= target*.85 &&
-                     s.value <= target*1.15)
-        .sort((a,b)=>
-            Math.abs(a.value-target)-
-            Math.abs(b.value-target)
-        );
+    const target=total*multiplier;
 
-    const reward =
-        candidates[0] || skins.reduce(
-            (a,b)=>
-            Math.abs(a.value-target) <
-            Math.abs(b.value-target) ? a:b
-        );
+    let candidates=skins
+        .filter(s=>s.value<=target*1.15)
+        .filter(s=>s.value>=target*.75);
 
-    area.innerHTML = `
+    if(candidates.length===0){
 
-        <div class="rewardImage">
-            ${weaponSVG(reward)}
-        </div>
+        candidates=skins
+            .slice()
+            .sort((a,b)=>
+                Math.abs(a.value-target)-
+                Math.abs(b.value-target)
+            );
 
-        <div class="rewardName">
-            ${reward.weapon}<br>
-            ${reward.name}
-        </div>
+    }
 
-        <div style="
-            text-align:center;
-            color:${rarityColors[reward.rarity]};
-            font-weight:bold;
-            margin-top:7px;">
+    reward=candidates[0];
+
+    area.innerHTML=`
+
+        <h3>${reward.weapon}</h3>
+
+        <img
+          src="${weaponSVG(
+              reward.type,
+              reward.color,
+              reward.name
+          )}">
+
+        <h2>${reward.name}</h2>
+
+        <div class="rarity"
+             style="--rarity:${reward.color}">
             ${reward.rarity}
         </div>
 
-        <div class="rewardValue">
+        <div class="reward-value">
             🪙 $${reward.value.toFixed(2)}
         </div>
 
-        <div style="
-            text-align:center;
-            color:#6f89a2;
-            margin-top:8px;
-            font-size:13px;">
-            Objetivo: $${target.toFixed(2)}
-        </div>
+        <p style="color:#7c94ad">
+            Objetivo:
+            $${target.toFixed(2)}
+        </p>
 
     `;
 
@@ -2225,201 +1936,175 @@ function updateReward(){
 
 
 /* =========================================================
-   PROBABILIDAD
-========================================================= */
+   RULETA
+   ========================================================= */
 
-function updateWinChance(){
+document
+.getElementById("winSlider")
+.addEventListener("input",function(){
 
-    const value =
-        document.getElementById("winSlider").value;
+    const value=Number(this.value);
 
-    document.getElementById("winChance")
-        .textContent =
-        `PROBABILIDAD DE GANAR: ${value}%`;
+    document
+      .querySelector(".wheel")
+      .style.background=
+      `conic-gradient(
+          #35d16f ${value}deg ${value+32}deg,
+          #10202d ${value+32}deg 360deg
+       )`;
 
-}
+});
 
 
 /* =========================================================
-   GIRAR RULETA
-========================================================= */
+   GIRO DE MEJORA
+   ========================================================= */
 
 function spinUpgrade(){
 
-    if(spinning) return;
+    if(selectedForUpgrade.length===0){
 
-    if(selectedItems.length === 0){
-
-        notify("❌ Selecciona al menos una skin.");
+        alert("Selecciona al menos una skin.");
 
         return;
     }
 
-    const total =
-        selectedItems.reduce(
-            (sum,i)=>sum+inventory[i].value,0
-        );
+    if(!reward){
 
-    const target =
-        total*selectedMultiplier;
+        updateReward();
 
-    if(inventory.length === 0) return;
+    }
 
-    spinning = true;
+    const pointer=
+        document.getElementById("pointer");
 
-    const wheel =
-        document.getElementById("wheel");
-
-    const chance =
+    const slider=
         Number(document.getElementById("winSlider").value);
 
+    const winStart=slider;
+    const winEnd=slider+32;
+
     /*
-       La zona verde representa la probabilidad.
-       El resultado se calcula después de los 4 segundos.
+      El puntero gira exactamente 4 segundos.
     */
 
-    const win =
-        Math.random()*100 < chance;
+    pointer.style.transition=
+        "transform 4s cubic-bezier(.12,.7,.15,1)";
 
-    const rotation =
-        1440 + Math.random()*720;
+    const randomAngle=
+        1440+Math.random()*360;
 
-    wheel.style.transform =
-        `rotate(${rotation}deg)`;
+    pointer.style.transform=
+        `translate(-50%,-100%) rotate(${randomAngle}deg)`;
 
     setTimeout(()=>{
 
-        spinning = false;
+        const finalAngle=
+            randomAngle%360;
 
-        if(win){
+        let normalized=
+            (finalAngle+360)%360;
 
-            const candidates =
-                skins.filter(s =>
-                    s.value >= target*.85 &&
-                    s.value <= target*1.15
-                );
+        let won=
+            normalized>=winStart &&
+            normalized<=winEnd;
 
-            let reward;
-
-            if(candidates.length){
-
-                reward =
-                    candidates[
-                        Math.floor(
-                            Math.random()*candidates.length
-                        )
-                    ];
-
-            }else{
-
-                reward =
-                    skins.reduce(
-                        (a,b)=>
-                        Math.abs(a.value-target) <
-                        Math.abs(b.value-target)
-                        ? a:b
-                    );
-
-            }
+        if(won){
 
             /*
-              Quitamos las skins utilizadas.
+              Consumimos las skins utilizadas.
             */
 
-            const selectedObjects =
-                selectedItems
+            const sorted=
+                [...selectedForUpgrade]
                 .sort((a,b)=>b-a);
 
-            selectedObjects.forEach(index=>{
-                inventory.splice(index,1);
+            sorted.forEach(i=>{
+                inventory.splice(i,1);
             });
 
             inventory.push(reward);
 
-            selectedItems = [];
-
-            renderUpgradeInventory();
-
-            updateReward();
-
-            notify(
-                `🎉 ¡GANASTE ${reward.name}!`
+            alert(
+                `🎉 ¡GANASTE!\n\n`+
+                `${reward.weapon} | ${reward.name}\n`+
+                `Valor: $${reward.value.toFixed(2)}`
             );
 
         }else{
 
-            selectedItems = [];
+            const lose=
+                confirm(
+                    "❌ PERDISTE\n\n"+
+                    "Las skins utilizadas se perdieron.\n\n"+
+                    "¿Cerrar?"
+                );
 
-            renderUpgradeInventory();
+            if(lose){
 
-            updateReward();
+                const sorted=
+                    [...selectedForUpgrade]
+                    .sort((a,b)=>b-a);
 
-            notify(
-                "💥 La mejora falló. Perdiste las skins seleccionadas."
-            );
+                sorted.forEach(i=>{
+                    inventory.splice(i,1);
+                });
+
+            }
 
         }
 
-    },4000);
+        selectedForUpgrade=[];
+        reward=null;
+
+        renderInventory();
+
+    },4050);
 
 }
 
 
 /* =========================================================
-   NAVEGACIÓN
-========================================================= */
+   VOLVER
+   ========================================================= */
 
 function goHome(){
 
-    document.getElementById("caseDetail")
-        .classList.add("hidden");
+    document
+      .getElementById("casePage")
+      .classList.add("hidden");
 
-    document.getElementById("inventoryPage")
-        .classList.add("hidden");
+    document
+      .getElementById("upgradePage")
+      .classList.add("hidden");
 
-    document.getElementById("upgradePage")
-        .classList.add("hidden");
+    document
+      .getElementById("home")
+      .classList.remove("hidden");
 
-    document.getElementById("home")
-        .classList.remove("hidden");
-
-    renderCases();
-
-    window.scrollTo(0,0);
 }
 
 
 /* =========================================================
    COINS
-========================================================= */
+   ========================================================= */
 
 function updateCoins(){
 
-    document.getElementById("coinDisplay")
-        .textContent =
+    document
+      .getElementById("coins")
+      .textContent=
         coins.toLocaleString("es-ES");
 
 }
 
 
 /* =========================================================
-   NOTIFICACIONES
-========================================================= */
+   INICIO
+   ========================================================= */
 
-function notify(message){
-
-    const n =
-        document.getElementById("notice");
-
-    n.textContent = message;
-
-    n.classList.add("show");
-
-    setTimeout(()=>{
-        n.classList.remove("show");
-    },3000);
-
-}
+renderCases();
+updateCoins();
 
 </script>
 
