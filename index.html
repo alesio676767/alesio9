@@ -14,13 +14,17 @@
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#060b11;
+    background:#070b10;
     color:#fff;
     min-height:100vh;
 }
 
 button,select,input{
-    font-family:inherit;
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
 }
 
 header{
@@ -30,20 +34,20 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 35px;
+    padding:0 36px;
     position:sticky;
     top:0;
     z-index:100;
 }
 
 .logo{
-    font-size:28px;
+    font-size:29px;
     font-weight:900;
     letter-spacing:.5px;
 }
 
 .logo span{
-    color:#ffad00;
+    color:#ffae00;
 }
 
 .headerRight{
@@ -51,29 +55,27 @@ header{
     gap:12px;
 }
 
-.headerBtn{
+.topBtn{
     background:#101d2d;
-    color:white;
-    border:1px solid #38506b;
-    padding:12px 20px;
-    border-radius:9px;
-    cursor:pointer;
-    font-size:14px;
-}
-
-.headerBtn:hover{
-    border-color:#ffad00;
+    color:#fff;
+    border:1px solid #38516c;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
 }
 
 .coins{
     color:#ffc400;
-    font-weight:bold;
 }
 
 main{
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
-    padding:30px 20px 80px;
+    padding:28px 22px 60px;
+}
+
+.hidden{
+    display:none!important;
 }
 
 .pageTitle{
@@ -84,30 +86,23 @@ main{
 
 .subtitle{
     text-align:center;
-    color:#7892ae;
+    color:#7890aa;
     margin-bottom:28px;
 }
 
-.sectionTitle{
-    font-size:24px;
-    margin:30px 0 18px;
-}
-
-/* ================= CAJAS ================= */
-
-.casesGrid{
+.caseGrid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
 .caseCard{
-    background:linear-gradient(145deg,#111f2f,#0b141f);
-    border:1px solid #334a63;
-    border-radius:14px;
-    overflow:hidden;
+    background:#0d1825;
+    border:1px solid #314960;
+    border-radius:15px;
+    padding:18px;
+    transition:.2s;
     cursor:pointer;
-    transition:.25s;
 }
 
 .caseCard:hover{
@@ -117,202 +112,174 @@ main{
 }
 
 .caseImage{
-    height:220px;
+    height:205px;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:25px;
-    background:#101c2b;
+    background:#101d2c;
+    border-radius:10px;
+    margin-bottom:17px;
 }
 
-.caseImage img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    transition:.3s;
+.caseBox{
+    width:210px;
+    height:135px;
 }
 
-.caseCard:hover .caseImage img{
-    transform:scale(1.08);
-}
-
-.caseFallback{
-    width:190px;
-    height:120px;
-    border:3px solid #ffad00;
-    border-radius:8px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#ffad00;
-    font-weight:bold;
-}
-
-.caseFallback:before{
-    content:"";
-    position:absolute;
-    width:145px;
-    height:35px;
-    border:3px solid #ffad00;
-    top:-20px;
-    transform:skewX(-25deg);
-}
-
-.caseInfo{
-    padding:18px;
-}
-
-.caseInfo h3{
+.caseName{
     font-size:22px;
+    font-weight:bold;
     margin-bottom:8px;
 }
 
-.caseInfo p{
-    color:#7892ae;
+.caseDescription{
+    color:#8ba2bc;
     line-height:1.5;
-    min-height:65px;
+    min-height:67px;
 }
 
 .priceBtn{
     margin-top:15px;
-    background:#14273b;
+    background:#12243a;
     color:#ffc400;
-    border:1px solid #3b5875;
-    padding:10px 16px;
+    border:1px solid #38536e;
     border-radius:7px;
+    padding:10px 15px;
     font-weight:bold;
 }
 
-/* ================= CAJA DETALLE ================= */
+.detailLayout{
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:28px;
+}
 
-.hidden{
-    display:none!important;
+.detailBox{
+    background:#0d1825;
+    border:1px solid #344d66;
+    border-radius:15px;
+    padding:20px;
+    height:max-content;
+}
+
+.detailBoxImage{
+    height:240px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#101d2c;
+    border-radius:10px;
+}
+
+.detailInfo{
+    text-align:center;
+    margin-top:18px;
+}
+
+.detailInfo h2{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.detailInfo p{
+    color:#8ca3bd;
+    line-height:1.5;
+}
+
+.casePrice{
+    color:#ffc400;
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.openPanel{
+    background:#101d2c;
+    border:1px solid #344d66;
+    padding:14px;
+    border-radius:9px;
+}
+
+.openPanel label{
+    display:block;
+    text-align:center;
+    color:#9bb0c7;
+    margin-bottom:8px;
+}
+
+select{
+    width:100%;
+    background:#09121c;
+    color:white;
+    border:1px solid #3c5771;
+    padding:11px;
+    border-radius:7px;
+    margin-bottom:12px;
+}
+
+.openBtn{
+    width:100%;
+    border:none;
+    background:#ffae00;
+    color:#111;
+    font-weight:900;
+    padding:14px;
+    border-radius:8px;
+}
+
+.openBtn:hover{
+    background:#ffc137;
 }
 
 .backBtn{
     background:#101e2e;
-    border:1px solid #3b5875;
     color:white;
-    padding:11px 18px;
+    border:1px solid #3a526a;
+    padding:10px 16px;
     border-radius:7px;
-    cursor:pointer;
     margin-bottom:20px;
 }
 
-.caseDetail{
-    display:grid;
-    grid-template-columns:360px 1fr;
-    gap:28px;
+.skinSection h2{
+    margin-bottom:15px;
 }
 
-.casePanel{
-    background:#0c1724;
-    border:1px solid #344c66;
-    border-radius:14px;
-    padding:20px;
-    text-align:center;
-}
-
-.bigCase{
-    height:270px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.bigCase img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-.openBox{
-    margin-top:20px;
-    border:1px solid #344c66;
-    padding:15px;
-    border-radius:10px;
-}
-
-.openBox select{
-    width:100%;
-    background:#09121d;
-    color:white;
-    border:1px solid #38506b;
-    padding:12px;
-    border-radius:7px;
-    margin:10px 0;
-}
-
-.openButton{
-    width:100%;
-    background:#ffad00;
-    border:0;
-    color:#101010;
-    padding:14px;
-    border-radius:8px;
-    font-weight:900;
-    cursor:pointer;
-    font-size:16px;
-}
-
-.openButton:hover{
-    background:#ffc329;
-}
-
-.skinsGrid{
+.skinGrid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:14px;
 }
 
 .skinCard{
-    background:#101d2c;
-    border:1px solid #324960;
+    background:#0d1825;
+    border:1px solid #30475d;
     border-radius:12px;
     overflow:hidden;
 }
 
 .skinImage{
     height:180px;
-    background:linear-gradient(145deg,#132437,#0d1723);
+    background:#111f2e;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     padding:15px;
-    border-bottom:2px solid #4b69ff;
-}
-
-.skinImage img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-.skinImage img.error{
-    display:none;
-}
-
-.skinFallback{
-    font-size:18px;
-    font-weight:bold;
-    color:#6d89a7;
-    text-align:center;
 }
 
 .skinInfo{
     padding:12px;
+    border-top:2px solid;
 }
 
-.weapon{
+.skinWeapon{
+    color:#7190af;
     font-size:13px;
-    color:#7794b3;
 }
 
 .skinName{
     font-size:17px;
     font-weight:bold;
-    margin:5px 0;
+    margin:3px 0 8px;
 }
 
 .skinBottom{
@@ -326,45 +293,59 @@ main{
     font-weight:bold;
 }
 
-.value{
-    color:#ffc400;
-    font-weight:bold;
+.prob{
+    color:#91a9c0;
+    font-size:13px;
 }
 
-/* ================= RESULTADO ================= */
+.skinValue{
+    color:#ffc400;
+    font-weight:bold;
+    margin-top:7px;
+}
 
-.resultArea{
-    margin-top:35px;
+.results{
+    margin-top:30px;
+}
+
+.results h2{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.resultGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
 }
 
 .resultCard{
-    background:#101d2c;
-    border:1px solid #344c66;
-    border-radius:14px;
-    padding:20px;
-    text-align:center;
-    animation:pop .4s;
+    background:#0d1825;
+    border:1px solid #344d66;
+    border-radius:12px;
+    overflow:hidden;
 }
 
-.resultCard img{
-    max-width:400px;
-    width:100%;
-    height:220px;
-    object-fit:contain;
+.resultImage{
+    height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#111f2e;
 }
 
-@keyframes pop{
-    from{
-        opacity:0;
-        transform:scale(.8);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+.resultInfo{
+    padding:13px;
 }
 
-/* ================= INVENTARIO ================= */
+.resultValue{
+    color:#ffc400;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+/* INVENTARIO */
 
 .inventoryGrid{
     display:grid;
@@ -373,51 +354,45 @@ main{
 }
 
 .inventoryCard{
-    background:#101d2c;
-    border:1px solid #344c66;
-    border-radius:10px;
-    padding:12px;
+    background:#0d1825;
+    border:1px solid #334c64;
+    border-radius:12px;
+    overflow:hidden;
 }
 
-.inventoryCard img{
-    width:100%;
-    height:130px;
-    object-fit:contain;
+.inventoryImage{
+    height:150px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#101d2b;
 }
 
-.inventoryCard small{
-    color:#7794b3;
+.inventoryInfo{
+    padding:11px;
 }
 
-.inventoryValue{
-    color:#ffc400;
-    font-weight:bold;
-    margin-top:5px;
-}
-
-/* ================= MEJORAS ================= */
+/* UPGRADER */
 
 .multiplierRow{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:20px;
+    gap:10px;
+    margin-bottom:18px;
 }
 
 .multiplier{
     background:#101d2c;
-    border:1px solid #38506b;
-    color:white;
-    padding:13px;
+    color:#fff;
+    border:1px solid #39516a;
+    padding:12px;
     border-radius:8px;
-    cursor:pointer;
     font-weight:bold;
 }
 
 .multiplier.active{
     background:#ffad00;
     color:#111;
-    border-color:#ffad00;
 }
 
 .upgradeGrid{
@@ -428,38 +403,42 @@ main{
 
 .upgradePanel{
     background:#0d1825;
-    border:1px solid #344c66;
+    border:1px solid #344d66;
     border-radius:14px;
     padding:18px;
-    min-height:500px;
+    min-height:480px;
 }
 
 .upgradePanel h2{
-    margin-bottom:18px;
+    margin-bottom:16px;
 }
 
-.inventorySelect{
+.invItem{
     display:flex;
     align-items:center;
-    gap:10px;
-    padding:10px;
-    border-bottom:1px solid #23384d;
-    cursor:pointer;
+    gap:9px;
+    padding:8px 0;
+    border-bottom:1px solid #203243;
 }
 
-.inventorySelect:hover{
-    background:#142438;
-}
-
-.inventorySelect.selected{
-    background:#18324a;
-    border-left:3px solid #ffad00;
-}
-
-.inventorySelect img{
+.invMini{
     width:70px;
-    height:55px;
-    object-fit:contain;
+    height:40px;
+}
+
+.invItem button{
+    margin-left:auto;
+    background:#12263b;
+    color:white;
+    border:1px solid #3d5a75;
+    border-radius:6px;
+    padding:6px 10px;
+}
+
+.selected{
+    border:1px solid #ffae00;
+    border-radius:7px;
+    background:#182b40;
 }
 
 .wheelArea{
@@ -469,187 +448,147 @@ main{
 }
 
 .wheel{
-    width:280px;
-    height:280px;
+    width:285px;
+    height:285px;
     border-radius:50%;
+    background:
+        conic-gradient(
+            #1d9b55 0deg 30deg,
+            #0b1219 30deg 360deg
+        );
+    border:8px solid #1a2b3d;
     position:relative;
-    background:#101820;
-    border:8px solid #202d38;
     box-shadow:0 0 30px #000;
-    overflow:hidden;
+    transition:transform 4s cubic-bezier(.12,.7,.08,1);
 }
 
-.winZone{
+.wheel:after{
+    content:"";
     position:absolute;
-    inset:0;
+    width:68px;
+    height:68px;
+    background:#080d13;
+    border:3px solid #1d9b55;
     border-radius:50%;
-    background:conic-gradient(
-        transparent 0deg,
-        transparent var(--winStart),
-        #1bd96a var(--winStart),
-        #1bd96a calc(var(--winStart) + var(--winSize)),
-        transparent calc(var(--winStart) + var(--winSize)),
-        transparent 360deg
-    );
-}
-
-.wheelCenter{
-    position:absolute;
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:#080d12;
-    border:3px solid #fff;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-    z-index:4;
 }
 
 .pointer{
     position:absolute;
+    z-index:5;
     width:5px;
-    height:130px;
+    height:132px;
     background:#fff;
     left:50%;
-    bottom:50%;
-    transform-origin:bottom center;
-    transform:translateX(-50%) rotate(0deg);
-    z-index:5;
-    box-shadow:0 0 12px white;
+    top:12px;
+    transform-origin:50% 132px;
+    box-shadow:0 0 10px white;
 }
 
-.pointer:after{
-    content:"";
+.pointerTip{
     position:absolute;
-    bottom:-5px;
+    bottom:-9px;
     left:50%;
     transform:translateX(-50%);
+    width:0;
+    height:0;
     border-left:8px solid transparent;
     border-right:8px solid transparent;
-    border-top:15px solid white;
+    border-bottom:15px solid white;
 }
 
-.winLabel{
-    position:absolute;
-    color:white;
+.winChance{
+    margin-top:20px;
+    color:#54d789;
     font-weight:bold;
-    font-size:18px;
-    top:25px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:3;
 }
 
 .slider{
     width:90%;
-    margin-top:25px;
+    margin-top:16px;
 }
 
-.slider input{
+input[type=range]{
     width:100%;
 }
 
 .sliderText{
-    color:#7892ae;
-    font-size:13px;
     text-align:center;
+    color:#7893ad;
+    font-size:13px;
     margin-top:7px;
 }
 
-.spinButton{
-    width:90%;
+.spinBtn{
     margin-top:15px;
-    background:#ffad00;
-    border:0;
+    width:90%;
     padding:14px;
+    border:none;
     border-radius:8px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
+    background:#1d9b55;
+    color:white;
+    font-weight:900;
+    font-size:16px;
 }
 
-.spinButton:disabled{
-    opacity:.5;
-    cursor:not-allowed;
+.spinBtn:hover{
+    background:#27b866;
 }
 
-.reward{
+.rewardEmpty{
+    color:#6f88a1;
     text-align:center;
-    min-height:350px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    margin-top:90px;
 }
 
-.reward img{
-    width:100%;
+.rewardImage{
     height:220px;
-    object-fit:contain;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.rewardName{
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
 }
 
 .rewardValue{
     color:#ffc400;
-    font-size:20px;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-.rewardName{
-    font-size:20px;
-    font-weight:bold;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:#000b;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:500;
-}
-
-.modalBox{
-    width:min(650px,90%);
-    background:#0c1724;
-    border:1px solid #415a75;
-    border-radius:15px;
-    padding:25px;
     text-align:center;
-}
-
-.modalBox img{
-    width:100%;
-    height:280px;
-    object-fit:contain;
-}
-
-.modalBox h2{
-    margin:10px;
-}
-
-.close{
-    margin-top:20px;
-    background:#ffad00;
-    border:0;
-    padding:12px 30px;
-    border-radius:8px;
+    font-size:20px;
     font-weight:bold;
-    cursor:pointer;
+    margin-top:8px;
 }
 
-/* ================= RESPONSIVE ================= */
+.notice{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#102031;
+    border:1px solid #3c5872;
+    padding:14px 18px;
+    border-radius:8px;
+    z-index:999;
+    opacity:0;
+    transform:translateY(20px);
+    transition:.3s;
+}
+
+.notice.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
 @media(max-width:950px){
-    .casesGrid{
+    .caseGrid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .caseDetail{
+    .detailLayout{
         grid-template-columns:1fr;
     }
 
@@ -667,12 +606,9 @@ main{
         padding:0 15px;
     }
 
-    .logo{
-        font-size:22px;
-    }
-
-    .casesGrid,
-    .skinsGrid,
+    .caseGrid,
+    .skinGrid,
+    .resultGrid,
     .inventoryGrid{
         grid-template-columns:1fr;
     }
@@ -690,59 +626,56 @@ main{
     <div class="logo">CASE<span>HUB</span></div>
 
     <div class="headerRight">
-        <button class="headerBtn" onclick="showInventory()">
-            🎒 Inventario
-        </button>
-
-        <button class="headerBtn">
-            🪙 <span id="coins" class="coins">2500</span>
-        </button>
+        <button class="topBtn" onclick="showInventory()">🎒 Inventario</button>
+        <button class="topBtn">🪙 <span class="coins" id="coinDisplay">2500</span></button>
     </div>
 </header>
 
 <main>
 
-<!-- ================= INICIO ================= -->
+<!-- =========================
+     MENU PRINCIPAL
+========================= -->
 
 <section id="home">
 
     <h1 class="pageTitle">🔥 CASEHUB</h1>
-    <p class="subtitle">
-        Elige una caja y descubre qué skin te toca
-    </p>
+    <p class="subtitle">Elige una caja y descubre qué skin te toca</p>
 
-    <h2 class="sectionTitle">📦 Cajas disponibles</h2>
+    <div class="caseGrid" id="caseGrid"></div>
 
-    <div id="casesGrid" class="casesGrid"></div>
+    <div class="results hidden" id="homeResults">
+        <h2>🎉 Resultados</h2>
+        <div class="resultGrid" id="resultGrid"></div>
+    </div>
 
 </section>
 
 
-<!-- ================= DETALLE DE CAJA ================= -->
+<!-- =========================
+     DETALLE DE CAJA
+========================= -->
 
-<section id="casePage" class="hidden">
+<section id="caseDetail" class="hidden">
 
-    <button class="backBtn" onclick="goHome()">
-        ← Volver a las cajas
-    </button>
+    <button class="backBtn" onclick="goHome()">← Volver a las cajas</button>
 
-    <div class="caseDetail">
+    <div class="detailLayout">
 
-        <div class="casePanel">
+        <div class="detailBox">
 
-            <div class="bigCase" id="bigCase"></div>
+            <div class="detailBoxImage" id="detailCaseImage"></div>
 
-            <h1 id="caseTitle"></h1>
+            <div class="detailInfo">
+                <h2 id="detailCaseName"></h2>
+                <p id="detailCaseDescription"></p>
 
-            <p id="caseDescription"
-               style="color:#7892ae;margin-top:10px;line-height:1.5">
-            </p>
-
-            <div style="margin:15px;color:#ffc400;font-weight:bold">
-                🪙 <span id="casePrice"></span> coins
+                <div class="casePrice">
+                    🪙 <span id="detailCasePrice"></span> coins
+                </div>
             </div>
 
-            <div class="openBox">
+            <div class="openPanel">
 
                 <label>Abrir cantidad</label>
 
@@ -759,7 +692,7 @@ main{
                     <option value="10">10 cajas</option>
                 </select>
 
-                <button class="openButton" onclick="openCase()">
+                <button class="openBtn" onclick="openCases()">
                     🔓 ABRIR CAJA
                 </button>
 
@@ -768,84 +701,78 @@ main{
         </div>
 
 
-        <div>
+        <div class="skinSection">
 
-            <h2 class="sectionTitle" style="margin-top:0">
-                🎨 Skins disponibles
-            </h2>
+            <h2>🎨 Skins disponibles</h2>
 
-            <div id="skinsGrid" class="skinsGrid"></div>
+            <div class="skinGrid" id="caseSkins"></div>
 
         </div>
 
     </div>
 
-    <div id="results" class="resultArea"></div>
-
 </section>
 
 
-<!-- ================= INVENTARIO ================= -->
+<!-- =========================
+     INVENTARIO
+========================= -->
 
 <section id="inventoryPage" class="hidden">
 
-    <button class="backBtn" onclick="goHome()">
-        ← Volver
-    </button>
+    <button class="backBtn" onclick="goHome()">← Volver</button>
 
     <h1 class="pageTitle">🎒 Inventario</h1>
+    <p class="subtitle">Tus skins obtenidas</p>
 
-    <p class="subtitle">
-        Tus skins y armas conseguidas
-    </p>
+    <div class="inventoryGrid" id="inventoryGrid"></div>
 
-    <div id="inventoryGrid" class="inventoryGrid"></div>
+    <br><br>
+
+    <button class="topBtn" onclick="showUpgrade()">
+        ⚙️ Ir a mejoras
+    </button>
 
 </section>
 
 
-<!-- ================= MEJORAS ================= -->
+<!-- =========================
+     MEJORAS
+========================= -->
 
 <section id="upgradePage" class="hidden">
 
-    <button class="backBtn" onclick="goHome()">
-        ← Volver
-    </button>
+    <button class="backBtn" onclick="goHome()">← Volver</button>
 
-    <h1 class="pageTitle">⚙️ MEJORAS</h1>
-
+    <h1 class="pageTitle">⚙️ Zona de mejoras</h1>
     <p class="subtitle">
-        Intercambia skins por una recompensa de mayor valor
+        Selecciona skins, elige multiplicador y gira la ruleta.
     </p>
 
     <div class="multiplierRow">
 
-        <button class="multiplier active"
-                onclick="setMultiplier(1.5,this)">
+        <button class="multiplier active" data-multi="1.5" onclick="selectMultiplier(1.5,this)">
             1.5x
         </button>
 
-        <button class="multiplier"
-                onclick="setMultiplier(2,this)">
+        <button class="multiplier" data-multi="2" onclick="selectMultiplier(2,this)">
             2x
         </button>
 
-        <button class="multiplier"
-                onclick="setMultiplier(5,this)">
+        <button class="multiplier" data-multi="5" onclick="selectMultiplier(5,this)">
             5x
         </button>
 
-        <button class="multiplier"
-                onclick="setMultiplier(10,this)">
+        <button class="multiplier" data-multi="10" onclick="selectMultiplier(10,this)">
             10x
         </button>
 
     </div>
 
+
     <div class="upgradeGrid">
 
         <!-- INVENTARIO -->
-
         <div class="upgradePanel">
 
             <h2>🎒 Inventario</h2>
@@ -856,62 +783,57 @@ main{
 
 
         <!-- RULETA -->
-
-        <div class="upgradePanel wheelArea">
+        <div class="upgradePanel">
 
             <h2>🎯 Ruleta</h2>
 
-            <div class="wheel" id="wheel">
+            <div class="wheelArea">
 
-                <div class="winZone" id="winZone"></div>
+                <div class="wheel" id="wheel">
 
-                <div class="winLabel">
-                    WIN
+                    <div class="pointer">
+                        <div class="pointerTip"></div>
+                    </div>
+
                 </div>
 
-                <div class="pointer" id="pointer"></div>
-
-                <div class="wheelCenter"></div>
-
-            </div>
-
-            <div class="slider">
+                <div class="winChance" id="winChance">
+                    PROBABILIDAD DE GANAR: 30%
+                </div>
 
                 <input
-                    type="range"
-                    min="0"
-                    max="360"
-                    value="150"
+                    class="slider"
                     id="winSlider"
-                    oninput="moveWinZone(this.value)"
+                    type="range"
+                    min="5"
+                    max="70"
+                    value="30"
+                    oninput="updateWinChance()"
                 >
 
                 <div class="sliderText">
-                    Mueve la barra para colocar la zona WIN
+                    Mueve la barra para colocar la zona WIN.
                 </div>
 
-            </div>
+                <button class="spinBtn" onclick="spinUpgrade()">
+                    🎯 GIRAR
+                </button>
 
-            <button
-                class="spinButton"
-                id="spinButton"
-                onclick="spinWheel()">
-                🎯 GIRAR
-            </button>
+            </div>
 
         </div>
 
 
         <!-- RECOMPENSA -->
-
         <div class="upgradePanel">
 
             <h2>🏆 Recompensa</h2>
 
-            <div id="reward" class="reward">
+            <div id="rewardArea">
 
-                <div style="color:#7892ae">
-                    Selecciona skins para ver la recompensa.
+                <div class="rewardEmpty">
+                    Selecciona skins para ver<br>
+                    la recompensa.
                 </div>
 
             </div>
@@ -924,232 +846,767 @@ main{
 
 </main>
 
-
-<!-- ================= MODAL ================= -->
-
-<div id="modal" class="modal hidden">
-
-    <div class="modalBox">
-
-        <div id="modalContent"></div>
-
-        <button class="close" onclick="closeModal()">
-            CONTINUAR
-        </button>
-
-    </div>
-
-</div>
+<div class="notice" id="notice"></div>
 
 
 <script>
 
 /* =========================================================
-   API REAL DE SKINS CS2
+   SISTEMA DE IMÁGENES
+   =========================================================
+
+   IMPORTANTE:
+   NO SE USA NINGUNA API EXTERNA.
+
+   Todas las armas se dibujan con SVG directamente.
+   Por eso no pueden fallar por problemas de internet,
+   CORS, Steam CDN, API, etc.
 ========================================================= */
 
-const API_SKINS =
-"https://bymykel.github.io/CSGO-API/api/en/skins.json";
+function weaponSVG(skin){
 
-const API_CRATES =
-"https://bymykel.github.io/CSGO-API/api/en/crates.json";
+    let color = skin.color || "#4b89ff";
+    let accent = skin.accent || "#ffffff";
 
+    let pattern = "";
 
-let allSkins = [];
-let allCrates = [];
+    if(skin.pattern === "gold"){
+        pattern = `
+            <path d="M70 110 L170 65 L300 75 L370 105 L280 125 L160 120 Z"
+            fill="${color}" opacity=".9"/>
+            <circle cx="250" cy="93" r="17" fill="${accent}"/>
+        `;
+    }
+
+    else if(skin.pattern === "doppler"){
+        pattern = `
+            <path d="M60 108 Q150 55 230 108 T390 90"
+            fill="none"
+            stroke="${accent}"
+            stroke-width="25"
+            opacity=".85"/>
+            <path d="M90 120 Q170 75 260 115 T380 100"
+            fill="none"
+            stroke="${color}"
+            stroke-width="13"/>
+        `;
+    }
+
+    else if(skin.pattern === "fire"){
+        pattern = `
+            <path d="M70 115
+            C110 75 120 105 145 65
+            C165 95 195 45 215 85
+            C240 45 275 90 305 65
+            C320 100 355 90 385 110
+            L350 130 L80 130 Z"
+            fill="${accent}"/>
+        `;
+    }
+
+    else if(skin.pattern === "neon"){
+        pattern = `
+            <path d="M70 105 L150 70 L230 105 L320 65 L390 100"
+            fill="none"
+            stroke="${accent}"
+            stroke-width="13"/>
+            <path d="M80 123 L170 85 L260 120 L350 80"
+            fill="none"
+            stroke="${color}"
+            stroke-width="8"/>
+        `;
+    }
+
+    else if(skin.pattern === "red"){
+        pattern = `
+            <path d="M55 105 L180 70 L390 100 L330 125 L120 120 Z"
+            fill="${color}"/>
+            <circle cx="310" cy="105" r="13" fill="${accent}"/>
+        `;
+    }
+
+    else{
+        pattern = `
+            <path d="M65 110 L160 72 L285 82 L390 105 L315 125 L150 120 Z"
+            fill="${color}"/>
+            <path d="M105 103 L250 92 L350 110"
+            stroke="${accent}"
+            stroke-width="7"
+            fill="none"/>
+        `;
+    }
+
+    if(skin.weapon.toLowerCase().includes("knife") ||
+       skin.weapon.toLowerCase().includes("karambit") ||
+       skin.weapon.toLowerCase().includes("butterfly") ||
+       skin.weapon.toLowerCase().includes("talon") ||
+       skin.weapon.toLowerCase().includes("ursus") ||
+       skin.weapon.toLowerCase().includes("bowie") ||
+       skin.weapon.toLowerCase().includes("huntsman") ||
+       skin.weapon.toLowerCase().includes("navaja")){
+
+        return `
+        <svg viewBox="0 0 440 180" width="100%" height="100%"
+        xmlns="http://www.w3.org/2000/svg">
+
+            <defs>
+                <filter id="glow${skin.id}">
+                    <feGaussianBlur stdDeviation="3"/>
+                </filter>
+            </defs>
+
+            <path d="M95 105
+                     C155 55 230 42 360 55
+                     L405 78
+                     C325 84 250 88 170 105
+                     L110 125 Z"
+                  fill="${color}"
+                  stroke="#aebaca"
+                  stroke-width="3"/>
+
+            <path d="M105 110 L60 140 L135 132 L175 108"
+                  fill="#111820"
+                  stroke="#718095"
+                  stroke-width="3"/>
+
+            <path d="M120 112
+                     C190 80 270 63 375 68"
+                  stroke="${accent}"
+                  stroke-width="10"
+                  fill="none"/>
+
+            <circle cx="85" cy="133" r="8"
+                    fill="${accent}"/>
+
+            <text x="220" y="158"
+                  text-anchor="middle"
+                  fill="#7389a0"
+                  font-size="9">
+                ${skin.weapon} • ${skin.name}
+            </text>
+
+        </svg>`;
+    }
+
+    return `
+    <svg viewBox="0 0 440 180"
+    width="100%" height="100%"
+    xmlns="http://www.w3.org/2000/svg">
+
+        <path d="M65 100 L145 78 L285 82 L340 95
+                 L390 105 L335 120 L155 118 L95 128 Z"
+              fill="#0a1119"
+              stroke="#718095"
+              stroke-width="3"/>
+
+        <path d="M70 103 L160 78 L280 85 L345 103 L310 112
+                 L155 108 L100 120 Z"
+              fill="${color}"/>
+
+        ${pattern}
+
+        <path d="M175 118 L195 118 L185 158 L155 158 Z"
+              fill="#080d13"/>
+
+        <path d="M275 115 L300 116 L320 151 L285 151 Z"
+              fill="#080d13"/>
+
+        <circle cx="330" cy="103" r="6"
+                fill="${accent}"/>
+
+        <text x="220" y="170"
+              text-anchor="middle"
+              fill="#7389a0"
+              font-size="9">
+            ${skin.weapon} • ${skin.name}
+        </text>
+
+    </svg>`;
+}
 
 
 /* =========================================================
-   DATOS DE CAJAS
+   DATOS DE SKINS
+========================================================= */
+
+const skins = [
+
+{
+id:1,
+weapon:"AK-47",
+name:"Neon Rider",
+rarity:"Covert",
+prob:18,
+value:82.50,
+color:"#ff2d55",
+accent:"#00eaff",
+pattern:"neon"
+},
+
+{
+id:2,
+weapon:"AK-47",
+name:"Redline",
+rarity:"Classified",
+prob:15,
+value:62.40,
+color:"#c91635",
+accent:"#ffffff",
+pattern:"red"
+},
+
+{
+id:3,
+weapon:"Glock-18",
+name:"Gamma Doppler",
+rarity:"Restricted",
+prob:12,
+value:74.20,
+color:"#792cff",
+accent:"#d95cff",
+pattern:"doppler"
+},
+
+{
+id:4,
+weapon:"FAMAS",
+name:"Meow 36",
+rarity:"Classified",
+prob:10,
+value:35.60,
+color:"#e72cff",
+accent:"#ff78dd",
+pattern:"neon"
+},
+
+{
+id:5,
+weapon:"AWP",
+name:"Asiimov",
+rarity:"Covert",
+prob:8,
+value:117.35,
+color:"#eeeeee",
+accent:"#ff4b24",
+pattern:"red"
+},
+
+{
+id:6,
+weapon:"M4A1-S",
+name:"Printstream",
+rarity:"Covert",
+prob:7,
+value:139.02,
+color:"#eeeeee",
+accent:"#ff5d5d",
+pattern:"neon"
+},
+
+{
+id:7,
+weapon:"MAC-10",
+name:"Stalker",
+rarity:"Covert",
+prob:7,
+value:36.70,
+color:"#d8a600",
+accent:"#ffdf00",
+pattern:"gold"
+},
+
+{
+id:8,
+weapon:"M4A1-S",
+name:"Blue Phosphor",
+rarity:"Restricted",
+prob:6,
+value:88.40,
+color:"#1976ff",
+accent:"#65b7ff",
+pattern:"neon"
+},
+
+{
+id:9,
+weapon:"USP-S",
+name:"Kill Confirmed",
+rarity:"Covert",
+prob:5,
+value:95.80,
+color:"#a50000",
+accent:"#ffbf00",
+pattern:"fire"
+},
+
+{
+id:10,
+weapon:"M4A4",
+name:"The Emperor",
+rarity:"Covert",
+prob:4,
+value:91.30,
+color:"#182a65",
+accent:"#f1bd38",
+pattern:"gold"
+},
+
+{
+id:11,
+weapon:"AK-47",
+name:"Bloodsport",
+rarity:"Covert",
+prob:4,
+value:109.75,
+color:"#e00026",
+accent:"#ffda00",
+pattern:"neon"
+},
+
+{
+id:12,
+weapon:"Desert Eagle",
+name:"Printstream",
+rarity:"Covert",
+prob:3.5,
+value:74.85,
+color:"#eeeeee",
+accent:"#ff5d5d",
+pattern:"neon"
+},
+
+{
+id:13,
+weapon:"M4A4",
+name:"Asiimov",
+rarity:"Covert",
+prob:3,
+value:77.25,
+color:"#eeeeee",
+accent:"#ff6329",
+pattern:"red"
+},
+
+{
+id:14,
+weapon:"USP-S",
+name:"Neo-Noir",
+rarity:"Covert",
+prob:2.5,
+value:53.20,
+color:"#2d163b",
+accent:"#ff48b7",
+pattern:"neon"
+},
+
+{
+id:15,
+weapon:"Glock-18",
+name:"Water Elemental",
+rarity:"Classified",
+prob:2.5,
+value:21.80,
+color:"#1765a7",
+accent:"#ff3d61",
+pattern:"neon"
+},
+
+{
+id:16,
+weapon:"AWP",
+name:"Hyper Beast",
+rarity:"Covert",
+prob:2,
+value:68.90,
+color:"#4a168d",
+accent:"#00ffb3",
+pattern:"fire"
+},
+
+{
+id:17,
+weapon:"AK-47",
+name:"Fuel Injector",
+rarity:"Covert",
+prob:1.8,
+value:58.30,
+color:"#ffd000",
+accent:"#111111",
+pattern:"gold"
+},
+
+{
+id:18,
+weapon:"M4A1-S",
+name:"Golden Coil",
+rarity:"Covert",
+prob:1.5,
+value:64.75,
+color:"#d99b00",
+accent:"#fff000",
+pattern:"gold"
+},
+
+{
+id:19,
+weapon:"MP9",
+name:"Starlight Protector",
+rarity:"Covert",
+prob:1.3,
+value:47.80,
+color:"#7b1cff",
+accent:"#ffcc55",
+pattern:"neon"
+},
+
+{
+id:20,
+weapon:"MAC-10",
+name:"Neon Rider",
+rarity:"Classified",
+prob:1.2,
+value:29.60,
+color:"#e40067",
+accent:"#00eaff",
+pattern:"neon"
+},
+
+{
+id:21,
+weapon:"AK-47",
+name:"Fire Serpent",
+rarity:"Covert",
+prob:1,
+value:310.50,
+color:"#14834d",
+accent:"#ffb300",
+pattern:"fire"
+},
+
+{
+id:22,
+weapon:"AWP",
+name:"Dragon Lore",
+rarity:"Covert",
+prob:.7,
+value:1450.00,
+color:"#a87816",
+accent:"#f5d36a",
+pattern:"gold"
+},
+
+{
+id:23,
+weapon:"M4A4",
+name:"Howl",
+rarity:"Contraband",
+prob:.5,
+value:780.00,
+color:"#a40000",
+accent:"#ffdc00",
+pattern:"fire"
+},
+
+{
+id:24,
+weapon:"AK-47",
+name:"Wild Lotus",
+rarity:"Covert",
+prob:.4,
+value:820.00,
+color:"#a52a7e",
+accent:"#64e8b3",
+pattern:"fire"
+},
+
+/* KNIVES */
+
+{
+id:25,
+weapon:"Butterfly Knife",
+name:"Gamma Doppler",
+rarity:"Rare Special",
+prob:.25,
+value:720,
+color:"#39e879",
+accent:"#9effc5",
+pattern:"doppler"
+},
+
+{
+id:26,
+weapon:"Karambit",
+name:"Doppler Phase 2",
+rarity:"Rare Special",
+prob:.23,
+value:680,
+color:"#ff46a8",
+accent:"#ff9bd5",
+pattern:"doppler"
+},
+
+{
+id:27,
+weapon:"Talon Knife",
+name:"Doppler Phase 4",
+rarity:"Rare Special",
+prob:.22,
+value:620,
+color:"#278cff",
+accent:"#8bd3ff",
+pattern:"doppler"
+},
+
+{
+id:28,
+weapon:"Huntsman Knife",
+name:"Gamma Doppler",
+rarity:"Rare Special",
+prob:.21,
+value:390,
+color:"#36d87b",
+accent:"#d6ffe6",
+pattern:"doppler"
+},
+
+{
+id:29,
+weapon:"Ursus Knife",
+name:"Doppler",
+rarity:"Rare Special",
+prob:.20,
+value:350,
+color:"#643dff",
+accent:"#c7b7ff",
+pattern:"doppler"
+},
+
+{
+id:30,
+weapon:"Bowie Knife",
+name:"Gamma Doppler",
+rarity:"Rare Special",
+prob:.19,
+value:330,
+color:"#39df84",
+accent:"#baffd7",
+pattern:"doppler"
+},
+
+{
+id:31,
+weapon:"Navaja Knife",
+name:"Doppler Phase 2",
+rarity:"Rare Special",
+prob:.18,
+value:210,
+color:"#ed4aa4",
+accent:"#ffb6df",
+pattern:"doppler"
+},
+
+{
+id:32,
+weapon:"Falchion Knife",
+name:"Doppler Phase 3",
+rarity:"Rare Special",
+prob:.17,
+value:245,
+color:"#5b45ff",
+accent:"#9b91ff",
+pattern:"doppler"
+},
+
+{
+id:33,
+weapon:"Shadow Daggers",
+name:"Gamma Doppler",
+rarity:"Rare Special",
+prob:.16,
+value:185,
+color:"#38dd77",
+accent:"#b5ffd3",
+pattern:"doppler"
+},
+
+{
+id:34,
+weapon:"Gut Knife",
+name:"Doppler Phase 1",
+rarity:"Rare Special",
+prob:.15,
+value:175,
+color:"#ff325b",
+accent:"#ff9aaa",
+pattern:"doppler"
+},
+
+{
+id:35,
+weapon:"Flip Knife",
+name:"Doppler Phase 2",
+rarity:"Rare Special",
+prob:.14,
+value:310,
+color:"#e93a9f",
+accent:"#ffb7e4",
+pattern:"doppler"
+},
+
+{
+id:36,
+weapon:"M9 Bayonet",
+name:"Gamma Doppler",
+rarity:"Rare Special",
+prob:.13,
+value:950,
+color:"#27d66e",
+accent:"#c2ffda",
+pattern:"doppler"
+},
+
+{
+id:37,
+weapon:"Bayonet",
+name:"Doppler Phase 4",
+rarity:"Rare Special",
+prob:.12,
+value:530,
+color:"#308eff",
+accent:"#a9d8ff",
+pattern:"doppler"
+},
+
+{
+id:38,
+weapon:"Skeleton Knife",
+name:"Fade",
+rarity:"Rare Special",
+prob:.11,
+value:890,
+color:"#ffb000",
+accent:"#ff4e87",
+pattern:"neon"
+},
+
+{
+id:39,
+weapon:"Stiletto Knife",
+name:"Doppler Phase 2",
+rarity:"Rare Special",
+prob:.10,
+value:420,
+color:"#e837a3",
+accent:"#ffb5df",
+pattern:"doppler"
+},
+
+{
+id:40,
+weapon:"Classic Knife",
+name:"Fade",
+rarity:"Rare Special",
+prob:.09,
+value:370,
+color:"#ffb000",
+accent:"#ff4f91",
+pattern:"neon"
+},
+
+{
+id:41,
+weapon:"Paracord Knife",
+name:"Fade",
+rarity:"Rare Special",
+prob:.08,
+value:260,
+color:"#ffb400",
+accent:"#ff4d91",
+pattern:"neon"
+},
+
+{
+id:42,
+weapon:"Survival Knife",
+name:"Fade",
+rarity:"Rare Special",
+prob:.07,
+value:280,
+color:"#ffb000",
+accent:"#ff468e",
+pattern:"neon"
+},
+
+{
+id:43,
+weapon:"Nomad Knife",
+name:"Fade",
+rarity:"Rare Special",
+prob:.06,
+value:430,
+color:"#ffb400",
+accent:"#ff4c90",
+pattern:"neon"
+},
+
+{
+id:44,
+weapon:"Kukri Knife",
+name:"Doppler",
+rarity:"Rare Special",
+prob:.05,
+value:240,
+color:"#5146ff",
+accent:"#c7c0ff",
+pattern:"doppler"
+}
+
+];
+
+
+/* =========================================================
+   CAJAS
 ========================================================= */
 
 const cases = [
 
-    {
-        id:"phoenix",
-        name:"Phoenix Case",
-        price:100,
-        description:
-        "Una colección con skins modernas, coloridas y extremadamente raras.",
-        color:"#ffad00",
+{
+id:1,
+name:"Phoenix Case",
+price:100,
+description:"Una colección con skins modernas, coloridas y extremadamente raras.",
+color:"#ffae00",
+skins:[1,2,3,4,7,15,20,21]
+},
 
-        searches:[
-            "AK-47 | Redline",
-            "AWP | Asiimov",
-            "M4A1-S | Hyper Beast",
-            "USP-S | Guardian",
-            "MAC-10 | Stalker",
-            "Desert Eagle | Conspiracy"
-        ]
-    },
+{
+id:2,
+name:"Revolution Case",
+price:150,
+description:"Una caja de alto nivel con algunas de las skins más buscadas.",
+color:"#ff4050",
+skins:[5,6,9,10,11,12,16,17,18]
+},
 
-    {
-        id:"revolution",
-        name:"Revolution Case",
-        price:150,
-        description:
-        "Una caja de alto nivel con algunas de las skins más buscadas.",
-        color:"#ff4050",
+{
+id:3,
+name:"Dreams & Nightmares",
+price:250,
+description:"Una caja oscura llena de diseños espectaculares.",
+color:"#974cff",
+skins:[5,9,14,16,21,24,25,26,27,28]
+},
 
-        searches:[
-            "AK-47 | Head Shot",
-            "M4A1-S | Printstream",
-            "AWP | Neo-Noir",
-            "Glock-18 | Vogue",
-            "P250 | Visions",
-            "UMP-45 | Wild Child"
-        ]
-    },
-
-    {
-        id:"dreams",
-        name:"Dreams & Nightmares",
-        price:250,
-        description:
-        "Una caja oscura llena de diseños espectaculares.",
-        color:"#994cff",
-
-        searches:[
-            "AK-47 | Nightwish",
-            "MP9 | Starlight Protector",
-            "FAMAS | Rapid Eye Movement",
-            "USP-S | Ticket to Hell",
-            "Five-SeveN | Scrawl",
-            "MAC-10 | Ensnared"
-        ]
-    },
-
-    {
-        id:"fracture",
-        name:"Fracture Case",
-        price:350,
-        description:
-        "Una caja premium con posibilidad de conseguir un cuchillo.",
-        color:"#4387ff",
-
-        searches:[
-            "AK-47 | Legion of Anubis",
-            "M4A4 | Tooth Fairy",
-            "Glock-18 | Vogue",
-            "Desert Eagle | Printstream",
-            "SSG 08 | Dragonfire",
-            "AWP | Asiimov"
-        ]
-    }
+{
+id:4,
+name:"Fracture Case",
+price:350,
+description:"Una caja premium con posibilidad de conseguir un cuchillo.",
+color:"#438cff",
+skins:[8,10,11,13,22,29,30,31,32,33,34,35,36]
+}
 
 ];
-
-
-/* =========================================================
-   SKINS EXTRA PARA INVENTARIO / MEJORAS
-========================================================= */
-
-const extraSearches = [
-
-    "AK-47 | Asiimov",
-    "AK-47 | Vulcan",
-    "AK-47 | Bloodsport",
-    "AK-47 | Neon Rider",
-    "AK-47 | Fuel Injector",
-
-    "M4A1-S | Printstream",
-    "M4A1-S | Hyper Beast",
-    "M4A1-S | Player Two",
-
-    "M4A4 | Howl",
-    "M4A4 | Asiimov",
-    "M4A4 | Desolate Space",
-
-    "AWP | Dragon Lore",
-    "AWP | Asiimov",
-    "AWP | Hyper Beast",
-    "AWP | Neo-Noir",
-
-    "USP-S | Kill Confirmed",
-    "USP-S | Printstream",
-    "USP-S | Neo-Noir",
-
-    "Glock-18 | Gamma Doppler",
-    "Glock-18 | Vogue",
-
-    "Desert Eagle | Printstream",
-    "Desert Eagle | Code Red",
-
-    "MAC-10 | Stalker",
-    "MP9 | Starlight Protector",
-
-    "FAMAS | Meow 36",
-    "FAMAS | Rapid Eye Movement",
-
-    "P250 | See Ya Later",
-    "Five-SeveN | Hyper Beast",
-
-    "★ Butterfly Knife | Doppler",
-    "★ Karambit | Doppler",
-    "★ M9 Bayonet | Doppler",
-    "★ Bayonet | Doppler",
-    "★ Talon Knife | Doppler",
-    "★ Ursus Knife | Doppler",
-    "★ Huntsman Knife | Doppler",
-    "★ Bowie Knife | Doppler",
-    "★ Navaja Knife | Doppler",
-    "★ Falchion Knife | Doppler",
-    "★ Skeleton Knife | Doppler",
-    "★ Stiletto Knife | Doppler",
-    "★ Nomad Knife | Doppler",
-    "★ Survival Knife | Doppler",
-    "★ Paracord Knife | Doppler",
-    "★ Classic Knife | Doppler",
-    "★ Kukri Knife | Doppler",
-    "★ Butterfly Knife | Gamma Doppler",
-    "★ Karambit | Gamma Doppler",
-    "★ M9 Bayonet | Gamma Doppler"
-];
-
-
-/* =========================================================
-   PRECIOS PERSONALIZADOS
-========================================================= */
-
-const customPrices = {
-
-    "AK-47 | Redline":82.50,
-    "AWP | Asiimov":117.35,
-    "M4A1-S | Printstream":139.02,
-    "MAC-10 | Stalker":36.70,
-
-    "M4A4 | Howl":4200.50,
-    "AWP | Dragon Lore":8500.75,
-    "AK-47 | Vulcan":310.25,
-    "AK-47 | Bloodsport":165.40,
-    "AK-47 | Neon Rider":92.70,
-    "AK-47 | Fuel Injector":185.20,
-
-    "USP-S | Kill Confirmed":110.40,
-    "USP-S | Printstream":78.35,
-    "Desert Eagle | Printstream":55.80,
-
-    "★ Butterfly Knife | Doppler":1250.50,
-    "★ Karambit | Doppler":1800.75,
-    "★ M9 Bayonet | Doppler":1050.30,
-    "★ Talon Knife | Doppler":720.40,
-    "★ Ursus Knife | Doppler":380.25,
-    "★ Huntsman Knife | Doppler":450.60,
-    "★ Bowie Knife | Doppler":390.40,
-    "★ Navaja Knife | Doppler":280.35,
-    "★ Falchion Knife | Doppler":320.55,
-    "★ Skeleton Knife | Doppler":980.70,
-    "★ Stiletto Knife | Doppler":610.20,
-    "★ Nomad Knife | Doppler":520.30,
-    "★ Survival Knife | Doppler":360.40,
-    "★ Paracord Knife | Doppler":350.25,
-    "★ Classic Knife | Doppler":340.70,
-    "★ Kukri Knife | Doppler":410.80,
-
-    "★ Butterfly Knife | Gamma Doppler":1600.75,
-    "★ Karambit | Gamma Doppler":2300.90,
-    "★ M9 Bayonet | Gamma Doppler":1500.50
-};
 
 
 /* =========================================================
@@ -1157,209 +1614,138 @@ const customPrices = {
 ========================================================= */
 
 let coins = 2500;
-
 let currentCase = null;
-
 let inventory = [];
 
+let selectedMultiplier = 1.5;
 let selectedItems = [];
-
-let multiplier = 1.5;
-
 let spinning = false;
 
-let pointerRotation = 0;
+const rarityColors = {
+    "Mil-Spec":"#4b8cff",
+    "Restricted":"#a84dff",
+    "Classified":"#ff48d1",
+    "Covert":"#ff444f",
+    "Contraband":"#ff9e00",
+    "Rare Special":"#ffd400"
+};
 
 
 /* =========================================================
-   CARGAR API
+   INICIO
 ========================================================= */
 
-async function loadAPI(){
+function init(){
 
-    try{
+    renderCases();
 
-        const skinResponse =
-            await fetch(API_SKINS);
-
-        allSkins =
-            await skinResponse.json();
-
-        const crateResponse =
-            await fetch(API_CRATES);
-
-        allCrates =
-            await crateResponse.json();
-
-        console.log(
-            "CS2 skins cargadas:",
-            allSkins.length
-        );
-
-        renderCases();
-
-    }catch(error){
-
-        console.error(error);
-
-        renderCases();
-
-        alert(
-            "No se pudo cargar la base de imágenes de CS2. "+
-            "La página seguirá funcionando con imágenes de respaldo."
-        );
-    }
+    document.getElementById("coinDisplay").textContent =
+        coins.toLocaleString("es-ES");
 
 }
 
-
-/* =========================================================
-   BUSCAR SKIN
-========================================================= */
-
-function findSkin(search){
-
-    if(!allSkins.length)
-        return null;
-
-    let exact =
-        allSkins.find(s =>
-            s.name.toLowerCase() ===
-            search.toLowerCase()
-        );
-
-    if(exact)
-        return exact;
-
-    let partial =
-        allSkins.find(s =>
-            s.name.toLowerCase().includes(
-                search.toLowerCase()
-            )
-        );
-
-    return partial || null;
-}
+init();
 
 
 /* =========================================================
-   IMAGEN FALLBACK
-========================================================= */
-
-function imageHTML(skin,name){
-
-    if(skin && skin.image){
-
-        return `
-            <img
-                src="${skin.image}"
-                alt="${escapeHTML(name)}"
-                onerror="this.style.display='none';
-                this.nextElementSibling.style.display='block';"
-            >
-
-            <div class="skinFallback"
-                 style="display:none">
-                ${escapeHTML(name)}
-            </div>
-        `;
-    }
-
-    return `
-        <div class="skinFallback">
-            ${escapeHTML(name)}
-        </div>
-    `;
-}
-
-
-/* =========================================================
-   CAJAS
+   RENDER CAJAS
 ========================================================= */
 
 function renderCases(){
 
-    const grid =
-        document.getElementById("casesGrid");
+    const grid = document.getElementById("caseGrid");
 
-    grid.innerHTML = "";
+    grid.innerHTML = cases.map(c => `
 
-    cases.forEach(c => {
+        <div class="caseCard"
+             onclick="openCasePage(${c.id})">
 
-        let crate =
-            findCrate(c.name);
+            <div class="caseImage">
 
-        let image =
-            crate && crate.image
-            ? `
-                <img
-                    src="${crate.image}"
-                    alt="${c.name}"
-                    onerror="this.style.display='none';
-                    this.nextElementSibling.style.display='flex';"
-                >
-
-                <div class="caseFallback"
-                     style="display:none;
-                     border-color:${c.color};
-                     color:${c.color}">
-                    CASE
-                </div>
-              `
-            :
-              `
-                <div class="caseFallback"
-                     style="border-color:${c.color};
-                     color:${c.color}">
-                    CASE
-                </div>
-              `;
-
-        grid.innerHTML += `
-
-            <div class="caseCard"
-                 onclick="enterCase('${c.id}')">
-
-                <div class="caseImage">
-                    ${image}
-                </div>
-
-                <div class="caseInfo">
-
-                    <h3>${c.name}</h3>
-
-                    <p>${c.description}</p>
-
-                    <div class="priceBtn">
-                        🪙 ${c.price} coins
-                    </div>
-
-                </div>
+                ${caseSVG(c.color)}
 
             </div>
 
-        `;
+            <div class="caseName">
+                ${c.name}
+            </div>
 
-    });
+            <div class="caseDescription">
+                ${c.description}
+            </div>
+
+            <button class="priceBtn">
+                🪙 ${c.price} coins
+            </button>
+
+        </div>
+
+    `).join("");
 
 }
 
 
-function findCrate(name){
+/* =========================================================
+   SVG CAJA
+========================================================= */
 
-    if(!allCrates.length)
-        return null;
+function caseSVG(color){
 
-    return allCrates.find(c =>
-        c.name &&
-        c.name.toLowerCase() ===
-        name.toLowerCase()
-    ) || allCrates.find(c =>
-        c.name &&
-        c.name.toLowerCase().includes(
-            name.toLowerCase()
-        )
-    );
+    return `
+    <svg class="caseBox"
+         viewBox="0 0 260 160"
+         xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+
+            <filter id="caseGlow${color.replace("#","")}">
+                <feGaussianBlur stdDeviation="4"/>
+            </filter>
+
+        </defs>
+
+        <rect
+            x="35"
+            y="50"
+            width="190"
+            height="75"
+            rx="5"
+            fill="#111c29"
+            stroke="${color}"
+            stroke-width="4"/>
+
+        <path
+            d="M35 50 L70 20 L225 20 L225 50"
+            fill="#152334"
+            stroke="${color}"
+            stroke-width="4"/>
+
+        <path
+            d="M70 20 L70 100"
+            stroke="${color}"
+            stroke-width="4"/>
+
+        <rect
+            x="95"
+            y="65"
+            width="70"
+            height="27"
+            rx="4"
+            fill="#0a1119"
+            stroke="${color}"
+            stroke-width="2"/>
+
+        <text
+            x="130"
+            y="83"
+            text-anchor="middle"
+            fill="${color}"
+            font-size="11"
+            font-weight="bold">
+            CASE
+        </text>
+
+    </svg>`;
 }
 
 
@@ -1367,88 +1753,31 @@ function findCrate(name){
    ENTRAR A CAJA
 ========================================================= */
 
-function enterCase(id){
+function openCasePage(id){
 
-    currentCase =
-        cases.find(c => c.id === id);
+    currentCase = cases.find(c => c.id === id);
 
-    if(!currentCase)
-        return;
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("inventoryPage").classList.add("hidden");
+    document.getElementById("upgradePage").classList.add("hidden");
 
-    hideAll();
+    document.getElementById("caseDetail").classList.remove("hidden");
 
-    document
-        .getElementById("casePage")
-        .classList.remove("hidden");
-
-    document
-        .getElementById("caseTitle")
-        .textContent =
+    document.getElementById("detailCaseName").textContent =
         currentCase.name;
 
-    document
-        .getElementById("caseDescription")
-        .textContent =
+    document.getElementById("detailCaseDescription").textContent =
         currentCase.description;
 
-    document
-        .getElementById("casePrice")
-        .textContent =
+    document.getElementById("detailCasePrice").textContent =
         currentCase.price;
 
-    renderBigCase();
+    document.getElementById("detailCaseImage").innerHTML =
+        caseSVG(currentCase.color);
 
     renderCaseSkins();
 
-    document
-        .getElementById("results")
-        .innerHTML = "";
-
-}
-
-
-function renderBigCase(){
-
-    let crate =
-        findCrate(currentCase.name);
-
-    const box =
-        document.getElementById("bigCase");
-
-    if(crate && crate.image){
-
-        box.innerHTML = `
-
-            <img
-                src="${crate.image}"
-                alt="${currentCase.name}"
-                onerror="this.style.display='none';
-                this.nextElementSibling.style.display='flex';"
-            >
-
-            <div class="caseFallback"
-                 style="display:none;
-                 border-color:${currentCase.color};
-                 color:${currentCase.color}">
-                CASE
-            </div>
-        `;
-
-    }else{
-
-        box.innerHTML = `
-
-            <div class="caseFallback"
-                 style="
-                 border-color:${currentCase.color};
-                 color:${currentCase.color}">
-                CASE
-            </div>
-
-        `;
-
-    }
-
+    window.scrollTo(0,0);
 }
 
 
@@ -1458,111 +1787,74 @@ function renderBigCase(){
 
 function renderCaseSkins(){
 
-    const grid =
-        document.getElementById("skinsGrid");
+    const container =
+        document.getElementById("caseSkins");
 
-    grid.innerHTML = "";
+    const list =
+        currentCase.skins
+        .map(id => skins.find(s => s.id === id));
 
-    currentCase.searches.forEach(
-        (search,index) => {
+    container.innerHTML = list.map(s => `
 
-            let skin =
-                findSkin(search);
+        <div class="skinCard">
 
-            let name =
-                skin
-                ? skin.name
-                : search;
+            <div class="skinImage">
+                ${weaponSVG(s)}
+            </div>
 
-            let price =
-                customPrices[name] ||
-                (20 + Math.random()*200);
+            <div class="skinInfo"
+                 style="border-color:${rarityColors[s.rarity] || "#4b8cff"}">
 
-            let rarity =
-                skin && skin.rarity
-                ? skin.rarity.name
-                : getRarity(index);
+                <div class="skinWeapon">
+                    ${s.weapon}
+                </div>
 
-            let color =
-                skin &&
-                skin.rarity &&
-                skin.rarity.color
-                ? skin.rarity.color
-                : "#4b69ff";
+                <div class="skinName">
+                    ${s.name}
+                </div>
 
-            grid.innerHTML += `
+                <div class="skinBottom">
 
-                <div class="skinCard">
+                    <span class="rarity"
+                          style="color:${rarityColors[s.rarity] || "#fff"}">
+                        ${s.rarity}
+                    </span>
 
-                    <div
-                        class="skinImage"
-                        style="border-bottom-color:${color}"
-                    >
-
-                        ${imageHTML(skin,name)}
-
-                    </div>
-
-                    <div class="skinInfo">
-
-                        <div class="weapon">
-                            ${getWeapon(name)}
-                        </div>
-
-                        <div class="skinName">
-                            ${escapeHTML(
-                                getSkinName(name)
-                            )}
-                        </div>
-
-                        <div class="skinBottom">
-
-                            <span
-                                class="rarity"
-                                style="color:${color}"
-                            >
-                                ${rarity}
-                            </span>
-
-                            <span class="value">
-                                $${price.toFixed(2)}
-                            </span>
-
-                        </div>
-
-                    </div>
+                    <span class="prob">
+                        ${s.prob}%
+                    </span>
 
                 </div>
-            `;
 
-        }
-    );
+                <div class="skinValue">
+                    🪙 $${s.value.toFixed(2)}
+                </div>
 
+            </div>
+
+        </div>
+
+    `).join("");
 }
 
 
 /* =========================================================
-   ABRIR CAJA
+   ABRIR CAJAS
 ========================================================= */
 
-function openCase(){
+function openCases(){
 
-    if(!currentCase)
-        return;
+    if(!currentCase) return;
 
-    let amount =
-        parseInt(
-            document.getElementById(
-                "openAmount"
-            ).value
-        );
+    const amount =
+        Number(document.getElementById("openAmount").value);
 
-    let total =
-        currentCase.price * amount;
+    const total =
+        amount * currentCase.price;
 
     if(coins < total){
 
-        alert("No tienes suficientes coins.");
+        notify("❌ No tienes suficientes coins.");
 
         return;
     }
@@ -1571,51 +1863,11 @@ function openCase(){
 
     updateCoins();
 
-    let results = [];
+    const results = [];
 
     for(let i=0;i<amount;i++){
 
-        let index =
-            Math.floor(
-                Math.random() *
-                currentCase.searches.length
-            );
-
-        let search =
-            currentCase.searches[index];
-
-        let skin =
-            findSkin(search);
-
-        let name =
-            skin ? skin.name : search;
-
-        let value =
-            customPrices[name] ||
-            (20 + Math.random()*250);
-
-        let item = {
-
-            id:
-                Date.now() +
-                Math.random(),
-
-            name:name,
-
-            weapon:getWeapon(name),
-
-            value:value,
-
-            image:
-                skin ? skin.image : null,
-
-            rarity:
-                skin &&
-                skin.rarity
-                ? skin.rarity.name
-                : "Classified"
-
-        };
+        const item = weightedRandom(currentCase.skins);
 
         results.push(item);
 
@@ -1623,10 +1875,39 @@ function openCase(){
 
     }
 
-    saveInventory();
+    renderResults(results);
 
-    showResults(results);
+    notify(
+        `🎉 Abriste ${amount} caja${amount>1?"s":""}.`
+    );
 
+}
+
+
+/* =========================================================
+   RANDOM POR PROBABILIDAD
+========================================================= */
+
+function weightedRandom(ids){
+
+    const list =
+        ids.map(id => skins.find(s => s.id === id));
+
+    const total =
+        list.reduce((sum,s)=>sum+s.prob,0);
+
+    let random =
+        Math.random()*total;
+
+    for(const skin of list){
+
+        random -= skin.prob;
+
+        if(random <= 0)
+            return skin;
+    }
+
+    return list[list.length-1];
 }
 
 
@@ -1634,74 +1915,48 @@ function openCase(){
    RESULTADOS
 ========================================================= */
 
-function showResults(results){
+function renderResults(results){
 
-    const resultsArea =
-        document.getElementById("results");
+    const section =
+        document.getElementById("homeResults");
 
-    resultsArea.innerHTML = `
-        <h2 class="sectionTitle">
-            🎉 Resultados
-        </h2>
-    `;
+    const grid =
+        document.getElementById("resultGrid");
 
-    let grid =
-        document.createElement("div");
+    section.classList.remove("hidden");
 
-    grid.className = "skinsGrid";
+    grid.innerHTML = results.map(s => `
 
-    results.forEach(item => {
+        <div class="resultCard">
 
-        let card =
-            document.createElement("div");
-
-        card.className = "resultCard";
-
-        card.innerHTML = `
-
-            ${
-                item.image
-                ?
-                `
-                <img
-                    src="${item.image}"
-                    alt="${escapeHTML(item.name)}"
-                    onerror="this.style.display='none'"
-                >
-                `
-                :
-                `<div style="
-                    height:220px;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    color:#7892ae">
-                    ${escapeHTML(item.name)}
-                </div>`
-            }
-
-            <h2>
-                ${escapeHTML(item.name)}
-            </h2>
-
-            <div class="rarity">
-                ${escapeHTML(item.rarity)}
+            <div class="resultImage">
+                ${weaponSVG(s)}
             </div>
 
-            <div class="value">
-                💰 $${item.value.toFixed(2)}
+            <div class="resultInfo">
+
+                <div style="color:#7891aa;font-size:13px">
+                    ${s.weapon}
+                </div>
+
+                <strong>${s.name}</strong>
+
+                <div style="
+                    color:${rarityColors[s.rarity] || "#fff"};
+                    margin-top:6px;
+                    font-weight:bold;">
+                    ${s.rarity}
+                </div>
+
+                <div class="resultValue">
+                    🪙 $${s.value.toFixed(2)}
+                </div>
+
             </div>
-        `;
 
-        grid.appendChild(card);
+        </div>
 
-    });
-
-    resultsArea.appendChild(grid);
-
-    resultsArea.scrollIntoView({
-        behavior:"smooth"
-    });
+    `).join("");
 
 }
 
@@ -1712,85 +1967,66 @@ function showResults(results){
 
 function showInventory(){
 
-    hideAll();
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("caseDetail").classList.add("hidden");
+    document.getElementById("upgradePage").classList.add("hidden");
 
-    document
-        .getElementById("inventoryPage")
-        .classList.remove("hidden");
+    document.getElementById("inventoryPage").classList.remove("hidden");
 
     renderInventory();
 
+    window.scrollTo(0,0);
 }
 
 
 function renderInventory(){
 
     const grid =
-        document.getElementById(
-            "inventoryGrid"
-        );
+        document.getElementById("inventoryGrid");
 
-    grid.innerHTML = "";
-
-    if(!inventory.length){
+    if(inventory.length === 0){
 
         grid.innerHTML = `
-            <div style="
-                grid-column:1/-1;
-                text-align:center;
-                color:#7892ae;
-                padding:60px">
-                Tu inventario está vacío.
-            </div>
+            <p style="color:#7891aa">
+                Todavía no tienes skins.
+            </p>
         `;
 
         return;
     }
 
-    inventory.forEach(item => {
+    grid.innerHTML = inventory.map(s => `
 
-        grid.innerHTML += `
+        <div class="inventoryCard">
 
-            <div class="inventoryCard">
+            <div class="inventoryImage">
+                ${weaponSVG(s)}
+            </div>
 
-                ${
-                    item.image
-                    ?
-                    `<img
-                        src="${item.image}"
-                        alt="${escapeHTML(item.name)}"
-                        onerror="this.style.display='none'"
-                    >`
-                    :
-                    `<div style="
-                        height:130px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        color:#7892ae">
-                        ${escapeHTML(item.name)}
-                    </div>`
-                }
+            <div class="inventoryInfo">
 
-                <small>
-                    ${escapeHTML(item.weapon)}
-                </small>
-
-                <div style="font-weight:bold">
-                    ${escapeHTML(
-                        getSkinName(item.name)
-                    )}
+                <div style="color:#7891aa;font-size:13px">
+                    ${s.weapon}
                 </div>
 
-                <div class="inventoryValue">
-                    $${item.value.toFixed(2)}
+                <strong>${s.name}</strong>
+
+                <div style="
+                    color:${rarityColors[s.rarity]};
+                    margin-top:6px;
+                    font-weight:bold;">
+                    ${s.rarity}
+                </div>
+
+                <div class="resultValue">
+                    🪙 $${s.value.toFixed(2)}
                 </div>
 
             </div>
 
-        `;
+        </div>
 
-    });
+    `).join("");
 
 }
 
@@ -1801,477 +2037,330 @@ function renderInventory(){
 
 function showUpgrade(){
 
-    hideAll();
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("caseDetail").classList.add("hidden");
+    document.getElementById("inventoryPage").classList.add("hidden");
 
-    document
-        .getElementById("upgradePage")
-        .classList.remove("hidden");
+    document.getElementById("upgradePage").classList.remove("hidden");
 
     renderUpgradeInventory();
 
-    calculateReward();
+    updateReward();
 
+    window.scrollTo(0,0);
 }
 
 
+/* =========================================================
+   INVENTARIO DEL UPGRADER
+========================================================= */
+
 function renderUpgradeInventory(){
 
-    const area =
-        document.getElementById(
-            "upgradeInventory"
-        );
+    const container =
+        document.getElementById("upgradeInventory");
 
-    area.innerHTML = "";
+    if(inventory.length === 0){
 
-    inventory.forEach(item => {
+        container.innerHTML = `
+            <p style="color:#7891aa">
+                Abre algunas cajas primero.
+            </p>
+        `;
 
-        let selected =
-            selectedItems.includes(item.id);
+        return;
+    }
 
-        area.innerHTML += `
+    container.innerHTML =
+        inventory.map((s,index)=>`
 
-            <div
-                class="inventorySelect
-                ${selected ? "selected" : ""}"
-                onclick="toggleItem('${item.id}')"
-            >
+            <div class="invItem
+                ${selectedItems.includes(index) ? "selected":""}">
 
-                ${
-                    item.image
-                    ?
-                    `<img
-                        src="${item.image}"
-                        alt=""
-                        onerror="this.style.display='none'"
-                    >`
-                    :
-                    `<div style="
-                        width:70px;
-                        height:55px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center">
-                        🔫
-                    </div>`
-                }
+                <div class="invMini">
+                    ${weaponSVG(s)}
+                </div>
 
                 <div>
 
-                    <div style="font-weight:bold">
-                        ${escapeHTML(
-                            getSkinName(item.name)
-                        )}
-                    </div>
+                    <strong>${s.name}</strong>
 
-                    <div class="inventoryValue">
-                        $${item.value.toFixed(2)}
+                    <div style="color:#ffc400;font-size:13px">
+                        $${s.value.toFixed(2)}
                     </div>
 
                 </div>
 
-            </div>
-        `;
+                <button onclick="toggleItem(${index})">
+                    ${selectedItems.includes(index) ? "✓":"+"}
+                </button>
 
-    });
+            </div>
+
+        `).join("");
 
 }
 
 
-function toggleItem(id){
+function toggleItem(index){
 
-    id = Number(id);
+    if(spinning) return;
 
-    if(selectedItems.includes(id)){
+    if(selectedItems.includes(index)){
 
         selectedItems =
-            selectedItems.filter(
-                x => x !== id
-            );
+            selectedItems.filter(i=>i!==index);
 
     }else{
 
-        selectedItems.push(id);
+        selectedItems.push(index);
 
     }
 
     renderUpgradeInventory();
 
-    calculateReward();
+    updateReward();
 
 }
 
 
-function setMultiplier(value,button){
+/* =========================================================
+   MULTIPLICADOR
+========================================================= */
 
-    multiplier = value;
+function selectMultiplier(value,button){
 
-    document
-        .querySelectorAll(".multiplier")
-        .forEach(b =>
-            b.classList.remove("active")
-        );
+    if(spinning) return;
+
+    selectedMultiplier = value;
+
+    document.querySelectorAll(".multiplier")
+        .forEach(b=>b.classList.remove("active"));
 
     button.classList.add("active");
 
-    calculateReward();
-
+    updateReward();
 }
 
 
-function calculateReward(){
+/* =========================================================
+   RECOMPENSA
+========================================================= */
+
+function updateReward(){
+
+    const area =
+        document.getElementById("rewardArea");
+
+    if(selectedItems.length === 0){
+
+        area.innerHTML = `
+            <div class="rewardEmpty">
+                Selecciona skins para ver<br>
+                la recompensa.
+            </div>
+        `;
+
+        return;
+    }
+
+    const total =
+        selectedItems.reduce(
+            (sum,i)=>sum+inventory[i].value,0
+        );
+
+    const target =
+        total * selectedMultiplier;
+
+    const candidates =
+        skins
+        .filter(s => s.value >= target*.85 &&
+                     s.value <= target*1.15)
+        .sort((a,b)=>
+            Math.abs(a.value-target)-
+            Math.abs(b.value-target)
+        );
 
     const reward =
-        document.getElementById("reward");
-
-    let selected =
-        inventory.filter(
-            x => selectedItems.includes(x.id)
+        candidates[0] || skins.reduce(
+            (a,b)=>
+            Math.abs(a.value-target) <
+            Math.abs(b.value-target) ? a:b
         );
 
-    if(!selected.length){
+    area.innerHTML = `
 
-        reward.innerHTML = `
-            <div style="color:#7892ae">
-                Selecciona skins para ver la recompensa.
-            </div>
-        `;
-
-        return;
-    }
-
-    let total =
-        selected.reduce(
-            (sum,item) =>
-                sum + item.value,
-            0
-        );
-
-    let target =
-        total * multiplier;
-
-    let candidates =
-        [...inventory]
-        .filter(
-            x =>
-                x.value >= target * .85 &&
-                x.value <= target * 1.15
-        )
-        .sort(
-            (a,b) =>
-                Math.abs(a.value-target) -
-                Math.abs(b.value-target)
-        );
-
-    let rewardItem =
-        candidates[0];
-
-    if(!rewardItem){
-
-        reward.innerHTML = `
-            <div style="color:#7892ae">
-                No tienes una skin cercana a
-                <b style="color:#ffc400">
-                    $${target.toFixed(2)}
-                </b>.
-                <br><br>
-                Necesitas otra combinación.
-            </div>
-        `;
-
-        window.currentReward = null;
-
-        return;
-    }
-
-    window.currentReward =
-        rewardItem;
-
-    reward.innerHTML = `
-
-        ${
-            rewardItem.image
-            ?
-            `<img
-                src="${rewardItem.image}"
-                alt="${escapeHTML(
-                    rewardItem.name
-                )}"
-                onerror="this.style.display='none'"
-            >`
-            :
-            `<div style="
-                height:220px;
-                display:flex;
-                align-items:center;
-                justify-content:center">
-                🔫
-            </div>`
-        }
-
-        <div class="rewardName">
-            ${escapeHTML(
-                getSkinName(rewardItem.name)
-            )}
+        <div class="rewardImage">
+            ${weaponSVG(reward)}
         </div>
 
-        <div class="rewardValue">
-            $${rewardItem.value.toFixed(2)}
+        <div class="rewardName">
+            ${reward.weapon}<br>
+            ${reward.name}
         </div>
 
         <div style="
-            color:#7892ae;
-            margin-top:10px">
+            text-align:center;
+            color:${rarityColors[reward.rarity]};
+            font-weight:bold;
+            margin-top:7px;">
+            ${reward.rarity}
+        </div>
+
+        <div class="rewardValue">
+            🪙 $${reward.value.toFixed(2)}
+        </div>
+
+        <div style="
+            text-align:center;
+            color:#6f89a2;
+            margin-top:8px;
+            font-size:13px;">
             Objetivo: $${target.toFixed(2)}
         </div>
+
     `;
 
 }
 
 
 /* =========================================================
-   RULETA
+   PROBABILIDAD
 ========================================================= */
 
-function moveWinZone(value){
+function updateWinChance(){
 
-    document
-        .getElementById("winZone")
-        .style.setProperty(
-            "--winStart",
-            value + "deg"
-        );
+    const value =
+        document.getElementById("winSlider").value;
+
+    document.getElementById("winChance")
+        .textContent =
+        `PROBABILIDAD DE GANAR: ${value}%`;
 
 }
 
 
-function spinWheel(){
+/* =========================================================
+   GIRAR RULETA
+========================================================= */
 
-    if(spinning)
-        return;
+function spinUpgrade(){
 
-    if(!selectedItems.length){
+    if(spinning) return;
 
-        alert(
-            "Selecciona al menos una skin."
-        );
+    if(selectedItems.length === 0){
 
-        return;
-    }
-
-    if(!window.currentReward){
-
-        alert(
-            "No hay una recompensa válida."
-        );
+        notify("❌ Selecciona al menos una skin.");
 
         return;
     }
+
+    const total =
+        selectedItems.reduce(
+            (sum,i)=>sum+inventory[i].value,0
+        );
+
+    const target =
+        total*selectedMultiplier;
+
+    if(inventory.length === 0) return;
 
     spinning = true;
 
-    const button =
-        document.getElementById(
-            "spinButton"
-        );
+    const wheel =
+        document.getElementById("wheel");
 
-    button.disabled = true;
+    const chance =
+        Number(document.getElementById("winSlider").value);
 
     /*
-        El giro dura exactamente 4 segundos.
+       La zona verde representa la probabilidad.
+       El resultado se calcula después de los 4 segundos.
     */
 
-    let start =
-        pointerRotation;
+    const win =
+        Math.random()*100 < chance;
 
-    let extra =
-        360 * 7 +
-        Math.random()*360;
+    const rotation =
+        1440 + Math.random()*720;
 
-    pointerRotation =
-        start + extra;
+    wheel.style.transform =
+        `rotate(${rotation}deg)`;
 
-    const pointer =
-        document.getElementById(
-            "pointer"
-        );
-
-    pointer.style.transition =
-        "transform 4s cubic-bezier(.12,.75,.15,1)";
-
-    pointer.style.transform =
-        `translateX(-50%) rotate(${pointerRotation}deg)`;
-
-    setTimeout(() => {
-
-        finishUpgrade();
+    setTimeout(()=>{
 
         spinning = false;
 
-        button.disabled = false;
+        if(win){
 
-    },4000);
+            const candidates =
+                skins.filter(s =>
+                    s.value >= target*.85 &&
+                    s.value <= target*1.15
+                );
 
-}
+            let reward;
 
+            if(candidates.length){
 
-/* =========================================================
-   FINALIZAR MEJORA
-========================================================= */
+                reward =
+                    candidates[
+                        Math.floor(
+                            Math.random()*candidates.length
+                        )
+                    ];
 
-function finishUpgrade(){
+            }else{
 
-    let reward =
-        window.currentReward;
+                reward =
+                    skins.reduce(
+                        (a,b)=>
+                        Math.abs(a.value-target) <
+                        Math.abs(b.value-target)
+                        ? a:b
+                    );
 
-    if(!reward)
-        return;
+            }
 
-    let selected =
-        inventory.filter(
-            x =>
-                selectedItems.includes(x.id)
-        );
+            /*
+              Quitamos las skins utilizadas.
+            */
 
-    let total =
-        selected.reduce(
-            (sum,item) =>
-                sum + item.value,
-            0
-        );
+            const selectedObjects =
+                selectedItems
+                .sort((a,b)=>b-a);
 
-    let chance =
-        Math.min(
-            95,
-            Math.max(
-                5,
-                (total /
-                reward.value) * 100
-            )
-        );
+            selectedObjects.forEach(index=>{
+                inventory.splice(index,1);
+            });
 
-    let won =
-        Math.random()*100 <
-        chance;
+            inventory.push(reward);
 
-    if(!won){
+            selectedItems = [];
 
-        showModal(`
-            <h2>💥 PERDISTE</h2>
+            renderUpgradeInventory();
 
-            <p style="
-                color:#7892ae;
-                margin:15px">
-                La ruleta no cayó en la zona WIN.
-            </p>
-        `);
+            updateReward();
 
-        removeSelected();
+            notify(
+                `🎉 ¡GANASTE ${reward.name}!`
+            );
 
-        return;
-    }
+        }else{
 
-    removeSelected();
+            selectedItems = [];
 
-    inventory.push({
-        id:
-            Date.now() +
-            Math.random(),
+            renderUpgradeInventory();
 
-        name:
-            reward.name,
+            updateReward();
 
-        weapon:
-            reward.weapon,
+            notify(
+                "💥 La mejora falló. Perdiste las skins seleccionadas."
+            );
 
-        value:
-            reward.value,
-
-        image:
-            reward.image,
-
-        rarity:
-            reward.rarity
-
-    });
-
-    saveInventory();
-
-    showModal(`
-
-        ${
-            reward.image
-            ?
-            `<img
-                src="${reward.image}"
-                alt=""
-            >`
-            :
-            ""
         }
 
-        <h2 style="color:#1bd96a">
-            🎉 ¡GANASTE!
-        </h2>
-
-        <p>
-            ${escapeHTML(
-                getSkinName(reward.name)
-            )}
-        </p>
-
-        <p style="
-            color:#ffc400;
-            font-size:20px;
-            margin-top:10px">
-            $${reward.value.toFixed(2)}
-        </p>
-
-    `);
-
-}
-
-
-function removeSelected(){
-
-    inventory =
-        inventory.filter(
-            item =>
-                !selectedItems.includes(
-                    item.id
-                )
-        );
-
-    selectedItems = [];
-
-    saveInventory();
-
-    renderUpgradeInventory();
-
-}
-
-
-/* =========================================================
-   MODAL
-========================================================= */
-
-function showModal(content){
-
-    document
-        .getElementById("modalContent")
-        .innerHTML = content;
-
-    document
-        .getElementById("modal")
-        .classList.remove("hidden");
-
-}
-
-
-function closeModal(){
-
-    document
-        .getElementById("modal")
-        .classList.add("hidden");
+    },4000);
 
 }
 
@@ -2280,26 +2369,23 @@ function closeModal(){
    NAVEGACIÓN
 ========================================================= */
 
-function hideAll(){
-
-    document
-        .querySelectorAll("main > section")
-        .forEach(
-            section =>
-                section.classList.add("hidden")
-        );
-
-}
-
-
 function goHome(){
 
-    hideAll();
+    document.getElementById("caseDetail")
+        .classList.add("hidden");
 
-    document
-        .getElementById("home")
+    document.getElementById("inventoryPage")
+        .classList.add("hidden");
+
+    document.getElementById("upgradePage")
+        .classList.add("hidden");
+
+    document.getElementById("home")
         .classList.remove("hidden");
 
+    renderCases();
+
+    window.scrollTo(0,0);
 }
 
 
@@ -2309,160 +2395,31 @@ function goHome(){
 
 function updateCoins(){
 
-    document
-        .getElementById("coins")
+    document.getElementById("coinDisplay")
         .textContent =
-        coins.toLocaleString();
+        coins.toLocaleString("es-ES");
 
 }
 
 
 /* =========================================================
-   UTILIDADES
+   NOTIFICACIONES
 ========================================================= */
 
-function getWeapon(name){
+function notify(message){
 
-    if(!name)
-        return "Weapon";
+    const n =
+        document.getElementById("notice");
 
-    return name
-        .split("|")[0]
-        .replace("★","")
-        .trim();
+    n.textContent = message;
 
-}
+    n.classList.add("show");
 
-
-function getSkinName(name){
-
-    if(!name)
-        return "";
-
-    if(name.includes("|")){
-
-        return name
-            .split("|")
-            .slice(1)
-            .join("|")
-            .replace(/\(.*?\)/g,"")
-            .trim();
-
-    }
-
-    return name;
-}
-
-
-function getRarity(index){
-
-    const rarities = [
-
-        "Mil-Spec Grade",
-        "Restricted",
-        "Classified",
-        "Covert",
-        "Rare Special"
-
-    ];
-
-    return rarities[
-        Math.min(
-            index,
-            rarities.length-1
-        )
-    ];
+    setTimeout(()=>{
+        n.classList.remove("show");
+    },3000);
 
 }
-
-
-function escapeHTML(text){
-
-    return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================================
-   LOCAL STORAGE
-========================================================= */
-
-function saveInventory(){
-
-    localStorage.setItem(
-        "casehub_inventory",
-        JSON.stringify(inventory)
-    );
-
-}
-
-
-function loadInventory(){
-
-    try{
-
-        let data =
-            localStorage.getItem(
-                "casehub_inventory"
-            );
-
-        if(data){
-
-            inventory =
-                JSON.parse(data);
-
-        }
-
-    }catch(error){
-
-        inventory = [];
-
-    }
-
-}
-
-
-/* =========================================================
-   BOTÓN OCULTO DE MEJORAS
-   Click en logo 3 veces
-========================================================= */
-
-let logoClicks = 0;
-
-document
-    .querySelector(".logo")
-    .addEventListener(
-        "click",
-        () => {
-
-            logoClicks++;
-
-            if(logoClicks >= 3){
-
-                logoClicks = 0;
-
-                showUpgrade();
-
-            }
-
-        }
-    );
-
-
-/* =========================================================
-   INICIO
-========================================================= */
-
-loadInventory();
-
-loadAPI();
-
-updateCoins();
 
 </script>
 
